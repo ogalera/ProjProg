@@ -17,6 +17,7 @@ public class Projecte {
     public static void main(String[] args) {
         System.out.println("Hello projecte de programacio");
         System.out.println("caca");
+        System.out.println("caca");
     }
     
 }
