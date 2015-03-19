@@ -12,6 +12,7 @@ public class Projecte {
     public static void main(String[] args) {
         ValidadorLaberint.laberintValid(5);
         Log l = Log.getInstance(Projecte.class);
+        l.afegirWarning("prova warning");
         System.out.println(l.obtenirContingutCompletDelLog());
     }
     

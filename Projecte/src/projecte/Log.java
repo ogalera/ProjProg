@@ -155,7 +155,17 @@ public class Log {
         //PRIORITAT Nom_classe_emissora_del_missatge    Data    registre
         String resultat = "";
         for(ParellaPrioritatMissatge registre: registres){
-            resultat+=registre.getPrioritat()+"\t"+registre.getMissatge()+"\n";
+            switch(registre.getPrioritat()){
+                case ERROR:{
+                    resultat+=(char)27 + "[31m"+registre.getPrioritat()+"\t"+registre.getMissatge()+(char)27+"[0m\n";
+                }break;
+                case DEBUG:{
+                    resultat+=(char)27 + "[32m"+registre.getPrioritat()+"\t"+registre.getMissatge()+(char)27+"[0m\n";
+                }break;
+                case WARNING:{
+                    resultat+=(char)27 + "[33m"+registre.getPrioritat()+"\t"+registre.getMissatge()+(char)27+"[0m\n";
+                }break;
+            }
         }
         return resultat;
     }

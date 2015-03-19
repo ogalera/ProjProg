@@ -8,6 +8,7 @@ import java.util.Arrays;
  * Aquesta classe conté la lògica per validar un laberint, entenem que un laberint
  * és valid si:
  *      -No hi ha cap punt inaccesible.
+ *      -Com a mínim hi ha 2 caselles accesibles.
  *      -Hi ha un únic personatje principal.
  *      -Hi ha un únic enemic.
  * 
@@ -21,26 +22,29 @@ import java.util.Arrays;
  */
 public class ValidadorLaberint {
     
-    private static int laberint [][] = {
+    private static int laberint1 [][] = {
+                                    {100,-1,0,-1,-1},
+                                    {-1,0,0,0,-1},
                                     {0,0,0,0,-1},
-                                    {-1,0,0,-1,0},
-                                    {0,0,0,0,-1},
-                                    {0,0,-1,0,-1},
-                                    {0,0,0,0,0}
+                                    {0,-1,-1,-1,-1},
+                                    {0,0,0,0,101}
                                 };
     
-    private static int laberint1 [][] = {
-                                    {0,0,0,0,0},
-                                    {0,-1,0,0,0},
-                                    {0,-1,0,0,-1},
-                                    {0,-1,0,-1,0},
-                                    {0,-1,-1,-1,-1}
-                                };
+//    private static int laberint1 [][] = {
+//                                    {100,-1,-1,-1,-1},
+//                                    {-1,-1,0,0,-1},
+//                                    {-1,-1,-1,-1,-1},
+//                                    {-1,-1,-1,-1,-1},
+//                                    {-1,-1,-1,0,101}
+//                                };
     
     public static boolean laberintValid(int costat){
         //Mode verbose pel Log
         Log l = Log.getInstance(ValidadorLaberint.class);
         l.afegirDebug("Validem un laberint de "+costat+" X "+costat);
+        
+        int casellaPacman = -1;
+        int casellaFantasma = -1;
         
         boolean valid = true;
         Particio p = new Particio(costat);
@@ -50,12 +54,41 @@ public class ValidadorLaberint {
             int j = 0;
             while(valid && j < costat){
                 if(laberint1[i][j] != -1){
-                    //No és pared
+                    if(laberint1[i][j] == 100){
+                        //Em trobat un pacman
+                        if(casellaPacman != -1){
+                            l.afegirError("No poden haveri varis pacman,"
+                                    + "s'ha trobat en la posició: "+casellaPacman+" i ara en "+posActual);
+                            valid = false;
+                        }
+                        else{
+                            //Pacman trobat;
+                            casellaPacman = posActual;
+                            l.afegirDebug("S'ha trobat en pacman en la posicio "+casellaPacman);
+                        }
+                    }
+                    else if (laberint1[i][j] == 101){
+                        //Em trobat un fantasma
+                        if(casellaFantasma != -1){
+                            l.afegirError("No poden haveri varis fantasmes,"
+                                    + "s'ha trobat en la posició: "+casellaFantasma+" i ara en "+posActual);
+                            valid = false;
+                        }
+                        else{
+                            //fantasma trobat;
+                            casellaFantasma = posActual;
+                            l.afegirDebug("S'ha trobat el fantasma en la posició "+casellaFantasma);
+                        }
+                    }
+                    //Mirem esquerra
                     if(j-1 >= 0 && laberint1[i][j-1] != -1){
+                        //No és pared ni estem fora;
                         int esquerra = i*costat+(j-1);
                         p.afegirALaParticio(esquerra, posActual);
                     }
+                    //Altrament mirem amunt
                     else if(i-1 >= 0 && laberint1[i-1][j] != -1){
+                        //No és pared ni estem fora;
                         int adalt = (i-1)*costat+j;
                         p.afegirALaParticio(adalt,posActual);
                     }
@@ -64,11 +97,14 @@ public class ValidadorLaberint {
                         //continua siguent valid, això ho farem mirant al costat
                         //dret i abaix, en cas que estiguin fora del tauler
                         //els dos o hi hagi pared llavors el laberint no serà valid;
-                        valid = !((j+1 >= costat || laberint1[i][j+1] == -1) 
+                        if((j+1 >= costat || laberint1[i][j+1] == -1) 
                                     &&
-                                (i+1 >= costat || laberint1[i+1][j] == -1));
+                                (i+1 >= costat || laberint1[i+1][j] == -1)){
+                            l.afegirError("La casella "+posActual+" esta aillada");
+                            valid = false;
+                        }
                         
-                        //En cas que sigui valid continuem amb la validació
+                        //En cas que sigui valid continuem amb la validació,
                         if(valid) p.afegirALaParticio(posActual,posActual);
                     }
                 }
@@ -78,7 +114,7 @@ public class ValidadorLaberint {
             i++;
         }
         
-        valid = valid && p.getNParticions() == 1;
+        valid = valid && p.getNParticions() == 1 && casellaPacman != -1 && casellaFantasma != -1;
         if(valid){
             l.afegirDebug("Laberint validat en "+posActual+" voltes, resultat: VALID");
         }
