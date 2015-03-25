@@ -22,13 +22,13 @@ import java.util.Arrays;
  */
 public class ValidadorLaberint {
     
-    private static int laberint1 [][] = {
-                                    {100,-1,0,-1,-1},
-                                    {-1,0,0,0,-1},
-                                    {0,0,0,0,-1},
-                                    {0,-1,-1,-1,-1},
-                                    {0,0,0,0,101}
-                                };
+//    private static int laberint1 [][] = {
+//                                    {100,-1,0,-1,-1},
+//                                    {-1,0,0,0,-1},
+//                                    {0,0,0,0,-1},
+//                                    {0,-1,-1,-1,-1},
+//                                    {0,0,0,0,101}
+//                                };
     
 //    private static int laberint1 [][] = {
 //                                    {100,-1,-1,-1,-1},
@@ -38,13 +38,17 @@ public class ValidadorLaberint {
 //                                    {-1,-1,-1,0,101}
 //                                };
     
-    public static boolean laberintValid(int costat){
+    public static boolean laberintValid(int [][] laberint, int costat){
         //Mode verbose pel Log
         Log l = Log.getInstance(ValidadorLaberint.class);
         l.afegirDebug("Validem un laberint de "+costat+" X "+costat);
         
         int casellaPacman = -1;
         int casellaFantasma = -1;
+        //Per indicar el nombre de pacmans que hi ha en el log;
+        int nPacmans = 0; 
+        //Per indicar el nombre de fantasmes que hi ha en el log;
+        int nFantasmes = 0;
         
         boolean valid = true;
         Particio p = new Particio(costat);
@@ -53,41 +57,41 @@ public class ValidadorLaberint {
         while(valid && i < costat){
             int j = 0;
             while(valid && j < costat){
-                if(laberint1[i][j] != -1){
-                    if(laberint1[i][j] == 100){
+                if(laberint[i][j] != -1){
+                    if(laberint[i][j] == EnumElement.PACMAN.getId()){
                         //Em trobat un pacman
-                        if(casellaPacman != -1){
-                            l.afegirError("No poden haveri varis pacman,"
-                                    + "s'ha trobat en la posició: "+casellaPacman+" i ara en "+posActual);
+                        if(casellaPacman != EnumElement.PARED.getId()){
+                            nPacmans++;
                             valid = false;
                         }
                         else{
                             //Pacman trobat;
                             casellaPacman = posActual;
+                            nPacmans++;
                             l.afegirDebug("S'ha trobat en pacman en la posicio "+casellaPacman);
                         }
                     }
-                    else if (laberint1[i][j] == 101){
+                    else if (laberint[i][j] >= EnumElement.FANTASMA1.getId()){
                         //Em trobat un fantasma
                         if(casellaFantasma != -1){
-                            l.afegirError("No poden haveri varis fantasmes,"
-                                    + "s'ha trobat en la posició: "+casellaFantasma+" i ara en "+posActual);
+                            nFantasmes++;
                             valid = false;
                         }
                         else{
                             //fantasma trobat;
+                            nFantasmes++;
                             casellaFantasma = posActual;
                             l.afegirDebug("S'ha trobat el fantasma en la posició "+casellaFantasma);
                         }
                     }
                     //Mirem esquerra
-                    if(j-1 >= 0 && laberint1[i][j-1] != -1){
+                    if(j-1 >= 0 && laberint[i][j-1] != -1){
                         //No és pared ni estem fora;
                         int esquerra = i*costat+(j-1);
                         p.afegirALaParticio(esquerra, posActual);
                     }
                     //Altrament mirem amunt
-                    else if(i-1 >= 0 && laberint1[i-1][j] != -1){
+                    else if(i-1 >= 0 && laberint[i-1][j] != -1){
                         //No és pared ni estem fora;
                         int adalt = (i-1)*costat+j;
                         p.afegirALaParticio(adalt,posActual);
@@ -97,9 +101,9 @@ public class ValidadorLaberint {
                         //continua siguent valid, això ho farem mirant al costat
                         //dret i abaix, en cas que estiguin fora del tauler
                         //els dos o hi hagi pared llavors el laberint no serà valid;
-                        if((j+1 >= costat || laberint1[i][j+1] == -1) 
+                        if((j+1 >= costat || laberint[i][j+1] == -1) 
                                     &&
-                                (i+1 >= costat || laberint1[i+1][j] == -1)){
+                                (i+1 >= costat || laberint[i+1][j] == -1)){
                             l.afegirError("La casella "+posActual+" esta aillada");
                             valid = false;
                         }
@@ -116,10 +120,28 @@ public class ValidadorLaberint {
         
         valid = valid && p.getNParticions() == 1 && casellaPacman != -1 && casellaFantasma != -1;
         if(valid){
-            l.afegirDebug("Laberint validat en "+posActual+" voltes, resultat: VALID");
+            l.afegirError("Laberint validat en "+posActual+" voltes, resultat: VALID");
         }
         else{
-            l.afegirDebug("Laberint validat en "+posActual+" voltes, resultat: NO VALID");
+            String missatge = "Laberint validat en "+posActual+" voltes, resultat: NO VALID";
+            if(p.getNParticions() != 1){
+                missatge+="\n\tEl laberint no és connex";
+            }
+            else if(nPacmans == 0){
+                missatge+="\n\t-No hi ha pacman en el laberint";
+            }
+            else if (nFantasmes == 0){
+                missatge+="\n\t-No hi ha fantasma en el laberint";
+            }
+            else if(nPacmans > 1){
+                missatge+="\n\t-Hi ha mes de un pacman en el laberint";
+            }
+            else{
+                missatge+="\n\t-Hi ha mes de un fantasma en el laberint";
+            }
+            
+            l.afegirError(missatge);
+            
         }
         
         return valid;

@@ -1,8 +1,9 @@
 package projecte;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @author Oscar.Galera
@@ -13,7 +14,7 @@ public class Log {
     /**
      * Estructura que enmagatzema els registres del log;
      */
-    final private List<ParellaPrioritatMissatge> registres;
+    final private LinkedList<ParellaPrioritatMissatge> registres;
     
     /**
      * Classe activa que té el log
@@ -195,6 +196,32 @@ public class Log {
      */
     public String obtenirDebugsLog(){
         return obtenirRegistreDeUnaPrioritat(Prioritat.DEBUG);
+    }
+    
+    public String obtenirUltimError(){
+        return this.getUltimRegistreDeUnTipus(Prioritat.ERROR);
+    }
+    
+    public String obtenirUltimWarning(){
+        return this.getUltimRegistreDeUnTipus(Prioritat.WARNING);
+    }
+    
+    public String obtenirUltimDebug(){
+        return this.getUltimRegistreDeUnTipus(Prioritat.DEBUG);
+    }
+    
+    private String getUltimRegistreDeUnTipus(Prioritat prioritat){
+        Iterator<ParellaPrioritatMissatge> i = registres.descendingIterator();
+        boolean trobat = false;
+        String missatge = null;
+        while(!trobat && i.hasNext()){
+            ParellaPrioritatMissatge p = i.next();
+            if(p.getPrioritat() == prioritat){
+                trobat = true;
+                missatge = p.getMissatge();
+            }
+        }
+        return missatge;
     }
     
     /**
