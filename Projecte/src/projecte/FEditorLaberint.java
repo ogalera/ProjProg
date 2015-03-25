@@ -35,7 +35,7 @@ import javax.swing.WindowConstants;
 public class FEditorLaberint extends JFrame{
     private JButton btnPacman, btnFantasma, btnParet, btnMoneda, btnItemSeleccionat;
     private JButton btnValidar;
-    private final int [][] taula;
+    private final int [][] laberint;
     private Log log;
     private EnumElement elementSeleccionat = EnumElement.RES;
     private int costat;
@@ -45,7 +45,7 @@ public class FEditorLaberint extends JFrame{
         
         log = Log.getInstance(FEditorLaberint.class);
         
-        this.taula = new int[costat][costat];
+        this.laberint = new int[costat][costat];
         
         JMenuBar menu = new JMenuBar();
         JMenu fitxer = new JMenu("Fitxer");
@@ -86,7 +86,7 @@ public class FEditorLaberint extends JFrame{
                 BtnCasella b = new BtnCasella(i, j);
                 b.setContentAreaFilled(false);
                 panellLaberint.add(b);
-                taula[i][j] = EnumElement.RES.getId();
+                laberint[i][j] = EnumElement.RES.getId();
             }
         }
         contingut.add(panellLaberint);
@@ -155,11 +155,23 @@ public class FEditorLaberint extends JFrame{
         return panell;
     }
     
+    /**
+     * @author Oscar.Galera
+     * DECLARACIÓ D'INTENCIONS DE LA CLASSE
+     * Aquesta classe ens controla els events de clik sobre els botons
+     *      -btnPacman
+     *      -btnFantasma
+     *      -btnParet
+     *      -btnMoneda
+     */
     private class ActionCanviarElementSeleccionat implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             Object origen = e.getSource();
+            //Comparem a traves de la referencia al emisor del event
+            //per classificar quin boto ha sigut el que s'ha clicat;
             if(origen == btnPacman){
+                //S'ha clicat el boto del pacman;
                 btnItemSeleccionat.setIcon(EnumElement.PACMAN.getImatge());
                 elementSeleccionat = EnumElement.PACMAN;
             }
@@ -181,7 +193,7 @@ public class FEditorLaberint extends JFrame{
     private class ActionValidarLaberint implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(ValidadorLaberint.laberintValid(taula, costat)){
+            if(ValidadorLaberint.validarLaberint(laberint, costat)){
                 this.exportarLaberint();
             }
             else{
@@ -208,7 +220,7 @@ public class FEditorLaberint extends JFrame{
                 for(int i = 0; i < costat; i++){
                     StringBuilder stringBuilder = new StringBuilder();
                     for(int j = 0; j < costat; j++){
-                        stringBuilder.append(taula[i][j]);
+                        stringBuilder.append(laberint[i][j]);
                     }
                     bw.write(stringBuilder.toString());
                     if(i+1 < costat ) bw.newLine();
@@ -220,20 +232,44 @@ public class FEditorLaberint extends JFrame{
         }
     }
     
+    /**
+     * @author Oscar.Galera
+     * DECLARACIÓ D'INTENCIONS DE LA CLASSE
+     * Defineix un botó amb dos coordenades que l'identifiquen, quan es
+     * realitzi click sobre el botó aquest obtindrà l'imatge que està 
+     * seleccionada i també assignara el valor pertinent a la casella del
+     * laberint;
+     */
     private class BtnCasella extends JButton implements ActionListener{
+        /**
+         * Coordenades de la casella;
+         */
         private int x;
         private int y;
         
+        /**
+         * @pre: x i y són >= 0 i <= costat
+         * @post: em creeat un boto amb unes coordenades epecifiques;
+         * @param x
+         * @param y 
+         */
         public BtnCasella(int x, int y){
             this.x = x;
             this.y = y;
             this.addActionListener(this);
         }
         
+        /**
+         * @pre:--;
+         * @post: em tractat l'event sobre el botó, aquest event consisteix
+         * en assignar l'imatge que toca al boto i assignar el valor al 
+         * tauler del laberint;
+         * @param e 
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             this.setIcon(elementSeleccionat.getImatge());
-            taula[x][y] = elementSeleccionat.getId();
+            laberint[x][y] = elementSeleccionat.getId();
         }
     }
 }

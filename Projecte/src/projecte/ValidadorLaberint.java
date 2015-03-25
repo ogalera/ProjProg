@@ -38,7 +38,7 @@ public class ValidadorLaberint {
 //                                    {-1,-1,-1,0,101}
 //                                };
     
-    public static boolean laberintValid(int [][] laberint, int costat){
+    public static boolean validarLaberint(int [][] laberint, int costat){
         //Mode verbose pel Log
         Log l = Log.getInstance(ValidadorLaberint.class);
         l.afegirDebug("Validem un laberint de "+costat+" X "+costat);
