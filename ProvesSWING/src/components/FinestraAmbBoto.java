@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author oscar
+ * @author oscar 
  */
 public class FinestraAmbBoto implements ActionListener{
     private JFrame finestra;
