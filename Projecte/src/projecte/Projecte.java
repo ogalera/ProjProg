@@ -10,7 +10,11 @@ public class Projecte {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new FEditorLaberint(5);
+        Log log = Log.getInstance(Projecte.class);
+        Laberint l = new Laberint(5, EnumElement.FANTASMA1);
+        log.exportarLogAFitxer("/home/oscar/Desktop/log.txt");
+        System.out.println(log.obtenirDebugsLog());
+//        new FEditorLaberint(5);
 //        ValidadorLaberint.laberintValid(5);
 //        Log l = Log.getInstance(Projecte.class);
 //        l.afegirWarning("prova warning");

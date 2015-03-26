@@ -1,9 +1,12 @@
 package projecte;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 /**
  * @author Oscar.Galera
@@ -151,7 +154,7 @@ public class Log {
      * @post: Em retornat el contingut complet del registre en format String;
      * @return: Contingut del log en mode String
      */
-    public String obtenirContingutCompletDelLog(){
+    public String obtenirContingutCompletDelLogAmbColor(){
         //FORMAT EN QUE ES RETORNA CADA UN DELS REGISTRES DEL LOG
         //PRIORITAT Nom_classe_emissora_del_missatge    Data    registre
         String resultat = "";
@@ -165,6 +168,31 @@ public class Log {
                 }break;
                 case WARNING:{
                     resultat+=(char)27 + "[33m"+registre.getPrioritat()+"\t"+registre.getMissatge()+(char)27+"[0m\n";
+                }break;
+            }
+        }
+        return resultat;
+    }
+    
+    /**
+     * @pre: --;
+     * @post: Em retornat el contingut complet del registre en format String;
+     * @return: Contingut del log en mode String
+     */
+    public String obtenirContingutCompletDelLog(){
+        //FORMAT EN QUE ES RETORNA CADA UN DELS REGISTRES DEL LOG
+        //PRIORITAT Nom_classe_emissora_del_missatge    Data    registre
+        String resultat = "";
+        for(ParellaPrioritatMissatge registre: registres){
+            switch(registre.getPrioritat()){
+                case ERROR:{
+                    resultat+=registre.getPrioritat()+"\t"+registre.getMissatge()+"\n";
+                }break;
+                case DEBUG:{
+                    resultat+=registre.getPrioritat()+"\t"+registre.getMissatge()+"\n";
+                }break;
+                case WARNING:{
+                    resultat+=registre.getPrioritat()+"\t"+registre.getMissatge()+"\n";
                 }break;
             }
         }
@@ -242,5 +270,17 @@ public class Log {
             resultat = "NO HI HA CONTINGUT EN EL LOG DE "+prioritat.toString();
         }
         return resultat;
+    }
+    
+    public void exportarLogAFitxer(String fitxer){
+        File f = new File(fitxer);
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(f))){
+            String contingutLog = this.obtenirContingutCompletDelLog();
+            bw.write(contingutLog);
+            log.afegirDebug("Log exportat a "+fitxer+" amb exit");
+        }
+        catch(IOException ioe){
+            log.afegirError("No s'ha pogut exportar el log, error: "+ioe.getMessage());
+        }
     }
 }
