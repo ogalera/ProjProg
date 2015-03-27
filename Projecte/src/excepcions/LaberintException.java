@@ -1,4 +1,4 @@
-package projecte.excepcions;
+package excepcions;
 
 /**
  * @author oscar

@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projecte;
+package logica;
 
+import log.Log;
 import java.util.Random;
-import projecte.excepcions.LaberintException;
+import excepcions.LaberintException;
 
 /**
  *

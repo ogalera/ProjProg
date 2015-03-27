@@ -1,4 +1,6 @@
-package projecte;
+package logica;
+
+import log.Log;
 
 /**
  *

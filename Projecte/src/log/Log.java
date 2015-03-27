@@ -1,4 +1,4 @@
-package projecte;
+package log;
 
 import java.io.BufferedWriter;
 import java.io.File;

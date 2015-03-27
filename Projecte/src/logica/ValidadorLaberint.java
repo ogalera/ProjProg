@@ -1,5 +1,6 @@
-package projecte;
+package logica;
 
+import log.Log;
 import java.util.Arrays;
 
 /**

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projecte;
+package logica;
 
+import log.Log;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
