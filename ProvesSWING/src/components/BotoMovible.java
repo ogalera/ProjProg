@@ -5,12 +5,10 @@
  */
 package components;
 
-import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 
 /**

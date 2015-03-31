@@ -1,6 +1,8 @@
 package logica;
 
 import log.Log;
+import grafics.FInici;
+import java.io.IOException;
 
 /**
  *
@@ -32,6 +34,19 @@ public class Projecte {
 //            System.exit(-1);
 //        }
 //        System.out.println("Base de dades oberta");
+        
+        
+        ////////////////////
+        //Prova de Entorns//
+        ////////////////////
+        try{
+            new FInici();
+        }
+        catch(IOException e){
+            
+        }
+        
+        
     }
     
 }
