@@ -3,6 +3,8 @@ package logica;
 import log.Log;
 import grafics.FInici;
 import java.io.IOException;
+import logica.generadors_laberint.GeneradorLaberintAleatori;
+import logica.generadors_laberint.IGeneradorLaberint;
 
 /**
  *
@@ -15,9 +17,12 @@ public class Projecte {
      */
     public static void main(String[] args) {
         Log log = Log.getInstance(Projecte.class);
-        Laberint l = new Laberint(5, EnumElement.FANTASMA1);
-        log.exportarLogAFitxer("/home/oscar/Desktop/log.txt");
-        System.out.println(log.obtenirDebugsLog());
+        IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(10, EnumElement.FANTASMA1);
+        generadorAleatori.generarLaberint();
+        System.out.println(log.obtenirContingutCompletDelLog());
+//        Laberint l = new Laberint(generadorAleatori);
+//        log.exportarLogAFitxer("/home/oscar/Desktop/log.txt");
+//        System.out.println(log.obtenirDebugsLog());
 //        new FEditorLaberint(5);
 //        ValidadorLaberint.laberintValid(5);
 //        Log l = Log.getInstance(Projecte.class);
@@ -39,12 +44,12 @@ public class Projecte {
         ////////////////////
         //Prova de Entorns//
         ////////////////////
-        try{
-            new FInici();
-        }
-        catch(IOException e){
-            
-        }
+//        try{
+//            new FInici();
+//        }
+//        catch(IOException e){
+//            
+//        }
         
         
     }

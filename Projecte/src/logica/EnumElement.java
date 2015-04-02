@@ -15,21 +15,23 @@ import javax.swing.ImageIcon;
  * @author oscar
  */
 public enum EnumElement {
-    PACMAN(20, "res/pacman.png"),
-    FANTASMA1(21, "res/fantasma1.png"), 
-    FANTASMA2(22, "res/fantasma2.png"), 
-    FANTASMA3(23, "res/fantasma3.png"), 
-    PARED(-1, "res/paret.png"), 
-    MONEDA(1, "res/moneda.png"), 
-    MONEDA_EXTRA(2, "res/moneda.png"), 
-    RES(0, null),
-    INDEFINIT(-2 , "res/indefinit.png");
+    PACMAN(20, false, "res/pacman.png"),
+    FANTASMA1(21, true, "res/fantasma1.png"), 
+    FANTASMA2(22, true, "res/fantasma2.png"), 
+    FANTASMA3(23, true, "res/fantasma3.png"), 
+    PARED(-1, false, "res/paret.png"), 
+    MONEDA(1, false, "res/moneda.png"), 
+    MONEDA_EXTRA(2, false, "res/moneda.png"), 
+    RES(0, false, null),
+    INDEFINIT(-2 , false, "res/indefinit.png");
     
     private int id;
     private ImageIcon imatge;
+    private boolean esEnemic;
     
-    private EnumElement(int id, String recurs){
+    private EnumElement(int id, boolean esEnemic, String recurs){
         this.id = id;
+        this.esEnemic = esEnemic;
         Log log = Log.getInstance(EnumElement.class);
         try{
             File f = new File(recurs);
@@ -46,5 +48,9 @@ public enum EnumElement {
     
     public int getId(){
         return this.id;
+    }
+    
+    public boolean esEnemic(){
+        return this.esEnemic;
     }
 }
