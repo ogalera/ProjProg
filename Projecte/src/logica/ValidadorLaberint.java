@@ -230,7 +230,7 @@ public class ValidadorLaberint {
         
         valid = valid && p.getNParticions() == 1 && casellaPacman != -1 && casellaFantasma != -1;
         if(valid){
-            l.afegirError("Laberint validat en "+posActual+" voltes, resultat: VALID");
+            l.afegirDebug("Laberint validat en "+posActual+" voltes, resultat: VALID");
         }
         else{
             String missatge = "Laberint validat en "+posActual+" voltes, resultat: NO VALID";
@@ -250,7 +250,7 @@ public class ValidadorLaberint {
                 missatge+="\n\t-Hi ha mes de un fantasma en el laberint";
             }
             
-            l.afegirError(missatge);
+            l.afegirDebug(missatge);
             
         }
         

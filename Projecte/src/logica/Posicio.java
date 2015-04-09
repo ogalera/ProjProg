@@ -11,8 +11,8 @@ package logica;
  * Ens representa un punt en 2D;
  */
 public class Posicio {
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
     
     public Posicio(int x, int y){
         this.x = x;
@@ -25,6 +25,19 @@ public class Posicio {
     
     public int obtenirY(){
         return this.y;
+    }
+    
+    public void desplasarX(int desplasament){
+        this.x += desplasament;
+    }
+    
+    public void desplasarY(int desplasament){
+        this.y += desplasament;
+    }
+    
+    public int distancia(Posicio other){
+        int distancia = Math.abs(this.x-other.x)+Math.abs(this.y-other.y);
+        return distancia;
     }
     
     public Posicio[] obtenirPosicionsDelVoltant(){

@@ -4,6 +4,8 @@ import log.Log;
 import grafics.FInici;
 import java.io.IOException;
 import logica.generadors_laberint.GeneradorLaberintAleatori;
+import logica.generadors_laberint.GeneradorLaberintLinealHoritzontal;
+import logica.generadors_laberint.GeneradorLaberintLinealVertical;
 import logica.generadors_laberint.IGeneradorLaberint;
 
 /**
@@ -17,9 +19,9 @@ public class Projecte {
      */
     public static void main(String[] args) {
         Log log = Log.getInstance(Projecte.class);
-        IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(10, EnumElement.FANTASMA1);
+        IGeneradorLaberint generadorAleatori = new GeneradorLaberintLinealVertical(15, EnumElement.FANTASMA1);
         generadorAleatori.generarLaberint();
-        System.out.println(log.obtenirContingutCompletDelLog());
+        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
 //        Laberint l = new Laberint(generadorAleatori);
 //        log.exportarLogAFitxer("/home/oscar/Desktop/log.txt");
 //        System.out.println(log.obtenirDebugsLog());
