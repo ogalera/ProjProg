@@ -10,11 +10,11 @@ package logica;
  * DECLARACIÓ D'INTENCIONS DE LA CLASSE
  * Ens representa un punt en 2D;
  */
-public class Posicio {
+public class Punt {
     private int x;
     private int y;
     
-    public Posicio(int x, int y){
+    public Punt(int x, int y){
         this.x = x;
         this.y = y;
     }
@@ -35,23 +35,23 @@ public class Posicio {
         this.y += desplasament;
     }
     
-    public int distancia(Posicio other){
+    public int distancia(Punt other){
         int distancia = Math.abs(this.x-other.x)+Math.abs(this.y-other.y);
         return distancia;
     }
     
-    public Posicio[] obtenirPosicionsDelVoltant(){
-        Posicio posicions [] = {new Posicio(x-1, y),
-                                new Posicio(x, y-1),
-                                new Posicio(x+1, y), 
-                                new Posicio(x, y+1)};
+    public Punt[] obtenirPosicionsDelVoltant(){
+        Punt posicions [] = {new Punt(x-1, y),
+                                new Punt(x, y-1),
+                                new Punt(x+1, y), 
+                                new Punt(x, y+1)};
         return posicions;
     }
     
     @Override
     public boolean equals(Object obj){
-        if(obj == null || !(obj instanceof Posicio)) return false;
-        Posicio other = (Posicio) obj;
+        if(obj == null || !(obj instanceof Punt)) return false;
+        Punt other = (Punt) obj;
         return this.x == other.x && this.y == other.y;
     }
 }

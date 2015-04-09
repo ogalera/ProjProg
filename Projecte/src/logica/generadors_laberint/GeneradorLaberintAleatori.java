@@ -9,7 +9,7 @@ import excepcions.LaberintException;
 import java.util.Random;
 import log.Log;
 import logica.EnumElement;
-import logica.Posicio;
+import logica.Punt;
 import logica.ValidadorLaberint;
 
 /**
@@ -62,9 +62,9 @@ public class GeneradorLaberintAleatori implements IGeneradorLaberint{
         EnumElement [][] tauler = new EnumElement[costat][costat];
         
         int nCandidats = 2;
-        Posicio[] candidats = new Posicio[costat*costat];
-        candidats[0] = new Posicio(0, 0);
-        candidats[1] = new Posicio(costat-1, costat-1);
+        Punt[] candidats = new Punt[costat*costat];
+        candidats[0] = new Punt(0, 0);
+        candidats[1] = new Punt(costat-1, costat-1);
         int llindar = (int) (costat*costat*0.7);
 
         Random r = new Random(System.currentTimeMillis());
@@ -92,8 +92,8 @@ public class GeneradorLaberintAleatori implements IGeneradorLaberint{
                     x = r.nextInt(costat);
                     y = r.nextInt(costat);
                 }while(tauler[x][y] != EnumElement.PARED);
-                Posicio origen = new Posicio(x, y);
-                Posicio desti = distanciaMinima(origen, candidats, nCandidats);
+                Punt origen = new Punt(x, y);
+                Punt desti = distanciaMinima(origen, candidats, nCandidats);
                 nCandidats += ferCamiTauler(origen, desti, tauler, candidats, nCandidats);
             }
         }while(!ValidadorLaberint.validarLaberint(tauler, costat));
@@ -111,7 +111,7 @@ public class GeneradorLaberintAleatori implements IGeneradorLaberint{
         
     }
     
-    private int ferCamiTauler(Posicio origen, Posicio desti, EnumElement[][]tauler, Posicio[] candidats, int nCandidats){
+    private int ferCamiTauler(Punt origen, Punt desti, EnumElement[][]tauler, Punt[] candidats, int nCandidats){
         int incrementX = incrementEix(origen.obtenirX(), desti.obtenirX());
         int incrementY = incrementEix(origen.obtenirY(), desti.obtenirY());
         int nAfegides = 0;
@@ -119,7 +119,7 @@ public class GeneradorLaberintAleatori implements IGeneradorLaberint{
         while(!origen.equals(desti)){
             int x = origen.obtenirX();
             int y = origen.obtenirY();
-            candidats[nCandidats++] = new Posicio(x, y);
+            candidats[nCandidats++] = new Punt(x, y);
             tauler[x][y] = EnumElement.MONEDA;
             nAfegides++;
             if(x != desti.obtenirX()){
@@ -136,7 +136,7 @@ public class GeneradorLaberintAleatori implements IGeneradorLaberint{
         return origen > desti ? -1: 1;
     }
     
-    private Posicio distanciaMinima(Posicio origen, Posicio[] destins, int nDestins){
+    private Punt distanciaMinima(Punt origen, Punt[] destins, int nDestins){
         int index = 0;
         int distanciaMinima = origen.distancia(destins[0]);
         for(int i = 1; i < nDestins; i++){

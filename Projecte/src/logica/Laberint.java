@@ -6,8 +6,6 @@
 package logica;
 
 import log.Log;
-import java.util.Random;
-import excepcions.LaberintException;
 import logica.generadors_laberint.IGeneradorLaberint;
 
 /**
@@ -46,7 +44,7 @@ public class Laberint {
      * @param posicio: a comparar;
      * @return si la posició està dins del tauler;
      */
-    public boolean posicioValida(Posicio posicio){
+    public boolean posicioValida(Punt posicio){
         int x = posicio.obtenirX();
         int y = posicio.obtenirY();
         return x >= 0 && y >= 0 && x < costat && y < costat;
