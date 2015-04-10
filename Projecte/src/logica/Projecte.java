@@ -19,7 +19,7 @@ public class Projecte {
      */
     public static void main(String[] args) {
         Log log = Log.getInstance(Projecte.class);
-        IGeneradorLaberint generadorAleatori = new GeneradorLaberintLinealVertical(15, EnumElement.FANTASMA1);
+        IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(15, EnumElement.FANTASMA1);
         generadorAleatori.generarLaberint();
         System.out.println(log.obtenirContingutCompletDelLogAmbColor());
 //        Laberint l = new Laberint(generadorAleatori);

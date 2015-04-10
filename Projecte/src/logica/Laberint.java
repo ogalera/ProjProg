@@ -19,17 +19,17 @@ public class Laberint {
     
     private int costat = -1;
     
-    public Laberint(String fitxer){
+    public Laberint(String fitxer, Partida partida){
         log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
     }
     
-    public Laberint(EnumElement elements[][]){
+    public Laberint(EnumElement elements[][], Partida partida){
         log.afegirDebug("Carreguem un laberint des de una matriu quadrada");
         this.costat = elements[0].length;
         this.tauler = elements;
     }
     
-    public Laberint(IGeneradorLaberint generadorLaberint){
+    public Laberint(IGeneradorLaberint generadorLaberint, Partida partida){
         log.afegirDebug("Carreguem un laberint des de un generador de laberints de tipus "+generadorLaberint.getClass().getCanonicalName());
         this.tauler = generadorLaberint.generarLaberint();
         this.costat = tauler[0].length;
