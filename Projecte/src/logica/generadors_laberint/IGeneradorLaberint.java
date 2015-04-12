@@ -1,6 +1,6 @@
 package logica.generadors_laberint;
 
-import logica.EnumElement;
+import logica.enumeracions.EElement;
 
 /**
  * @author oscar
@@ -13,5 +13,5 @@ public interface IGeneradorLaberint {
      * @post: em retornat un laberint quadrat i valid;
      * @return una matriu que ens representa un laberint valid;
      */
-    public EnumElement [][] generarLaberint();
+    public EElement [][] generarLaberint();
 }

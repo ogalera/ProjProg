@@ -1,12 +1,11 @@
 package logica;
 
-import log.Log;
-import grafics.FInici;
-import java.io.IOException;
+import interficie.FEditorLaberint;
+import logica.enumeracions.EElement;
 import logica.generadors_laberint.GeneradorLaberintAleatori;
 import logica.generadors_laberint.GeneradorLaberintLinealHoritzontal;
-import logica.generadors_laberint.GeneradorLaberintLinealVertical;
 import logica.generadors_laberint.IGeneradorLaberint;
+import logica.log.Log;
 
 /**
  *
@@ -17,11 +16,13 @@ public class Projecte {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Log log = Log.getInstance(Projecte.class);
-        IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(15, EnumElement.FANTASMA1);
-        generadorAleatori.generarLaberint();
-        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
+        IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(5, EElement.FANTASMA2);
+        Partida p = new Partida(generadorAleatori);
+        p.iniciarPartida();
+//        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
+//        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
 //        Laberint l = new Laberint(generadorAleatori);
 //        log.exportarLogAFitxer("/home/oscar/Desktop/log.txt");
 //        System.out.println(log.obtenirDebugsLog());

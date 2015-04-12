@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica;
+package dades;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,13 +12,16 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import log.Log;
+import logica.Utils;
+import logica.log.Log;
 
 /**
  *
  * @author oscar
  */
 public class BD {
+    public static final String PATH_BD = "raw/pacman.db";
+    public static final String URL_BD = "jdbc:sqlite:"+PATH_BD;
     
     public static void afegirRegistre(String user, String password, int nivell, int punts) throws IOException{
         boolean taulesCreades = true;
@@ -28,7 +31,7 @@ public class BD {
         }
         if(taulesCreades){
             //Try with resources since JAVA SE7
-            try(Connection connexio = DriverManager.getConnection(Utils.Constants.URL_BD);
+            try(Connection connexio = DriverManager.getConnection(URL_BD);
                 Statement afegirUsuari = connexio.createStatement()){
 
                 //Per temes de seguretat codifiquem el password;
@@ -60,7 +63,7 @@ public class BD {
                                 " WHERE u.usu_id = p.pnt_usu_id\n" +
                                 " GROUP BY u.usu_id, u.usu_nom\n" +
                                 " ORDER BY 1 DESC";
-            try(Connection connexio = DriverManager.getConnection(Utils.Constants.URL_BD);
+            try(Connection connexio = DriverManager.getConnection(URL_BD);
                 Statement consultarTopN = connexio.createStatement();
                 ResultSet rs = consultarTopN.executeQuery(consulta)){
                 resultat = new String [topN][2];
@@ -90,7 +93,7 @@ public class BD {
                               " WHERE EXISTS (SELECT usu_nom\n" +
                               "                 FROM USUARIS\n" +
                               "			WHERE usu_nom = '"+usuari+"')";
-            try(Connection connexio = DriverManager.getConnection(Utils.Constants.URL_BD);
+            try(Connection connexio = DriverManager.getConnection(URL_BD);
                 Statement consultarUsuari = connexio.createStatement();
                 ResultSet rs = consultarUsuari.executeQuery(consulta)){
                 usuariRegistrat = rs.next();
@@ -107,22 +110,14 @@ public class BD {
     }
     
     public static boolean esPrimerAcces(){
-        File baseDades = new File(Utils.Constants.PATH_BD);
+        File baseDades = new File(PATH_BD);
         return !baseDades.exists();
     }
-    
-    public static void main(String ... args)throws IOException{
-        BD.usuariRegistrat("ari");
-        afegirRegistre("ari", "pol", 0, 0);
-        BD.usuariRegistrat("ari");
-        Log log = Log.getInstance(BD.class);
-        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
-    }
-    
+
     private static boolean crearTaules(){
         Log log = Log.getInstance(BD.class);
         boolean totOk = true;
-        try(Connection connexio = DriverManager.getConnection(Utils.Constants.URL_BD);
+        try(Connection connexio = DriverManager.getConnection(URL_BD);
             Statement creacioTaulaUsuaris = connexio.createStatement();
             Statement creacioTaulaPunts = connexio.createStatement()
                 ){

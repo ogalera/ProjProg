@@ -5,17 +5,27 @@
  */
 package logica;
 
+import logica.enumeracions.EDireccio;
+import logica.enumeracions.EElement;
+
 /**
  *
  * @author oscar
  */
 public class Item extends ItemMovible {
+    private EElement tipusElement;
+    
     public Item(Laberint laberint, Punt inici, long millis) {
         super(laberint, inici, millis);
     }
 
     @Override
-    public Punt calcularMoviment() {
+    public EDireccio calcularMoviment() {
         return null;
+    }
+    
+    @Override
+    public String nomItemMovible(){
+        return "Item";
     }
 }

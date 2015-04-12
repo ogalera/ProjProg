@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grafics;
+package interficie;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import components.background;
+import interficie.components.background;
 
 
 /**

@@ -1,4 +1,4 @@
-package log;
+package logica.log;
 
 import java.io.BufferedWriter;
 import java.io.File;

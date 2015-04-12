@@ -19,73 +19,20 @@ import logica.generadors_laberint.IGeneradorLaberint;
  *
  * @author oscar
  */
-public class Laberint {
-    private EElement tauler[][];
+public abstract class LaberintAbstracte {
+    protected EElement tauler[][];
     
-    private final Log log = Log.getInstance(Laberint.class);
+    protected int costat = -1;
     
-    private int costat = -1;
+    protected Partida partida;
     
-    private Partida partida;
+    protected int nMonedes = 0;
     
-    private int nMonedes = 0;
-    
-    public Laberint(String fitxer, Partida partida) throws EFormatLaberint{
-        log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
-        File f = new File(fitxer);
+    public LaberintAbstracte(Partida partida){
         this.partida = partida;
-        try(BufferedReader br = new BufferedReader(new FileReader(f))){
-            String linia = null;
-            if((linia = br.readLine()) != null){
-                this.costat = linia.split(" ").length;
-                this.tauler = new EElement[costat][costat];
-                int n = 0;
-                EElement [] l = parseLiniaLaberint(linia);
-                if(l.length != costat) throw new EFormatLaberint("El format del laberint no és correcte");
-                this.tauler[n++] = l;
-                while((linia = br.readLine()) != null){
-                    l = parseLiniaLaberint(linia);
-                    if(l.length != costat) throw new EFormatLaberint("El format del laberint no és correcte");
-                    this.tauler[n++] = l;
-                }
-                if(costat != n){
-                    throw new EFormatLaberint("El format del laberint no és correcte");
-                }
-            }
-        }
-        catch(IOException fnfe){
-            throw new EFormatLaberint("No s'ha pogut llegir el fitxer per importar el laberint, missatge:\n"+fnfe.getMessage());
-        }
-        System.out.println(this);
-        this.nMonedes = numeroMonedes();
     }
     
-    private EElement [] parseLiniaLaberint(String linia) throws EFormatLaberint{
-        String camps[] = linia.split(" ");
-        EElement [] liniaElements = new EElement[camps.length];
-        for(int i = 0; i < costat; i++){
-            liniaElements[i] = EElement.buscarElementPerId(Integer.parseInt(camps[i]));
-        }
-        return liniaElements;
-    }
-    
-    public Laberint(EElement elements[][], Partida partida){
-        log.afegirDebug("Carreguem un laberint des de una matriu quadrada");
-        this.costat = elements[0].length;
-        this.tauler = elements;
-        this.nMonedes = numeroMonedes();
-    }
-    
-    public Laberint(IGeneradorLaberint generadorLaberint, Partida partida){
-        log.afegirDebug("Carreguem un laberint des de un generador de laberints de tipus "+generadorLaberint.getClass().getCanonicalName());
-        this.tauler = generadorLaberint.generarLaberint();
-        this.costat = tauler[0].length;
-        this.partida = partida;
-        this.nMonedes = numeroMonedes();
-        //FALTA VALIDAR LABERINT EN AQUEST PUNT!!!
-    }
-    
-    private int numeroMonedes(){
+    protected int numeroMonedes(){
         int numMonedes = 0;
         for(int i = 0; i < costat; i++){
             for(int j = 0; j < costat; j++){
@@ -204,4 +151,6 @@ public class Laberint {
         }
         return posicio;
     }
+    
+    protected abstract EElement[][] generarLaberint();
 }

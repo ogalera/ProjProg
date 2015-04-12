@@ -1,4 +1,4 @@
-package logica.generadors_laberint;
+package logica.excepcions;
 
 /**
  * @author oscar
@@ -6,8 +6,8 @@ package logica.generadors_laberint;
  * Llencarem aquest tipus d'excepció quan hi hagui algún problema en el procés
  * de generar laberints;
  */
-public class GeneradorLaberintException extends RuntimeException{
-    public GeneradorLaberintException(String missatge){
+public class EGeneradorLaberint extends RuntimeException{
+    public EGeneradorLaberint(String missatge){
         super(missatge);
     }
 }

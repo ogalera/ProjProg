@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grafics;
+package interficie;
 
-import log.Log;
+import logica.log.Log;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.BorderFactory;
@@ -28,7 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.WindowConstants;
-import logica.EnumElement;
+import logica.enumeracions.EElement;
 import logica.ValidadorLaberint;
 
 /**
@@ -40,7 +38,7 @@ public class FEditorLaberint extends JFrame{
     private JButton btnValidar;
     private final int [][] laberint;
     private Log log;
-    private EnumElement elementSeleccionat = EnumElement.RES;
+    private EElement elementSeleccionat = EElement.RES;
     private int costat;
     
     public FEditorLaberint(int costat){
@@ -89,7 +87,7 @@ public class FEditorLaberint extends JFrame{
                 BtnCasella b = new BtnCasella(i, j);
                 b.setContentAreaFilled(false);
                 panellLaberint.add(b);
-                laberint[i][j] = EnumElement.RES.getId();
+                laberint[i][j] = EElement.RES.obtenirId();
             }
         }
         contingut.add(panellLaberint);
@@ -114,27 +112,27 @@ public class FEditorLaberint extends JFrame{
         ActionCanviarElementSeleccionat ace = new ActionCanviarElementSeleccionat();
         
         btnPacman = new JButton();
-        btnPacman.setIcon(EnumElement.PACMAN.getImatge());
+        btnPacman.setIcon(EElement.PACMAN.obtenirImatge());
         btnPacman.setContentAreaFilled(false);
         btnPacman.addActionListener(ace);
         
         btnFantasma = new JButton();
-        btnFantasma.setIcon(EnumElement.FANTASMA1.getImatge());
+        btnFantasma.setIcon(EElement.FANTASMA1.obtenirImatge());
         btnFantasma.setContentAreaFilled(false);
         btnFantasma.addActionListener(ace);
         
         btnParet = new JButton();
-        btnParet.setIcon(EnumElement.PARED.getImatge());
+        btnParet.setIcon(EElement.PARET.obtenirImatge());
         btnParet.setContentAreaFilled(false);
         btnParet.addActionListener(ace);
         
         btnMoneda = new JButton();
-        btnMoneda.setIcon(EnumElement.MONEDA.getImatge());
+        btnMoneda.setIcon(EElement.MONEDA.obtenirImatge());
         btnMoneda.setContentAreaFilled(false);
         btnMoneda.addActionListener(ace);
         
         btnItemSeleccionat = new JButton();
-        btnItemSeleccionat.setIcon(EnumElement.INDEFINIT.getImatge());
+        btnItemSeleccionat.setIcon(EElement.INDEFINIT.obtenirImatge());
         btnItemSeleccionat.setContentAreaFilled(false);
         
         //Treiem els bordes dels botons
@@ -175,20 +173,20 @@ public class FEditorLaberint extends JFrame{
             //per classificar quin boto ha sigut el que s'ha clicat;
             if(origen == btnPacman){
                 //S'ha clicat el boto del pacman;
-                btnItemSeleccionat.setIcon(EnumElement.PACMAN.getImatge());
-                elementSeleccionat = EnumElement.PACMAN;
+                btnItemSeleccionat.setIcon(EElement.PACMAN.obtenirImatge());
+                elementSeleccionat = EElement.PACMAN;
             }
             else if (origen == btnFantasma){
-                btnItemSeleccionat.setIcon(EnumElement.FANTASMA1.getImatge());
-                elementSeleccionat = EnumElement.FANTASMA1;
+                btnItemSeleccionat.setIcon(EElement.FANTASMA1.obtenirImatge());
+                elementSeleccionat = EElement.FANTASMA1;
             }
             else if (origen == btnParet){
-                btnItemSeleccionat.setIcon(EnumElement.PARED.getImatge());
-                elementSeleccionat = EnumElement.PARED;
+                btnItemSeleccionat.setIcon(EElement.PARET.obtenirImatge());
+                elementSeleccionat = EElement.PARET;
             }
             else if (origen == btnMoneda){
-                btnItemSeleccionat.setIcon(EnumElement.MONEDA.getImatge());
-                elementSeleccionat = EnumElement.MONEDA;
+                btnItemSeleccionat.setIcon(EElement.MONEDA.obtenirImatge());
+                elementSeleccionat = EElement.MONEDA;
             }
         }
     }
@@ -224,8 +222,9 @@ public class FEditorLaberint extends JFrame{
                     StringBuilder stringBuilder = new StringBuilder();
                     for(int j = 0; j < costat; j++){
                         stringBuilder.append(laberint[i][j]);
+                        stringBuilder.append(" ");
                     }
-                    bw.write(stringBuilder.toString());
+                    bw.write(stringBuilder.toString().trim());
                     if(i+1 < costat ) bw.newLine();
                 }
             }
@@ -271,8 +270,8 @@ public class FEditorLaberint extends JFrame{
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            this.setIcon(elementSeleccionat.getImatge());
-            laberint[x][y] = elementSeleccionat.getId();
+            this.setIcon(elementSeleccionat.obtenirImatge());
+            laberint[x][y] = elementSeleccionat.obtenirId();
         }
     }
 }

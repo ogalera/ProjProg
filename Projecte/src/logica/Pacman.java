@@ -5,10 +5,30 @@
  */
 package logica;
 
+import logica.enumeracions.EDireccio;
+
 /**
  *
  * @author oscar
  */
-public class Pacman {
+public class Pacman extends Personatge{
+
+    public Pacman(Laberint laberint, Punt inici, long millis) {
+        super(laberint, inici, millis);
+    }
+
+    @Override
+    public EDireccio calcularMoviment() {
+        return EDireccio.QUIET;
+    }
     
+    @Override
+    public String nomItemMovible(){
+        return "Pacman";
+    }
+    
+//    @Override
+//    public String nomItemMovible() {
+//        return "Pacman";
+//    }
 }

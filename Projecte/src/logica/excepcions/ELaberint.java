@@ -1,4 +1,4 @@
-package excepcions;
+package logica.excepcions;
 
 /**
  * @author oscar
@@ -6,8 +6,8 @@ package excepcions;
  * Llençarem aquesta excepció sempre que hi hagui un incompliment
  * en el laberint;
  */
-public class LaberintException extends RuntimeException{
-    public LaberintException(String missatge){
+public class ELaberint extends RuntimeException{
+    public ELaberint(String missatge){
         super(missatge);
     }
 }
