@@ -16,6 +16,15 @@ import java.io.IOException;
 import interficie.components.background;
 
 
+
+import logica.enumeracions.EElement;
+import logica.generadors_laberint.GeneradorLaberintAleatori;
+import logica.generadors_laberint.IGeneradorLaberint;
+import logica.log.Log;
+import logica.Partida;
+import logica.Projecte;
+
+
 /**
  *
  * @author Moi
@@ -101,7 +110,10 @@ public class FInici extends JFrame implements ActionListener {
             setTitle("boto ranking");
         }
         else if (e.getSource()==btnEntrar) {
-            setTitle("boto entrar");
+            Log log = Log.getInstance(Projecte.class);
+            IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(20, EElement.FANTASMA2);
+            Partida p = new Partida(generadorAleatori);
+            p.iniciarPartida();
         }
         else if (e.getSource()==btnAlta) {
             setTitle("boto alta");

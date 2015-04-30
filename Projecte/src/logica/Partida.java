@@ -11,6 +11,11 @@ import logica.excepcions.EFormatLaberint;
 import logica.excepcions.EIniciarPartida;
 import logica.generadors_laberint.IGeneradorLaberint;
 import logica.log.Log;
+import javax.swing.JFrame;
+import java.awt.event.KeyListener;
+import interficie.FPartida;
+import javax.swing.ImageIcon;
+
 
 /**
  * @author oscar
@@ -30,6 +35,11 @@ public class Partida {
      * Enemic controlat per la màquina;
      */
     private Personatge enemic;
+    
+    /**
+     * Frame per visualitzar per pantalla la partida
+     */
+    private JFrame pintador;
 
     /**
      * Instants de temps en que inicia i finalitza la partida (respectivament)
@@ -65,8 +75,19 @@ public class Partida {
                             +generadorLaberint.getClass().getCanonicalName());
         laberint = new Laberint(generadorLaberint, this);
         enemic = this.obtenirEnemic();
+        pacman = this.obtenirPacman();
+        creaPintadorPartida();
+        
+        
+        //pintador.addKeyListener((KeyListener)pacman);
+        
+        //pintador = new ProvaPartida(laberint.laberintDibuixat());
+        //************************************************
+        //OJU!! Aquest pintador millor com a parametre constructor o fem new??
+        //************************************************
+        //pintador = new FPartida();
     }
-    
+
     /**
      * @pre: el laberint té un únic enemic;
      * @post: em retornat l'enemic;
@@ -93,6 +114,13 @@ public class Partida {
         return enemic;
     }
     
+    private Personatge obtenirPacman(){
+        Punt posicioPacman = laberint.obtenirPosicioPacman();
+        pacman = new Pacman (laberint,posicioPacman, 500);
+       
+        return pacman;
+    }
+    
     /**
      * @pre:la partida no ha sigut iniciada anteriorment;
      * @post:em iniciat la partida juntament amb tots els seus elements;
@@ -103,6 +131,7 @@ public class Partida {
         momentInici = System.currentTimeMillis();
         log.afegirDebug("S'ha iniciat la partida a les "+Utils.obtenirHoraSistema());
         enemic.iniciarItemMovible();
+        pacman.iniciarItemMovible();
     }
     
     /**
@@ -131,5 +160,16 @@ public class Partida {
 //            fantasma.assignarGuanya(true);
 //        }
     }
+    
+   private void creaPintadorPartida(){
+       Punt puntPacman = laberint.obtenirPosicioPacman();
+       Punt puntFantasma = laberint.obtenirPosicioEnemic();
+       EElement pacman = laberint.obtenirElement(puntPacman);
+       EElement fantasma = laberint.obtenirElement(puntFantasma);
+       ImageIcon imgPacman = pacman.obtenirImatge();
+       ImageIcon imgFantasma = fantasma.obtenirImatge();
+       pintador = new FPartida(laberint.obtenirPintadorLaberint(), imgPacman, imgFantasma);
+       
+   }
     
 }

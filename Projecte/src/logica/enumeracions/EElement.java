@@ -61,6 +61,7 @@ public enum EElement {
         return this.esEnemic;
     }
     
+    
     public static EElement buscarElementPerId(int id){
         EElement element;
         if(id == MONEDA.obtenirId()) element = MONEDA;

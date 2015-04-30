@@ -1,11 +1,15 @@
 package logica;
 
+
 import interficie.FEditorLaberint;
 import logica.enumeracions.EElement;
 import logica.generadors_laberint.GeneradorLaberintAleatori;
 import logica.generadors_laberint.GeneradorLaberintLinealHoritzontal;
 import logica.generadors_laberint.IGeneradorLaberint;
 import logica.log.Log;
+import interficie.FInici;
+import interficie.FPartida;
+import java.io.IOException;
 
 /**
  *
@@ -17,10 +21,15 @@ public class Projecte {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        Log log = Log.getInstance(Projecte.class);
-        IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(5, EElement.FANTASMA2);
-        Partida p = new Partida(generadorAleatori);
-        p.iniciarPartida();
+        //Log log = Log.getInstance(Projecte.class);
+        //IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(20, EElement.FANTASMA2);
+        //generadorAleatori.toString();
+        //Partida p = new Partida(generadorAleatori);
+        //Laberint l = new Laberint(generadorAleatori, p );
+        //l.toString();
+        
+        //Partida p = new Partida(generadorAleatori);
+        //p.iniciarPartida();
 //        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
 //        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
 //        Laberint l = new Laberint(generadorAleatori);
@@ -47,13 +56,15 @@ public class Projecte {
         ////////////////////
         //Prova de Entorns//
         ////////////////////
-//        try{
-//            new FInici();
-//        }
-//        catch(IOException e){
-//            
-//        }
-        
+    
+        try{
+            //new FInici();
+            new FInici();
+        }
+        catch(IOException e){
+            
+        } 
+        //System.out.println(log.obtenirDebugsLog());
         
     }
     
