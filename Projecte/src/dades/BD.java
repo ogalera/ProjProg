@@ -12,6 +12,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import logica.Usuari;
 import logica.Utils;
 import logica.log.Log;
 
@@ -23,7 +25,8 @@ public class BD {
     public static final String PATH_BD = "raw/pacman.db";
     public static final String URL_BD = "jdbc:sqlite:"+PATH_BD;
     
-    public static void afegirRegistre(String user, String password, int nivell, int punts) throws IOException{
+    public static boolean afegirUsuari(String user, String password, String rutaImatge) throws IOException{
+        boolean operacioOK = false;
         boolean taulesCreades = true;
         Log log = Log.getInstance(BD.class);
         if(BD.esPrimerAcces()){
@@ -37,8 +40,13 @@ public class BD {
                 //Per temes de seguretat codifiquem el password;
                 String passCodificat = Utils.codificarCadena(password);
 
-                int i = afegirUsuari.executeUpdate(" INSERT INTO Usuaris (usu_nom, usu_pass)\n" +
-                                                    " VALUES ('"+user+"', '"+passCodificat+"')");
+                int resultatOperacio = afegirUsuari.executeUpdate(" INSERT INTO Usuaris (usu_nom, usu_pass, usu_ruta_imatge)\n" +
+                                                                    " VALUES ('"+user+"', '"+passCodificat+"', '"+rutaImatge+"')");
+                if(resultatOperacio > 0){
+                    resultatOperacio = afegirUsuari.executeUpdate(" INSERT INTO Punts (pnt_nivell, pnt_usu_id, pnt_punts)\n" +
+                                                                  " VALUES (1, (SELECT usu_id FROM usuaris WHERE usu_nom = '"+user+"'), 0)");
+                    operacioOK = resultatOperacio > 0 ;
+                }
                 log.afegirDebug("S'ha afegit l'usuari: "+user);
             }
             catch(SQLException exepcio){
@@ -48,37 +56,41 @@ public class BD {
         else{
             log.afegirError("No s'ha afegit l'usuari: "+user);
         }
+        return operacioOK;
     }
     
-    public static String[][] obtenirRanking(int topN){
+    public static Usuari[] obtenirRanking(int topN){
         Log log = Log.getInstance(BD.class);
-        String [][]resultat = null;
+        Usuari[] usuaris = null;
         boolean taulesCreades = true;
         if(BD.esPrimerAcces()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
-            String consulta = "SELECT SUM(p.pnt_punts) AS \"PUNTS\", u.usu_nom AS \"USUARI\"\n" +
+            String consulta = " SELECT SUM(p.pnt_punts) AS pnt_punts, u.usu_nom, u.usu_ruta_imatge\n" +
                                 " FROM punts p, usuaris u\n" +
                                 " WHERE u.usu_id = p.pnt_usu_id\n" +
-                                " GROUP BY u.usu_id, u.usu_nom\n" +
+                                " GROUP BY u.usu_id, u.usu_nom, usu_ruta_imatge\n" +
                                 " ORDER BY 1 DESC";
             try(Connection connexio = DriverManager.getConnection(URL_BD);
                 Statement consultarTopN = connexio.createStatement();
                 ResultSet rs = consultarTopN.executeQuery(consulta)){
-                resultat = new String [topN][2];
-                int i = 0; 
-                while(i < topN && rs.next()){
-                    resultat[i][0] = rs.getString("PUNTS");
-                    resultat[i][1] = rs.getString("USUARI");
-                    i++;
+                int n = 0; 
+                ArrayList<Usuari> tmp = new ArrayList<>();
+                while(n < topN && rs.next()){
+                    tmp.add(new Usuari(-1, rs.getString("usu_nom"), -1, rs.getString("usu_ruta_imatge")));
+                    n++;
+                }
+                usuaris = new Usuari[n];
+                for(int i = 0; i<  n; i++){
+                    usuaris[i] = tmp.get(i);
                 }
             }
             catch(SQLException excepcio){
                 log.afegirError("No em pogut obtenir el TOP "+topN+" missatge:\n"+excepcio.getMessage());
             }
         }
-        return resultat;
+        return usuaris;
     }
     
     public static boolean usuariRegistrat(String usuari){
@@ -109,6 +121,37 @@ public class BD {
         return usuariRegistrat;
     }
     
+    public static Usuari obtenirUsuari(String usu){
+        Usuari usuari = null;
+        Log log = Log.getInstance(BD.class);
+        boolean taulesCreades = true;
+        if(BD.esPrimerAcces()){
+            taulesCreades = crearTaules();
+        }
+        if(taulesCreades){
+            String consulta = "SELECT usu_id, usu_nom, usu_ruta_imatge, MAX(pnt_nivell) nivell\n" +
+                                " FROM usuaris,  punts\n" +
+                                " WHERE usu_nom = '"+usu+"' AND usu_id = pnt_usu_id\n" +
+                                " GROUP BY usu_id, usu_nom, usu_ruta_imatge";
+            try(Connection connexio = DriverManager.getConnection(URL_BD);
+                Statement consultarUsuari = connexio.createStatement();
+                ResultSet rs = consultarUsuari.executeQuery(consulta)){
+                if(rs.next()){
+                    int id = rs.getInt("usu_id");
+                    String nomUsuari = rs.getString("usu_nom");
+                    String rutaImatge = rs.getString("usu_ruta_imatge");
+                    int nivell = rs.getInt("nivell");
+                    usuari = new Usuari(id, nomUsuari, nivell, rutaImatge);
+                }
+                else log.afegirDebug("Usuari "+usu+" no registrat");
+            }
+            catch(SQLException excepcio){
+                log.afegirError("No em pogut consultar l'usuari "+usu+" missatge:\n"+excepcio.getMessage());
+            }
+        }
+        return usuari;
+    }
+    
     public static boolean esPrimerAcces(){
         File baseDades = new File(PATH_BD);
         return !baseDades.exists();
@@ -124,7 +167,8 @@ public class BD {
             creacioTaulaUsuaris.executeUpdate("CREATE TABLE Usuaris (\n" +
                                                 "  usu_id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                                                 "  usu_nom TEXT NOT NULL,\n" +
-                                                "  usu_pass TEXT NOT NULL)");
+                                                "  usu_pass TEXT NOT NULL,\n"+
+                                                "  usu_ruta_imatge TEXT NOT NULL)");
             creacioTaulaPunts.executeUpdate("CREATE TABLE Punts(\n" +
                                             " pnt_nivell INTEGER NOT NULL,\n" +
                                             " pnt_usu_id INTEGER NOT NULL,\n" +

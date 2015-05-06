@@ -14,12 +14,13 @@ import java.awt.Color;
 import interficie.components.Crono;
 import interficie.components.Marcador;
 import javax.swing.ImageIcon;
+import logica.Partida;
 
 /**
  *
  * @author Moises
  */
-public class FPartida extends JFrame{
+public class FPartida extends JFrame implements IPintadorPartida{
     
     private JPanel partEsquerra;
     private JPanel partDreta;
@@ -30,39 +31,44 @@ public class FPartida extends JFrame{
     private Marcador marcadorPacman;
     private Marcador marcadorEnemic;
     private Crono cronometre;
-    private FLaberint pintadorLaberint;
-   
-    
-    public FPartida(FLaberint _pintadorLaberint, ImageIcon imgPacman, ImageIcon imgEnemic){
 
+    public FPartida(FLaberint frameLaberint){
         this.getContentPane().setLayout(new BorderLayout());
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pintadorLaberint = _pintadorLaberint;
-        pintadorLaberint.setFocusable(true);//Per a que tingui el focus del keyListener
-        inicialitzaComponents(imgPacman, imgEnemic);
-        pintarPartida();
+        this.setFocusable(false);
+        cronometre = new Crono();
+    }
+    
+    public FPartida(FLaberint _pintadorLaberint, ImageIcon imgPacman, ImageIcon imgEnemic){
+        this.getContentPane().setLayout(new BorderLayout());
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        pintadorLaberint.setFocusable(true);//Per a que tingui el focus del keyListener
+        this.setFocusable(false);
+//        inicialitzaComponents(imgPacman, imgEnemic);
+//        pintarPartida();
         cronometre.iniciarCrono();
     }
+    
+    public FPartida(IPintadorLaberint pintadorLaberint){
+        
+    }
+    
 //    @Override
 //    public void pintarPartida(){
 //        setVisible(true);
 //        
 //    }
 
-     private void pintarPartida(){
-//       assignaDimensions();
-//       assignaImatges();
-        construeixPanells();
-        afegeixComponents();
-        setVisible(true);
-        
-    }
-    private void inicialitzaComponents(ImageIcon imgPacman, ImageIcon imgEnemic){
-        marcadorPacman = new Marcador(imgPacman);
-        marcadorEnemic= new Marcador(imgEnemic);
-        cronometre = new Crono();
-    }
+//    @Override
+//    public void pintarPartida(){
+////       assignaDimensions();
+////       assignaImatges();
+//        construeixPanells();
+//        afegeixComponents();
+//        setVisible(true);
+//    }
     private void afegeixComponents(){
 
         add(partEsquerra, BorderLayout.WEST);
@@ -107,7 +113,7 @@ public class FPartida extends JFrame{
         //partCentral.setLayout(new BoxLayout(partCentral, BoxLayout.Y_AXIS));
         //partCentral.setLayout(new FlowLayout());
         partCentral.setLayout(null);
-        partCentral.add(pintadorLaberint);
+//        partCentral.add(pintadorLaberint);
         partCentral.setBackground(Color.CYAN);
         //pintadorLaberint.setVisible(true);
 
@@ -115,9 +121,34 @@ public class FPartida extends JFrame{
     
     private void colocaLaberint(){
         Dimension centre = partCentral.getSize();
-        Dimension laberint = pintadorLaberint.getSize();
+//        Dimension laberint = pintadorLaberint.getSize();
         //pintadorLaberint.setLocation((centre.width - laberint.width) / 2, (centre.height - laberint.height) / 2);
-        pintadorLaberint.setLocation(100,10);
+//        pintadorLaberint.setLocation(100,10);
     }
-    
+
+    @Override
+    public void pintarPuntsPacman(int punts) {
+        marcadorPacman.canviarPuntuacio(punts);
+    }
+
+    @Override
+    public void pintarPuntsEnemic(int punts) {
+        marcadorEnemic.canviarPuntuacio(punts);
+    }
+
+    @Override
+    public void pintarPartida(Partida partida) {
+        marcadorPacman = new Marcador(partida.obtenirImatgePacman());
+        marcadorEnemic= new Marcador(partida.obtenirImatgeFantasma());
+    }
+
+    @Override
+    public void pintarFinalPartida() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void pintarIniciPartida() {
+        cronometre.iniciarCrono();
+    }
 }

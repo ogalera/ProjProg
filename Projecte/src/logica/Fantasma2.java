@@ -5,6 +5,7 @@
  */
 package logica;
 
+import logica.laberints.Laberint;
 import logica.enumeracions.EElement;
 import logica.enumeracions.EDireccio;
 
@@ -14,8 +15,8 @@ import logica.enumeracions.EDireccio;
 public class Fantasma2 extends Personatge{
     private boolean marxaEnrrere;
     
-    public Fantasma2(Laberint laberint, Punt inici, long millis) {
-        super(laberint, inici, millis);
+    public Fantasma2(Partida partida, Laberint laberint, Punt inici, long millis) {
+        super(partida, laberint, EElement.FANTASMA2.obtenirImatge(), inici, millis);
     }
 
     @Override
@@ -93,6 +94,7 @@ public class Fantasma2 extends Personatge{
         if(!marxaEnrrere){
             this.historicMoviments.afegirMoviment(super.seguentMoviment);
         }
+        partida.assignarPuntsEnemic(punts);
     }
     
     private int explorarDireccio(EDireccio direccio){

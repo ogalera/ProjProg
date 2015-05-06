@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica;
+package logica.laberints;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,10 +13,9 @@ import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
-import logica.generadors_laberint.IGeneradorLaberint;
 import interficie.IPintadorLaberint;
-import interficie.FLaberint;
-import java.awt.event.KeyListener;
+import logica.Partida;
+import logica.Punt;
 
 /**
  *
@@ -25,7 +24,7 @@ import java.awt.event.KeyListener;
 public class Laberint {
     protected EElement tauler[][];
     
-    protected final Log log = Log.getInstance(Laberint.class);
+    protected Log log = Log.getInstance(Laberint.class);
     
     protected int costat = -1;
     
@@ -33,7 +32,7 @@ public class Laberint {
     
     protected int nMonedes = 0;
     
-    protected FLaberint pintador;
+    protected IPintadorLaberint pintador;
     
     public Laberint(String fitxer, Partida partida) throws EFormatLaberint{
         log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
@@ -81,32 +80,12 @@ public class Laberint {
         this.partida = partida;
         this.nMonedes = numeroMonedes();
     }
-    public Laberint(IGeneradorLaberint generadorLaberint, Partida partida){
-        log.afegirDebug("Carreguem un laberint des de un generador de laberints de tipus "+generadorLaberint.getClass().getCanonicalName());
-        this.tauler = generadorLaberint.generarLaberint();
-        this.costat = tauler[0].length;
+    
+    protected Laberint(Partida partida){
         this.partida = partida;
-        this.nMonedes = numeroMonedes();
-        //************************************************
-        //OJU!! Aquest pintador millor com a parametre constructor o fem new??
-        //************************************************
-        this.pintador = new FLaberint(tauler);
-        pintador.pintarLaberint();
-        //FALTA VALIDAR LABERINT EN AQUEST PUNT!!!
-    }
-        
-        public Laberint(IGeneradorLaberint generadorLaberint, Partida partida, IPintadorLaberint painter){
-        log.afegirDebug("Carreguem un laberint des de un generador de laberints de tipus "+generadorLaberint.getClass().getCanonicalName());
-        this.tauler = generadorLaberint.generarLaberint();
-        this.costat = tauler[0].length;
-        this.partida = partida;
-        this.nMonedes = numeroMonedes();
-//        this.pintador = painter;
-//        pintador.pintarLaberint();
-        //FALTA VALIDAR LABERINT EN AQUEST PUNT!!!
     }
     
-    private int numeroMonedes(){
+    protected int numeroMonedes(){
         int numMonedes = 0;
         for(int i = 0; i < costat; i++){
             for(int j = 0; j < costat; j++){
@@ -175,10 +154,8 @@ public class Laberint {
         }
         this.tauler[y][x] = objecteAMoure;
         System.out.println(this);
-        pintador.pintarMoviment(origen, EOrigen, desti, Edesti);
+        pintador.pintarMoviment(origen, EOrigen, direccio, Edesti);
         return objecteAgafat;
-        
-       
     }
     
     private Punt sortejarSortida(){
@@ -233,11 +210,19 @@ public class Laberint {
         return posicio;
     }
     
-    public FLaberint obtenirPintadorLaberint(){
-        return pintador;
+//    public FLaberint obtenirPintadorLaberint(){
+//        return pintador;
+//    }
+//    
+//    public void addKeyListener(KeyListener listener){
+//        pintador.addKeyListener(listener);
+//    }
+    
+    public void assignarPintador(IPintadorLaberint pintador){
+        this.pintador = pintador;
     }
     
-    public void addKeyListener(KeyListener listener){
-        pintador.addKeyListener(listener);
+    public int obtenirMidaCostatTauler(){
+        return this.costat;
     }
 }

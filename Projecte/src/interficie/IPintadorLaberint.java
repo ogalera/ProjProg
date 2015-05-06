@@ -5,15 +5,18 @@
  */
 package interficie;
 
+import java.awt.event.KeyListener;
 import logica.enumeracions.EElement;
 import logica.Punt;
+import logica.enumeracions.EDireccio;
+import logica.laberints.Laberint;
 
 /**
  *
  * @author Moises
  */
-public interface IPintadorLaberint {
-    public void pintarMoviment(Punt a, EElement _a, Punt b, EElement _b);
-    public void pintarLaberint();
-    
+public interface IPintadorLaberint extends KeyListener{
+    public void pintarMoviment(Punt pOrigen, EElement eOrigen, EDireccio direccio, EElement eDesti);
+    public void pintarNouItem(Punt pNouItem, EElement nouItem);
+    public void pintarLaberint(Laberint laberint);
 }

@@ -5,6 +5,8 @@
  */
 package logica;
 
+import javax.swing.ImageIcon;
+import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 import logica.log.Log;
@@ -15,12 +17,20 @@ import logica.log.Log;
  */
 public class Fantasma1 extends Personatge{
     private final Log log;
+    private final ImageIcon imatgeFantasma;
     
-    public Fantasma1(Laberint laberint, Punt inici, long millis) {
-        super(laberint, inici, millis);
+    public Fantasma1(Partida partida, Laberint laberint, Punt inici, long millis) {
+        super(partida, laberint, EElement.FANTASMA1.obtenirImatge(), inici, millis);
         log = Log.getInstance(Fantasma1.class);
+        this.imatgeFantasma = EElement.FANTASMA1.obtenirImatge();
     }
 
+    @Override
+    public void realitzarMoviment(){
+        super.realitzarMoviment();
+        partida.assignarPuntsEnemic(punts);
+    }
+    
     @Override
     public EDireccio calcularMoviment() {
         EDireccio moviment;

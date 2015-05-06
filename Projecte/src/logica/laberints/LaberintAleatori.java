@@ -3,64 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica.generadors_laberint;
+package logica.laberints;
 
-import logica.excepcions.ELaberint;
+import interficie.FLaberint;
 import java.util.Random;
-import logica.log.Log;
-import logica.enumeracions.EElement;
+import logica.Partida;
 import logica.Punt;
 import logica.ValidadorLaberint;
 import logica.enumeracions.EDireccio;
+import logica.enumeracions.EElement;
+import logica.excepcions.ELaberint;
+import logica.log.Log;
 
 /**
  *
  * @author oscar
  */
-public class GeneradorLaberintAleatori implements IGeneradorLaberint{
-    /**
-     *  EXEMPLE DE LABERINT ALEATORI 15 X 15
-        P O O O O O X O X X O X O X X 
-        X X O O O X O O O O O O O X O 
-        O O O O O O X X O X O O O O O 
-        O O O O O O O O O O O O O X O 
-        O O X O X O X O X X O X X X O 
-        X O O X X O O O X O O X X O O 
-        X O X X O X X O O O O O O O O 
-        X O X O O X X O O O O O O O O 
-        X O O O O O X X O X O O X O X 
-        O O O O X X O O O O X O O O O 
-        O O X O O X O O O O O O O X X 
-        O O O O O O O O O O X O O X X 
-        O O O O O X O X O O O O X X O 
-        O X X O O O X O O O X O O X O 
-        O X O O O X X O O X X O O O A 
-    */
-    
-    /**
-    * Costat del laberint, tot laberint ha de ser quadrat;
-    */
-    private final int costat;
-    
-    /**
-     * Enemic que estarà en l'extrem inferior dret (casella [costat-1, costat-1])
-     */
-    private final EElement enemic;
-    
-    public GeneradorLaberintAleatori(int costat, EElement enemic){
+public class LaberintAleatori extends Laberint{
+    public LaberintAleatori(Partida partida, int costat, EElement enemic){
+        super(partida);
+        log = Log.getInstance(LaberintAleatori.class);
         if(costat < 5) throw new ELaberint("La mida minima del costat del laberint és 5");
         if(!enemic.esEnemic()) throw new ELaberint("Hi ha de haver un enemic en el laberint");
+        if(costat %2 == 0) throw new ELaberint("Els laberints lineals han de tenir un costat senar");
         this.costat = costat;
-        this.enemic = enemic;
+        generarLaberint(enemic);
+        this.nMonedes = numeroMonedes();
+        this.pintador = new FLaberint(tauler);
     }
-    
-    @Override
-    public EElement[][] generarLaberint() {
-        Log log = Log.getInstance(GeneradorLaberintAleatori.class);
+    private EElement[][] generarLaberint(EElement enemic) {
         log.afegirDebug("Procedim a generar un laberint aleatori de "+costat+"X"+costat);
         long tempsInici = System.currentTimeMillis();
         
-        EElement [][] tauler = new EElement[costat][costat];
+        tauler = new EElement[costat][costat];
         
         int nCandidats = 2;
         Punt[] candidats = new Punt[costat*costat];

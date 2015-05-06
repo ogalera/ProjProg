@@ -5,6 +5,7 @@
  */
 package logica;
 
+import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,13 +19,19 @@ public class Pacman extends Personatge implements KeyListener{
     
     private EDireccio teclaPremuda;
     
-    public Pacman(Laberint laberint, Punt inici, long millis) {
-        super(laberint, inici, millis);
+    public Pacman(Partida partida, Laberint laberint, Punt inici, long millis) {
+        super(partida, laberint, EElement.PACMAN.obtenirImatge(), inici, millis);
         super.seguentMoviment = EDireccio.QUIET;
-        laberint.addKeyListener(this);
+//        laberint.addKeyListener(this);
         teclaPremuda = EDireccio.QUIET;
     }
 
+    @Override
+    public void realitzarMoviment(){
+        super.realitzarMoviment();
+        partida.assignarPuntsPacman(punts);
+    }
+    
     @Override
     public EDireccio calcularMoviment() {
         if (teclaPremuda == null)teclaPremuda = EDireccio.QUIET;
@@ -46,12 +53,6 @@ public class Pacman extends Personatge implements KeyListener{
     public String nomItemMovible(){
         return "Pacman";
     }
-    
-    public void realitzarMoviment(){
-        super.realitzarMoviment();
-    }
-    
-
 
     @Override
     public void keyPressed(KeyEvent e) {

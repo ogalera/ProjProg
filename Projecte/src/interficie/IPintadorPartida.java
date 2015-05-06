@@ -5,11 +5,16 @@
  */
 package interficie;
 
+import logica.Partida;
+
 /**
  *
  * @author Moises
  */
 public interface IPintadorPartida{
-    public void pintarPartida();
-    
+    public void pintarPuntsPacman(int punts);
+    public void pintarPuntsEnemic(int punts);
+    public void pintarPartida(Partida partida);
+    public void pintarFinalPartida();
+    public void pintarIniciPartida();
 }

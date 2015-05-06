@@ -5,6 +5,7 @@
  */
 package logica;
 
+import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 

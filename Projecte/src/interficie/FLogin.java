@@ -4,15 +4,11 @@
  * and open the template in the editor.
  */
 package interficie;
+import dades.BD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import interficie.components.background;
 import interficie.components.Boto;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -23,23 +19,21 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 
-import logica.enumeracions.EElement;
-import logica.generadors_laberint.GeneradorLaberintAleatori;
-import logica.generadors_laberint.IGeneradorLaberint;
+import logica.Usuari;
 import logica.log.Log;
-import logica.Partida;
-import logica.Projecte;
 
 
 /**
  *
  * @author Moi
  */
-public class FInici extends JFrame implements ActionListener {
+public class FLogin extends FFrameAmbLog implements ActionListener {
     private static final int ALTURA_BOTO=6; // El tant per cent respecte el tamany de pantalla que volem que sigui la altura dels botons
     private static final int AMPLADA_BOTO=12; //El tant per cent respecte el tamany de pantalla que volem que sigui la amplada dels botons
     private static final Dimension DIMENSIO_MIN_BUTTONS = new Dimension(100, 30);
     private static final Dimension  DIMENSIO_MAX_BUTTONS = new Dimension(250,80);
+    
+    private static Usuari usuari;
     
     Boto btnAlta;
     Boto btnEntrar;
@@ -49,8 +43,6 @@ public class FInici extends JFrame implements ActionListener {
     JTextField campUsuari;
     JPasswordField campPass;
     
-    JPanel panellLogin;
-    JPanel panellButtons;
     
     JPanel panellInferior;
     
@@ -59,8 +51,9 @@ public class FInici extends JFrame implements ActionListener {
 
     
     
-    public FInici() throws IOException{
+    public FLogin() throws IOException{
        super();
+       Log log = Log.getInstance(FLogin.class);
        creaFinestra();
        //creaButons();
        this.repaint();
@@ -121,7 +114,7 @@ public class FInici extends JFrame implements ActionListener {
 //        setResizable(false);
 //    }
     
-    private void creaButtons2(){
+    private void crearBotons(){
         int alturaBoto= (ALTURA_BOTO * this.getHeight()) / 100;
         int ampladaBoto = (AMPLADA_BOTO * this.getWidth()) / 100;
         
@@ -130,8 +123,6 @@ public class FInici extends JFrame implements ActionListener {
         btnEntrar.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
         btnEntrar.setMinimumSize(DIMENSIO_MIN_BUTTONS);
         btnEntrar.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-
         
         //btnAlta = new Boto(new ImageIcon("res/btnAlta.png"));
         btnAlta = new Boto("ALTA");
@@ -177,18 +168,18 @@ public class FInici extends JFrame implements ActionListener {
         panellInferior = new JPanel();
         panellInferior.setLayout(new FlowLayout());
 
-        panellLogin = new JPanel();
+        JPanel panellLogin = new JPanel();
         panellLogin.setLayout(new BoxLayout(panellLogin, BoxLayout.Y_AXIS));
         //creaTextFields();
-        creaButtons2();
+        crearBotons();
         //panellLogin.add(campUsuari);
         //panellLogin.add(campPass);
         panellLogin.add(btnEntrar);
         panellLogin.add(btnAlta);
         panellLogin.add(btnRanking);
         panellLogin.add(btnSortir);
-        
-        panellInferior.add(panellLogin);
+        this.add(panellLogin);
+        //panellInferior.add(panellLogin);
  
         
         
@@ -224,23 +215,37 @@ public class FInici extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        super.actionPerformed(e);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
         if (e.getSource()==btnRanking) {
             setTitle("boto ranking");
+            new FRanking().mostrarFrame();
         }
         else if (e.getSource()==btnEntrar) {
-            Log log = Log.getInstance(Projecte.class);
-            IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(15, EElement.FANTASMA2);
-            Partida p = new Partida(generadorAleatori);
-            p.iniciarPartida();
+            String user = "kobe";
+            usuari = BD.obtenirUsuari(user);
+            if(usuari != null){
+                new FMenu().mostrarFrame();
+            }
+//            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI, 15, EElement.FANTASMA2);
+//            Laberint laberint = partida.obtenirLaberint();
+//            FLaberint fLaberint = new FLaberint(laberint);
+//            FPartida fPartida = new FPartida(fLaberint);
+//            partida.assignarPintador(fPartida);
+//            partida.iniciarPartida();
         }
         else if (e.getSource()==btnAlta) {
-            setTitle("boto alta");
+            new FAlta().mostrarFrame();
         } 
         else if (e.getSource() == btnSortir){
+            dispose();
             System.exit(0);
         }
+    }
+    
+    public static Usuari obtenirUsuari(){
+        return usuari;
     }
     
 }

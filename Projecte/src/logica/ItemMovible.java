@@ -5,6 +5,7 @@
  */
 package logica;
 
+import logica.laberints.Laberint;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;

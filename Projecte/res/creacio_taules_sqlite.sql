@@ -6,7 +6,8 @@ DROP TABLE Punts;
 CREATE TABLE Usuaris (
   usu_id INTEGER PRIMARY KEY AUTOINCREMENT,
   usu_nom TEXT NOT NULL,
-  usu_pass TEXT NOT NULL);
+  usu_pass TEXT NOT NULL,
+  usu_path_imatge TEXT NOT NULL);
   
 --TAULA PER PORTAR UN REGISTRE DELS PUNTS DE CADA USUARI;
 CREATE TABLE Punts(
@@ -43,5 +44,9 @@ CREATE TABLE Punts(
 					WHERE usu_nom = 'oscar')
  
  SELECT * FROM USUARIS
+ 
+ SELECT usu_id, usu_nom, usu_ruta_imatge, nivell
+ FROM usuaris,  (SELECT MAX(pnt_nivell) FROM punts where pnt_usu_id = usu_id)
+ where usu_nom = 'Oscar'
  
  SELECT * FROM PUNTS

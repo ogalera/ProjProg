@@ -83,4 +83,19 @@ public class Marcador extends JPanel {
         Border border = LineBorder.createGrayLineBorder();
         puntuacio.setBorder(border);
     }
+    
+    public void canviarPuntuacio(int p){
+        String pnt;
+        if(p < 10){
+            pnt="000"+p;
+        }
+        else if(p < 100){
+            pnt="00"+p;
+        }
+        else if(p < 100){
+            pnt="0"+p;
+        }
+        else pnt = p+"";
+        this.puntuacio.setText(pnt);
+    }
 }

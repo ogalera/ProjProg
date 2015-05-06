@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica;
+package logica.laberints;
 
-import logica.Laberint;
+import logica.laberints.Laberint;
 import logica.enumeracions.EElement;
 import java.util.*;
 import java.util.Random;
+import logica.Partida;
+import logica.Punt;
 
 /**
  *

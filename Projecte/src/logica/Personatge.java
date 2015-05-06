@@ -5,6 +5,8 @@
  */
 package logica;
 
+import javax.swing.ImageIcon;
+import logica.laberints.Laberint;
 import logica.historic_moviments.HistoricMoviments;
 
 /**
@@ -14,10 +16,14 @@ import logica.historic_moviments.HistoricMoviments;
 public abstract class Personatge extends ItemMovible{
     protected HistoricMoviments historicMoviments;
     protected int punts;
+    protected Partida partida;
     private boolean guanya;
+    private final ImageIcon imatge;
     
-    public Personatge(Laberint laberint, Punt inici, long millis) {
+    public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici, long millis) {
         super(laberint, inici, millis);
+        this.imatge = imatge;
+        this.partida = partida;
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;
     }
@@ -32,5 +38,9 @@ public abstract class Personatge extends ItemMovible{
     
     public boolean estaGuanyant(){
         return this.guanya;
+    }
+    
+    public ImageIcon obtenirImarge(){
+        return imatge;
     }
 }

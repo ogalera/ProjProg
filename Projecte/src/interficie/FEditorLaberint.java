@@ -5,6 +5,7 @@
  */
 package interficie;
 
+import java.awt.Dimension;
 import logica.log.Log;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,15 +14,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -37,27 +37,14 @@ public class FEditorLaberint extends JFrame{
     private JButton btnPacman, btnFantasma, btnParet, btnMoneda, btnItemSeleccionat;
     private JButton btnValidar;
     private final int [][] laberint;
-    private Log log;
+    private final Log log;
     private EElement elementSeleccionat = EElement.RES;
     private int costat;
     
     public FEditorLaberint(int costat){
-        super("Editor de laberints");
-        
         log = Log.getInstance(FEditorLaberint.class);
         
         this.laberint = new int[costat][costat];
-        
-        JMenuBar menu = new JMenuBar();
-        JMenu fitxer = new JMenu("Fitxer");
-        JMenuItem importar = new JMenuItem("Importar laberint");
-        fitxer.add(importar);
-        fitxer.addSeparator();
-        JMenuItem sortir = new JMenuItem("Sortir");
-        fitxer.add(sortir);
-        menu.add(fitxer);
-        this.setJMenuBar(menu);
-        
         
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
@@ -73,6 +60,9 @@ public class FEditorLaberint extends JFrame{
         sp.add(crearContingut(costat));
         this.add(sp);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    }
+    
+    public void mostrarFrame(){
         this.setVisible(true);
     }
     
@@ -82,9 +72,13 @@ public class FEditorLaberint extends JFrame{
         contingut.setLayout(new BoxLayout(contingut, BoxLayout.Y_AXIS));
         JPanel panellLaberint = new JPanel();
         panellLaberint.setLayout(new GridLayout(costat, costat,4, 4));
+        Dimension dimensio = panellLaberint.getSize();
+        int llargadaCasella = dimensio.height/costat;
+        int ampladaCasella = dimensio.width/costat;
         for(int i = 0; i < costat; i++){
             for(int j = 0; j < costat; j++){
-                BtnCasella b = new BtnCasella(i, j);
+                btnCasella b = new btnCasella(i, j);
+                b.setPreferredSize(new Dimension(ampladaCasella, llargadaCasella));
                 b.setContentAreaFilled(false);
                 panellLaberint.add(b);
                 laberint[i][j] = EElement.RES.obtenirId();
@@ -204,19 +198,29 @@ public class FEditorLaberint extends JFrame{
         
         private void exportarLaberint(){
             JFileChooser fc = new JFileChooser();
-            fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            int resultat = fc.showDialog(FEditorLaberint.this, "ok");
+            fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int resultat = fc.showDialog(FEditorLaberint.this, "Exportar laberint");
             if(resultat == JFileChooser.APPROVE_OPTION){
                 File fitxer = fc.getCurrentDirectory();
-                JOptionPane.showMessageDialog(FEditorLaberint.this, fitxer.getAbsolutePath(),"Operacio valida",JOptionPane.INFORMATION_MESSAGE);
-                this.exportarFitxer(fitxer.getAbsolutePath()+"/aaa.txt");
-            }
-            else{
-                JOptionPane.showMessageDialog(FEditorLaberint.this, "Error al exportar el laberint","FAIL",JOptionPane.ERROR_MESSAGE);
+                SimpleDateFormat sdf = new SimpleDateFormat("_dd_MM_yyyy_kk_mm");
+                String marcaTemps = sdf.format(new Date());
+                String desti = fitxer.getPath()+"/"+fitxer.getName()+"/laberint"+marcaTemps+".txt";
+                boolean operacio = this.exportarFitxer(desti);
+                if(operacio){
+                    JOptionPane.showMessageDialog(FEditorLaberint.this,
+                                                "S'ha exportat el mapa correctament a "+desti,
+                                                "Mapa exportar correctament!",JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(FEditorLaberint.this,
+                            "Hi ha hagut un error al exportar el mapa\nverifiqui el log",
+                            "Error al exportar el mapa",JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
         
-        public void exportarFitxer(String fitxer){
+        public boolean exportarFitxer(String fitxer){
+            boolean operacio = true;
             try(BufferedWriter bw = new BufferedWriter(new FileWriter(fitxer))){
                 for(int i = 0; i < costat; i++){
                     StringBuilder stringBuilder = new StringBuilder();
@@ -230,7 +234,9 @@ public class FEditorLaberint extends JFrame{
             }
             catch(IOException ioe){
                 log.afegirError(ioe.getMessage());
+                operacio = false;
             }
+            return operacio;
         }
     }
     
@@ -242,7 +248,7 @@ public class FEditorLaberint extends JFrame{
      * seleccionada i també assignara el valor pertinent a la casella del
      * laberint;
      */
-    private class BtnCasella extends JButton implements ActionListener{
+    private class btnCasella extends JButton implements ActionListener{
         /**
          * Coordenades de la casella;
          */
@@ -255,7 +261,7 @@ public class FEditorLaberint extends JFrame{
          * @param x
          * @param y 
          */
-        public BtnCasella(int x, int y){
+        public btnCasella(int x, int y){
             this.x = x;
             this.y = y;
             this.addActionListener(this);

@@ -1,15 +1,9 @@
 package logica;
 
 
-import interficie.FEditorLaberint;
-import logica.enumeracions.EElement;
-import logica.generadors_laberint.GeneradorLaberintAleatori;
-import logica.generadors_laberint.GeneradorLaberintLinealHoritzontal;
-import logica.generadors_laberint.IGeneradorLaberint;
-import logica.log.Log;
-import interficie.FInici;
-import interficie.FPartida;
+import interficie.FLogin;
 import java.io.IOException;
+import java.net.InetAddress;
 
 /**
  *
@@ -20,7 +14,7 @@ public class Projecte {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         //Log log = Log.getInstance(Projecte.class);
         //IGeneradorLaberint generadorAleatori = new GeneradorLaberintAleatori(20, EElement.FANTASMA2);
         //generadorAleatori.toString();
@@ -56,14 +50,21 @@ public class Projecte {
         ////////////////////
         //Prova de Entorns//
         ////////////////////
-    
-        try{
-            //new FInici();
-            new FInici();
-        }
-        catch(IOException e){
-            
-        } 
+        InetAddress ia = InetAddress.getLocalHost();
+//        System.out.println(ia.getHostAddress());
+//        int a  = 3;
+//        int b = a;
+//        try(ServerSocket ss = new ServerSocket(9988);
+//            Socket s = ss.accept();
+//            BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+//            PrintWriter pw = new PrintWriter(s.getOutputStream())){
+//            System.out.println(br.readLine());
+//            pw.write("JA POTS COMENSAR");
+//        }
+//        catch(IOException e){
+//            System.out.println("ERROR MISSATGE "+e.getMessage());
+//        } 
+        new FLogin();
         //System.out.println(log.obtenirDebugsLog());
         
     }
