@@ -15,8 +15,7 @@ public class Utils{
         public static final int MIDA_IMATGE = 100;
         public static final String rutaImatgeDefecteUsuari = "res/imatge_perfil.png";
         public static final int PORT = 9988;
-        public static final int FREQUENCIA_PACMAN_EN_MILISEGONS = 500;
-        public static final int FREQUENCIA_FANTASMA_EN_MILISEGONS = 500;
+        public static final int FREQUENCIA_ITEM_MOVIBLE = 500;
     }
     
     /**

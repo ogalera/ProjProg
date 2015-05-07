@@ -29,11 +29,11 @@ public abstract class ItemMovible {
     private long frequencia;
     private boolean iniciat = false;
     
-    public ItemMovible(Laberint laberint, Punt inici, long frequencia){
+    public ItemMovible(Laberint laberint, Punt inici){
         this.laberint = laberint;
         this.posicio = inici;
         this.random = new Random(System.currentTimeMillis());
-        this.frequencia = frequencia;
+        this.frequencia = Utils.Constants.FREQUENCIA_ITEM_MOVIBLE;
         temporitzador = new Timer("Thread "+this.nomItemMovible());
         
         ++nItems;

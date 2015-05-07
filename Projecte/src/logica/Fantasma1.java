@@ -19,8 +19,8 @@ public class Fantasma1 extends Personatge{
     private final Log log;
     private final ImageIcon imatgeFantasma;
     
-    public Fantasma1(Partida partida, Laberint laberint, Punt inici, long millis) {
-        super(partida, laberint, EElement.FANTASMA1.obtenirImatge(), inici, millis);
+    public Fantasma1(Partida partida, Laberint laberint, Punt inici) {
+        super(partida, laberint, EElement.FANTASMA1.obtenirImatge(), inici);
         log = Log.getInstance(Fantasma1.class);
         this.imatgeFantasma = EElement.FANTASMA1.obtenirImatge();
     }

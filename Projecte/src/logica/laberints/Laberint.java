@@ -14,6 +14,7 @@ import logica.enumeracions.EElement;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
+import java.awt.event.KeyListener;
 import logica.Partida;
 import logica.Punt;
 
@@ -214,9 +215,9 @@ public class Laberint {
 //        return pintador;
 //    }
 //    
-//    public void addKeyListener(KeyListener listener){
-//        pintador.addKeyListener(listener);
-//    }
+    public void assignarControladorTeclat(KeyListener listener){
+        pintador.assignarControladorTeclat(listener);
+    }
     
     public void assignarPintador(IPintadorLaberint pintador){
         this.pintador = pintador;

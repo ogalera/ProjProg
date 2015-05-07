@@ -16,8 +16,8 @@ import logica.enumeracions.EElement;
 public class Item extends ItemMovible {
     private EElement tipusElement;
     
-    public Item(Laberint laberint, Punt inici, long millis) {
-        super(laberint, inici, millis);
+    public Item(Laberint laberint, Punt inici){
+        super(laberint, inici);
     }
 
     @Override

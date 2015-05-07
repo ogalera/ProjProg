@@ -20,8 +20,8 @@ public abstract class Personatge extends ItemMovible{
     private boolean guanya;
     private final ImageIcon imatge;
     
-    public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici, long millis) {
-        super(laberint, inici, millis);
+    public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
+        super(laberint, inici);
         this.imatge = imatge;
         this.partida = partida;
         this.historicMoviments = new HistoricMoviments();

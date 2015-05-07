@@ -16,6 +16,7 @@ import logica.laberints.Laberint;
  * @author Moises
  */
 public interface IPintadorLaberint extends KeyListener{
+    public void assignarControladorTeclat(KeyListener controlador);
     public void pintarMoviment(Punt pOrigen, EElement eOrigen, EDireccio direccio, EElement eDesti);
     public void pintarNouItem(Punt pNouItem, EElement nouItem);
     public void pintarLaberint(Laberint laberint);

@@ -16,8 +16,8 @@ import logica.enumeracions.EElement;
 public class Fantasma3 extends Personatge{
     private boolean marxaEnrrere;
     
-    public Fantasma3(Partida partida, Laberint laberint, Punt inici, long millis) {
-        super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici, millis);
+    public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
+        super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
     }
 
     @Override

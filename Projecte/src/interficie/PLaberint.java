@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import logica.enumeracions.EElement;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -193,6 +194,11 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
                 this.add(laberintGrafic[i][j]);
             }
         }  
+    }
+
+    @Override
+    public void assignarControladorTeclat(KeyListener controlador) {
+        this.addKeyListener(controlador);
     }
 }
 

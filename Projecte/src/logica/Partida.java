@@ -14,6 +14,7 @@ import logica.log.Log;
 import interficie.IPintadorLaberint;
 import interficie.IPintadorPartida;
 import javax.swing.ImageIcon;
+import logica.controladors_pacman.IControlador;
 import logica.enumeracions.ELaberintsPredefinits;
 import logica.laberints.LaberintAleatori;
 import logica.laberints.LaberintLinealHoritzontal;
@@ -72,7 +73,7 @@ public class Partida {
         enemic = this.obtenirEnemic();
     }
     
-    public Partida(ELaberintsPredefinits laberint, int costat, EElement enemic){
+    public Partida(ELaberintsPredefinits laberint, int costat, EElement enemic, IControlador controlador){
         log = Log.getInstance(Partida.class);
         switch(laberint){
             case LABERINT_LINEAL_HORITZONTAL:{
@@ -86,7 +87,7 @@ public class Partida {
             }break;
         }
         this.enemic = obtenirEnemic();
-        this.pacman = obtenirPacman();
+        this.pacman = obtenirPacman(controlador);
     }
     
     public void assignarPintadors(IPintadorPartida pintadorPartida, IPintadorLaberint pintadorLaberint){
@@ -104,24 +105,24 @@ public class Partida {
         switch(tipusEnemic){
             case FANTASMA1:{
                 //Tenim un enemic de tipus FANTASMA1
-                enemic = new Fantasma1(this, laberint, posicioFantasma, Utils.Constants.FREQUENCIA_FANTASMA_EN_MILISEGONS);
+                enemic = new Fantasma1(this, laberint, posicioFantasma);
             }break;
             case FANTASMA2:{
                 //Tenim un enemic de tipus FANTASMA2
-                enemic = new Fantasma2(this, laberint, posicioFantasma, Utils.Constants.FREQUENCIA_FANTASMA_EN_MILISEGONS);
+                enemic = new Fantasma2(this, laberint, posicioFantasma);
             }break;
             case FANTASMA3:{
                 //Tenim un enemic de tipus FANTASMA3
-                enemic = new Fantasma3(this, laberint, posicioFantasma, Utils.Constants.FREQUENCIA_FANTASMA_EN_MILISEGONS);
+                enemic = new Fantasma3(this, laberint, posicioFantasma);
             }
         }
         log.afegirDebug("L'enemic es de tipus "+enemic+" i esta en la posicio "+posicioFantasma);
         return enemic;
     }
     
-    private Personatge obtenirPacman(){
+    private Personatge obtenirPacman(IControlador controlador){
         Punt posicioPacman = laberint.obtenirPosicioPacman();
-        pacman = new Pacman (this, laberint, posicioPacman, Utils.Constants.FREQUENCIA_PACMAN_EN_MILISEGONS);
+        pacman = new Pacman (this, laberint, controlador, posicioPacman);
         return pacman;
     }
     

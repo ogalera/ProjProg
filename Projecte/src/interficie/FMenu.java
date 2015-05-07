@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import logica.Partida;
 import logica.Usuari;
+import logica.controladors_pacman.ControladorTeclatGrafic;
+import logica.controladors_pacman.IControlador;
 import logica.enumeracions.EElement;
 import logica.enumeracions.ELaberintsPredefinits;
 
@@ -164,7 +166,8 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         if(e.getSource() == btnAventura){
-            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI, 5, EElement.FANTASMA2);
+            IControlador controlador = new ControladorTeclatGrafic();
+            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI, 5, EElement.FANTASMA2, controlador);
             PLaberint fLaberint = new PLaberint();
             FPartida fPartida = new FPartida(fLaberint);
             partida.assignarPintadors(fPartida, fLaberint);
