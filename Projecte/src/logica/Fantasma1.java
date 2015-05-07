@@ -26,9 +26,18 @@ public class Fantasma1 extends Personatge{
     }
 
     @Override
-    public void realitzarMoviment(){
-        super.realitzarMoviment();
+    public EElement realitzarMoviment(){
+        EElement elementObtingut = super.realitzarMoviment();
+        switch(elementObtingut){
+            case MONEDA:{
+                this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+            }break;
+            case MONEDA_EXTRA:{
+                this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+            }break;
+        }
         partida.assignarPuntsEnemic(punts);
+        return elementObtingut;
     }
     
     @Override

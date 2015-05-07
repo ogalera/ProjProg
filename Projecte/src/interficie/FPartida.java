@@ -13,7 +13,6 @@ import javax.swing.BoxLayout;
 import java.awt.Color;
 import interficie.components.Crono;
 import interficie.components.Marcador;
-import javax.swing.ImageIcon;
 import logica.Partida;
 
 /**
@@ -30,29 +29,16 @@ public class FPartida extends JFrame implements IPintadorPartida{
     
     private Marcador marcadorPacman;
     private Marcador marcadorEnemic;
-    private Crono cronometre;
+    private final Crono cronometre;
 
-    public FPartida(FLaberint frameLaberint){
-        this.getContentPane().setLayout(new BorderLayout());
+    public FPartida(PLaberint panellLaberint){
+        getContentPane().setLayout(new BorderLayout());
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.add(panellLaberint, BorderLayout.CENTER);
         this.setFocusable(false);
         cronometre = new Crono();
-    }
-    
-    public FPartida(FLaberint _pintadorLaberint, ImageIcon imgPacman, ImageIcon imgEnemic){
-        this.getContentPane().setLayout(new BorderLayout());
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        pintadorLaberint.setFocusable(true);//Per a que tingui el focus del keyListener
-        this.setFocusable(false);
-//        inicialitzaComponents(imgPacman, imgEnemic);
-//        pintarPartida();
-        cronometre.iniciarCrono();
-    }
-    
-    public FPartida(IPintadorLaberint pintadorLaberint){
-        
+        this.add(cronometre, BorderLayout.SOUTH);
     }
     
 //    @Override
@@ -140,6 +126,9 @@ public class FPartida extends JFrame implements IPintadorPartida{
     public void pintarPartida(Partida partida) {
         marcadorPacman = new Marcador(partida.obtenirImatgePacman());
         marcadorEnemic= new Marcador(partida.obtenirImatgeFantasma());
+        this.add(marcadorPacman, BorderLayout.WEST);
+        this.add(marcadorEnemic, BorderLayout.EAST);
+        this.setVisible(true);
     }
 
     @Override

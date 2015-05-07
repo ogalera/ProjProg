@@ -5,7 +5,7 @@
  */
 package logica.laberints;
 
-import interficie.FLaberint;
+import interficie.PLaberint;
 import logica.Partida;
 import logica.enumeracions.EElement;
 import logica.excepcions.ELaberint;
@@ -25,7 +25,6 @@ public class LaberintLinealHoritzontal extends Laberint{
         this.costat = costat;
         this.generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
-        this.pintador = new FLaberint(tauler);
     }
     
     private EElement[][] generarLaberint(EElement enemic) {

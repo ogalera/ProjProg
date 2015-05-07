@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import logica.enumeracions.EDireccio;
+import logica.enumeracions.EElement;
 import logica.excepcions.EItemMovibleIniciat;
 
 /**
@@ -47,9 +48,10 @@ public abstract class ItemMovible {
         temporitzador.scheduleAtFixedRate(tascaAplicarMoviment, 0, frequencia);
     }
     
-    public void realitzarMoviment(){
-        laberint.anotarElement(posicio, seguentMoviment);
+    public EElement realitzarMoviment(){
+        EElement elementObtingut = laberint.anotarElement(posicio, seguentMoviment);
         posicio = posicio.generarPuntDesplasat(seguentMoviment);
+        return elementObtingut;
     }
     
     protected void canviarFrequenciaMoviment(long frequencia){

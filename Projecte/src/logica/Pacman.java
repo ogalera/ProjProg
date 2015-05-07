@@ -27,9 +27,10 @@ public class Pacman extends Personatge implements KeyListener{
     }
 
     @Override
-    public void realitzarMoviment(){
-        super.realitzarMoviment();
+    public EElement realitzarMoviment(){
+        EElement elementObtingut = super.realitzarMoviment();
         partida.assignarPuntsPacman(punts);
+        return elementObtingut;
     }
     
     @Override

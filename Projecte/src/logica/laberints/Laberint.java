@@ -39,7 +39,7 @@ public class Laberint {
         File f = new File(fitxer);
         this.partida = partida;
         try(BufferedReader br = new BufferedReader(new FileReader(f))){
-            String linia = null;
+            String linia;
             if((linia = br.readLine()) != null){
                 this.costat = linia.split(" ").length;
                 this.tauler = new EElement[costat][costat];
@@ -224,5 +224,11 @@ public class Laberint {
     
     public int obtenirMidaCostatTauler(){
         return this.costat;
+    }
+    
+    
+    public void pintarLaberint(){
+        if(pintador == null) log.afegirError("No hi ha pintador!");
+        pintador.pintarLaberint(this);
     }
 }

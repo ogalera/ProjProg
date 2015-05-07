@@ -32,7 +32,7 @@ public class FLogin extends FFrameAmbLog implements ActionListener {
     private static final int AMPLADA_BOTO=12; //El tant per cent respecte el tamany de pantalla que volem que sigui la amplada dels botons
     private static final Dimension DIMENSIO_MIN_BUTTONS = new Dimension(100, 30);
     private static final Dimension  DIMENSIO_MAX_BUTTONS = new Dimension(250,80);
-    
+    private final Log log;
     private static Usuari usuari;
     
     Boto btnAlta;
@@ -43,20 +43,18 @@ public class FLogin extends FFrameAmbLog implements ActionListener {
     JTextField campUsuari;
     JPasswordField campPass;
     
-    
     JPanel panellInferior;
-    
-
-
-
-    
     
     public FLogin() throws IOException{
        super();
-       Log log = Log.getInstance(FLogin.class);
+       log = Log.getInstance(FLogin.class);
        creaFinestra();
        //creaButons();
-       this.repaint();
+//       this.repaint();
+    }
+    
+    public void mostrarFrame(){
+        this.setVisible(true);
     }
     
     private void creaButons(){
@@ -154,7 +152,6 @@ public class FLogin extends FFrameAmbLog implements ActionListener {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
        //BufferedImage bf = ImageIO.read(new File("res/Inici.png"));
-       setVisible(true);
        //setContentPane(new background(bf, this.getHeight(),this.getWidth() ));
        //setResizable(false);
    
@@ -247,5 +244,4 @@ public class FLogin extends FFrameAmbLog implements ActionListener {
     public static Usuari obtenirUsuari(){
         return usuari;
     }
-    
 }

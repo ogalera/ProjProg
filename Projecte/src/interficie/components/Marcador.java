@@ -92,7 +92,7 @@ public class Marcador extends JPanel {
         else if(p < 100){
             pnt="00"+p;
         }
-        else if(p < 100){
+        else if(p < 1000){
             pnt="0"+p;
         }
         else pnt = p+"";

@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
  */
 public class Utils{
     public static class Constants{
+        public static final int VALOR_MONEDA_NORMAL = 10;
+        public static final int VALOR_MONEDA_EXTRA = 30;
         public static final int MIDA_IMATGE = 100;
         public static final String rutaImatgeDefecteUsuari = "res/imatge_perfil.png";
         public static final int PORT = 9988;

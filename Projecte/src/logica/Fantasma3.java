@@ -90,12 +90,13 @@ public class Fantasma3 extends Personatge{
     }
     
     @Override
-    public void realitzarMoviment(){
-        super.realitzarMoviment();
+    public EElement realitzarMoviment(){
+        EElement elementObtingut = super.realitzarMoviment();
         if(!marxaEnrrere){
             this.historicMoviments.afegirMoviment(super.seguentMoviment);
         }
         partida.assignarPuntsEnemic(punts);
+        return elementObtingut;
     }
     
     private int explorarDireccio(EDireccio direccio){

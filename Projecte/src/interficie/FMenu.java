@@ -165,9 +165,10 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         super.actionPerformed(e);
         if(e.getSource() == btnAventura){
             Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI, 5, EElement.FANTASMA2);
-            FLaberint fLaberint = new FLaberint();
+            PLaberint fLaberint = new PLaberint();
             FPartida fPartida = new FPartida(fLaberint);
             partida.assignarPintadors(fPartida, fLaberint);
+            fPartida.pintarPartida(partida);
             partida.iniciarPartida();
         }
         else if(e.getSource() == btnProvarMapa){

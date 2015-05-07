@@ -130,13 +130,16 @@ public class Partida {
      * @post:em iniciat la partida juntament amb tots els seus elements;
      */
     public void iniciarPartida(){
+        if(pintador != null) {
+            laberint.pintarLaberint();
+            pintador.pintarIniciPartida();
+        }
         if(momentInici != -1) throw new EIniciarPartida("La partida ja esta iniciada");
         if(momentFi != -1) throw new EIniciarPartida("No pots iniciar una partida que ja s'ha finalitzat");
         momentInici = System.currentTimeMillis();
         log.afegirDebug("S'ha iniciat la partida a les "+Utils.obtenirHoraSistema());
         enemic.iniciarItemMovible();
         pacman.iniciarItemMovible();
-        if(pintador != null) pintador.pintarPartida(this);
     }
     
     /**

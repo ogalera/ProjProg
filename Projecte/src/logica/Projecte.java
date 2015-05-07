@@ -64,7 +64,8 @@ public class Projecte {
 //        catch(IOException e){
 //            System.out.println("ERROR MISSATGE "+e.getMessage());
 //        } 
-        new FLogin();
+        FLogin fLogin = new FLogin();
+        fLogin.mostrarFrame();
         //System.out.println(log.obtenirDebugsLog());
         
     }

@@ -5,7 +5,7 @@
  */
 package logica.laberints;
 
-import interficie.FLaberint;
+import interficie.PLaberint;
 import java.util.Random;
 import logica.Partida;
 import logica.Punt;
@@ -29,7 +29,6 @@ public class LaberintAleatori extends Laberint{
         this.costat = costat;
         generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
-        this.pintador = new FLaberint(tauler);
     }
     private EElement[][] generarLaberint(EElement enemic) {
         log.afegirDebug("Procedim a generar un laberint aleatori de "+costat+"X"+costat);
