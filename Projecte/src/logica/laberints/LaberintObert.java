@@ -57,10 +57,10 @@ public class LaberintObert  {
     
     private int numSortides (Punt p){
         int sortides = 0;
-            EElement esquerra= obtenirElement(new Punt(p.obtenirX()-1,p.obtenirY()));
-            EElement dreta = obtenirElement(new Punt(p.obtenirX()+1,p.obtenirY()));
-            EElement amunt= obtenirElement(new Punt(p.obtenirX(),p.obtenirY()-1));
-            EElement avall= obtenirElement(new Punt(p.obtenirX(),p.obtenirY()+1));
+            EElement esquerra= obtenirElement(new Punt(p.obtenirColumna()-1,p.obtenirFila()));
+            EElement dreta = obtenirElement(new Punt(p.obtenirColumna()+1,p.obtenirFila()));
+            EElement amunt= obtenirElement(new Punt(p.obtenirColumna(),p.obtenirFila()-1));
+            EElement avall= obtenirElement(new Punt(p.obtenirColumna(),p.obtenirFila()+1));
             if (esquerra == EElement.RES ){
                 sortides++;
             }
@@ -80,16 +80,16 @@ public class LaberintObert  {
     
     
     public boolean posicioValida(Punt posicio){
-        int x = posicio.obtenirX();
-        int y = posicio.obtenirY();
+        int x = posicio.obtenirColumna();
+        int y = posicio.obtenirFila();
         return x >= 0 && y >= 0 && x < costat && y < costat;
     }
     
     public EElement obtenirElement(Punt posicio){
         EElement element = EElement.PARET;
         if(posicioValida(posicio)){
-           int x = posicio.obtenirX();
-           int y = posicio.obtenirY();
+           int x = posicio.obtenirColumna();
+           int y = posicio.obtenirFila();
            element = tauler[y][x];
         }
         return element;

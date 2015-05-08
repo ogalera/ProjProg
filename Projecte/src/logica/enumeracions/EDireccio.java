@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.enumeracions;
 
 /**
@@ -10,21 +5,21 @@ package logica.enumeracions;
  * @author oscar
  */
 public enum EDireccio {
-    AMUNT(0, -1), AVALL(0, 1), ESQUERRA(-1, 0), DRETA(1, 0), QUIET(0,0);
-    private final int incrementX;
-    private final int incrementY;
+    AMUNT(-1, 0), AVALL(1, 0), ESQUERRA(0, -1), DRETA(0, 1), QUIET(0,0);
+    private final int incrementColumna;
+    private final int incrementFila;
     
-    private EDireccio(int incrementX, int incrementY){
-        this.incrementX = incrementX;
-        this.incrementY = incrementY;
+    private EDireccio(int incrementFila, int incrementColumna){
+        this.incrementFila = incrementFila;
+        this.incrementColumna = incrementColumna;
     }
     
-    public int obtenirIncrementEixX(){
-        return incrementX;
+    public int obtenirIncrementColumna(){
+        return incrementColumna;
     }
     
-    public int obtenirIncrementEixY(){
-        return incrementY;
+    public int obtenirIncrementFila(){
+        return incrementFila;
     }
     
     public EDireccio obtenirMovimentInvers(){

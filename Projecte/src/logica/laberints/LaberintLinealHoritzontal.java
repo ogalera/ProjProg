@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.laberints;
 
-import interficie.PLaberint;
+import interficie.IPintadorLaberint;
 import logica.Partida;
 import logica.enumeracions.EElement;
 import logica.excepcions.ELaberint;
@@ -16,7 +11,7 @@ import logica.log.Log;
  * @author oscar
  */
 public class LaberintLinealHoritzontal extends Laberint{
-    public LaberintLinealHoritzontal(Partida partida, int costat, EElement enemic){
+    public LaberintLinealHoritzontal(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintLinealHoritzontal.class);
         if(costat < 5) throw new ELaberint("La mida minima del costat del laberint és 5");
@@ -25,6 +20,7 @@ public class LaberintLinealHoritzontal extends Laberint{
         this.costat = costat;
         this.generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
+        this.pintador = pintadorLaberint;
     }
     
     private EElement[][] generarLaberint(EElement enemic) {
@@ -40,21 +36,21 @@ public class LaberintLinealHoritzontal extends Laberint{
         tauler[0][0] = EElement.PACMAN;
         tauler[costat-1][costat-1] = enemic;
         
-        for(int i = 1; i < costat-1; i++){
-            for(int j = 0; j < costat; j++){
-                if(i %2 == 0 || j == 0 || j == costat-1){
-                    tauler[i][j] = EElement.MONEDA;
+        for(int fila = 1; fila < costat-1; fila++){
+            for(int columna = 0; columna < costat; columna++){
+                if(fila %2 == 0 || columna == 0 || columna == costat-1){
+                    tauler[fila][columna] = EElement.MONEDA;
                 }
                 else{
-                    tauler[i][j] = EElement.PARET;
+                    tauler[fila][columna] = EElement.PARET;
                 }
             }
         }
         
-        for(int i = 0; i < costat; i++){
+        for(int fila = 0; fila < costat; fila++){
             System.out.println();
-            for(int j = 0; j < costat; j++){
-                System.out.print(tauler[i][j].obtenirLletraRepresentacio()+" ");
+            for(int columna = 0; columna < costat; columna++){
+                System.out.print(tauler[fila][columna].obtenirLletraRepresentacio()+" ");
             }
         }
         System.out.println();

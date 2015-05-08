@@ -5,6 +5,7 @@
  */
 package logica.laberints;
 
+import interficie.IPintadorLaberint;
 import interficie.PLaberint;
 import java.util.Random;
 import logica.Partida;
@@ -20,7 +21,7 @@ import logica.log.Log;
  * @author oscar
  */
 public class LaberintAleatori extends Laberint{
-    public LaberintAleatori(Partida partida, int costat, EElement enemic){
+    public LaberintAleatori(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintAleatori.class);
         if(costat < 5) throw new ELaberint("La mida minima del costat del laberint és 5");
@@ -29,6 +30,7 @@ public class LaberintAleatori extends Laberint{
         this.costat = costat;
         generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
+        this.pintador = pintadorLaberint;
     }
     private EElement[][] generarLaberint(EElement enemic) {
         log.afegirDebug("Procedim a generar un laberint aleatori de "+costat+"X"+costat);
@@ -87,21 +89,21 @@ public class LaberintAleatori extends Laberint{
     }
     
     private int ferCamiTauler(Punt origen, Punt desti, EElement[][]tauler, Punt[] candidats, int nCandidats){
-        EDireccio movimentLateral = movimentLateral(origen.obtenirX(), desti.obtenirX());
-        EDireccio movimentVertical = movimentVertical(origen.obtenirY(), desti.obtenirY());
+        EDireccio movimentLateral = movimentLateral(origen.obtenirColumna(), desti.obtenirColumna());
+        EDireccio movimentVertical = movimentVertical(origen.obtenirFila(), desti.obtenirFila());
         int nAfegides = 0;
         while(!origen.equals(desti)){
-            int x = origen.obtenirX();
-            int y = origen.obtenirY();
-            candidats[nCandidats++] = new Punt(x, y);
-            tauler[x][y] = EElement.MONEDA;
+            int columna = origen.obtenirColumna();
+            int fila = origen.obtenirFila();
+            candidats[nCandidats++] = new Punt(fila, columna);
+            tauler[fila][columna] = EElement.MONEDA;
             nAfegides++;
             //El moviment és en vertical o en horitzontal
-            if(x != desti.obtenirX()){
+            if(columna != desti.obtenirColumna()){
                 //En horitzontal
                 origen = origen.generarPuntDesplasat(movimentLateral);
             }
-            else if (y != desti.obtenirY()){
+            else if (fila != desti.obtenirFila()){
                 //En vertical
                 origen = origen.generarPuntDesplasat(movimentVertical);
             }

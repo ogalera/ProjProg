@@ -13,18 +13,18 @@ public class Punt{
      * x -> ens definexi el valor del eix de les absices;
      * y -> ens defineix el valor del eix de les ordenades;
      */
-    private final int x;
-    private final int y;
+    private final int columna;
+    private final int fila;
     
     /**
      * @pre: --;
      * @post: definim un punt a traves de les coordenades x i y;
-     * @param x valor del eix de les absices;
-     * @param y valor del eix de les ordenades;
+     * @param fila valor del eix de les absices;
+     * @param columna valor del eix de les ordenades;
      */
-    public Punt(int x, int y){
-        this.x = x;
-        this.y = y;
+    public Punt(int fila, int columna){
+        this.columna = fila;
+        this.fila = columna;
     }
     
     /**
@@ -32,8 +32,8 @@ public class Punt{
      * @post: em retornat el valor del eix de les absices;
      * @return: valor del eix de les absices;
      */
-    public int obtenirX(){
-        return this.x;
+    public int obtenirColumna(){
+        return this.columna;
     }
     
     /**
@@ -41,8 +41,8 @@ public class Punt{
      * @post: em retornat el valor del eix de les ordenades;
      * @return: valor del eix de les ordenades;
      */
-    public int obtenirY(){
-        return this.y;
+    public int obtenirFila(){
+        return this.fila;
     }
     
     /**
@@ -52,9 +52,9 @@ public class Punt{
      * @return punt desplaçat per moviment;
      */
     public Punt generarPuntDesplasat(EDireccio moviment){
-        int xDesplasament = moviment.obtenirIncrementEixX();
-        int yDesplasament = moviment.obtenirIncrementEixY();
-        return new Punt(x+xDesplasament, y+yDesplasament);
+        int xDesplasament = moviment.obtenirIncrementColumna();
+        int yDesplasament = moviment.obtenirIncrementFila();
+        return new Punt(columna+xDesplasament, fila+yDesplasament);
     }
     
     /**
@@ -64,7 +64,7 @@ public class Punt{
      * @return: la distancia al quadrat de contra destí;
      */
     public int distancia(Punt desti){
-        int distancia = Math.abs(this.x-desti.x)+Math.abs(this.y-desti.y);
+        int distancia = Math.abs(this.columna-desti.columna)+Math.abs(this.fila-desti.fila);
         return distancia;
     }
     
@@ -74,17 +74,17 @@ public class Punt{
      * @return: les 4 posicions del voltant;
      */
     public Punt[] obtenirPosicionsDelVoltant(){
-        Punt posicions [] = {new Punt(x-1, y),
-                                new Punt(x, y-1),
-                                new Punt(x+1, y), 
-                                new Punt(x, y+1)};
+        Punt posicions [] = {new Punt(fila, columna-1),
+                                new Punt(fila-1, columna),
+                                new Punt(fila, columna+1), 
+                                new Punt(fila+1, columna)};
         return posicions;
     }
     
     @Override
     public String toString(){
-        //Representació de un punt en format [x, y]
-        return "["+this.x+", "+this.y+"]";
+        //Representació de un punt en format [fila, columna]
+        return "["+this.fila+", "+this.columna+"]";
     }
     
     @Override
@@ -92,6 +92,6 @@ public class Punt{
         //Dos punts són iguals si coincideixen les x i les y;
         if(obj == null || !(obj instanceof Punt)) return false;
         Punt other = (Punt) obj;
-        return this.x == other.x && this.y == other.y;
+        return this.columna == other.columna && this.fila == other.fila;
     }
 }

@@ -105,8 +105,8 @@ public class Laberint {
      * @return si la posició està dins del tauler;
      */
     public boolean posicioValida(Punt posicio){
-        int x = posicio.obtenirX();
-        int y = posicio.obtenirY();
+        int x = posicio.obtenirColumna();
+        int y = posicio.obtenirFila();
         return x >= 0 && y >= 0 && x < costat && y < costat;
     }
     
@@ -120,8 +120,8 @@ public class Laberint {
     public EElement obtenirElement(Punt posicio){
         EElement element = EElement.PARET;
         if(posicioValida(posicio)){
-           int x = posicio.obtenirX();
-           int y = posicio.obtenirY();
+           int x = posicio.obtenirColumna();
+           int y = posicio.obtenirFila();
            element = tauler[y][x];
         }
         return element;
@@ -129,23 +129,23 @@ public class Laberint {
     
     public EElement anotarElement(Punt posicio, EDireccio direccio){
         Punt origen = posicio;
-        int x = posicio.obtenirX();
-        int y = posicio.obtenirY();
+        int x = posicio.obtenirColumna();
+        int y = posicio.obtenirFila();
         EElement objecteAMoure = this.tauler[y][x];
         EElement Edesti = objecteAMoure;
         this.tauler[y][x] = EElement.RES;
         Punt p = posicio.generarPuntDesplasat(direccio);
         Punt desti = p;
         EElement EOrigen = EElement.RES;
-        x = p.obtenirX();
-        y = p.obtenirY();
+        x = p.obtenirColumna();
+        y = p.obtenirFila();
         EElement objecteAgafat = this.tauler[y][x];
         if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
             this.nMonedes--;
             if(nMonedes == 0){
                Punt sortida = sortejarSortida();
-               int xSortida = sortida.obtenirX();
-               int ySortida = sortida.obtenirY();
+               int xSortida = sortida.obtenirColumna();
+               int ySortida = sortida.obtenirFila();
                this.tauler[ySortida][xSortida] = EElement.SORTIDA;
                partida.assignarGuanyador();
             }
@@ -217,10 +217,6 @@ public class Laberint {
 //    
     public void assignarControladorTeclat(KeyListener listener){
         pintador.assignarControladorTeclat(listener);
-    }
-    
-    public void assignarPintador(IPintadorLaberint pintador){
-        this.pintador = pintador;
     }
     
     public int obtenirMidaCostatTauler(){

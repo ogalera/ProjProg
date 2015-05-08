@@ -73,26 +73,27 @@ public class Partida {
         enemic = this.obtenirEnemic();
     }
     
-    public Partida(ELaberintsPredefinits laberint, int costat, EElement enemic, IControlador controlador){
+    public Partida(ELaberintsPredefinits laberint,
+                    int costat, 
+                    EElement enemic, 
+                    IPintadorPartida pintadorPartida,
+                    IPintadorLaberint pintadorLaberint,
+                    IControlador controlador){
         log = Log.getInstance(Partida.class);
+        this.pintador = pintadorPartida;
         switch(laberint){
             case LABERINT_LINEAL_HORITZONTAL:{
-                this.laberint = new LaberintLinealHoritzontal(this, costat, enemic);
+                this.laberint = new LaberintLinealHoritzontal(this, costat, enemic, pintadorLaberint);
             }break;
             case LABERINT_LINEAL_VERTICAL:{
-                this.laberint = new LaberintLinealVertical(this, costat, enemic);
+                this.laberint = new LaberintLinealVertical(this, costat, enemic, pintadorLaberint);
             }break;
             default:{
-                this.laberint = new LaberintAleatori(this, costat, enemic);
+                this.laberint = new LaberintAleatori(this, costat, enemic, pintadorLaberint);
             }break;
         }
         this.enemic = obtenirEnemic();
         this.pacman = obtenirPacman(controlador);
-    }
-    
-    public void assignarPintadors(IPintadorPartida pintadorPartida, IPintadorLaberint pintadorLaberint){
-        this.pintador = pintadorPartida;
-        this.laberint.assignarPintador(pintadorLaberint);
     }
     
     /**

@@ -5,6 +5,7 @@
  */
 package logica.laberints;
 
+import interficie.IPintadorLaberint;
 import interficie.PLaberint;
 import logica.Partida;
 import logica.enumeracions.EElement;
@@ -16,7 +17,7 @@ import logica.log.Log;
  * @author oscar
  */
 public class LaberintLinealVertical extends Laberint{
-    public LaberintLinealVertical(Partida partida, int costat, EElement enemic){
+    public LaberintLinealVertical(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintLinealVertical.class);
         if(costat < 5) throw new ELaberint("La mida minima del costat del laberint és 5");
@@ -25,6 +26,7 @@ public class LaberintLinealVertical extends Laberint{
         this.costat = costat;
         this.generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
+        this.pintador = pintadorLaberint;
     }
     
     private EElement[][] generarLaberint(EElement enemic) {

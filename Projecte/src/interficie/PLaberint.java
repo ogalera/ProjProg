@@ -125,9 +125,9 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     public void pintarMoviment(Punt pOrigen, EElement eOrigen, EDireccio direccio, EElement eDesti) {
         ImageIcon imgOrigen = obtenirImatge(eOrigen);
         ImageIcon imgDesti = obtenirImatge(eDesti);
-        this.laberintGrafic[pOrigen.obtenirX()][pOrigen.obtenirY()].setIcon(imgOrigen);
+        this.laberintGrafic[pOrigen.obtenirColumna()][pOrigen.obtenirFila()].setIcon(imgOrigen);
         Punt pDesplasat = pOrigen.generarPuntDesplasat(direccio);
-        this.laberintGrafic[pDesplasat.obtenirX()][pDesplasat.obtenirY()].setIcon(imgDesti);
+        this.laberintGrafic[pDesplasat.obtenirColumna()][pDesplasat.obtenirFila()].setIcon(imgDesti);
     }
 
     @Override

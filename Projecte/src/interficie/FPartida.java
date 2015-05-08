@@ -36,6 +36,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(panellLaberint, BorderLayout.CENTER);
+        panellLaberint.setFocusable(true);
         this.setFocusable(false);
         cronometre = new Crono();
         this.add(cronometre, BorderLayout.SOUTH);
