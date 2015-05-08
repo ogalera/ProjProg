@@ -1,8 +1,10 @@
 package logica;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+///De la llibreria Apache Commons Codec 1.10 per codificar/decodificar 
+///el password del usuari;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * @author oscar
@@ -23,15 +25,7 @@ public class Utils{
      * @post: em retornat la cadena codificada;
      */
     public static String codificarCadena(String cadena){
-        return Base64.encode(cadena.getBytes());
-    }
-    
-    /**
-     * @pre: cadena no és null;
-     * @post: em retornat la cadena decodificada;
-     */
-    public static String decodiciarCadena(String cadena){
-        return new String(Base64.decode(cadena));
+        return Base64.encodeBase64String(cadena.getBytes());
     }
     
     /**
@@ -59,7 +53,7 @@ public class Utils{
         return resultat;
     }
     
-    public static BufferedImage resizeImage(BufferedImage originalImage, int tipus, int amplada, int altura) {
+    public static BufferedImage redimensionarImatge(BufferedImage originalImage, int tipus, int amplada, int altura) {
         BufferedImage resizedImage = new BufferedImage(amplada, altura, tipus);
         Graphics2D g = resizedImage.createGraphics();
         g.drawImage(originalImage, 0, 0, amplada, altura, null);

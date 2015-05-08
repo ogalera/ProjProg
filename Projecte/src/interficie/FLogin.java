@@ -4,233 +4,172 @@
  * and open the template in the editor.
  */
 package interficie;
+
 import dades.BD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import java.io.IOException;
-import interficie.components.Boto;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JPanel;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-
 import logica.Usuari;
+import logica.Utils;
 import logica.log.Log;
-
 
 /**
  *
- * @author Moi
+ * @author oscar
  */
-public class FLogin extends FFrameAmbLog implements ActionListener {
-    private static final int ALTURA_BOTO=6; // El tant per cent respecte el tamany de pantalla que volem que sigui la altura dels botons
-    private static final int AMPLADA_BOTO=12; //El tant per cent respecte el tamany de pantalla que volem que sigui la amplada dels botons
-    private static final Dimension DIMENSIO_MIN_BUTTONS = new Dimension(100, 30);
-    private static final Dimension  DIMENSIO_MAX_BUTTONS = new Dimension(250,80);
-    private final Log log;
+public class FLogin extends JFrame implements ActionListener{
     private static Usuari usuari;
-    
-    Boto btnAlta;
-    Boto btnEntrar;
-    Boto btnSortir;
-    Boto btnRanking;
-    
-    JTextField campUsuari;
-    JPasswordField campPass;
-    
-    JPanel panellInferior;
-    
-    public FLogin() throws IOException{
-       super();
-       log = Log.getInstance(FLogin.class);
-       creaFinestra();
-       //creaButons();
-//       this.repaint();
+    public FLogin() {
+        initComponents();
     }
-    
-    public void mostrarFrame(){
-        this.setVisible(true);
-    }
-    
-    private void creaButons(){
-        
-        int alturaBoto= (ALTURA_BOTO * this.getHeight()) / 100;
-        int ampladaBoto = (AMPLADA_BOTO * this.getWidth()) / 100;
-        
-        //btnEntrar = new Boto(new ImageIcon("res/btnEntrar.png"));
-        btnEntrar = new Boto("ENTRAR");
-        btnEntrar.setBounds((this.getWidth() /2) - (ampladaBoto /2), ((this.getHeight() * 65 ) / 100) , ampladaBoto, alturaBoto);
-        btnEntrar.setOpaque(false);
-        btnEntrar.setContentAreaFilled(false);
-        btnEntrar.setBorderPainted(false);
-        
-        //btnAlta = new Boto(new ImageIcon("res/btnAlta.png"));
-        btnAlta = new Boto("ALTA");
-        btnAlta.setBounds((this.getWidth() /2) - (ampladaBoto /2), ((this.getHeight() * 65 ) / 100)+ alturaBoto  , ampladaBoto, alturaBoto);
-        btnAlta.setOpaque(false);
-        btnAlta.setContentAreaFilled(false);
-        btnAlta.setBorderPainted(false);
-        
-        //btnRanking = new Boto(new ImageIcon("res/btnRanking.png"));
-        btnRanking = new Boto("RANKING");
-        btnRanking.setBounds((this.getWidth() /2) - (ampladaBoto /2), ((this.getHeight() * 65 ) / 100)+ (alturaBoto * 2), ampladaBoto, alturaBoto);
-        btnRanking.setOpaque(false);
-        btnRanking.setContentAreaFilled(false);
-        btnRanking.setBorderPainted(false);
-        
-        btnSortir = new Boto("SORTIR");
-        btnSortir.setBounds((this.getWidth() /2) - (ampladaBoto /2),((this.getHeight() * 65 ) / 100) + (alturaBoto * 3), ampladaBoto, alturaBoto);
-        btnSortir.setOpaque(false);
-        btnSortir.setContentAreaFilled(false);
-        btnSortir.setBorderPainted(false);
-        
-        add(btnRanking);
-        add(btnEntrar);
-        add(btnAlta);
-        add(btnSortir); 
-        
-        btnRanking.addActionListener(this);
-        btnEntrar.addActionListener(this);
-        btnAlta.addActionListener(this);
-        btnSortir.addActionListener(this);
-        
-          
-    }
-//    private void creaFinestra() throws IOException{
-//        setLayout(null);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        
-//        BufferedImage bf = ImageIO.read(new File("res/Inici.png"));
-//        setVisible(true);
-//        setContentPane(new background(bf, this.getHeight(),this.getWidth() ));
-//        setResizable(false);
-//    }
-    
-    private void crearBotons(){
-        int alturaBoto= (ALTURA_BOTO * this.getHeight()) / 100;
-        int ampladaBoto = (AMPLADA_BOTO * this.getWidth()) / 100;
-        
-        //btnEntrar = new Boto(new ImageIcon("res/btnEntrar.png"));
-        btnEntrar = new Boto("ENTRAR");
-        btnEntrar.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
-        btnEntrar.setMinimumSize(DIMENSIO_MIN_BUTTONS);
-        btnEntrar.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-        //btnAlta = new Boto(new ImageIcon("res/btnAlta.png"));
-        btnAlta = new Boto("ALTA");
-        btnAlta.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
-        btnAlta.setMinimumSize(DIMENSIO_MIN_BUTTONS);
-        btnAlta.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-        //btnRanking = new Boto(new ImageIcon("res/btnRanking.png"));
-        btnRanking = new Boto("RANKING");
-        btnRanking.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
-        btnRanking.setMinimumSize(DIMENSIO_MIN_BUTTONS);
-        btnRanking.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-        btnSortir = new Boto("SORTIR");
-        btnSortir.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
-        btnSortir.setMinimumSize(DIMENSIO_MIN_BUTTONS);
-        btnSortir.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-        btnRanking.addActionListener(this);
-        btnEntrar.addActionListener(this);
-        btnAlta.addActionListener(this);
-        btnSortir.addActionListener(this);
-    }
-    
-    private void creaFinestra() throws IOException{
-        //setLayout(new FlowLayout(FlowLayout.CENTER));
-        setLayout(new BorderLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-       //BufferedImage bf = ImageIO.read(new File("res/Inici.png"));
-       //setContentPane(new background(bf, this.getHeight(),this.getWidth() ));
-       //setResizable(false);
-   
-        creaPanellLogin();
-        add(panellInferior, BorderLayout.SOUTH);
-    }
-    
-    private void creaPanellLogin(){
-        
-        
-        panellInferior = new JPanel();
-        panellInferior.setLayout(new FlowLayout());
 
-        JPanel panellLogin = new JPanel();
-        panellLogin.setLayout(new BoxLayout(panellLogin, BoxLayout.Y_AXIS));
-        //creaTextFields();
-        crearBotons();
-        //panellLogin.add(campUsuari);
-        //panellLogin.add(campPass);
-        panellLogin.add(btnEntrar);
-        panellLogin.add(btnAlta);
-        panellLogin.add(btnRanking);
-        panellLogin.add(btnSortir);
-        this.add(panellLogin);
-        //panellInferior.add(panellLogin);
- 
-        
-        
-        
+    public void mostrarFrame(){
+        btnEntrar.addActionListener(this);
+        btnAlta.addActionListener(this);
+        btnRanking.addActionListener(this);
+        btnSortir.addActionListener(this);
+        lblAvis.setVisible(false);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                FLogin.this.setVisible(true);
+            }
+        });
     }
     
-    private void creaTextFields(){
-        int alturaBoto= (ALTURA_BOTO * this.getHeight()) / 100;
-        int ampladaBoto = (AMPLADA_BOTO * this.getWidth()) / 100;
-        
-        campUsuari = new JTextField();
-        campUsuari.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
-        campUsuari.setMinimumSize(DIMENSIO_MIN_BUTTONS);
-        campUsuari.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-        campPass = new JPasswordField();
-        campPass.setPreferredSize(new Dimension(ampladaBoto,alturaBoto));
-        campPass.setMinimumSize(DIMENSIO_MIN_BUTTONS);
-        campPass.setMaximumSize(DIMENSIO_MAX_BUTTONS);
-        
-    }
-    
-//     private void creaFinestra() throws IOException{
-//        setLayout(null);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        
-//        BufferedImage bf = ImageIO.read(new File("res/Inici.png"));
-//        setVisible(true);
-//        setContentPane(new background(bf, this.getHeight(),this.getWidth() ));
-//        setResizable(false);
-//    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        lblUSUARI = new javax.swing.JLabel();
+        lblPASSWORD = new javax.swing.JLabel();
+        txtUsuari = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        btnEntrar = new javax.swing.JButton();
+        btnAlta = new javax.swing.JButton();
+        btnRanking = new javax.swing.JButton();
+        btnSortir = new javax.swing.JButton();
+        lblAvis = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setResizable(false);
+
+        lblUSUARI.setText("Usuari");
+
+        lblPASSWORD.setText("Password");
+
+        btnEntrar.setText("Entrar");
+
+        btnAlta.setText("Alta");
+
+        btnRanking.setText("Ranking");
+
+        btnSortir.setText("Sortir");
+
+        lblAvis.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAvis.setForeground(new java.awt.Color(255, 0, 51));
+        lblAvis.setText("Avis");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                    .addComponent(btnSortir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPASSWORD)
+                            .addComponent(lblUSUARI))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsuari)
+                            .addComponent(txtPassword)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblAvis)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUSUARI)
+                    .addComponent(txtUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPASSWORD)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblAvis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(btnEntrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAlta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRanking)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSortir)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnRanking;
+    private javax.swing.JButton btnSortir;
+    private javax.swing.JLabel lblAvis;
+    private javax.swing.JLabel lblPASSWORD;
+    private javax.swing.JLabel lblUSUARI;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsuari;
+    // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        super.actionPerformed(e);
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
         if (e.getSource()==btnRanking) {
             setTitle("boto ranking");
             new FRanking().mostrarFrame();
         }
         else if (e.getSource()==btnEntrar) {
-            String user = "kobe";
-            usuari = BD.obtenirUsuari(user);
-            if(usuari != null){
-                new FMenu().mostrarFrame();
+            String usu = txtUsuari.getText();
+            String password = new String(txtPassword.getPassword());
+            if(usu.length() > 0 && password.length() > 0){
+                password = Utils.codificarCadena(password);
+                usuari = BD.obtenirUsuari(usu, password);
+                if(usuari != null){
+                    lblAvis.setVisible(false);
+                    txtPassword.setText(null);
+                    txtUsuari.setText(null);
+                    new FMenu().mostrarFrame();
+                }
+                else{
+                    lblAvis.setText("Usuari o password incorrecte");
+                    lblAvis.setVisible(true);
+                    Log log = Log.getInstance(FLogin.class);
+                    log.afegirError("Usuari o password incorrecte");
+                }
             }
-//            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI, 15, EElement.FANTASMA2);
-//            Laberint laberint = partida.obtenirLaberint();
-//            FLaberint fLaberint = new FLaberint(laberint);
-//            FPartida fPartida = new FPartida(fLaberint);
-//            partida.assignarPintador(fPartida);
-//            partida.iniciarPartida();
+            else{
+                lblAvis.setText("Falta usuari o password");
+                lblAvis.setVisible(true);
+                Log log = Log.getInstance(FLogin.class);
+                log.afegirError("Falta usuari o password");
+            }
         }
         else if (e.getSource()==btnAlta) {
             new FAlta().mostrarFrame();

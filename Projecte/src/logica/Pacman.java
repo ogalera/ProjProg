@@ -60,7 +60,7 @@ public class Pacman extends Personatge{
             }
             else seguentMoviment = EDireccio.QUIET;
         }
-        System.out.println("En pacman vol anar a la "+seguentMoviment);
+//        System.out.println("En pacman vol anar a la "+seguentMoviment);
         return seguentMoviment;
     }
     

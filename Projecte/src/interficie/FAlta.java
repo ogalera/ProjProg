@@ -174,6 +174,9 @@ public class FAlta extends JFrame implements ActionListener{
             SimpleDateFormat format = new SimpleDateFormat("dd_MM_yyyy_kk_mm");
             String data = format.format(new Date());
             String rutaImatge = "res/imatges_usuaris/"+usuari+"_"+data+".png";
+            if(imatgeRedimensionada == null){
+                this.redimensionarImatge("res/imatge_perfil.png");
+            }
             guardarImatgeSeleccionada(rutaImatge);
             if(BD.afegirUsuari(usuari, password, rutaImatge)){
                 guardatOk = true;
@@ -194,7 +197,7 @@ public class FAlta extends JFrame implements ActionListener{
             password = txtPassword.getText();
             if(usuari.length() > 0 && password.length() > 0){
                 //S'ha entrat usuari i password
-                if(!BD.usuariRegistrat(usuari)){
+                if(!BD.existeixUsuari(usuari)){
                     if(guardar(usuari, password)){
                         this.dispatchEvent(new WindowEvent(this,WindowEvent.WINDOW_CLOSING));
                     }
@@ -215,19 +218,23 @@ public class FAlta extends JFrame implements ActionListener{
         }
         else if(e.getSource() == btnImatgeUsuari){
             String rutaImatgeSeleccionada = seleccionarImatge();
-            try{
-                File fitxerOrigen = new File(rutaImatgeSeleccionada);
-                BufferedImage imatge = ImageIO.read(fitxerOrigen);
-                int tipus = imatge.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : imatge.getType();
-                imatgeRedimensionada = Utils.resizeImage(imatge, tipus, Utils.Constants.MIDA_IMATGE, Utils.Constants.MIDA_IMATGE);
-                btnImatgeUsuari.setIcon(new ImageIcon(imatgeRedimensionada));
-            }
-            catch(IOException ioe){
-                log.afegirError("Error al redimensionar l'imatge, missatge: "+ioe.getMessage());
-            }
+            redimensionarImatge(rutaImatgeSeleccionada);
         }
         else if(e.getSource() == btnSortir){
             this.dispose();
+        }
+    }
+    
+    private void redimensionarImatge(String rutaImatgeSeleccionada){
+        try{
+            File fitxerOrigen = new File(rutaImatgeSeleccionada);
+            BufferedImage imatge = ImageIO.read(fitxerOrigen);
+            int tipus = imatge.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : imatge.getType();
+            imatgeRedimensionada = Utils.redimensionarImatge(imatge, tipus, Utils.Constants.MIDA_IMATGE, Utils.Constants.MIDA_IMATGE);
+            btnImatgeUsuari.setIcon(new ImageIcon(imatgeRedimensionada));
+        }
+        catch(IOException ioe){
+            log.afegirError("Error al redimensionar l'imatge, missatge: "+ioe.getMessage());
         }
     }
     

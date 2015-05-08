@@ -93,10 +93,10 @@ public class BD {
         return usuaris;
     }
     
-    public static boolean usuariRegistrat(String usuari){
+    public static boolean existeixUsuari(String usuari){
         Log log = Log.getInstance(BD.class);
         boolean taulesCreades = true;
-        boolean usuariRegistrat = false;
+        boolean existeixUsuari = false;
         if(BD.esPrimerAcces()){
             taulesCreades = crearTaules();
         }
@@ -108,30 +108,30 @@ public class BD {
             try(Connection connexio = DriverManager.getConnection(URL_BD);
                 Statement consultarUsuari = connexio.createStatement();
                 ResultSet rs = consultarUsuari.executeQuery(consulta)){
-                usuariRegistrat = rs.next();
-                if(usuariRegistrat){
-                    log.afegirWarning("Usuari "+usuari+" ja registrat");
+                existeixUsuari = rs.next();
+                if(existeixUsuari){
+                    log.afegirWarning("Usuari "+usuari+" existeix");
                 }
-                else log.afegirDebug("Usuari "+usuari+" no registrat");
+                else log.afegirDebug("Usuari "+usuari+" no existeix");
             }
             catch(SQLException excepcio){
                 log.afegirError("No em pogut consultar l'usuari "+usuari+" missatge:\n"+excepcio.getMessage());
             }
         }
-        return usuariRegistrat;
+        return existeixUsuari;
     }
     
-    public static Usuari obtenirUsuari(String usu){
+    public static Usuari obtenirUsuari(String user, String password){
         Usuari usuari = null;
-        Log log = Log.getInstance(BD.class);
         boolean taulesCreades = true;
         if(BD.esPrimerAcces()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
+            Log log = Log.getInstance(BD.class);
             String consulta = "SELECT usu_id, usu_nom, usu_ruta_imatge, MAX(pnt_nivell) nivell\n" +
                                 " FROM usuaris,  punts\n" +
-                                " WHERE usu_nom = '"+usu+"' AND usu_id = pnt_usu_id\n" +
+                                " WHERE usu_nom = '"+user+"' AND usu_pass = '"+password +"'AND usu_id = pnt_usu_id\n" +
                                 " GROUP BY usu_id, usu_nom, usu_ruta_imatge";
             try(Connection connexio = DriverManager.getConnection(URL_BD);
                 Statement consultarUsuari = connexio.createStatement();
@@ -143,10 +143,10 @@ public class BD {
                     int nivell = rs.getInt("nivell");
                     usuari = new Usuari(id, nomUsuari, nivell, rutaImatge);
                 }
-                else log.afegirDebug("Usuari "+usu+" no registrat");
+                else log.afegirDebug("Usuari "+user+" no registrat");
             }
             catch(SQLException excepcio){
-                log.afegirError("No em pogut consultar l'usuari "+usu+" missatge:\n"+excepcio.getMessage());
+                log.afegirError("No em pogut consultar l'usuari "+user+" missatge:\n"+excepcio.getMessage());
             }
         }
         return usuari;
