@@ -6,7 +6,6 @@
 package logica.laberints;
 
 import interficie.IPintadorLaberint;
-import interficie.PLaberint;
 import java.util.Random;
 import logica.Partida;
 import logica.Punt;
@@ -38,7 +37,6 @@ public class LaberintAleatori extends Laberint{
         
         tauler = new EElement[costat][costat];
         
-        int nCandidats = 2;
         Punt[] candidats = new Punt[costat*costat];
         candidats[0] = new Punt(0, 0);
         candidats[1] = new Punt(costat-1, costat-1);
@@ -47,7 +45,7 @@ public class LaberintAleatori extends Laberint{
         Random r = new Random(System.currentTimeMillis());
         
         do{
-            nCandidats = 2;
+            int nCandidats = 2;
             //Omplim el tauler de parets;
             for(int i = 0; i < costat; i++){
                 for(int j = 0; j < costat; j++){
@@ -64,12 +62,12 @@ public class LaberintAleatori extends Laberint{
             tauler[costat-1][costat-1] = enemic;
             
             while(nCandidats <= llindar){
-                int x, y;
+                int fila, columna;
                 do{
-                    x = r.nextInt(costat);
-                    y = r.nextInt(costat);
-                }while(tauler[x][y] != EElement.PARET);
-                Punt origen = new Punt(x, y);
+                    fila = r.nextInt(costat);
+                    columna = r.nextInt(costat);
+                }while(tauler[fila][columna] != EElement.PARET);
+                Punt origen = new Punt(fila, columna);
                 Punt desti = distanciaMinima(origen, candidats, nCandidats);
                 nCandidats += ferCamiTauler(origen, desti, tauler, candidats, nCandidats);
             }

@@ -23,8 +23,8 @@ public class Punt{
      * @param columna valor del eix de les ordenades;
      */
     public Punt(int fila, int columna){
-        this.columna = fila;
-        this.fila = columna;
+        this.fila = fila;
+        this.columna = columna;
     }
     
     /**
@@ -54,7 +54,7 @@ public class Punt{
     public Punt generarPuntDesplasat(EDireccio moviment){
         int xDesplasament = moviment.obtenirIncrementColumna();
         int yDesplasament = moviment.obtenirIncrementFila();
-        return new Punt(columna+xDesplasament, fila+yDesplasament);
+        return new Punt(fila+yDesplasament, columna+xDesplasament);
     }
     
     /**

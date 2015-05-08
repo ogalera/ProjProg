@@ -33,10 +33,19 @@ public class Pacman extends Personatge{
     @Override
     public EElement realitzarMoviment(){
         EElement elementObtingut = super.realitzarMoviment();
-        partida.assignarPuntsPacman(punts);
+        switch(elementObtingut){
+            case MONEDA:{
+                this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                partida.assignarPuntsPacman(punts);
+            }break;
+            case MONEDA_EXTRA:{
+                this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                partida.assignarPuntsPacman(punts);
+            }break;
+        }
         return elementObtingut;
     }
-    
+
     @Override
     public EDireccio calcularMoviment() {
         if (teclaPremuda == null)seguentMoviment = EDireccio.QUIET;
@@ -51,6 +60,7 @@ public class Pacman extends Personatge{
             }
             else seguentMoviment = EDireccio.QUIET;
         }
+        System.out.println("En pacman vol anar a la "+seguentMoviment);
         return seguentMoviment;
     }
     

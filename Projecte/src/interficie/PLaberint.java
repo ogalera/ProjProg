@@ -125,9 +125,9 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     public void pintarMoviment(Punt pOrigen, EElement eOrigen, EDireccio direccio, EElement eDesti) {
         ImageIcon imgOrigen = obtenirImatge(eOrigen);
         ImageIcon imgDesti = obtenirImatge(eDesti);
-        this.laberintGrafic[pOrigen.obtenirColumna()][pOrigen.obtenirFila()].setIcon(imgOrigen);
+        this.laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].setIcon(imgOrigen);
         Punt pDesplasat = pOrigen.generarPuntDesplasat(direccio);
-        this.laberintGrafic[pDesplasat.obtenirColumna()][pDesplasat.obtenirFila()].setIcon(imgDesti);
+        this.laberintGrafic[pDesplasat.obtenirFila()][pDesplasat.obtenirColumna()].setIcon(imgDesti);
     }
 
     @Override
@@ -185,13 +185,13 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         imgParetRedimensionada = EElement.PARET.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
         imgMonedaRedimensionada = EElement.MONEDA.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
         
-        for (int i = 0; i < numCaselles; i++){
-            for (int j = 0; j < numCaselles; j++){
-                laberintGrafic[i][j] = new JLabel();
-                EElement element = laberint.obtenirElement(new Punt(i, j));
+        for (int fila = 0; fila < numCaselles; fila++){
+            for (int columna = 0; columna < numCaselles; columna++){
+                laberintGrafic[fila][columna] = new JLabel();
+                EElement element = laberint.obtenirElement(new Punt(fila, columna));
                 ImageIcon imatge = obtenirImatge(element);
-                laberintGrafic[i][j].setIcon(imatge);
-                this.add(laberintGrafic[i][j]);
+                laberintGrafic[fila][columna].setIcon(imatge);
+                this.add(laberintGrafic[fila][columna]);
             }
         }  
     }

@@ -80,11 +80,11 @@ public class Fantasma2 extends Personatge{
                 moviment = possiblesDireccions[index];
             }
         }
-        System.out.println("dreta "+interesDreta);
-        System.out.println("esquerra "+interesEsquerra);
-        System.out.println("amunt "+interesAdalt);
-        System.out.println("abaix "+interesAbaix);
-        System.out.println("calculat "+moviment);
+//        System.out.println("dreta "+interesDreta);
+//        System.out.println("esquerra "+interesEsquerra);
+//        System.out.println("amunt "+interesAdalt);
+//        System.out.println("abaix "+interesAbaix);
+//        System.out.println("calculat "+moviment);
         return moviment;
     }
     
@@ -97,12 +97,13 @@ public class Fantasma2 extends Personatge{
         switch(elementObtingut){
             case MONEDA:{
                 this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                partida.assignarPuntsEnemic(punts);
             }break;
             case MONEDA_EXTRA:{
                 this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                partida.assignarPuntsEnemic(punts);
             }break;
         }
-        partida.assignarPuntsEnemic(punts);
         return elementObtingut;
     }
     

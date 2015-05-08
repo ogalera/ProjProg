@@ -105,9 +105,9 @@ public class Laberint {
      * @return si la posició està dins del tauler;
      */
     public boolean posicioValida(Punt posicio){
-        int x = posicio.obtenirColumna();
-        int y = posicio.obtenirFila();
-        return x >= 0 && y >= 0 && x < costat && y < costat;
+        int fila = posicio.obtenirColumna();
+        int columna = posicio.obtenirFila();
+        return fila >= 0 && columna >= 0 && fila < costat && columna < costat;
     }
     
     /**
@@ -120,26 +120,25 @@ public class Laberint {
     public EElement obtenirElement(Punt posicio){
         EElement element = EElement.PARET;
         if(posicioValida(posicio)){
-           int x = posicio.obtenirColumna();
-           int y = posicio.obtenirFila();
-           element = tauler[y][x];
+           int columna = posicio.obtenirColumna();
+           int fila = posicio.obtenirFila();
+           element = tauler[fila][columna];
         }
         return element;
     }
     
     public EElement anotarElement(Punt posicio, EDireccio direccio){
         Punt origen = posicio;
-        int x = posicio.obtenirColumna();
-        int y = posicio.obtenirFila();
-        EElement objecteAMoure = this.tauler[y][x];
+        int columna = posicio.obtenirColumna();
+        int fila = posicio.obtenirFila();
+        EElement objecteAMoure = this.tauler[fila][columna];
         EElement Edesti = objecteAMoure;
-        this.tauler[y][x] = EElement.RES;
+        this.tauler[fila][columna] = EElement.RES;
         Punt p = posicio.generarPuntDesplasat(direccio);
-        Punt desti = p;
         EElement EOrigen = EElement.RES;
-        x = p.obtenirColumna();
-        y = p.obtenirFila();
-        EElement objecteAgafat = this.tauler[y][x];
+        columna = p.obtenirColumna();
+        fila = p.obtenirFila();
+        EElement objecteAgafat = this.tauler[fila][columna];
         if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
             this.nMonedes--;
             if(nMonedes == 0){
@@ -153,8 +152,8 @@ public class Laberint {
         if(objecteAgafat == EElement.SORTIDA){
             partida.finalitzarPartida();
         }
-        this.tauler[y][x] = objecteAMoure;
-        System.out.println(this);
+        this.tauler[fila][columna] = objecteAMoure;
+//        System.out.println(this);
         pintador.pintarMoviment(origen, EOrigen, direccio, Edesti);
         return objecteAgafat;
     }
@@ -196,17 +195,17 @@ public class Laberint {
     public Punt obtenirPosicioEnemic(){
         Punt posicio = null;
         boolean trobat = false;
-        int i = 0;
-        while(!trobat && i < costat){
-            int j = 0;
-            while(!trobat && j < costat){
-                if(tauler[i][j].esEnemic()){
+        int fila = 0;
+        while(!trobat && fila < costat){
+            int columna = 0;
+            while(!trobat && columna < costat){
+                if(tauler[fila][columna].esEnemic()){
                     trobat = true;
-                    posicio = new Punt(i, j);
+                    posicio = new Punt(fila, columna);
                 }
-                j++;
+                columna++;
             }
-            i++;
+            fila++;
         }
         return posicio;
     }
