@@ -16,12 +16,10 @@ import logica.log.Log;
  * @author oscar
  */
 public class Fantasma1 extends Personatge{
-    private final Log log;
     private final ImageIcon imatgeFantasma;
     
     public Fantasma1(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA1.obtenirImatge(), inici);
-        log = Log.getInstance(Fantasma1.class);
         this.imatgeFantasma = EElement.FANTASMA1.obtenirImatge();
     }
 
@@ -45,11 +43,10 @@ public class Fantasma1 extends Personatge{
         EDireccio moviment;
         Punt p;
         do{
-            int index = super.obtenirValorAleatori(4);
+            int index = Utils.obtenirValorAleatori(4);
             moviment = EDireccio.values()[index];
             p = posicio.generarPuntDesplasat(moviment);
         }while(!laberint.posicioValida(p) || laberint.obtenirElement(p) == EElement.PARET);
-        log.afegirDebug("Nou moviment "+moviment);
         return moviment;
     }
 

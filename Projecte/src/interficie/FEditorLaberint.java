@@ -204,7 +204,7 @@ public class FEditorLaberint extends JFrame{
                 File fitxer = fc.getCurrentDirectory();
                 SimpleDateFormat sdf = new SimpleDateFormat("_dd_MM_yyyy_kk_mm");
                 String marcaTemps = sdf.format(new Date());
-                String desti = fitxer.getPath()+"/"+fitxer.getName()+"/laberint"+marcaTemps+".txt";
+                String desti = fitxer.getPath()+"/laberint"+marcaTemps+".txt";
                 boolean operacio = this.exportarFitxer(desti);
                 if(operacio){
                     JOptionPane.showMessageDialog(FEditorLaberint.this,

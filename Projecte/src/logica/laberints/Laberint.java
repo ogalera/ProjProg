@@ -5,6 +5,7 @@
  */
 package logica.laberints;
 
+import com.sun.xml.internal.bind.v2.util.EditDistance;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -15,8 +16,11 @@ import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
 import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
+import logica.Item;
 import logica.Partida;
 import logica.Punt;
+import logica.Utils;
 
 /**
  *
@@ -35,7 +39,12 @@ public class Laberint {
     
     protected IPintadorLaberint pintador;
     
-    public Laberint(String fitxer, Partida partida) throws EFormatLaberint{
+    protected int nMondesPerItem;
+    
+    public Laberint(String fitxer,
+                    Partida partida, 
+                    IPintadorLaberint pintadorLaberint) throws EFormatLaberint{
+        this.pintador = pintadorLaberint;
         log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
         File f = new File(fitxer);
         this.partida = partida;
@@ -61,8 +70,8 @@ public class Laberint {
         catch(IOException fnfe){
             throw new EFormatLaberint("No s'ha pogut llegir el fitxer per importar el laberint, missatge:\n"+fnfe.getMessage());
         }
-        System.out.println(this);
         this.nMonedes = numeroMonedes();
+        this.nMondesPerItem = (int) (nMonedes*0.3);
     }
     
     private EElement [] parseLiniaLaberint(String linia) throws EFormatLaberint{
@@ -80,13 +89,14 @@ public class Laberint {
         this.tauler = elements;
         this.partida = partida;
         this.nMonedes = numeroMonedes();
+        this.nMondesPerItem = (int) (nMonedes*0.3);
     }
     
     protected Laberint(Partida partida){
         this.partida = partida;
     }
     
-    protected int numeroMonedes(){
+    protected final int numeroMonedes(){
         int numMonedes = 0;
         for(int i = 0; i < costat; i++){
             for(int j = 0; j < costat; j++){
@@ -127,8 +137,19 @@ public class Laberint {
         return element;
     }
     
-    public EElement anotarElement(Punt posicio, EDireccio direccio){
-        Punt origen = posicio;
+    public EElement moureItem(Punt posicio, EDireccio direccio, EElement elementARestaurar){
+        int filaOrigen = posicio.obtenirFila();
+        int columnaOrigen = posicio.obtenirColumna();
+        Punt puntDesplasat = posicio.generarPuntDesplasat(direccio);
+        int filaDesti = puntDesplasat.obtenirFila();
+        int columnaDesti = puntDesplasat.obtenirColumna();
+        EElement elementTrapitjat = tauler[filaDesti][columnaDesti];
+        tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
+        tauler[filaOrigen][columnaOrigen] = elementARestaurar;
+        return elementTrapitjat;
+    }
+    
+    public synchronized EElement mourePersonatge(Punt posicio, EDireccio direccio, ImageIcon imatge){
         int columna = posicio.obtenirColumna();
         int fila = posicio.obtenirFila();
         EElement objecteAMoure = this.tauler[fila][columna];
@@ -141,6 +162,14 @@ public class Laberint {
         EElement objecteAgafat = this.tauler[fila][columna];
         if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
             this.nMonedes--;
+            if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+                //Toca sortejar un nou item
+                Punt puntItem = sortejarPosicioItem();
+                EElement ni = sortejarItem();
+                Item nouItem = new Item(ni, this, puntItem);
+                partida.assignarItemEspecial(nouItem);
+                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+            }
             if(nMonedes == 0){
                Punt sortida = sortejarSortida();
                int xSortida = sortida.obtenirColumna();
@@ -154,12 +183,37 @@ public class Laberint {
         }
         this.tauler[fila][columna] = objecteAMoure;
 //        System.out.println(this);
-        pintador.pintarMoviment(origen, EOrigen, direccio, Edesti);
+        pintador.pintarMoviment(posicio, EOrigen, direccio, Edesti);
         return objecteAgafat;
     }
     
     private Punt sortejarSortida(){
         return new Punt(costat-1, costat-1);
+    }
+    
+    private EElement sortejarItem(){
+        int index = Utils.obtenirValorAleatori(3);
+        switch(index){
+            case 0:{
+                return EElement.PATINS;
+            }
+            case 1:{
+                return EElement.MONGETA;
+            }
+            default:{
+                return EElement.MONEDES_X2;
+            }
+        }
+    }
+    
+    private Punt sortejarPosicioItem(){
+        int fila;
+        int columna;
+        do{
+            fila = Utils.obtenirValorAleatori(costat);
+            columna = Utils.obtenirValorAleatori(costat);
+        }while(this.tauler[fila][columna] != EElement.RES);
+        return new Punt(fila, columna);
     }
     
     @Override

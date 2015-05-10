@@ -29,6 +29,7 @@ public class LaberintAleatori extends Laberint{
         this.costat = costat;
         generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
+        this.nMondesPerItem = (int)(nMonedes*0.3);
         this.pintador = pintadorLaberint;
     }
     private EElement[][] generarLaberint(EElement enemic) {

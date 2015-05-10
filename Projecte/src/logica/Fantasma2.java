@@ -53,9 +53,9 @@ public class Fantasma2 extends Personatge{
                 //Opció 1 -> anar enrrere segons l'historic "Sempre que hi hagi algo en l'historic"
                 //Opció 2 -> sortejar una direcció on (0 -> DRETA, 1 -> ESQUERRA, 2 -> AMUN, 3 -> AVALL)
                 if(!historicMoviments.esBuida()){
-                    //Tenim alguna direcció en l'historic per tant tirem enrrere;
+                    //Tenim alguna direcció en l'historic per tant cal tirar enrrere;
                     marxaEnrrere = true;
-                    moviment = historicMoviments.eliminarMoviment();
+                    moviment = historicMoviments.obtenirUltimMoviment();
                     moviment = moviment.obtenirMovimentInvers();
                 }
                 else{
@@ -63,7 +63,7 @@ public class Fantasma2 extends Personatge{
                     //i sortegem una direcció pseudoaleatoria;
                     Punt p;
                     do{
-                        int index = super.obtenirValorAleatori(4);
+                        int index = Utils.obtenirValorAleatori(4);
                         moviment = EDireccio.values()[index];
                         p = posicio.generarPuntDesplasat(moviment);
                     }while(!laberint.posicioValida(p));
@@ -76,7 +76,7 @@ public class Fantasma2 extends Personatge{
                 if(interesEsquerra == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.ESQUERRA;
                 if(interesAdalt == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AMUNT;
                 if(interesAbaix == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AVALL;
-                int index = super.obtenirValorAleatori(nPossiblesDireccions);
+                int index = Utils.obtenirValorAleatori(nPossiblesDireccions);
                 moviment = possiblesDireccions[index];
             }
         }
@@ -90,21 +90,29 @@ public class Fantasma2 extends Personatge{
     
     @Override
     public EElement realitzarMoviment(){
-        EElement elementObtingut = super.realitzarMoviment();
-        if(!marxaEnrrere){
-            this.historicMoviments.afegirMoviment(super.seguentMoviment);
+        Punt puntDesplasat = posicio.generarPuntDesplasat(super.seguentMoviment);
+        EElement element = laberint.obtenirElement(puntDesplasat);
+        if(element != EElement.PACMAN && element != EElement.PARET){
+            EElement elementObtingut = super.realitzarMoviment();
+            if(!marxaEnrrere){
+                this.historicMoviments.afegirMoviment(super.seguentMoviment);
+            }
+            else{
+                this.historicMoviments.eliminarMoviment();
+            }
+            switch(elementObtingut){
+                case MONEDA:{
+                    this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+                case MONEDA_EXTRA:{
+                    this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+            }
+            return elementObtingut;
         }
-        switch(elementObtingut){
-            case MONEDA:{
-                this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
-                partida.assignarPuntsEnemic(punts);
-            }break;
-            case MONEDA_EXTRA:{
-                this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
-                partida.assignarPuntsEnemic(punts);
-            }break;
-        }
-        return elementObtingut;
+        return null;
     }
     
     private int explorarDireccio(EDireccio direccio){
@@ -118,6 +126,9 @@ public class Fantasma2 extends Personatge{
             if(element == EElement.MONEDA){
                 n++;
                 interes += 10/n;
+            }
+            else if(element == EElement.PACMAN){
+                interes -= 1;
             }
             else if(element == EElement.SORTIDA && super.estaGuanyant()){
                 //A tot tall cap a la sortida!!!

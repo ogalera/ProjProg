@@ -20,6 +20,7 @@ public class LaberintLinealHoritzontal extends Laberint{
         this.costat = costat;
         this.generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
+        this.nMondesPerItem = (int)(nMonedes*0.3);
         this.pintador = pintadorLaberint;
     }
     

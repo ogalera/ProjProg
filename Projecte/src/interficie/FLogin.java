@@ -64,6 +64,10 @@ public class FLogin extends JFrame implements ActionListener{
 
         lblPASSWORD.setText("Password");
 
+        txtUsuari.setText("kobe24");
+
+        txtPassword.setText("bryant24");
+
         btnEntrar.setText("Entrar");
 
         btnAlta.setText("Alta");

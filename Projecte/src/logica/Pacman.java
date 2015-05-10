@@ -32,18 +32,28 @@ public class Pacman extends Personatge{
 
     @Override
     public EElement realitzarMoviment(){
-        EElement elementObtingut = super.realitzarMoviment();
-        switch(elementObtingut){
-            case MONEDA:{
-                this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
-                partida.assignarPuntsPacman(punts);
-            }break;
-            case MONEDA_EXTRA:{
-                this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
-                partida.assignarPuntsPacman(punts);
-            }break;
+        Punt puntDesplasat = posicio.generarPuntDesplasat(super.seguentMoviment);
+        EElement element = laberint.obtenirElement(puntDesplasat);
+        if(!element.esEnemic()){
+            EElement elementObtingut = super.realitzarMoviment();
+            switch(elementObtingut){
+                case MONEDA:{
+                    this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                    partida.assignarPuntsPacman(punts);
+                }break;
+                case MONEDA_EXTRA:{
+                    this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                    partida.assignarPuntsPacman(punts);
+                }break;
+                default:{
+                    
+                    //Em agafat algún item
+                    
+                }break;
+            }
+            return elementObtingut;
         }
-        return elementObtingut;
+        return null;
     }
 
     @Override
@@ -53,14 +63,13 @@ public class Pacman extends Personatge{
             Punt desti = posicio.generarPuntDesplasat(teclaPremuda);
             if (laberint.posicioValida(desti)){
                 EElement elementDesti = laberint.obtenirElement(desti);
-                if (elementDesti == EElement.PARET || elementDesti.esEnemic()){
+                if (elementDesti == EElement.PARET){
                     seguentMoviment = EDireccio.QUIET;
                 }
                 else seguentMoviment = teclaPremuda;
             }
             else seguentMoviment = EDireccio.QUIET;
         }
-//        System.out.println("En pacman vol anar a la "+seguentMoviment);
         return seguentMoviment;
     }
     

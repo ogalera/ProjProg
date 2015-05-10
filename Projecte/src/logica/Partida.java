@@ -40,6 +40,8 @@ public class Partida {
      */
     private Personatge enemic;
     
+    private Item itemEspecial = null;
+    
     /**
      * Frame per visualitzar per pantalla la partida
      */
@@ -62,15 +64,17 @@ public class Partida {
     /**
      * @pre: fitxer existeix i conté un laberint en format correcte;
      * @post: em carregat una partida a partir del laberint especificat per parametre;
-     * @param fitxer que conté el laberint;
-     * @throws EFormatLaberint si el format del laberint que conté el 
-     * fitxer no és correcte;
      */
-    public Partida(String fitxer) throws EFormatLaberint{
+    public Partida(String fitxer, 
+                    IPintadorPartida pintadorPartida,
+                    IPintadorLaberint pintadorLaberint,
+                    IControlador controlador) throws EFormatLaberint{
         log = Log.getInstance(Partida.class);
+        pintador = pintadorPartida;
         log.afegirDebug("Carreguem la partida a traves del fitxer "+fitxer);
-        laberint = new Laberint(fitxer, this);
-        enemic = this.obtenirEnemic();
+        laberint = new Laberint(fitxer, this, pintadorLaberint);
+        pacman = obtenirPacman(controlador);
+        enemic = obtenirEnemic();
     }
     
     public Partida(ELaberintsPredefinits laberint,
@@ -171,6 +175,19 @@ public class Partida {
 //        }
     }
    
+    public void itemCapturat(){
+        this.itemEspecial.finalitzarItem();
+        this.itemEspecial = null;
+    }
+    
+    public void assignarItemEspecial(Item item){
+        this.itemEspecial = item;
+    }
+    
+    public boolean hiHaItemEspecial(){
+        return itemEspecial != null;
+    }
+    
     public ImageIcon obtenirImatgePacman(){
         return pacman.obtenirImarge();
     }

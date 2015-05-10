@@ -6,7 +6,6 @@
 package logica;
 
 import logica.laberints.Laberint;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import logica.enumeracions.EDireccio;
@@ -18,13 +17,11 @@ import logica.excepcions.EItemMovibleIniciat;
  * @author oscar
  */
 public abstract class ItemMovible {
-    private final Random random;
     private final Timer temporitzador;
     private final TascaAplicarMoviment tascaAplicarMoviment;
     
-    protected Laberint laberint;
+    protected final Laberint laberint;
     protected Punt posicio;
-    private static int nItems = 0;
     protected EDireccio seguentMoviment;
     private long frequencia;
     private boolean iniciat = false;
@@ -32,12 +29,8 @@ public abstract class ItemMovible {
     public ItemMovible(Laberint laberint, Punt inici){
         this.laberint = laberint;
         this.posicio = inici;
-        this.random = new Random(System.currentTimeMillis());
         this.frequencia = Utils.Constants.FREQUENCIA_ITEM_MOVIBLE;
         temporitzador = new Timer("Thread "+this.nomItemMovible());
-        
-        ++nItems;
-        
         seguentMoviment = this.calcularMoviment();
         tascaAplicarMoviment = new TascaAplicarMoviment();
     }
@@ -48,11 +41,6 @@ public abstract class ItemMovible {
         temporitzador.scheduleAtFixedRate(tascaAplicarMoviment, 0, frequencia);
     }
     
-    public EElement realitzarMoviment(){
-        EElement elementObtingut = laberint.anotarElement(posicio, seguentMoviment);
-        posicio = posicio.generarPuntDesplasat(seguentMoviment);
-        return elementObtingut;
-    }
     
     protected void canviarFrequenciaMoviment(long frequencia){
         this.frequencia = frequencia;
@@ -77,10 +65,7 @@ public abstract class ItemMovible {
         
     }
     
-    protected int obtenirValorAleatori(int max){
-        return this.random.nextInt(max);
-    }
-    
+    public abstract EElement realitzarMoviment();
     public abstract EDireccio calcularMoviment();
     public abstract String nomItemMovible();
 }

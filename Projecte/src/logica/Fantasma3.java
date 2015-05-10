@@ -64,7 +64,7 @@ public class Fantasma3 extends Personatge{
                     //i sortegem una direcció pseudoaleatoria;
                     Punt p;
                     do{
-                        int index = super.obtenirValorAleatori(4);
+                        int index = Utils.obtenirValorAleatori(4);
                         moviment = EDireccio.values()[index];
                         p = posicio.generarPuntDesplasat(moviment);
                     }while(!laberint.posicioValida(p));
@@ -77,7 +77,7 @@ public class Fantasma3 extends Personatge{
                 if(interesEsquerra == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.ESQUERRA;
                 if(interesAdalt == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AMUNT;
                 if(interesAbaix == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AVALL;
-                int index = super.obtenirValorAleatori(nPossiblesDireccions);
+                int index = Utils.obtenirValorAleatori(nPossiblesDireccions);
                 moviment = possiblesDireccions[index];
             }
         }

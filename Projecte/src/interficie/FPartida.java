@@ -129,6 +129,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         marcadorEnemic= new Marcador(partida.obtenirImatgeFantasma());
         this.add(marcadorPacman, BorderLayout.WEST);
         this.add(marcadorEnemic, BorderLayout.EAST);
+//        this.add(marcador)
         this.setVisible(true);
     }
 

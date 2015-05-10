@@ -24,12 +24,12 @@ import logica.log.Log;
  */
 public class PLaberint extends JPanel implements IPintadorLaberint{
     private final Log log;
-    private Image imgPacmanRedimensionada;
-    private Image imgFantasma1Redimensionada;
-    private Image imgFantasma2Redimensionada;
-    private Image imgFantasma3Redimensionada;
-    private Image imgParetRedimensionada;
-    private Image imgMonedaRedimensionada;
+    private ImageIcon imgPacmanRedimensionada;
+    private ImageIcon imgFantasma1Redimensionada;
+    private ImageIcon imgFantasma2Redimensionada;
+    private ImageIcon imgFantasma3Redimensionada;
+    private ImageIcon imgParetRedimensionada;
+    private ImageIcon imgMonedaRedimensionada;
     private JLabel[][] laberintGrafic;
     private static final int MIDA_PREFERIDA = 800;
     private static final int MIDA_MINIMA = 500;
@@ -38,69 +38,6 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     public PLaberint(){
         log = Log.getInstance(PLaberint.class);
     }
-    
-     
-                    /////////////////////////////////////
-                    // IMPLEMENTACIO AMB UN GridLayout //
-                    /////////////////////////////////////
-     
-//    public FLaberint(EElement [][] _laberint) {
-//       this.setSize(MIDA, MIDA);
-//        this.setBackground(Color.BLACK);
-//        
-//        int numCaselles = _laberint[0].length;
-//        this.setLayout(new GridLayout(numCaselles, numCaselles));
-//        int midaLabels = MIDA/numCaselles;
-//        laberintGrafic = new JLabel[numCaselles][numCaselles];
-//        for (int i = 0; i < numCaselles; i++){
-//            for (int j = 0; j < numCaselles; j++){
-//                laberintGrafic[j][i] = new JLabel();
-//                laberintGrafic[j][i].setBounds(i*midaLabels, j*midaLabels, midaLabels, midaLabels);
-//                Icon icona = new ImageIcon(_laberint[j][i].obtenirImatge().getImage().getScaledInstance(laberintGrafic[j][i].getWidth(),laberintGrafic[j][i].getHeight(),Image.SCALE_DEFAULT));
-//                laberintGrafic[j][i].setIcon(icona);
-//            }
-//        }  
-//    }
-    
-//    @Override
-//    public void pintarMoviment(Punt a, EElement _a, Punt b, EElement _b){
-//        
-//        if ( _a == EElement.RES){
-//            laberintGrafic[a.obtenirY()][a.obtenirX()].setIcon(null);
-//            laberintGrafic[a.obtenirY()][a.obtenirX()].validate();
-//            laberintGrafic[a.obtenirY()][a.obtenirX()].repaint();
-//        }
-//        else
-//        {
-//            Icon icona = new ImageIcon(_a.obtenirImatge().getImage().getScaledInstance(laberintGrafic[a.obtenirY()][a.obtenirX()].getWidth(),laberintGrafic[a.obtenirY()][a.obtenirX()].getHeight(),Image.SCALE_DEFAULT));
-//            laberintGrafic[a.obtenirY()][a.obtenirX()].setIcon(icona);
-//            laberintGrafic[a.obtenirY()][a.obtenirX()].validate();
-//            laberintGrafic[a.obtenirY()][a.obtenirX()].repaint();
-//        }
-//        if ( _b == EElement.RES){
-//            laberintGrafic[b.obtenirY()][b.obtenirX()].setIcon(null);
-//            laberintGrafic[b.obtenirY()][b.obtenirX()].validate();
-//            laberintGrafic[b.obtenirY()][b.obtenirX()].repaint();
-//        }
-//        else{
-//            Icon icona = new ImageIcon(_b.obtenirImatge().getImage().getScaledInstance(laberintGrafic[b.obtenirY()][b.obtenirX()].getWidth(),laberintGrafic[b.obtenirY()][b.obtenirX()].getHeight(),Image.SCALE_DEFAULT));
-//            laberintGrafic[b.obtenirY()][b.obtenirX()].setIcon(icona);
-//            laberintGrafic[b.obtenirY()][b.obtenirX()].validate();
-//            laberintGrafic[b.obtenirY()][b.obtenirX()].repaint();
-//        }
-//    }
-    
-//    @Override
-//    public  void pintarLaberint(){
-//        int costat = laberintGrafic[0].length;
-//        for (int i = 0; i < costat; i++){
-//            for (int j = 0; j < costat; j++){
-//                this.add(laberintGrafic[i][j]);
-//                laberintGrafic[i][j].validate();
-//            }
-//        }
-//        creaFinestra();
-//    }
     
     private void creaFinestra(){
         this.setVisible(true);
@@ -136,34 +73,33 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     }
 
     private ImageIcon obtenirImatge(EElement element){
-        ImageIcon imatge = null;
         switch(element){
             case PACMAN:{
-                imatge = new ImageIcon(imgPacmanRedimensionada);
-            }break;
+                return imgPacmanRedimensionada;
+            }
             case FANTASMA1:{
-                imatge = new ImageIcon(imgFantasma1Redimensionada);
-            }break;
+                return imgFantasma1Redimensionada;
+            }
             case FANTASMA2:{
-                imatge = new ImageIcon(imgFantasma2Redimensionada);
-            }break;
+                return imgFantasma2Redimensionada;
+            }
             case FANTASMA3:{
-                imatge = new ImageIcon(imgFantasma3Redimensionada);
-            }break;
+                return imgFantasma3Redimensionada;
+            }
             case PARET:{
-                imatge = new ImageIcon(imgParetRedimensionada);
-            }break;
+                return imgParetRedimensionada;
+            }
             case MONEDA:{
-                imatge = new ImageIcon(imgMonedaRedimensionada);
-            }break;
+                return imgMonedaRedimensionada;
+            }
             case RES:{
-                imatge = null;
-            }break;
+                return null;
+            }
             default:{
                 log.afegirError("No existeix imatge per aquest element ("+element.name()+")");
-            }break;
+                return null;
+            }
         }
-        return imatge;
     }
     
     @Override
@@ -178,12 +114,12 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         int midaLabels = MIDA_PREFERIDA/numCaselles;
         laberintGrafic = new JLabel[numCaselles][numCaselles];
         
-        imgPacmanRedimensionada = EElement.PACMAN.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
-        imgFantasma1Redimensionada = EElement.FANTASMA1.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
-        imgFantasma2Redimensionada = EElement.FANTASMA2.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
-        imgFantasma3Redimensionada = EElement.FANTASMA3.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
-        imgParetRedimensionada = EElement.PARET.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
-        imgMonedaRedimensionada = EElement.MONEDA.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT);
+        imgPacmanRedimensionada = new ImageIcon(EElement.PACMAN.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
+        imgFantasma1Redimensionada = new ImageIcon(EElement.FANTASMA1.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
+        imgFantasma2Redimensionada = new ImageIcon(EElement.FANTASMA2.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
+        imgFantasma3Redimensionada = new ImageIcon(EElement.FANTASMA3.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
+        imgParetRedimensionada = new ImageIcon(EElement.PARET.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
+        imgMonedaRedimensionada = new ImageIcon(EElement.MONEDA.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
         
         for (int fila = 0; fila < numCaselles; fila++){
             for (int columna = 0; columna < numCaselles; columna++){

@@ -14,10 +14,13 @@ import logica.enumeracions.EElement;
  * @author oscar
  */
 public class Item extends ItemMovible {
-    private EElement tipusElement;
+    private final EElement tipusElement;
+    private EElement elementTrapitjat;
     
-    public Item(Laberint laberint, Punt inici){
+    public Item(EElement tipusElement, Laberint laberint, Punt inici){
         super(laberint, inici);
+        this.tipusElement = tipusElement;
+        elementTrapitjat = null;
     }
 
     @Override
@@ -27,6 +30,13 @@ public class Item extends ItemMovible {
     
     @Override
     public String nomItemMovible(){
-        return "Item";
+        return "Item "+tipusElement;
+    }
+
+    @Override
+    public EElement realitzarMoviment() {
+        elementTrapitjat = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
+        posicio = posicio.generarPuntDesplasat(seguentMoviment);
+        return null;
     }
 }

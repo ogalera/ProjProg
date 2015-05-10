@@ -7,12 +7,16 @@ package interficie;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.swing.JFileChooser;
 import logica.Partida;
 import logica.Usuari;
 import logica.controladors_pacman.ControladorTeclat;
 import logica.controladors_pacman.IControlador;
 import logica.enumeracions.EElement;
 import logica.enumeracions.ELaberintsPredefinits;
+import logica.excepcions.EFormatLaberint;
+import logica.log.Log;
 
 /**
  *
@@ -179,10 +183,25 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             partida.iniciarPartida();
         }
         else if(e.getSource() == btnProvarMapa){
-            
+            File fitxer = obtenirFitxerLaberint();
+            if(fitxer != null){
+                String laberint = fitxer.toString();
+                IControlador controlador = new ControladorTeclat();
+                PLaberint fLaberint = new PLaberint();
+                FPartida fPartida = new FPartida(fLaberint);
+                try{
+                    Partida partida = new Partida(laberint, fPartida, fLaberint, controlador);
+                    fPartida.pintarPartida(partida);
+                    partida.iniciarPartida();
+                }
+                catch(EFormatLaberint formatLaberintException){
+                    Log log = Log.getInstance(FMenu.class);
+                    log.afegirError("Error en el format del fitxer missatge: "+formatLaberintException.getMessage());
+                }
+            }
         }
         else if(e.getSource() == btnCrearMapa){
-            new FEditorLaberint(10).mostrarFrame();
+            new FEditorLaberint(5).mostrarFrame();
         }
         else if(e.getSource() == btnAfegirDispositiu){
             new FAfegirDispositiu().mostrarFrame();
@@ -190,5 +209,16 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         else{
             this.dispose();
         }
+    }
+    
+    private File obtenirFitxerLaberint(){
+        File fitxerSeleccionat = null;
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int resultat = fc.showDialog(FMenu.this, "Importar laberint");
+        if(resultat == JFileChooser.APPROVE_OPTION){
+            fitxerSeleccionat = fc.getSelectedFile();
+        }
+        return fitxerSeleccionat;
     }
 }

@@ -2,6 +2,7 @@ package logica;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 ///De la llibreria Apache Commons Codec 1.10 per codificar/decodificar 
 ///el password del usuari;
 import org.apache.commons.codec.binary.Base64;
@@ -18,6 +19,14 @@ public class Utils{
         public static final String rutaImatgeDefecteUsuari = "res/imatge_perfil.png";
         public static final int PORT = 9988;
         public static final int FREQUENCIA_ITEM_MOVIBLE = 500;
+        public static final int TAN_PER_CENT_MONEDES_DOBLES = 10;
+        public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
+    }
+    
+    private static final Random random = new Random(System.currentTimeMillis());
+    
+    public static int obtenirValorAleatori(int max){
+        return random.nextInt(max);
     }
     
     /**
