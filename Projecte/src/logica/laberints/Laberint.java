@@ -5,7 +5,6 @@
  */
 package logica.laberints;
 
-import com.sun.xml.internal.bind.v2.util.EditDistance;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -21,6 +20,7 @@ import logica.Item;
 import logica.Partida;
 import logica.Punt;
 import logica.Utils;
+import logica.enumeracions.EItems;
 
 /**
  *
@@ -165,7 +165,7 @@ public class Laberint {
             if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
                 //Toca sortejar un nou item
                 Punt puntItem = sortejarPosicioItem();
-                EElement ni = sortejarItem();
+                EItems ni = sortejarItem();
                 Item nouItem = new Item(ni, this, puntItem);
                 partida.assignarItemEspecial(nouItem);
                 System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
@@ -191,19 +191,9 @@ public class Laberint {
         return new Punt(costat-1, costat-1);
     }
     
-    private EElement sortejarItem(){
+    private EItems sortejarItem(){
         int index = Utils.obtenirValorAleatori(3);
-        switch(index){
-            case 0:{
-                return EElement.PATINS;
-            }
-            case 1:{
-                return EElement.MONGETA;
-            }
-            default:{
-                return EElement.MONEDES_X2;
-            }
-        }
+        return EItems.values()[index];
     }
     
     private Punt sortejarPosicioItem(){

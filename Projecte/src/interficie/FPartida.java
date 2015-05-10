@@ -13,6 +13,10 @@ import javax.swing.BoxLayout;
 import java.awt.Color;
 import interficie.components.Crono;
 import interficie.components.Marcador;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import logica.Partida;
 
 /**
@@ -129,7 +133,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         marcadorEnemic= new Marcador(partida.obtenirImatgeFantasma());
         this.add(marcadorPacman, BorderLayout.WEST);
         this.add(marcadorEnemic, BorderLayout.EAST);
-//        this.add(marcador)
+        new ImageIcon("res/items.png");
         this.setVisible(true);
     }
 

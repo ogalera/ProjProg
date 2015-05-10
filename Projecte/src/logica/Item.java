@@ -8,16 +8,17 @@ package logica;
 import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
+import logica.enumeracions.EItems;
 
 /**
  *
  * @author oscar
  */
 public class Item extends ItemMovible {
-    private final EElement tipusElement;
+    private final EItems tipusElement;
     private EElement elementTrapitjat;
     
-    public Item(EElement tipusElement, Laberint laberint, Punt inici){
+    public Item(EItems tipusElement, Laberint laberint, Punt inici){
         super(laberint, inici);
         this.tipusElement = tipusElement;
         elementTrapitjat = null;
