@@ -27,8 +27,10 @@ public abstract class ItemMovible {
     private long frequencia;
     private boolean iniciat = false;
     public final ImageIcon imatgePerfil;
+    protected final Partida partida;
     
-    public ItemMovible(ImageIcon imatge, Laberint laberint, Punt inici){
+    public ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici){
+        this.partida = partida;
         this.imatgePerfil = imatge;
         this.laberint = laberint;
         this.posicio = inici;

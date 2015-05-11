@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import java.util.Timer;
@@ -13,12 +8,24 @@ import logica.laberints.Laberint;
 import logica.historic_moviments.HistoricMoviments;
 
 /**
- *
  * @author oscar
+ * Representació de tot item que lluita per obtenir el maxim de punts,
+ * que pot anar canviant d'estat i que es comporta de forma diferent
+ * segons el seu estat.
  */
 public abstract class Personatge extends ItemMovible{
+    /**
+     * Estructura de dades de tipus FIFO on s'emagatzemen totes les direccions 
+     * que ha agafat el personatge,
+     * Aquesta estructura l'utilitzem per si el personatge ha de fer marxa enrrere;
+     **/
     protected HistoricMoviments historicMoviments;
+    
     protected int punts;
+    
+    /**
+     * Partida en la que es troba el personatge
+     **/
     protected Partida partida;
     private boolean guanya;
     private EEstatPersonatge estatPersonatge = null;
@@ -29,7 +36,7 @@ public abstract class Personatge extends ItemMovible{
     }
     
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
-        super(imatge, laberint, inici);
+        super(partida, imatge, laberint, inici);
         this.partida = partida;
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;

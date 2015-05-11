@@ -22,8 +22,8 @@ public class Item extends ItemMovible {
     private HistoricMoviments ruta;
     private final Log log;
     
-    public Item(EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici){
-        super(tipusElement.obtenirImatge(), laberint, inici);
+    public Item(Partida partida, EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici){
+        super(partida, tipusElement.obtenirImatge(), laberint, inici);
         log = Log.getInstance(Item.class);
         this.tipusElement = tipusElement;
         this.elementTrapitjat = elementTrapitjat;
@@ -42,8 +42,8 @@ public class Item extends ItemMovible {
         if (seguentMoviment == null)return EDireccio.QUIET;
         if (posicio == null)return EDireccio.QUIET;
         if (ruta == null || ruta.esBuida()){
-            Punt posicioPacman = laberint.obtenirPosicioPacman();
-            Punt posicioEnemic = laberint.obtenirPosicioEnemic();
+            Punt posicioPacman = partida.obtenirPuntPacman();
+            Punt posicioEnemic = partida.obtenirPuntEnemic();
             Punt puntAFugir = posicioEnemic;
            
            

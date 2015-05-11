@@ -105,7 +105,7 @@ public class Partida {
      * @post: em retornat l'enemic;
      */
     private Personatge obtenirEnemic(){
-        Punt posicioFantasma = laberint.obtenirPosicioEnemic();
+        Punt posicioFantasma = laberint.obtenirPosicioInicialEnemic();
         EElement tipusEnemic = laberint.obtenirElement(posicioFantasma);
         switch(tipusEnemic){
             case FANTASMA1:{
@@ -126,7 +126,7 @@ public class Partida {
     }
     
     private Personatge obtenirPacman(IControlador controlador){
-        Punt posicioPacman = laberint.obtenirPosicioPacman();
+        Punt posicioPacman = laberint.obtenirPosicioInicialPacman();
         pacman = new Pacman (this, laberint, controlador, posicioPacman);
         return pacman;
     }
@@ -234,5 +234,13 @@ public class Partida {
    
    public void treureItemEnemic(){
        pintador.pintarItemEnemic(null);
+   }
+   
+   public Punt obtenirPuntPacman(){
+       return pacman.posicio;
+   }
+   
+   public Punt obtenirPuntEnemic(){
+       return enemic.posicio;
    }
 }

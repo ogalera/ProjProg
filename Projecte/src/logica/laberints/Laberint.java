@@ -164,7 +164,7 @@ public class Laberint {
                 //Toca sortejar un nou item
                 Punt puntItem = sortejarPosicioItem();
                 EElement item = sortejarItem();
-                Item nouItem = new Item(item, objecteAgafat, this, puntItem);
+                Item nouItem = new Item(partida, item, objecteAgafat, this, puntItem);
                 int filaItem = puntItem.obtenirFila();
                 int columnaItem = puntItem.obtenirColumna();
                 this.tauler[filaItem][columnaItem] = item;
@@ -231,7 +231,7 @@ public class Laberint {
         return resultat;
     }
     
-    public Punt obtenirPosicioPacman(){
+    public Punt obtenirPosicioInicialPacman(){
         Punt posicio = null;
         boolean trobat = false;
         int i = 0;
@@ -249,7 +249,7 @@ public class Laberint {
         return posicio;
     }
     
-    public Punt obtenirPosicioEnemic(){
+    public Punt obtenirPosicioInicialEnemic(){
         Punt posicio = null;
         boolean trobat = false;
         int fila = 0;
