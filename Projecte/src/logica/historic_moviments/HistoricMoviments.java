@@ -15,18 +15,22 @@ import logica.excepcions.EHistoricBuit;
  */
 public class HistoricMoviments {
     private final Pila<EDireccio> pila;
+    private int nElement;
     
     public HistoricMoviments(){
         pila = new Pila<>();
+        nElement = 0;
     }
     
     public void afegirMoviment(EDireccio nouMoviment){
         pila.afegir(nouMoviment);
+        nElement ++;
     }
     
     public EDireccio eliminarMoviment(){
         if(this.esBuida()) throw new EHistoricBuit();
         EDireccio ultimMoviment = pila.desenpilar();
+        nElement--;
         return ultimMoviment;
     }
     
@@ -36,5 +40,9 @@ public class HistoricMoviments {
     
     public boolean esBuida(){
         return pila.esBuida();
+    }
+    
+    public int size(){
+        return nElement;
     }
 }

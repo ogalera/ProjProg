@@ -8,6 +8,8 @@ package logica;
 import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
+import java.util.PriorityQueue;
+import logica.algoritmica.Casella;
 
 /**
  *
@@ -15,6 +17,7 @@ import logica.enumeracions.EElement;
  */
 public class Fantasma3 extends Personatge{
     private boolean marxaEnrrere;
+    private PriorityQueue<Casella> caselles;
     
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
@@ -161,5 +164,14 @@ public class Fantasma3 extends Personatge{
     
     @Override public String nomItemMovible(){
         return "Fantasma3";
+    }
+    
+    private void calculaCaselles(){
+        int mida = laberint.obtenirMidaCostatTauler();
+        for (int i = 0; i < mida; i++){
+            for (int j = 0; j < mida; j++){
+                
+            }
+        }
     }
 }
