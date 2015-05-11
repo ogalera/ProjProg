@@ -38,10 +38,6 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     public PLaberint(){
         log = Log.getInstance(PLaberint.class);
     }
-    
-    private void creaFinestra(){
-        this.setVisible(true);
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -59,17 +55,17 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     }
 
     @Override
-    public void pintarMoviment(Punt pOrigen, EElement eOrigen, EDireccio direccio, EElement eDesti) {
-        ImageIcon imgOrigen = obtenirImatge(eOrigen);
-        ImageIcon imgDesti = obtenirImatge(eDesti);
-        this.laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].setIcon(imgOrigen);
+    public void pintarMovimentPersonatge(Punt pOrigen, EDireccio direccio, ImageIcon imatge) {
+        this.laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].setIcon(null);
         Punt pDesplasat = pOrigen.generarPuntDesplasat(direccio);
-        this.laberintGrafic[pDesplasat.obtenirFila()][pDesplasat.obtenirColumna()].setIcon(imgDesti);
+        this.laberintGrafic[pDesplasat.obtenirFila()][pDesplasat.obtenirColumna()].setIcon(imatge);
     }
 
     @Override
     public void pintarNouItem(Punt pNouItem, EElement nouItem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int fila = pNouItem.obtenirFila();
+        int columna = pNouItem.obtenirColumna();
+        this.laberintGrafic[fila][columna].setIcon(nouItem.obtenirImatge());
     }
 
     private ImageIcon obtenirImatge(EElement element){
@@ -135,6 +131,13 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     @Override
     public void assignarControladorTeclat(KeyListener controlador) {
         this.addKeyListener(controlador);
+    }
+
+    @Override
+    public void pintarMovimentItem(Punt pOrigen, EDireccio direccio, ImageIcon imatge) {
+        Punt pDesti = pOrigen.generarPuntDesplasat(direccio);
+        laberintGrafic[pDesti.obtenirFila()][pDesti.obtenirColumna()].setIcon(laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].getIcon());
+        laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].setIcon(imatge);
     }
 }
 

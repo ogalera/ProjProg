@@ -92,7 +92,7 @@ public class Fantasma2 extends Personatge{
     public EElement realitzarMoviment(){
         Punt puntDesplasat = posicio.generarPuntDesplasat(super.seguentMoviment);
         EElement element = laberint.obtenirElement(puntDesplasat);
-        if(element != EElement.PACMAN && element != EElement.PARET){
+        if(element != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
             EElement elementObtingut = super.realitzarMoviment();
             if(!marxaEnrrere){
                 this.historicMoviments.afegirMoviment(super.seguentMoviment);
@@ -102,12 +102,19 @@ public class Fantasma2 extends Personatge{
             }
             switch(elementObtingut){
                 case MONEDA:{
-                    this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
                     partida.assignarPuntsEnemic(punts);
                 }break;
                 case MONEDA_EXTRA:{
-                    this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
                     partida.assignarPuntsEnemic(punts);
+                }break;
+                case PATINS:
+                case MONEDES_X2:
+                case MONGETA:{
+                    //Em agafat algún item
+                    partida.itemCapturat();
+                    super.assignarEstatPersonatge(elementObtingut);
                 }break;
             }
             return elementObtingut;
@@ -129,6 +136,9 @@ public class Fantasma2 extends Personatge{
             }
             else if(element == EElement.PACMAN){
                 interes -= 1;
+            }
+            else if(element == EElement.PATINS || element == EElement.MONGETA || element == EElement.MONEDES_X2){
+                interes += Integer.MAX_VALUE;
             }
             else if(element == EElement.SORTIDA && super.estaGuanyant()){
                 //A tot tall cap a la sortida!!!

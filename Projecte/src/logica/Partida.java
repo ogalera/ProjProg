@@ -178,10 +178,12 @@ public class Partida {
     public void itemCapturat(){
         this.itemEspecial.finalitzarItem();
         this.itemEspecial = null;
+        this.pintador.pintarItemPartida(null);
     }
     
     public void assignarItemEspecial(Item item){
         this.itemEspecial = item;
+        this.pintador.pintarItemPartida(itemEspecial.imatgePerfil);
     }
     
     public boolean hiHaItemEspecial(){
@@ -189,11 +191,11 @@ public class Partida {
     }
     
     public ImageIcon obtenirImatgePacman(){
-        return pacman.obtenirImarge();
+        return pacman.imatgePerfil;
     }
     
     public ImageIcon obtenirImatgeFantasma(){
-        return enemic.obtenirImarge();
+        return enemic.imatgePerfil;
     }
     
    public Laberint obtenirLaberint(){
@@ -201,10 +203,36 @@ public class Partida {
    }
    
    public void assignarPuntsPacman(int punts){
-       if(pintador != null) pintador.pintarPuntsPacman(punts);
+       pintador.pintarPuntsPacman(punts);
    }
    
    public void assignarPuntsEnemic(int punts){
-       if(pintador != null) pintador.pintarPuntsEnemic(punts);
+       pintador.pintarPuntsEnemic(punts);
+   }
+   
+   public int reiniciarPuntsEnemic(){
+       pintador.pintarPuntsEnemic(0);
+       return enemic.reiniciarPunts();
+   }
+   
+   public int reiniciarPuntsPacman(){
+       pintador.pintarPuntsPacman(0);
+       return pacman.reiniciarPunts();
+   }
+   
+   public void assignarItemAPacman(EElement item){
+       pintador.pintarItemPacman(item.obtenirImatge());
+   }
+   
+   public void assignarItemAEnemic(EElement item){
+       pintador.pintarItemEnemic(item.obtenirImatge());
+   }
+   
+   public void treureItemPacman(){
+       pintador.pintarItemPacman(null);
+   }
+   
+   public void treureItemEnemic(){
+       pintador.pintarItemEnemic(null);
    }
 }

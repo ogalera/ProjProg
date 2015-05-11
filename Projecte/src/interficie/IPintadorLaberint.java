@@ -6,9 +6,10 @@
 package interficie;
 
 import java.awt.event.KeyListener;
-import logica.enumeracions.EElement;
+import javax.swing.ImageIcon;
 import logica.Punt;
 import logica.enumeracions.EDireccio;
+import logica.enumeracions.EElement;
 import logica.laberints.Laberint;
 
 /**
@@ -17,7 +18,8 @@ import logica.laberints.Laberint;
  */
 public interface IPintadorLaberint extends KeyListener{
     public void assignarControladorTeclat(KeyListener controlador);
-    public void pintarMoviment(Punt pOrigen, EElement eOrigen, EDireccio direccio, EElement eDesti);
-    public void pintarNouItem(Punt pNouItem, EElement nouItem);
+    public void pintarMovimentPersonatge(Punt pOrigen, EDireccio direccio, ImageIcon imatge);
+    public void pintarMovimentItem(Punt pOrigen, EDireccio direccio, ImageIcon imatge);
+    public void pintarNouItem(Punt pNouItem, EElement item);
     public void pintarLaberint(Laberint laberint);
 }

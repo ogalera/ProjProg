@@ -13,8 +13,6 @@ import javax.swing.BoxLayout;
 import java.awt.Color;
 import interficie.components.Crono;
 import interficie.components.Marcador;
-import java.awt.Image;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import logica.Partida;
@@ -29,7 +27,9 @@ public class FPartida extends JFrame implements IPintadorPartida{
     private JPanel partDreta;
     private JPanel partInferior;
     private JPanel partCentral;
-    
+    private JLabel lblItem;
+    private JLabel itemPacman;
+    private JLabel itemEnemic;
     
     private Marcador marcadorPacman;
     private Marcador marcadorEnemic;
@@ -130,13 +130,31 @@ public class FPartida extends JFrame implements IPintadorPartida{
     @Override
     public void pintarPartida(Partida partida) {
         marcadorPacman = new Marcador(partida.obtenirImatgePacman());
+        JPanel panellPacman = new JPanel();
+        itemPacman = new JLabel();
+        itemPacman.setPreferredSize(new Dimension(50, 50));
+        panellPacman.add(marcadorPacman);
+        panellPacman.add(itemPacman);
+        
         marcadorEnemic= new Marcador(partida.obtenirImatgeFantasma());
-        this.add(marcadorPacman, BorderLayout.WEST);
-        this.add(marcadorEnemic, BorderLayout.EAST);
-        new ImageIcon("res/items.png");
+        JPanel panellEnemic = new JPanel();
+        itemEnemic = new JLabel();
+        itemEnemic.setPreferredSize(new Dimension(50, 50));
+        panellEnemic.add(marcadorEnemic);
+        panellEnemic.add(itemEnemic);
+        
+        this.add(panellPacman, BorderLayout.WEST);
+        this.add(panellEnemic, BorderLayout.EAST);
+        lblItem = new JLabel(new ImageIcon("res/item.png"));
+        lblItem.setPreferredSize(new Dimension(50, 50));
+        this.add(lblItem, BorderLayout.NORTH);
         this.setVisible(true);
     }
 
+    public void pintarItemPartida(ImageIcon item){
+        this.lblItem.setIcon(item);
+    }
+    
     @Override
     public void pintarFinalPartida() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -145,5 +163,15 @@ public class FPartida extends JFrame implements IPintadorPartida{
     @Override
     public void pintarIniciPartida() {
         cronometre.iniciarCrono();
+    }
+
+    @Override
+    public void pintarItemPacman(ImageIcon imatge) {
+        itemPacman.setIcon(imatge);
+    }
+
+    @Override
+    public void pintarItemEnemic(ImageIcon imatge) {
+        itemEnemic.setIcon(imatge);
     }
 }

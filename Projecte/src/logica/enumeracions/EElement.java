@@ -23,7 +23,9 @@ public enum EElement {
     MONEDA(1, false, "res/moneda.png", 'O'), 
     MONEDA_EXTRA(2, false, "res/moneda.png", 'E'), 
     RES(0, false, null, 'R'),
-    ITEM(2, false, "res/item.png", 'H'),
+    PATINS(3, false, "res/patins.png", 'U'),
+    MONEDES_X2(4, false, "res/monedes_x2.png", 'M'),
+    MONGETA(5, false, "res/mongeta.png", 'N'),
     INDEFINIT(-2 , false, "res/indefinit.png", 'I'),
     SORTIDA(15, false, "res/indefinit.png", 'S');
     

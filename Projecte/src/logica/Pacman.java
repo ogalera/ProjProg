@@ -34,21 +34,31 @@ public class Pacman extends Personatge{
     public EElement realitzarMoviment(){
         Punt puntDesplasat = posicio.generarPuntDesplasat(super.seguentMoviment);
         EElement element = laberint.obtenirElement(puntDesplasat);
-        if(!element.esEnemic()){
+        if(!element.esEnemic() || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
             EElement elementObtingut = super.realitzarMoviment();
             switch(elementObtingut){
                 case MONEDA:{
-                    this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
                     partida.assignarPuntsPacman(punts);
                 }break;
                 case MONEDA_EXTRA:{
-                    this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
                     partida.assignarPuntsPacman(punts);
                 }break;
-                default:{
-                    
+                case FANTASMA1:
+                case FANTASMA2:
+                case FANTASMA3:{
+                    int puntsRobats = partida.reiniciarPuntsEnemic();
+                    super.incrementarPunts(puntsRobats);
+                    partida.assignarPuntsPacman(punts);
+                }break;
+                case PATINS:
+                case MONEDES_X2:
+                case MONGETA:{
                     //Em agafat algún item
-                    
+                    partida.itemCapturat();
+                    super.assignarEstatPersonatge(elementObtingut);
+                    partida.assignarItemAPacman(elementObtingut);
                 }break;
             }
             return elementObtingut;

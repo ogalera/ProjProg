@@ -8,6 +8,7 @@ package logica;
 import logica.laberints.Laberint;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.ImageIcon;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 import logica.excepcions.EItemMovibleIniciat;
@@ -17,16 +18,18 @@ import logica.excepcions.EItemMovibleIniciat;
  * @author oscar
  */
 public abstract class ItemMovible {
-    private final Timer temporitzador;
-    private final TascaAplicarMoviment tascaAplicarMoviment;
+    private Timer temporitzador;
+    private TascaAplicarMoviment tascaAplicarMoviment;
     
     protected final Laberint laberint;
     protected Punt posicio;
     protected EDireccio seguentMoviment;
     private long frequencia;
     private boolean iniciat = false;
+    public final ImageIcon imatgePerfil;
     
-    public ItemMovible(Laberint laberint, Punt inici){
+    public ItemMovible(ImageIcon imatge, Laberint laberint, Punt inici){
+        this.imatgePerfil = imatge;
         this.laberint = laberint;
         this.posicio = inici;
         this.frequencia = Utils.Constants.FREQUENCIA_ITEM_MOVIBLE;
@@ -45,6 +48,8 @@ public abstract class ItemMovible {
     protected void canviarFrequenciaMoviment(long frequencia){
         this.frequencia = frequencia;
         temporitzador.cancel();
+        tascaAplicarMoviment = new TascaAplicarMoviment();
+        temporitzador = new Timer();
         temporitzador.scheduleAtFixedRate(tascaAplicarMoviment, frequencia, frequencia);
     }
     

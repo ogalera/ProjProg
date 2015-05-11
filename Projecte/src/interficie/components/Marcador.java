@@ -18,7 +18,6 @@ import java.awt.Image;
 public class Marcador extends JPanel {
     JLabel imatge;
     JLabel puntuacio;
-    
     public Marcador(ImageIcon img){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         inicialitzaComponents(img);

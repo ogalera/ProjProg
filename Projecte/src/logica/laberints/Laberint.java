@@ -20,7 +20,6 @@ import logica.Item;
 import logica.Partida;
 import logica.Punt;
 import logica.Utils;
-import logica.enumeracions.EItems;
 
 /**
  *
@@ -137,7 +136,7 @@ public class Laberint {
         return element;
     }
     
-    public EElement moureItem(Punt posicio, EDireccio direccio, EElement elementARestaurar){
+    public synchronized EElement moureItem(Punt posicio, EDireccio direccio, EElement elementARestaurar){
         int filaOrigen = posicio.obtenirFila();
         int columnaOrigen = posicio.obtenirColumna();
         Punt puntDesplasat = posicio.generarPuntDesplasat(direccio);
@@ -146,6 +145,7 @@ public class Laberint {
         EElement elementTrapitjat = tauler[filaDesti][columnaDesti];
         tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
         tauler[filaOrigen][columnaOrigen] = elementARestaurar;
+        pintador.pintarMovimentItem(posicio, direccio, elementARestaurar.obtenirImatge());
         return elementTrapitjat;
     }
     
@@ -153,10 +153,8 @@ public class Laberint {
         int columna = posicio.obtenirColumna();
         int fila = posicio.obtenirFila();
         EElement objecteAMoure = this.tauler[fila][columna];
-        EElement Edesti = objecteAMoure;
         this.tauler[fila][columna] = EElement.RES;
         Punt p = posicio.generarPuntDesplasat(direccio);
-        EElement EOrigen = EElement.RES;
         columna = p.obtenirColumna();
         fila = p.obtenirFila();
         EElement objecteAgafat = this.tauler[fila][columna];
@@ -165,8 +163,12 @@ public class Laberint {
             if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
                 //Toca sortejar un nou item
                 Punt puntItem = sortejarPosicioItem();
-                EItems ni = sortejarItem();
-                Item nouItem = new Item(ni, this, puntItem);
+                EElement item = sortejarItem();
+                Item nouItem = new Item(item, objecteAgafat, this, puntItem);
+                int filaItem = puntItem.obtenirFila();
+                int columnaItem = puntItem.obtenirColumna();
+                this.tauler[filaItem][columnaItem] = item;
+                pintador.pintarNouItem(puntItem, item);
                 partida.assignarItemEspecial(nouItem);
                 System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
             }
@@ -182,8 +184,7 @@ public class Laberint {
             partida.finalitzarPartida();
         }
         this.tauler[fila][columna] = objecteAMoure;
-//        System.out.println(this);
-        pintador.pintarMoviment(posicio, EOrigen, direccio, Edesti);
+        pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
         return objecteAgafat;
     }
     
@@ -191,18 +192,30 @@ public class Laberint {
         return new Punt(costat-1, costat-1);
     }
     
-    private EItems sortejarItem(){
+    private EElement sortejarItem(){
         int index = Utils.obtenirValorAleatori(3);
-        return EItems.values()[index];
+        switch(index){
+            case 1:{
+                return EElement.PATINS;
+            }
+            case 2:{
+                return EElement.MONEDES_X2;
+            }
+            default:{
+                return EElement.MONGETA;
+            }
+        }
     }
     
     private Punt sortejarPosicioItem(){
         int fila;
         int columna;
+        EElement element;
         do{
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
-        }while(this.tauler[fila][columna] != EElement.RES);
+            element = tauler[fila][columna];
+        }while(element != EElement.RES && element != EElement.MONEDA && element != EElement.MONEDA_EXTRA);
         return new Punt(fila, columna);
     }
     
@@ -265,7 +278,6 @@ public class Laberint {
     public int obtenirMidaCostatTauler(){
         return this.costat;
     }
-    
     
     public void pintarLaberint(){
         if(pintador == null) log.afegirError("No hi ha pintador!");
