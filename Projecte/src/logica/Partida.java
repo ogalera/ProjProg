@@ -242,5 +242,5 @@ public class Partida {
    
    public Punt obtenirPuntEnemic(){
        return enemic.posicio;
-   }
+   }  
 }

@@ -11,50 +11,39 @@ import logica.enumeracions.EElement;
 import logica.enumeracions.EDireccio;
 import java.util.LinkedList;
 import logica.algoritmica.LlistaOrdenadaCandidats;
-import logica.excepcions.EBuscadorCamins;
 import logica.log.Log;
 import logica.historic_moviments.HistoricMoviments;
-import logica.excepcions.EBuscadorCamins;
+import logica.excepcions.ExceptionBuscadorCamins;
+import logica.algoritmica.AEstrella.BuscadorCamiMinim;
 /**
  *
  * @author Moises
  */
 public class Solucio {
-    private static final int PROFUNDITAT = 6;
-    private Log log;
-    private Laberint laberint;
-    private Casella [][] tauler;
+    
+    private static final int PROFUNDITAT = 4;
+    
+    private final Log log;
+    private final Laberint laberint;
+    private final Casella [][] tauler;
+    private final LinkedList<Punt> cami;
+    private final BuscadorCamiMinim buscadorCamiMinim;
+    
     private int nivell;
-    private final int mida;
     private Punt origen;
     private Punt enemic;
-    private final LinkedList<Punt> cami;
+    private int distancia;
     
-    public Solucio(Laberint lab, Punt origen, Punt desti){
-        log = Log.getInstance(Solucio.class);
-        laberint = lab;
-        nivell = 0;
-        mida = lab.obtenirMidaCostatTauler();
-        this.origen = origen;
-        this.enemic = desti;
-        cami = new LinkedList();
-
-       tauler = new Casella[mida][mida];
-        
-        for (int i = 0; i < mida; i++){
-            for (int j = 0; j < mida; j++){
-                tauler[i][j]= new Casella(new Punt(i,j));   
-            }
-        }
-    }
     public Solucio(Solucio s){
         log = s.log;
         laberint = s.laberint;
         nivell = s.nivell;
-        mida = s.mida;
+        int mida = laberint.obtenirMidaCostatTauler();
         origen = s.origen;
         enemic = s.enemic;
-        cami = new LinkedList();
+        distancia = s.distancia;
+        buscadorCamiMinim = s.buscadorCamiMinim;
+        cami = new LinkedList<>();
         tauler = new Casella[mida][mida];
         
         for (int i = 0; i < mida; i++){
@@ -63,8 +52,8 @@ public class Solucio {
             }
         }
         
-        for (int i = 0; i < s.cami.size(); i++){
-            cami.addLast(s.cami.get(i));
+        for (Punt p : s.cami) {
+            cami.addLast(p);
         }
     }
     
@@ -72,10 +61,11 @@ public class Solucio {
         log = Log.getInstance(Solucio.class);
         laberint = lab;
         nivell = 0;
-        mida = lab.obtenirMidaCostatTauler();
-        cami = new LinkedList();
+        buscadorCamiMinim = new BuscadorCamiMinim(lab);
+        distancia = 0;
+        cami = new LinkedList<>();
+        int mida = lab.obtenirMidaCostatTauler();
         tauler = new Casella[mida][mida];
-        
         for (int i = 0; i < mida; i++){
             for (int j = 0; j < mida; j++){
                 tauler[i][j]= new Casella(new Punt(i,j));   
@@ -84,35 +74,26 @@ public class Solucio {
     }
     
     public boolean esSolucioCompleta(){
-//        boolean esCompleta = nivell >= PROFUNDITAT;
-//        if (esCompleta){
-//            String s="HE TROBAT UN CAMI!! : \n";
-//            for (int i = 0; i < cami.size(); i++){
-//                Punt p = cami.get(i);
-//                s = s+" "+p+"\n";
-//            }
-//            log.afegirDebug(s);
-//        }
-        
-        return nivell >= PROFUNDITAT;
+        boolean esCompleta = nivell >= PROFUNDITAT;
+        if (esCompleta){
+            distancia = buscadorCamiMinim.BuscaCamiMesCurt(cami.getLast(), enemic).size();
+        }
+        return esCompleta;
     }
     
     public void assignaOrigenIPuntAFugir(Punt origen, Punt enemic){
         //volem maximitzar la distancia entre nosaltres i el enemic
         EElement a = laberint.obtenirElement(origen);
         EElement b = laberint.obtenirElement(enemic);
-        if (a == EElement.PARET || b == EElement.PARET)throw new EBuscadorCamins("Origen i/o desti son parets");
-        if (a == null || b == null)throw new EBuscadorCamins("Origen i/o desti son nulls");
+        distancia = 0;
+        if (a == EElement.PARET || b == EElement.PARET)throw new ExceptionBuscadorCamins("Origen i/o desti son parets");
+        if (a == null || b == null)throw new ExceptionBuscadorCamins("Origen i/o desti son nulls");
         this.origen = origen;
         this.enemic = enemic;
     }
     
-    public boolean esMillorSolucio(Solucio s){
-        int distBuscada= cami.getLast().distancia(enemic);
-        int distAntiga = 99;
-        if (s!=null)distAntiga = s.cami.getLast().distancia(enemic);
-        log.afegirDebug("Nova solucio Trobada: " + distBuscada + " Millor solucio Fins al moment: " + distAntiga);
-        return (s == null || cami.getLast().distancia(enemic) > s.cami.getLast().distancia(enemic) );
+     public boolean esMillorSolucio(Solucio s){
+        return (s == null || distancia > s.distancia );
     }
     
     public boolean acceptable(Casella c){
@@ -132,14 +113,12 @@ public class Solucio {
         log.afegirDebug("Anoto el Candidat: " + c.obtenirPunt());
         nivell++;
         c.processat();
-        //laberint.assignaElement(c.obtenirPunt(), EElement.INDEFINIT);
         cami.addLast(c.obtenirPunt());
     }
     public void desanotar(Casella c){
         log.afegirDebug("Desanoto el Candidat: " + c.obtenirPunt());
         cami.removeLast();
         c.noProcessat();
-        //laberint.assignaElement(c.obtenirPunt(), EElement.RES);
         nivell--;
     }
     
@@ -188,27 +167,6 @@ public class Solucio {
         log.afegirDebug(s);
         return res;
     }
-        private EDireccio obtenirMoviment(Punt origen, Punt desti){
-        EDireccio res = EDireccio.QUIET;
-        if (origen.obtenirFila() == desti.obtenirFila()){
-            if (origen.obtenirColumna() > desti.obtenirColumna()){
-                res = EDireccio.ESQUERRA;
-            }
-            else if (origen.obtenirColumna() < desti.obtenirColumna()){
-                res = EDireccio.DRETA;
-            }
-        }
-        else if (origen.obtenirColumna() == desti.obtenirColumna()){
-            if(origen.obtenirFila() > desti.obtenirFila()){
-                res = EDireccio.AMUNT;
-            }
-            else if (origen.obtenirFila() < desti.obtenirFila()){
-                res = EDireccio.AVALL;
-            }
-        }
-        return res;
-        
-    }
     
     public HistoricMoviments generaRuta(){
         HistoricMoviments ruta = new HistoricMoviments();
@@ -216,31 +174,43 @@ public class Solucio {
         for (int i = midaCami -1; i > 0; i--){
             Punt inici = cami.get(i - 1);
             Punt desti = cami.get(i);
-            EDireccio aux = obtenirMoviment(inici, desti);
+            EDireccio aux = EDireccio.obtenirDireccio(inici, desti);
             ruta.afegirMoviment(aux);
         }
         return ruta;
     }
+//    private String donamNom(EDireccio dir){
+//        String s = "QUIET";
+//        switch(dir){
+//            case AVALL: s= "AVALL";
+//                break;
+//            case AMUNT: s="AMUNT";
+//                break;
+//            case DRETA: s="DRETA";
+//                break;
+//            case ESQUERRA: s="ESQUERRA";
+//                break;
+//            default: s="QUIET";
+//                break;       
+//        }
+//        return s;
+//    }
     
-    //    public void mostraCami(){
+//    public void mostraCami(){
 //        int midaVector = cami.size();
-//        String s = "EL Cami que t'allunya mes de l'objectiu es: ";
+//        String s = "Estic a la posicio: "+ origen + " \n i el Cami que t'allunya mes de l'objectiu es: \n";
 //        for (int i = 0; i < midaVector; i++){
 //            Punt p = cami.get(i);
 //            s = s + p + "\n";
 //        }
+//        s=s + "FI\n";
 //        System.out.print(s);
 //    }
     
-//    public String toString(){
-//        int midaVector = cami.size();
-//        String s = "EL Cami que t'allunya mes de l'objectiu es: ";
-//        for (int i = 0; i < midaVector; i++){
-//            Punt p = cami.get(i);
-//            s = s + p + "\n";
-//            laberint.assignaElement(p, EElement.INDEFINIT);
-//        }
-//        log.afegirDebug(s);
-//        return laberint.toString();
-//    }
+    public void reset(){
+        origen = null;
+        enemic = null;
+        cami.clear();
+        distancia = 0;
+    }
 }

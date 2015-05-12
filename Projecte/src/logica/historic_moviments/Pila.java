@@ -5,6 +5,8 @@
  */
 package logica.historic_moviments;
 
+import logica.enumeracions.EDireccio;
+
 /**
  * @author oscar
  * DECLARACIÓ D'INTENCIONS DE LA CLASSE
@@ -63,4 +65,30 @@ public class Pila<T> {
     public boolean esBuida(){
         return this.cim == null;
     }
+//                          Metodes que he utilitzat per poder veure les solucions dels algoritmes
+//    public void mostrar(){
+//        System.out.print("LA PILA CONTE EL SEGUENT: \n");
+//        Node aux = cim;
+//        while (aux != null){
+//            System.out.print((EDireccio)cim.dada + "\n");
+//            aux = aux.seguent;
+//        }
+//    }
+//    
+//    private String donamNom(EDireccio dir){
+//        String s = "QUIET";
+//        switch(dir){
+//            case AVALL: s= "AVALL";
+//                break;
+//            case AMUNT: s="AMUNT";
+//                break;
+//            case DRETA: s="DRETA";
+//                break;
+//            case ESQUERRA: s="ESQUERRA";
+//                break;
+//            default: s="QUIET";
+//                break;       
+//        }
+//        return s;
+//    }
 }

@@ -9,6 +9,7 @@ import logica.algoritmica.AEstrella.BuscadorCamiMinim;
 import logica.laberints.Laberint;
 import logica.historic_moviments.HistoricMoviments;
 import logica.Punt;
+import logica.enumeracions.EDireccio;
 /**
  *
  * @author Moises
@@ -26,8 +27,19 @@ public class GestorCamins {
         return buscadorDeMinims.BuscaCamiMesCurt(origen, desti);
     }
     
+    public EDireccio minimitzarDistancia(Punt inici, Punt desti){
+        return buscadorDeMinims.BuscaCamiMesCurt(inici, desti).obtenirUltimMoviment();
+    }
+    
+    
     public HistoricMoviments trobarCamiMaximitzarDist(Punt inici, Punt puntAFugir){
         return buscadorDeMaxims.BuscaCamiMaxim(inici, puntAFugir);
     }
+    
+    
+    public EDireccio maximitzarDistancia(Punt inici, Punt puntAFugir){
+        return buscadorDeMaxims.BuscaCamiMaxim(inici, puntAFugir).obtenirUltimMoviment();
+    }
+    
     
 }

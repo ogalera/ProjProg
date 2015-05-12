@@ -9,9 +9,8 @@ package logica.excepcions;
  *
  * @author Moises
  */
-public class EBuscadorCamins extends RuntimeException {
-    public EBuscadorCamins(String msg){
-        super(msg);
+public class ExceptionPunt extends RuntimeException{
+    public ExceptionPunt(String missatge){
+        super(missatge);
     }
-    
 }

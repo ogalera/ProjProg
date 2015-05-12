@@ -45,4 +45,7 @@ public class HistoricMoviments {
     public int size(){
         return nElement;
     }
+//    public void mostrar(){
+//        pila.mostrar();
+//    }
 }

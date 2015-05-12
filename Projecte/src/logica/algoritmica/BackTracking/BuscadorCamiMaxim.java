@@ -9,34 +9,25 @@ import logica.Punt;
 import logica.algoritmica.Casella;
 import logica.algoritmica.LlistaOrdenadaCandidats;
 import logica.log.Log;
-import logica.enumeracions.EElement;
 import logica.historic_moviments.HistoricMoviments;
 /**
  *
  * @author Moises
  */
 public class BuscadorCamiMaxim {
-    private Log log;
+    private final Log log;
     private Solucio opt;
     private final Solucio act;
     
-    
-//    public BuscadorCamiMaxim(Laberint lab, Punt personatge, Punt enemic){
-//       log = Log.getInstance(BuscadorCamiMaxim.class);
-//       EElement a = lab.obtenirElement(personatge);
-//       EElement b = lab.obtenirElement(enemic);
-//       if (a == EElement.PARET)log.afegirDebug("Punt personatge es una paret");
-//       if (b == EElement.PARET)log.afegirDebug("Punt enemic es una paret");
-//       act = new Solucio(lab, personatge, enemic);
-//    }
     public BuscadorCamiMaxim(Laberint lab){
         log = Log.getInstance(BuscadorCamiMaxim.class);
         act = new Solucio(lab);
     }
     
     
-    
     public HistoricMoviments BuscaCamiMaxim(Punt personatge, Punt enemic){
+        act.reset();
+        opt = null;
         act.assignaOrigenIPuntAFugir(personatge, enemic);
         Casella inici = new Casella(personatge);
         if (act.acceptable(inici)){
@@ -44,7 +35,7 @@ public class BuscadorCamiMaxim {
             long tempsInici = System.currentTimeMillis();
             buscarCamiBackTrack(personatge);
             long tempsFi = System.currentTimeMillis();
-            log.afegirDebug("TEMPS A TROBAR EL CAMI: "+(tempsFi-tempsInici)+"ms");
+            log.afegirDebug("Temps a trobar el cami mes llarg: "+(tempsFi-tempsInici)+"ms");
         }
         return opt.generaRuta();
     }

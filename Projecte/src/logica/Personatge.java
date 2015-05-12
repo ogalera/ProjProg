@@ -28,7 +28,7 @@ public abstract class Personatge extends ItemMovible{
      **/
     protected Partida partida;
     private boolean guanya;
-    private EEstatPersonatge estatPersonatge = null;
+    protected EEstatPersonatge estatPersonatge = null;
     protected ImageIcon imatges[][];
     
     protected enum EEstatPersonatge{

@@ -11,8 +11,8 @@ import logica.Punt;
 import logica.historic_moviments.HistoricMoviments;
 import logica.enumeracions.EElement;
 import logica.enumeracions.EDireccio;
-import logica.excepcions.EBuscadorCamins;
-import logica.log.Log;
+import logica.excepcions.ExceptionBuscadorCamins;
+
 
 /**
  *
@@ -22,12 +22,10 @@ public class BuscadorCamiMinim {
     private final LlistaOrdenadaCandidats llistaOberta;//<! Conte les caselles que encara hem de processar
     private final Laberint laberint;
     private final Casella [][] tauler;
-    Log log;
-    //private int profunditatMaxima;
+   
     
     
     public BuscadorCamiMinim(Laberint lab){
-        log = Log.getInstance(BuscadorCamiMinim.class);
         laberint = lab;
         llistaOberta = new LlistaOrdenadaCandidats();
         //profunditatMaxima = Integer.MAX_VALUE;
@@ -45,7 +43,7 @@ public class BuscadorCamiMinim {
     public HistoricMoviments BuscaCamiMesCurt(Punt origen, Punt desti){
         EElement d = laberint.obtenirElement(desti);
         EElement o = laberint.obtenirElement(origen);
-        if (d == EElement.PARET || o == EElement.PARET)throw new EBuscadorCamins("Els punts de origen o desti son del tipus PARET");
+        if (d == EElement.PARET || o == EElement.PARET)throw new ExceptionBuscadorCamins("Els punts de origen o desti son del tipus PARET");
 
         
         llistaOberta.clear();
@@ -83,12 +81,12 @@ public class BuscadorCamiMinim {
             }
             actual = llistaOberta.obtenirPrimer();
         }
-        reset();
+       
         long tempsFi = System.currentTimeMillis();
-        log.afegirDebug("Temps a trobar el cami mes curt: "+(tempsFi-tempsInici)+"ms");
         System.out.println("Temps a trobar el cami mes curt: "+(tempsFi-tempsInici)+"ms");
         
         HistoricMoviments ruta = generaRuta(origen, desti);
+        reset();
         
 //                 // Per Mostrar Per Pantalla... fa canvis al laberint er poder-lo mostrar per pantalla despres
 //        
@@ -106,36 +104,16 @@ public class BuscadorCamiMinim {
         HistoricMoviments ruta = new HistoricMoviments();
         Casella fi = tauler[desti.obtenirFila()][desti.obtenirColumna()];
         Casella seguent = fi.getParent();
+        System.out.print("EL CAMI TROBAT ES: (en ordre invers) \n");
         while(seguent != null){
-            EDireccio aux = obtenirMoviment(seguent.obtenirPunt(), fi.obtenirPunt());
+            System.out.print(fi.obtenirPunt() + "\n");
+            System.out.print(seguent.obtenirPunt() + "\n");
+            EDireccio aux = EDireccio.obtenirDireccio(seguent.obtenirPunt(), fi.obtenirPunt());
             ruta.afegirMoviment(aux);
             fi = seguent;
             seguent = seguent.getParent();
         }
         return ruta;
-    }
-    
-    
-    private EDireccio obtenirMoviment(Punt origen, Punt desti){
-        EDireccio res = EDireccio.QUIET;
-        if (origen.obtenirFila() == desti.obtenirFila()){
-            if (origen.obtenirColumna() > desti.obtenirColumna()){
-                res = EDireccio.ESQUERRA;
-            }
-            else if (origen.obtenirColumna() < desti.obtenirColumna()){
-                res = EDireccio.DRETA;
-            }
-        }
-        else if (origen.obtenirColumna() == desti.obtenirColumna()){
-            if(origen.obtenirFila() > desti.obtenirFila()){
-                res = EDireccio.AMUNT;
-            }
-            else if (origen.obtenirFila() < desti.obtenirFila()){
-                res = EDireccio.AVALL;
-            }
-        }
-        return res;
-        
     }
     
     private void reset(){

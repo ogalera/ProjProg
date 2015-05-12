@@ -1,4 +1,6 @@
 package logica.enumeracions;
+import logica.Punt;
+import logica.excepcions.ExceptionPunt;
 
 /**
  *
@@ -73,5 +75,29 @@ public enum EDireccio {
             }break;
         }
         return direccions;
+    }
+    public static EDireccio obtenirDireccio(Punt origen, Punt desti ){
+        int diferenciaFila = Math.abs(origen.obtenirFila()-desti.obtenirFila());
+        int diferenciaColumna = Math.abs(origen.obtenirColumna() - desti.obtenirColumna());
+        
+        if (diferenciaFila > 1 || diferenciaColumna > 1)throw new ExceptionPunt("Els punts no son adjacents");
+        EDireccio res = EDireccio.QUIET;
+        if (origen.obtenirFila() == desti.obtenirFila()){
+            if (origen.obtenirColumna() > desti.obtenirColumna()){
+                res = EDireccio.ESQUERRA;
+            }
+            else if (origen.obtenirColumna() < desti.obtenirColumna()){
+                res = EDireccio.DRETA;
+            }
+        }
+        else if (origen.obtenirColumna() == desti.obtenirColumna()){
+            if(origen.obtenirFila() > desti.obtenirFila()){
+                res = EDireccio.AMUNT;
+            }
+            else if (origen.obtenirFila() < desti.obtenirFila()){
+                res = EDireccio.AVALL;
+            }
+        }
+        return res;
     }
 }

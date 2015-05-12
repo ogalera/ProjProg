@@ -10,6 +10,8 @@ import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 import java.util.PriorityQueue;
 import logica.algoritmica.Casella;
+import logica.algoritmica.GestorCamins;
+import logica.historic_moviments.HistoricMoviments;
 
 /**
  *
@@ -17,79 +19,53 @@ import logica.algoritmica.Casella;
  */
 public class Fantasma3 extends Personatge{
     private boolean marxaEnrrere;
-    private PriorityQueue<Casella> caselles;
+    private final GestorCamins gestorCami;
+    private Objectiu objectiu;
     
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
+        gestorCami = new GestorCamins(laberint);
+        marxaEnrrere = false;
+        objectiu = null;
     }
 
     @Override
     public EDireccio calcularMoviment() {
-        marxaEnrrere = false;
-        int interesDreta = explorarDireccio(EDireccio.DRETA);
-        int interesEsquerra = explorarDireccio(EDireccio.ESQUERRA);
-        int interesAdalt = explorarDireccio(EDireccio.AMUNT);
-        int interesAbaix = explorarDireccio(EDireccio.AVALL);
+        //        marxaEnrrere = false;
         
-        EDireccio moviment;
+        if (seguentMoviment == null || posicio == null)return EDireccio.QUIET;
+        EDireccio res = EDireccio.QUIET;
+        Punt posicioPacman = partida.obtenirPuntPacman();
         
-        if(interesDreta > interesEsquerra && interesDreta > interesAdalt && interesDreta > interesAbaix){
-            //Interessa mes anar a la dreta;
-            moviment = EDireccio.DRETA;
-        }
-        else if (interesEsquerra > interesDreta && interesEsquerra > interesAdalt && interesEsquerra > interesAbaix){
-            //Interessa mes anar a l'esquerra;
-            moviment = EDireccio.ESQUERRA;
-        }
-        else if (interesAdalt > interesDreta && interesAdalt > interesEsquerra && interesAdalt > interesAbaix){
-            //Interessa mes anar adalt;
-            moviment = EDireccio.AMUNT;
-        }
-        else if (interesAbaix > interesDreta && interesAbaix > interesEsquerra && interesAbaix > interesAdalt){
-            //Interessa mes anar adalt;
-            moviment = EDireccio.AVALL;
+     
+        if (estatPersonatge == EEstatPersonatge.AMB_MONGETA){
+            res = gestorCami.minimitzarDistancia(posicio, partida.obtenirPuntPacman());
         }
         else{
-            int maxim = obtenirMaxim(interesDreta, interesEsquerra, interesAdalt, interesAbaix);
-            if(maxim == 0){
-                //Estem en un punt que no ens interessa anar en cap direcció, llavors
-                //tenim dos opcions:
-                //Opció 1 -> anar enrrere segons l'historic "Sempre que hi hagi algo en l'historic"
-                //Opció 2 -> sortejar una direcció on (0 -> DRETA, 1 -> ESQUERRA, 2 -> AMUN, 3 -> AVALL)
-                if(!historicMoviments.esBuida()){
-                    //Tenim alguna direcció en l'historic per tant tirem enrrere;
-                    marxaEnrrere = true;
-                    moviment = historicMoviments.eliminarMoviment();
-                    moviment = moviment.obtenirMovimentInvers();
+            if (historicMoviments == null || historicMoviments.esBuida()){
+                if (objectiu == null){
+                    buscaMonedaOSortida();
                 }
+                //Si Objectiu != null
                 else{
-                    //No tenim res en l'historic llavors optem per l'opció 2;
-                    //i sortegem una direcció pseudoaleatoria;
-                    Punt p;
-                    do{
-                        int index = Utils.obtenirValorAleatori(4);
-                        moviment = EDireccio.values()[index];
-                        p = posicio.generarPuntDesplasat(moviment);
-                    }while(!laberint.posicioValida(p));
+                    //Si l'objectiu no ha cambiat de posicio
+                    if ( objectiu.element == laberint.obtenirElement(objectiu.posicio)){
+                        Punt p = buscaElement(objectiu.element);
+                        historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
+                    }
+                    //Si l'objectiu ha cambiat de posicio, torno a busca el meu element
+                    else {
+                        Punt p = buscaElement(objectiu.element);
+                        objectiu.posicio = p;
+                        historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
+                        
+                    }
                 }
             }
-            else{
-                EDireccio possiblesDireccions[] = new EDireccio[4];
-                int nPossiblesDireccions = 0;
-                if(interesDreta == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.DRETA;
-                if(interesEsquerra == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.ESQUERRA;
-                if(interesAdalt == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AMUNT;
-                if(interesAbaix == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AVALL;
-                int index = Utils.obtenirValorAleatori(nPossiblesDireccions);
-                moviment = possiblesDireccions[index];
-            }
+            res = historicMoviments.obtenirUltimMoviment();
+            historicMoviments.eliminarMoviment();
         }
-        System.out.println("dreta "+interesDreta);
-        System.out.println("esquerra "+interesEsquerra);
-        System.out.println("amunt "+interesAdalt);
-        System.out.println("abaix "+interesAbaix);
-        System.out.println("calculat "+moviment);
-        return moviment;
+        return res;
     }
     
     @Override
@@ -102,55 +78,9 @@ public class Fantasma3 extends Personatge{
         return elementObtingut;
     }
     
-    private int explorarDireccio(EDireccio direccio){
-        int interes = 0;
-        Punt p = posicio.generarPuntDesplasat(direccio);
-        EElement element = laberint.obtenirElement(p);
-        if(element != EElement.PARET){
-            if(element == EElement.MONEDA){
-                interes = 10;
-            }
-//            System.out.println("\n\nINICI per "+direccio);
-//            System.out.println("+"+interes+" "+direccio);
-            interes += explorarDireccio(direccio, p, 2);
-//            System.out.println(interes);
-//            System.out.println("FI\n\n");
-        }
-        return interes;
-    }
     
-    private int explorarDireccio(EDireccio direccio, Punt posicio, int nivell){
-        EDireccio [] direccions = EDireccio.obtenirRestaDireccions(direccio);
-        int interes = 0;
-        for(EDireccio d: direccions){
-            Punt p = posicio.generarPuntDesplasat(d);
-            EElement element = laberint.obtenirElement(p);
-            if(element == EElement.MONEDA || nivell > 10){
-                interes = 10/nivell;
-//                System.out.println("+"+interes+" "+d+" "+posicio);
-                interes+=explorarDireccio(d, p, nivell+1);
-            }
-        }
-//        Punt p = this.posicio.clone();
-//        EElement element;
-//        float interes = 0;
-//        int n = 0;
-//        do{
-//            p.desplasarPunt(direccio);
-//            element = laberint.obtenirElement(p);
-//            if(element == EElement.MONEDA){
-//                n++;
-//                interes += 10/n;
-//            }
-//            else if(element == EElement.SORTIDA && super.estaGuanyant()){
-//                //A tot tall cap a la sortida!!!
-//                System.out.println("Cap a la sortida!!!");
-//                interes = Integer.MAX_VALUE;
-//            }
-//        }while(element != EElement.PARET);
-        return (int)interes;
-    }
-
+    
+    
     
     private int obtenirMaxim(int ... valors){
         int maxim = valors[0];
@@ -166,12 +96,82 @@ public class Fantasma3 extends Personatge{
         return "Fantasma3";
     }
     
-    private void calculaCaselles(){
+    private void buscaMonedaOSortida(){
+        Punt p = buscaMonedaMesProxima();
+        //Si ha trobat alguna moneda
+        if (p!= null){
+            objectiu.posicio = p;
+            objectiu.element = laberint.obtenirElement(p);
+            historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
+        }
+        //Si no ha trobat cap moneda busca la Sortida
+        else{
+            p = buscaElement(EElement.SORTIDA);
+            objectiu.posicio = p;
+            objectiu.element = laberint.obtenirElement(p);
+            historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
+        }
+    }
+    private Punt buscaMonedaMesProxima(){
+        Punt res = null;
         int mida = laberint.obtenirMidaCostatTauler();
-        for (int i = 0; i < mida; i++){
-            for (int j = 0; j < mida; j++){
-                
+        
+        int nivell = 0;
+        while (nivell < mida && res == null){
+            nivell++;
+            res = buscaMonedaAlVoltant(nivell); 
+        }
+        return res;
+    }
+    
+    private Punt buscaMonedaAlVoltant(int nivell){
+        boolean trobat = false;
+        Punt moneda = null;
+        EElement element;
+        int fila = posicio.obtenirFila();
+        int columna = posicio.obtenirColumna();
+        for (int i = fila - nivell; i <= fila + nivell && !trobat; i++){
+            for (int j = columna - nivell; j <= columna+nivell && !trobat; j++){
+                element = laberint.obtenirElement(new Punt(i,j));
+                if (element == EElement.MONEDA || element == EElement.MONEDA_EXTRA  ){
+                    moneda = new Punt(i,j);
+                    trobat = true;
+                }
             }
+        }
+        return moneda;
+    }
+    private Punt buscaElement(EElement _element){
+        Punt res = null;
+        boolean trobat = false;
+        int mida = laberint.obtenirMidaCostatTauler();
+        //Si objectiu es una moneda es fara una cerca per trobar la moneda mes proxima
+        if (_element == EElement.MONEDA || _element == EElement.MONEDA_EXTRA){
+            res = this.buscaMonedaMesProxima();
+        }
+        //Si es qualssevol altre objecte es fa una cerca normal
+        else{
+            for (int i = 0; i < mida && !trobat; i++){
+                for(int j = 0; j < mida && !trobat; j++){
+                    Punt p = new Punt(i,j);
+                    if (laberint.obtenirElement(p)== _element ){
+                        trobat = true;
+                        res = p;
+                    }
+                }
+            }
+        }
+        
+        return res;
+    }
+
+    private class Objectiu{
+        public Punt posicio;
+        public EElement element;
+        
+        public Objectiu(Punt _posicio, EElement _element){
+            posicio = _posicio;
+            element = _element;
         }
     }
 }
