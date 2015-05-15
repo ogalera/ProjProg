@@ -43,9 +43,9 @@ public class BuscadorCamiMaxim {
     private void buscarCamiBackTrack(Punt personatge){
         LlistaOrdenadaCandidats candidats = act.generarCandidats(personatge);
         while (!candidats.esBuida()){
-            Casella candidata = candidats.obtenirUltim();
-            candidats.elimina(candidata);
-            if (act.acceptable(candidata) ){//&& act.potSerMillor(opt, candidata) ){
+            Casella candidata = candidats.obtenirUltim();//Obtenim el ultim perque estan ordenat per pes ( distancia al objectiu + profunditat) <-- atribut. profunditat no l'utilitzem en el backTracking
+            candidats.elimina(candidata);                //Ens interesa agafar el que esta mes lluny per podar mes rapid
+            if (act.acceptable(candidata) && act.potSerMillor(opt, candidata) ){
                 act.anotar(candidata);
                 if (!act.esSolucioCompleta()){
                     buscarCamiBackTrack(candidata.obtenirPunt());

@@ -22,7 +22,7 @@ public class Item extends ItemMovible {
     private final GestorCamins gestorCami;
     private HistoricMoviments ruta;
     private final Log log;
-    private static final int DISTANCIA_PERILLOSA = 6;
+    private static final int DISTANCIA_PERILLOSA = 7;
     private boolean esticFugint;
     
     public Item(Partida partida, EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici){
@@ -80,7 +80,9 @@ public class Item extends ItemMovible {
         log.afegirDebug("Temps total que triga el Item a recalcular una ruta: " + (tempsFinal - tempsInici) + " ms \n");
 
         EDireccio res = ruta.obtenirUltimMoviment();
-        ruta.eliminarMoviment();
+        if (movimentValid(res))ruta.eliminarMoviment();
+        else res = EDireccio.QUIET;
+        
         return res;
     }
     
@@ -100,6 +102,13 @@ public class Item extends ItemMovible {
         if (element != EElement.PARET && p != posicio)valid = true;
         return valid;
     }
+    private boolean movimentValid(EDireccio mov){
+        boolean valid = false;
+        Punt p = posicio.generarPuntDesplasat(mov);
+        EElement element = laberint.obtenirElement(p);
+        if (element == EElement.MONEDA ||element == EElement.MONEDA_EXTRA || element == EElement.RES)valid = true;
+        return valid;
+    }
 
     @Override
     public String nomItemMovible(){
@@ -115,4 +124,6 @@ public class Item extends ItemMovible {
         }
         return null;
     }
+    
+    
 }

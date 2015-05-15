@@ -28,7 +28,8 @@ public class GestorCamins {
     }
     
     public EDireccio minimitzarDistancia(Punt inici, Punt desti){
-        return buscadorDeMinims.BuscaCamiMesCurt(inici, desti).obtenirUltimMoviment();
+        if (inici.equals(desti))return EDireccio.QUIET;
+        else return buscadorDeMinims.BuscaCamiMesCurt(inici, desti).obtenirUltimMoviment();
     }
     
     

@@ -90,10 +90,9 @@ public class Fantasma2 extends Personatge{
     
     @Override
     public EElement realitzarMoviment(){
-        Punt puntDesplasat = posicio.generarPuntDesplasat(super.seguentMoviment);
-        EElement element = laberint.obtenirElement(puntDesplasat);
-        if(element != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-            EElement elementObtingut = super.realitzarMoviment();
+        EElement elementObtingut = super.realitzarMoviment();
+        if(elementObtingut != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
+            
             if(!marxaEnrrere){
                 this.historicMoviments.afegirMoviment(super.seguentMoviment);
             }
@@ -135,7 +134,8 @@ public class Fantasma2 extends Personatge{
                 interes += 10/n;
             }
             else if(element == EElement.PACMAN){
-                interes -= 1;
+                if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA) interes += Integer.MAX_VALUE;
+                else interes -= Integer.MAX_VALUE;
             }
             else if(element == EElement.PATINS || element == EElement.MONGETA || element == EElement.MONEDES_X2){
                 interes += Integer.MAX_VALUE;

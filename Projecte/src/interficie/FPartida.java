@@ -27,6 +27,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
     private JPanel partDreta;
     private JPanel partInferior;
     private JPanel partCentral;
+    private JPanel partSuperior;
     private JLabel lblItem;
     private JLabel itemPacman;
     private JLabel itemEnemic;
@@ -43,7 +44,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         panellLaberint.setFocusable(true);
         this.setFocusable(false);
         cronometre = new Crono();
-        this.add(cronometre, BorderLayout.SOUTH);
+        //this.add(cronometre, BorderLayout.SOUTH);
     }
     
 //    @Override
@@ -129,30 +130,52 @@ public class FPartida extends JFrame implements IPintadorPartida{
 
     @Override
     public void pintarPartida(Partida partida) {
+        
+        //Creacio part esquerra
+        JPanel zonaEsquerra = new JPanel();
+        zonaEsquerra.setLayout(new BoxLayout(zonaEsquerra, BoxLayout.X_AXIS));
         marcadorPacman = new Marcador(partida.obtenirImatgePacman());
         JPanel panellPacman = new JPanel();
+        panellPacman.setLayout(new BoxLayout(panellPacman, BoxLayout.Y_AXIS));
         itemPacman = new JLabel();
         itemPacman.setPreferredSize(new Dimension(50, 50));
         panellPacman.add(marcadorPacman);
         panellPacman.add(itemPacman);
+        zonaEsquerra.add(panellPacman);
+        this.add(zonaEsquerra, BorderLayout.WEST);
         
+        //Creacio part dreta
+        JPanel zonaDreta = new JPanel();
+        zonaDreta.setLayout(new BoxLayout(zonaDreta, BoxLayout.X_AXIS));
         marcadorEnemic= new Marcador(partida.obtenirImatgeFantasma());
         JPanel panellEnemic = new JPanel();
+        panellEnemic.setLayout(new BoxLayout(panellEnemic, BoxLayout.Y_AXIS));
         itemEnemic = new JLabel();
         itemEnemic.setPreferredSize(new Dimension(50, 50));
         panellEnemic.add(marcadorEnemic);
         panellEnemic.add(itemEnemic);
+        zonaDreta.add(panellEnemic);
+        this.add(zonaDreta, BorderLayout.EAST);
         
-        this.add(panellPacman, BorderLayout.WEST);
-        this.add(panellEnemic, BorderLayout.EAST);
+        //Creacio part baixa
+        JPanel zonaBaixa = new JPanel();
+        zonaBaixa.setLayout(new FlowLayout());
+        zonaBaixa.add(cronometre);
+        this.add(zonaBaixa, BorderLayout.SOUTH);
+        
+        //Creacio part alta
+        JPanel zonaAlta = new JPanel();
+        zonaAlta.setLayout(new FlowLayout());
         lblItem = new JLabel(new ImageIcon("res/item.png"));
         lblItem.setPreferredSize(new Dimension(50, 50));
-        this.add(lblItem, BorderLayout.NORTH);
+        zonaAlta.add(lblItem);
+        this.add(zonaAlta, BorderLayout.NORTH);
         this.setVisible(true);
     }
 
     public void pintarItemPartida(ImageIcon item){
         this.lblItem.setIcon(item);
+        this.lblItem.repaint();
     }
     
     @Override
@@ -168,6 +191,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
     @Override
     public void pintarItemPacman(ImageIcon imatge) {
         itemPacman.setIcon(imatge);
+        itemPacman.repaint();
     }
 
     @Override

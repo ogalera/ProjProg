@@ -21,12 +21,12 @@ import logica.algoritmica.AEstrella.BuscadorCamiMinim;
  */
 public class Solucio {
     
-    private static final int PROFUNDITAT = 4;
+    private static final int PROFUNDITAT = 6;
     
     private final Log log;
     private final Laberint laberint;
     private final Casella [][] tauler;
-    private final LinkedList<Punt> cami;
+    private final LinkedList<Punt> cami; //Insercions rapides al principi i al final(no necessito accessos per posicio)
     private final BuscadorCamiMinim buscadorCamiMinim;
     
     private int nivell;
@@ -62,7 +62,7 @@ public class Solucio {
         laberint = lab;
         nivell = 0;
         buscadorCamiMinim = new BuscadorCamiMinim(lab);
-        distancia = 0;
+        //distancia = 0;
         cami = new LinkedList<>();
         int mida = lab.obtenirMidaCostatTauler();
         tauler = new Casella[mida][mida];
@@ -76,9 +76,9 @@ public class Solucio {
     public boolean esSolucioCompleta(){
         boolean esCompleta = nivell >= PROFUNDITAT;
         if (esCompleta){
-            distancia = buscadorCamiMinim.BuscaCamiMesCurt(cami.getLast(), enemic).size();
+            //distancia = buscadorCamiMinim.BuscaCamiMesCurt(cami.getLast(), enemic).size();
         }
-        return esCompleta;
+        return nivell >= PROFUNDITAT;
     }
     
     public void assignaOrigenIPuntAFugir(Punt origen, Punt enemic){
@@ -97,46 +97,41 @@ public class Solucio {
     }
     
     public boolean acceptable(Casella c){
-        boolean accept = true;
-        if (c.haEstatProcessat())accept = false;
-        else{
-            EElement element = laberint.obtenirElement(c.obtenirPunt());
-            if (element == EElement.PARET){
-                accept = false;
-                log.afegirDebug("La casella " + c.obtenirPunt() + "Es una paret");
-            }
-        }
-        return accept;
+        return !c.haEstatProcessat();
     }
     
     public void anotar (Casella c){
         log.afegirDebug("Anoto el Candidat: " + c.obtenirPunt());
         nivell++;
         c.processat();
+        distancia = c.obtenirDistanciaAlObjectiu();
         cami.addLast(c.obtenirPunt());
     }
     public void desanotar(Casella c){
         log.afegirDebug("Desanoto el Candidat: " + c.obtenirPunt());
         cami.removeLast();
+        Punt ultimMoviment = cami.getLast();
+        distancia = tauler[ultimMoviment.obtenirFila()][ultimMoviment.obtenirColumna()].obtenirDistanciaAlObjectiu();
         c.noProcessat();
         nivell--;
     }
-    
-//    public boolean potSerMillor(Solucio s, Casella c){
-//        boolean podriaSerMillor = false;
-//        if (s == null)podriaSerMillor = true;
-//        else{
-//            //Distancia aconseguida en la solucio Optima en el nivell actual
-//            int distSolOptima = s.cami.get(nivell-1).distancia(enemic);
-//            //Distancia aconseguida en la actual
-//            int dist = cami.get(nivell-1).distancia(enemic);
-//            
-//            if (dist >= )
-//        }
-//        
-//        return s.nivell == 0 || 
-//    }
-    
+  
+    public boolean potSerMillor(Solucio opt, Casella c){
+        boolean podriaSerMillor = false;
+        if (opt != null){
+            int distOptima = opt.distancia; // Distancia de la solucio optima
+            int nivellsRestants = PROFUNDITAT - (nivell + 1); //Pasos que hem queden per fer si accepto aquest candidat
+            int distEnemic = c.obtenirDistanciaAlObjectiu(); //Distancia al meu enemic si accepto aquest candidat
+
+            //(Si la  distancia desde el candidat actual + els pasos que hem queden per fer) > que la distancia optima --> llavors pot 
+            //ser una solucio millor.
+            if (distEnemic + nivellsRestants > distOptima) {
+                podriaSerMillor = true;
+            }
+        }
+        return (opt == null || podriaSerMillor);
+    }
+    //Retorna una llista de 0..4 candidats que estan dins del tauler i no son paret
     public LlistaOrdenadaCandidats generarCandidats(Punt p){
         LlistaOrdenadaCandidats res = new LlistaOrdenadaCandidats();
         Punt up = p.generarPuntDesplasat(EDireccio.AMUNT);
@@ -144,23 +139,27 @@ public class Solucio {
         Punt left = p.generarPuntDesplasat(EDireccio.ESQUERRA);
         Punt right = p.generarPuntDesplasat(EDireccio.DRETA);
         String s = "Els candidats per el punt "+p+" son: \n";
-        if (laberint.posicioValida(up)){
-            tauler[up.obtenirFila()][up.obtenirColumna()].afegirDistanciaAlObjectiu(up.distancia(enemic));
+        if (laberint.obtenirElement(up) != EElement.PARET){
+            int dist = buscadorCamiMinim.BuscaCamiMesCurt(up, enemic).size();
+            tauler[up.obtenirFila()][up.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[up.obtenirFila()][up.obtenirColumna()]);
             s = s + up + " \n";
         }
-        if (laberint.posicioValida(down)){
-            tauler[down.obtenirFila()][down.obtenirColumna()].afegirDistanciaAlObjectiu(down.distancia(enemic));
+        if (laberint.obtenirElement(down) != EElement.PARET){
+            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(down, enemic).size();
+            tauler[down.obtenirFila()][down.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[down.obtenirFila()][down.obtenirColumna()]);
             s = s + down + " \n";
         }
-        if (laberint.posicioValida(left)){
-            tauler[left.obtenirFila()][left.obtenirColumna()].afegirDistanciaAlObjectiu(left.distancia(enemic));
+        if (laberint.obtenirElement(left) != EElement.PARET){
+            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(left, enemic).size();
+            tauler[left.obtenirFila()][left.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[left.obtenirFila()][left.obtenirColumna()]);
             s = s + left + " \n";
         }
-        if (laberint.posicioValida(right)){
-            tauler[right.obtenirFila()][right.obtenirColumna()].afegirDistanciaAlObjectiu(right.distancia(enemic));
+        if (laberint.obtenirElement(right) != EElement.PARET){
+            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(right, enemic).size();
+            tauler[right.obtenirFila()][right.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[right.obtenirFila()][right.obtenirColumna()]);
             s = s + right + " \n";
         }

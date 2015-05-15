@@ -14,6 +14,7 @@ import logica.enumeracions.EElement;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
+import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import logica.Item;
@@ -282,5 +283,9 @@ public class Laberint {
     public void pintarLaberint(){
         if(pintador == null) log.afegirError("No hi ha pintador!");
         pintador.pintarLaberint(this);
+    }
+    
+    public int obtenirMidaImatge(){
+        return this.pintador.obtenirMidaImatge();
     }
 }

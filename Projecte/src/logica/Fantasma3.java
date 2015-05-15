@@ -8,110 +8,198 @@ package logica;
 import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
-import java.util.PriorityQueue;
-import logica.algoritmica.Casella;
 import logica.algoritmica.GestorCamins;
 import logica.historic_moviments.HistoricMoviments;
+import java.util.PriorityQueue;
+import logica.algoritmica.Casella;
 
 /**
  *
  * @author oscar
  */
 public class Fantasma3 extends Personatge{
-    private boolean marxaEnrrere;
     private final GestorCamins gestorCami;
     private Objectiu objectiu;
+    private HistoricMoviments ruta;
+    private boolean esticFugint;
+    private boolean fiMonedes;
+    private EMode mode;
+    private static final int DISTANCIA_PERILLOSA = 6; //distancia < DISTANCIA_PERILLOSA es considera perill 
+    private static final int DISTANCIA_CONSIDERABLE = 15;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
     
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
         gestorCami = new GestorCamins(laberint);
-        marxaEnrrere = false;
         objectiu = null;
+        ruta = null;
+        mode = EMode.NAVEGACIO;
+        esticFugint = false;
+        fiMonedes = false;
+        buscaObjectiu();
+    }
+    private enum EMode{
+        FUGIR, SEGUIMENT, NAVEGACIO;
     }
 
     @Override
     public EDireccio calcularMoviment() {
-        //        marxaEnrrere = false;
-        
         if (seguentMoviment == null || posicio == null)return EDireccio.QUIET;
-        EDireccio res = EDireccio.QUIET;
+        
         Punt posicioPacman = partida.obtenirPuntPacman();
         
-     
-        if (estatPersonatge == EEstatPersonatge.AMB_MONGETA){
-            res = gestorCami.minimitzarDistancia(posicio, partida.obtenirPuntPacman());
+        if (guanya){//Si s'han acabat les monedes i estic guanyant
+            modeExit();
         }
-        else{
-            if (historicMoviments == null || historicMoviments.esBuida()){
-                if (objectiu == null){
-                    buscaMonedaOSortida();
+        //Si s'han acabat les monedes i no estic guanyant o tinc la mongeta, llavors anire a per en Pacman
+        else if (fiMonedes && !guanya || this.estatPersonatge == EEstatPersonatge.AMB_MONGETA){
+            return perseguirObjectiuMovible(posicioPacman);
+        }
+        else{ //Si fanstama esta en els estats: NORMAL || AMB_PATINS || AMB_MONEDES_X2
+            if (partida.pacmanTeMongeta()){
+                int distanciaPacman = gestorCami.trobarCamiMinim(posicio, posicioPacman).size();
+                if (distanciaPacman < DISTANCIA_PERILLOSA){
+                    modeFugir(posicioPacman);
                 }
-                //Si Objectiu != null
                 else{
-                    //Si l'objectiu no ha cambiat de posicio
-                    if ( objectiu.element == laberint.obtenirElement(objectiu.posicio)){
-                        Punt p = buscaElement(objectiu.element);
-                        historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
-                    }
-                    //Si l'objectiu ha cambiat de posicio, torno a busca el meu element
-                    else {
-                        Punt p = buscaElement(objectiu.element);
-                        objectiu.posicio = p;
-                        historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
-                        
-                    }
+                    modeNavegacio();
                 }
             }
-            res = historicMoviments.obtenirUltimMoviment();
-            historicMoviments.eliminarMoviment();
+            else if(partida.hiHaItemEspecial()){
+                Punt posicioItem = partida.obtenirPuntItem();
+                int distanciaAItem = gestorCami.trobarCamiMinim(posicio, posicioItem).size();
+                if (distanciaAItem < DISTANCIA_CONSIDERABLE){
+                    return perseguirObjectiuMovible(posicioItem);
+                }
+                else modeNavegacio();
+                
+            }
+            else{//Tot normal
+                modeNavegacio();
+            }
         }
+        
+        
+        EDireccio res = ruta.obtenirUltimMoviment();
+        if (movimentValid(res))ruta.eliminarMoviment();
+        else res = EDireccio.QUIET;
         return res;
+    }
+   
+    private void modeNavegacio(){
+        //Si entro aqui, pot ser que ja estigues navegant, que estigues fugint o que estigues perseguint 
+        //si estava fugint o perseguint o he arrivat al meu objectiu o el meu objectiu ha desaperagut, llavors busco un nou objectiu
+        if (esticFugint || esticPerseguint() || posicio.equals(objectiu.posicio) || laberint.obtenirElement(objectiu.posicio) != objectiu.element){
+            esticFugint = false;
+            mode = EMode.NAVEGACIO;
+            ruta = null;
+            buscaObjectiu();
+        }
+    }
+    private void modeFugir(Punt p){
+        objectiu = null;
+        //Si no estava fugint, o m'he quedat sense moviments de fugida llavors necessito una ruta nova per fugir
+        if (!esticFugint || ruta == null ||ruta.esBuida()){
+            esticFugint = true;
+            mode = EMode.FUGIR;
+            ruta = gestorCami.trobarCamiMaximitzarDist(posicio, p);
+        }
+    }
+    private void modeSeguiment(Punt p){
+        if (mode != EMode.SEGUIMENT){
+            ruta = gestorCami.trobarCamiMinim(posicio, p);
+            mode = EMode.SEGUIMENT;
+        }
+    }
+    private void modeExit(){
+        //Si no estava ananant cap a la sortida llavors necessitare un cami cap a la sortida
+        if (objectiu.element != EElement.SORTIDA){
+            objectiu.element = EElement.SORTIDA;
+            objectiu.posicio = buscaElement(EElement.SORTIDA);
+            ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
+        }
+    }
+    
+    
+    private boolean movimentValid(EDireccio mov){
+        boolean valid = true;
+        Punt p = posicio.generarPuntDesplasat(mov);
+        EElement element = laberint.obtenirElement(p);
+        if (element == EElement.PACMAN && estatPersonatge != EEstatPersonatge.AMB_MONGETA)valid = false;
+        return valid;
+    }
+    
+    private EDireccio perseguirObjectiuMovible(Punt p){
+        return gestorCami.minimitzarDistancia(posicio,p);
+    }
+    private boolean esticPerseguint(){
+        boolean perseguint = false;
+        if (objectiu != null){
+            if (objectiu.element == EElement.PACMAN)perseguint = true;
+            else if (objectiu.element == EElement.MONGETA)perseguint = true;
+            else if (objectiu.element == EElement.PATINS)perseguint = true;
+            else if (objectiu.element == EElement.MONEDES_X2)perseguint = true;
+        }
+        return perseguint;
     }
     
     @Override
     public EElement realitzarMoviment(){
-        EElement elementObtingut = super.realitzarMoviment();
-        if(!marxaEnrrere){
-            this.historicMoviments.afegirMoviment(super.seguentMoviment);
-        }
-        partida.assignarPuntsEnemic(punts);
-        return elementObtingut;
-    }
-    
-    
-    
-    
-    
-    private int obtenirMaxim(int ... valors){
-        int maxim = valors[0];
-        for(int i = 0; i < valors.length; i++){
-            if(maxim < valors[i]){
-                maxim = valors[i];
+//        EElement elementObtingut = super.realitzarMoviment();
+//        partida.assignarPuntsEnemic(punts);
+//        return elementObtingut;
+        Punt puntDesplasat = posicio.generarPuntDesplasat(super.seguentMoviment);
+        EElement element = laberint.obtenirElement(puntDesplasat);
+        if(element != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
+            EElement elementObtingut = super.realitzarMoviment();
+            switch(elementObtingut){
+                case MONEDA:{
+                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+                case MONEDA_EXTRA:{
+                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+                case PATINS:
+                case MONEDES_X2:
+                case MONGETA:{
+                    //Em agafat algún item
+                    partida.itemCapturat();
+                    super.assignarEstatPersonatge(elementObtingut);
+                    partida.assignarItemAEnemic(elementObtingut);
+                }break;
             }
+            return elementObtingut;
         }
-        return maxim;
+        return null;
     }
     
     @Override public String nomItemMovible(){
         return "Fantasma3";
     }
     
-    private void buscaMonedaOSortida(){
+    
+    /**
+     * @brief Busca una moneda o la sortida
+     * @post ruta conte un cami fins al objectiu
+     */
+    private void buscaObjectiu(){
         Punt p = buscaMonedaMesProxima();
-        //Si ha trobat alguna moneda
-        if (p!= null){
-            objectiu.posicio = p;
-            objectiu.element = laberint.obtenirElement(p);
-            historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
-        }
-        //Si no ha trobat cap moneda busca la Sortida
-        else{
+        EElement element;
+        if (p == null){
             p = buscaElement(EElement.SORTIDA);
-            objectiu.posicio = p;
-            objectiu.element = laberint.obtenirElement(p);
-            historicMoviments = gestorCami.trobarCamiMinim(posicio, p);
+            fiMonedes = true;
         }
+        element = laberint.obtenirElement(p);
+        Objectiu nouObjectiu = new Objectiu (p, element);
+        objectiu = nouObjectiu;
+        ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
+
     }
+
+    
+    //Temps en el pitjor dels casos 19 ms (tauler de 35 x 35 i recorrer totes les caselles)
+    //Troba monedes
     private Punt buscaMonedaMesProxima(){
         Punt res = null;
         int mida = laberint.obtenirMidaCostatTauler();
@@ -123,8 +211,9 @@ public class Fantasma3 extends Personatge{
         }
         return res;
     }
-    
+    //Cerca perimetral per nivells. Ex: Estic a la casella (2,2) i nivell=1 doncs buscare a les caselles(1,1)(1,2)(1,3)(2,1)(2,3)(3,1)(3,2)(3,3)
     private Punt buscaMonedaAlVoltant(int nivell){
+        System.out.print("Els candidats per a la posicio: " + posicio + " en nivell " + nivell +" son:\n");
         boolean trobat = false;
         Punt moneda = null;
         EElement element;
@@ -132,10 +221,13 @@ public class Fantasma3 extends Personatge{
         int columna = posicio.obtenirColumna();
         for (int i = fila - nivell; i <= fila + nivell && !trobat; i++){
             for (int j = columna - nivell; j <= columna+nivell && !trobat; j++){
-                element = laberint.obtenirElement(new Punt(i,j));
-                if (element == EElement.MONEDA || element == EElement.MONEDA_EXTRA  ){
-                    moneda = new Punt(i,j);
-                    trobat = true;
+                if (( i== fila -nivell ||  i == fila + nivell) ||
+                     j == columna - nivell || j == columna + nivell){
+                    element = laberint.obtenirElement(new Punt(i,j));
+                    if (element == EElement.MONEDA || element == EElement.MONEDA_EXTRA) {
+                        moneda = new Punt(i, j);
+                        trobat = true;
+                    }
                 }
             }
         }
@@ -145,24 +237,33 @@ public class Fantasma3 extends Personatge{
         Punt res = null;
         boolean trobat = false;
         int mida = laberint.obtenirMidaCostatTauler();
-        //Si objectiu es una moneda es fara una cerca per trobar la moneda mes proxima
-        if (_element == EElement.MONEDA || _element == EElement.MONEDA_EXTRA){
-            res = this.buscaMonedaMesProxima();
-        }
+
         //Si es qualssevol altre objecte es fa una cerca normal
-        else{
-            for (int i = 0; i < mida && !trobat; i++){
-                for(int j = 0; j < mida && !trobat; j++){
-                    Punt p = new Punt(i,j);
-                    if (laberint.obtenirElement(p)== _element ){
-                        trobat = true;
-                        res = p;
-                    }
+        for (int i = 0; i < mida && !trobat; i++) {
+            for (int j = 0; j < mida && !trobat; j++) {
+                Punt p = new Punt(i, j);
+                if (laberint.obtenirElement(p) == _element) {
+                    trobat = true;
+                    res = p;
                 }
             }
         }
-        
         return res;
+    }
+    private Punt obtenirPosicioAleatoria(){
+        boolean valid = false;
+        Punt p = null;
+        while (!valid){
+            p = new Punt (Utils.obtenirValorAleatori(laberint.obtenirMidaCostatTauler() -1),Utils.obtenirValorAleatori(laberint.obtenirMidaCostatTauler() -1));
+            valid = destiValid(p);
+        }
+        return p;
+    }
+    private boolean destiValid(Punt p){
+        boolean valid = false;
+        EElement element = laberint.obtenirElement(p);
+        if (element != EElement.PARET && p != posicio)valid = true;
+        return valid;
     }
 
     private class Objectiu{
@@ -174,4 +275,5 @@ public class Fantasma3 extends Personatge{
             element = _element;
         }
     }
+
 }

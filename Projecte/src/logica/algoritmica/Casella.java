@@ -48,6 +48,9 @@ public class Casella implements Comparable<Casella> {
     public void afegirDistanciaAlObjectiu(int n){
         distanciaAlObjectiu = n;
     }
+    public int obtenirDistanciaAlObjectiu(){
+        return distanciaAlObjectiu;
+    }
     public void processat(){
         processat = true;
     }

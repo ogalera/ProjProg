@@ -1,5 +1,6 @@
 package logica;
 
+import java.awt.Image;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
@@ -27,7 +28,7 @@ public abstract class Personatge extends ItemMovible{
      * Partida en la que es troba el personatge
      **/
     protected Partida partida;
-    private boolean guanya;
+    protected boolean guanya;
     protected EEstatPersonatge estatPersonatge = null;
     protected ImageIcon imatges[][];
     
@@ -56,7 +57,8 @@ public abstract class Personatge extends ItemMovible{
     
     @Override
     public EElement realitzarMoviment(){
-        EElement elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatgePerfil);
+        
+        EElement elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatges[0][0]);
         posicio = posicio.generarPuntDesplasat(seguentMoviment);
         return elementObtingut;
     }
@@ -117,4 +119,29 @@ public abstract class Personatge extends ItemMovible{
     protected final EEstatPersonatge obtenirEstatPersonatge(){
         return estatPersonatge;
     }
+
+    @Override
+    public void iniciarItemMovible() {
+        super.iniciarItemMovible();
+        imatges = new ImageIcon[4][2];
+        int mida = laberint.obtenirMidaImatge();
+        
+        //Dreta
+//        imatges[0][0] =  new ImageIcon("res/pacman.png");
+        imatges[0][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        imatges[0][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        //Esquerra
+//        imatges[1][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        imatges[1][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        //Amun
+//        imatges[2][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        imatges[2][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        //Avall
+//        imatges[3][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        imatges[3][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        
+        
+    }
+    
+    
 }

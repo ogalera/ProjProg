@@ -9,12 +9,13 @@ import java.util.Collections;
 /**
  *
  * @author Moises
+ * @brief Estructura de dades ordenades
  */
 public class LlistaOrdenadaCandidats {
-    private ArrayList<Casella> llista;
+    private final ArrayList<Casella> llista;//Necessitare accessos per posicio
     
     public LlistaOrdenadaCandidats(){
-        llista = new ArrayList();
+        llista = new ArrayList<>();
     }
     
     public Casella obtenirPrimer(){

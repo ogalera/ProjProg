@@ -104,10 +104,10 @@ public class BuscadorCamiMinim {
         HistoricMoviments ruta = new HistoricMoviments();
         Casella fi = tauler[desti.obtenirFila()][desti.obtenirColumna()];
         Casella seguent = fi.getParent();
-        System.out.print("EL CAMI TROBAT ES: (en ordre invers) \n");
+        //System.out.print("EL CAMI TROBAT ES: (en ordre invers) \n");
         while(seguent != null){
-            System.out.print(fi.obtenirPunt() + "\n");
-            System.out.print(seguent.obtenirPunt() + "\n");
+            //System.out.print(fi.obtenirPunt() + "\n");
+            //System.out.print(seguent.obtenirPunt() + "\n");
             EDireccio aux = EDireccio.obtenirDireccio(seguent.obtenirPunt(), fi.obtenirPunt());
             ruta.afegirMoviment(aux);
             fi = seguent;

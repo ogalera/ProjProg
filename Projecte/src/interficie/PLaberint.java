@@ -34,6 +34,7 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     private static final int MIDA_PREFERIDA = 800;
     private static final int MIDA_MINIMA = 500;
     private static final int MIDA_MAXIMA = 900;
+    private int midaLabels;
     
     public PLaberint(){
         log = Log.getInstance(PLaberint.class);
@@ -107,7 +108,7 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         
         int numCaselles = laberint.obtenirMidaCostatTauler();
         this.setLayout(new GridLayout(numCaselles, numCaselles));
-        int midaLabels = MIDA_PREFERIDA/numCaselles;
+        midaLabels = MIDA_PREFERIDA/numCaselles;
         laberintGrafic = new JLabel[numCaselles][numCaselles];
         
         imgPacmanRedimensionada = new ImageIcon(EElement.PACMAN.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
@@ -127,6 +128,7 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
             }
         }  
     }
+    
 
     @Override
     public void assignarControladorTeclat(KeyListener controlador) {
@@ -138,6 +140,10 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         Punt pDesti = pOrigen.generarPuntDesplasat(direccio);
         laberintGrafic[pDesti.obtenirFila()][pDesti.obtenirColumna()].setIcon(laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].getIcon());
         laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].setIcon(imatge);
+    }
+    
+    public int obtenirMidaImatge(){
+        return this.midaLabels;
     }
 }
 

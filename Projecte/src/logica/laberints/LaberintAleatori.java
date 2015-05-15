@@ -25,7 +25,6 @@ public class LaberintAleatori extends Laberint{
         log = Log.getInstance(LaberintAleatori.class);
         if(costat < 5) throw new ELaberint("La mida minima del costat del laberint és 5");
         if(!enemic.esEnemic()) throw new ELaberint("Hi ha de haver un enemic en el laberint");
-        if(costat %2 == 0) throw new ELaberint("Els laberints lineals han de tenir un costat senar");
         this.costat = costat;
         generarLaberint(enemic);
         this.nMonedes = numeroMonedes();
