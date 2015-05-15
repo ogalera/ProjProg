@@ -14,6 +14,7 @@ import logica.log.Log;
 import interficie.IPintadorLaberint;
 import interficie.IPintadorPartida;
 import javax.swing.ImageIcon;
+import logica.Personatge.EEstatPersonatge;
 import logica.controladors_pacman.IControlador;
 import logica.enumeracions.ELaberintsPredefinits;
 import logica.laberints.LaberintAleatori;
@@ -243,9 +244,8 @@ public class Partida {
    }  
    
    ///////////////////////////////////////////////////////////////////
-   public boolean pacmanTeMongeta(){
-       Pacman _pacman = (Pacman)pacman;
-       return _pacman.teMongeta();
+   public EEstatPersonatge obtenirEstatPacman(){
+       return pacman.obtenirEstatPersonatge();
    }
    public Punt obtenirPuntItem(){
        return itemEspecial.posicio;

@@ -49,7 +49,7 @@ public class BuscadorCamiMinim {
         llistaOberta.clear();
         llistaOberta.afegir(tauler[origen.obtenirFila()][origen.obtenirColumna()]);
         
-        long tempsInici = System.currentTimeMillis();
+        //long tempsInici = System.currentTimeMillis();
         Casella actual = llistaOberta.obtenirPrimer();
         while(!llistaOberta.esBuida() && !actual.obtenirPunt().equals(desti)){
             llistaOberta.elimina(actual);
@@ -82,8 +82,8 @@ public class BuscadorCamiMinim {
             actual = llistaOberta.obtenirPrimer();
         }
        
-        long tempsFi = System.currentTimeMillis();
-        System.out.println("Temps a trobar el cami mes curt: "+(tempsFi-tempsInici)+"ms");
+        //long tempsFi = System.currentTimeMillis();
+        //System.out.println("Temps a trobar el cami mes curt: "+(tempsFi-tempsInici)+"ms");
         
         HistoricMoviments ruta = generaRuta(origen, desti);
         reset();

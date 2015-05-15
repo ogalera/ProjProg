@@ -91,10 +91,4 @@ public class Pacman extends Personatge{
     public void nouMoviment(EDireccio teclaPremuda){
         this.teclaPremuda = teclaPremuda;
     }
-    
-    /////////////////////////////////////////////////////////////////////
-    
-    public boolean teMongeta(){
-        return estatPersonatge == EEstatPersonatge.AMB_MONGETA;
-    }
 }

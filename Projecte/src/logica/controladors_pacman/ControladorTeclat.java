@@ -25,21 +25,16 @@ public class ControladorTeclat implements IControlador, KeyListener{
     public void keyPressed(KeyEvent e) {
         EDireccio novaDireccio = EDireccio.QUIET;
         int _teclaPremuda= e.getKeyCode();
-        System.out.println(_teclaPremuda);
         if (_teclaPremuda == 38){
-            System.out.println("tecla Premuda: Amunt");
             novaDireccio = EDireccio.AMUNT;
         }
         else if (_teclaPremuda == 40){
-            System.out.println("tecla Premuda: Avall");
             novaDireccio = EDireccio.AVALL;
         }
         else if (_teclaPremuda == 37){
-            System.out.println("tecla Premuda: Esquerra");
             novaDireccio = EDireccio.ESQUERRA;
         }
         else if (_teclaPremuda == 39){
-            System.out.println("tecla Premuda: Dreta");
             novaDireccio = EDireccio.DRETA;
         }
         pacman.nouMoviment(novaDireccio);

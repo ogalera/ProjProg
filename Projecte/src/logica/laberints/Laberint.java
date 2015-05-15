@@ -14,7 +14,6 @@ import logica.enumeracions.EElement;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
-import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import logica.Item;

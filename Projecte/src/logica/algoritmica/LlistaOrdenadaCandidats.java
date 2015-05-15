@@ -18,6 +18,8 @@ public class LlistaOrdenadaCandidats {
         llista = new ArrayList<>();
     }
     
+    
+    //@pre: llista no buida
     public Casella obtenirPrimer(){
         return llista.get(0);
     }
@@ -42,7 +44,9 @@ public class LlistaOrdenadaCandidats {
     public boolean esBuida(){
         return llista.isEmpty();
     }
-    
+    public Casella obtenirElement(int index){
+        return llista.get(index);
+    }
     public boolean conteElement(Casella c){
         return llista.contains(c);
     }
@@ -53,5 +57,8 @@ public class LlistaOrdenadaCandidats {
     }
     public int size(){
         return llista.size();
+    }
+    public void ordena(){
+        Collections.sort(llista);
     }
 }

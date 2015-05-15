@@ -4,6 +4,11 @@ package logica;
 import interficie.FLogin;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.Iterator;
+import logica.algoritmica.Casella;
+import logica.algoritmica.LlistaOrdenadaCandidats;
+import java.util.PriorityQueue;
+
 
 /**
  *
@@ -64,6 +69,7 @@ public class Projecte {
 //        catch(IOException e){
 //            System.out.println("ERROR MISSATGE "+e.getMessage());
 //        } 
+
         FLogin fLogin = new FLogin();
         fLogin.mostrarFrame();
         //System.out.println(log.obtenirDebugsLog());

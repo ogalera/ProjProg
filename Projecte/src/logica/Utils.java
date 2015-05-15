@@ -18,7 +18,7 @@ public class Utils{
         public static final int MIDA_IMATGE = 100;
         public static final String rutaImatgeDefecteUsuari = "res/imatge_perfil.png";
         public static final int PORT = 9988;
-        public static final int FREQUENCIA_ITEM_MOVIBLE = 700;
+        public static final int FREQUENCIA_ITEM_MOVIBLE = 125;
         public static final int TAN_PER_CENT_MONEDES_DOBLES = 10;
         public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
     }
