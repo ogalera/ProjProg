@@ -248,6 +248,7 @@ public class Partida {
        return pacman.obtenirEstatPersonatge();
    }
    public Punt obtenirPuntItem(){
-       return itemEspecial.posicio;
+       if (itemEspecial == null)return null;
+       else return itemEspecial.posicio;
    }
 }

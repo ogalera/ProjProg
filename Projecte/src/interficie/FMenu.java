@@ -174,7 +174,7 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             PLaberint fLaberint = new PLaberint();
             FPartida fPartida = new FPartida(fLaberint);
             Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI/*LABERINT_LINEAL_HORITZONTAL*/,
-                                            20, 
+                                            11, 
                                             EElement.FANTASMA3, 
                                             fPartida,
                                             fLaberint,
