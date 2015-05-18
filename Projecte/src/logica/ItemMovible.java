@@ -29,12 +29,12 @@ public abstract class ItemMovible {
     public final ImageIcon imatgePerfil;
     protected final Partida partida;
     
-    public ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici){
+    public ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia){
         this.partida = partida;
         this.imatgePerfil = imatge;
         this.laberint = laberint;
         this.posicio = inici;
-        this.frequencia = Utils.Constants.FREQUENCIA_ITEM_MOVIBLE;
+        this.frequencia = frequencia;
         temporitzador = new Timer("Thread "+this.nomItemMovible());
         seguentMoviment = this.calcularMoviment();
         tascaAplicarMoviment = new TascaAplicarMoviment();

@@ -5,11 +5,12 @@
  */
 package logica.enumeracions;
 
+import java.awt.Image;
 import logica.log.Log;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-
+import logica.Utils;
 /**
  *
  * @author oscar
@@ -64,6 +65,16 @@ public enum EElement {
         return this.esEnemic;
     }
     
+    public static void redimensionarImatges(int px){
+        for (EElement e : EElement.values()){
+            ImageIcon img = e.obtenirImatge();
+            if(img != null) e.establirImatge(Utils.redimensionarImatge(img, px));
+        }
+    }
+    
+    private void establirImatge(Image img){
+        this.imatge = new ImageIcon(img);
+    }
     
     public static EElement buscarElementPerId(int id){
         EElement element;

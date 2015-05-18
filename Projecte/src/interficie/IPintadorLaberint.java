@@ -24,4 +24,5 @@ public interface IPintadorLaberint extends KeyListener{
     public void pintarNouItem(Punt pNouItem, EElement item);
     public void pintarLaberint(Laberint laberint);
     public int obtenirMidaImatge();
+    public void pintarSortida(Punt pSortida);
 }

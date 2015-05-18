@@ -37,7 +37,7 @@ public abstract class Personatge extends ItemMovible{
     }
     
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
-        super(partida, imatge, laberint, inici);
+        super(partida, imatge, laberint, inici, Utils.Constants.FREQUENCIA_PERSONATGE);
         this.partida = partida;
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;
@@ -68,18 +68,18 @@ public abstract class Personatge extends ItemMovible{
             case PATINS:{
                 estatPersonatge = EEstatPersonatge.AMB_PATINS;
                 activarTimerEstat();
-                super.canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_ITEM_MOVIBLE/2);
+                super.canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_PERSONATGE/2);
             }break;
             case MONEDES_X2:{
                 if(estatPersonatge == EEstatPersonatge.AMB_PATINS){
-                    super.canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_ITEM_MOVIBLE);
+                    super.canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_PERSONATGE);
                 }
                 estatPersonatge = EEstatPersonatge.AMB_MONEDES_X2;
                 activarTimerEstat();
             }break;
             case MONGETA:{
                 if(estatPersonatge == EEstatPersonatge.AMB_PATINS){
-                    super.canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_ITEM_MOVIBLE);
+                    super.canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_PERSONATGE);
                 }
                 estatPersonatge = EEstatPersonatge.AMB_MONGETA;
                 activarTimerEstat();
@@ -107,7 +107,7 @@ public abstract class Personatge extends ItemMovible{
             @Override
             public void run() {
                 if(estatPersonatge == EEstatPersonatge.AMB_PATINS) {
-                    canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_ITEM_MOVIBLE);
+                    canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_PERSONATGE);
                 }
                 estatPersonatge = EEstatPersonatge.NORMAL;
             }

@@ -24,12 +24,12 @@ import logica.log.Log;
  */
 public class PLaberint extends JPanel implements IPintadorLaberint{
     private final Log log;
-    private ImageIcon imgPacmanRedimensionada;
-    private ImageIcon imgFantasma1Redimensionada;
-    private ImageIcon imgFantasma2Redimensionada;
-    private ImageIcon imgFantasma3Redimensionada;
-    private ImageIcon imgParetRedimensionada;
-    private ImageIcon imgMonedaRedimensionada;
+//    private ImageIcon imgPacmanRedimensionada;
+//    private ImageIcon imgFantasma1Redimensionada;
+//    private ImageIcon imgFantasma2Redimensionada;
+//    private ImageIcon imgFantasma3Redimensionada;
+//    private ImageIcon imgParetRedimensionada;
+//    private ImageIcon imgMonedaRedimensionada;
     private JLabel[][] laberintGrafic;
     private static final int MIDA_PREFERIDA = 800;
     private static final int MIDA_MINIMA = 500;
@@ -69,35 +69,6 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         this.laberintGrafic[fila][columna].setIcon(nouItem.obtenirImatge());
     }
 
-    private ImageIcon obtenirImatge(EElement element){
-        switch(element){
-            case PACMAN:{
-                return imgPacmanRedimensionada;
-            }
-            case FANTASMA1:{
-                return imgFantasma1Redimensionada;
-            }
-            case FANTASMA2:{
-                return imgFantasma2Redimensionada;
-            }
-            case FANTASMA3:{
-                return imgFantasma3Redimensionada;
-            }
-            case PARET:{
-                return imgParetRedimensionada;
-            }
-            case MONEDA:{
-                return imgMonedaRedimensionada;
-            }
-            case RES:{
-                return null;
-            }
-            default:{
-                log.afegirError("No existeix imatge per aquest element ("+element.name()+")");
-                return null;
-            }
-        }
-    }
     
     @Override
     public void pintarLaberint(Laberint laberint) {
@@ -110,19 +81,13 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         this.setLayout(new GridLayout(numCaselles, numCaselles));
         midaLabels = MIDA_PREFERIDA/numCaselles;
         laberintGrafic = new JLabel[numCaselles][numCaselles];
-        
-        imgPacmanRedimensionada = new ImageIcon(EElement.PACMAN.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
-        imgFantasma1Redimensionada = new ImageIcon(EElement.FANTASMA1.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
-        imgFantasma2Redimensionada = new ImageIcon(EElement.FANTASMA2.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
-        imgFantasma3Redimensionada = new ImageIcon(EElement.FANTASMA3.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
-        imgParetRedimensionada = new ImageIcon(EElement.PARET.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
-        imgMonedaRedimensionada = new ImageIcon(EElement.MONEDA.obtenirImatge().getImage().getScaledInstance(midaLabels, midaLabels, Image.SCALE_DEFAULT));
-        
+        EElement.redimensionarImatges(midaLabels);
+
         for (int fila = 0; fila < numCaselles; fila++){
             for (int columna = 0; columna < numCaselles; columna++){
                 laberintGrafic[fila][columna] = new JLabel();
                 EElement element = laberint.obtenirElement(new Punt(fila, columna));
-                ImageIcon imatge = obtenirImatge(element);
+                ImageIcon imatge = element.obtenirImatge();
                 laberintGrafic[fila][columna].setIcon(imatge);
                 this.add(laberintGrafic[fila][columna]);
             }
@@ -144,6 +109,11 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     
     public int obtenirMidaImatge(){
         return this.midaLabels;
+    }
+
+    @Override
+    public void pintarSortida(Punt pSortida) {
+        this.laberintGrafic[pSortida.obtenirFila()][pSortida.obtenirColumna()].setIcon(EElement.SORTIDA.obtenirImatge());
     }
 }
 

@@ -26,7 +26,7 @@ public class Item extends ItemMovible {
     private boolean esticFugint;
     
     public Item(Partida partida, EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici){
-        super(partida, tipusElement.obtenirImatge(), laberint, inici);
+        super(partida, tipusElement.obtenirImatge(), laberint, inici, Utils.Constants.FREQUENCIA_ITEM);
         log = Log.getInstance(Item.class);
         this.tipusElement = tipusElement;
         this.elementTrapitjat = elementTrapitjat;

@@ -24,7 +24,7 @@ public class Fantasma3 extends Personatge{
     private EMode mode;
     private final LlistaOrdenadaCandidats moneder;
     private static final int DISTANCIA_PERILLOSA = 9; //distancia < DISTANCIA_PERILLOSA es considera perill 
-    private static final int DISTANCIA_CONSIDERABLE = 8;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
+    private static final int DISTANCIA_CONSIDERABLE = 0;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
     
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
@@ -115,7 +115,7 @@ public class Fantasma3 extends Personatge{
         int distanciaPacman = gestorCami.trobarCamiMinim(posicio, posicioPacman).size();
         if (mode == EMode.NAVEGACIO){
             //Haure de canviar de mode si:   - S'han acabat les monedes i estic perdent -> MODE_SEGUIMENT ( Misio: atrapar en Pacman abans de que surti del laberint)
-            //                               - S'han acabat les monedes i estic guanyant --> MODE_SEGUIEMENT (Haig d'anar cap a la sortida
+            //                               - S'han acabat les monedes i estic guanyant --> MODE_NAVEGACIO (Haig d'anar cap a la sortida
             //                               - En Pacman te una mongeta i esta a una DISTANCIA_PERILLOSA -> MODE_FUGIDA
             //                               - Hi ha algun Item a una distancia < DISTANCIA_CONSIDERABLE -> MODE_SEGUIMENT
             //                               - Tinc una mongeta --> MODE_SEGUIMENT (Haig d'atrapar en Pacman)
@@ -264,7 +264,7 @@ public class Fantasma3 extends Personatge{
     }
     
     /**
-     * @brief Busca una moneda o la sortida
+     * @brief Busca una moneda o 
      * @post ruta conte un cami fins al objectiu
      */
     private void buscaObjectiu(){

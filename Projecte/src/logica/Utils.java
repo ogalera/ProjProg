@@ -1,8 +1,10 @@
 package logica;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.Random;
+import javax.swing.ImageIcon;
 ///De la llibreria Apache Commons Codec 1.10 per codificar/decodificar 
 ///el password del usuari;
 import org.apache.commons.codec.binary.Base64;
@@ -18,7 +20,8 @@ public class Utils{
         public static final int MIDA_IMATGE = 100;
         public static final String rutaImatgeDefecteUsuari = "res/imatge_perfil.png";
         public static final int PORT = 9988;
-        public static final int FREQUENCIA_ITEM_MOVIBLE = 125;
+        public static final int FREQUENCIA_ITEM = 400;
+        public static final int FREQUENCIA_PERSONATGE = 350;
         public static final int TAN_PER_CENT_MONEDES_DOBLES = 10;
         public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
     }
@@ -60,6 +63,10 @@ public class Utils{
         long segons = (moment/1_000)%60;
         resultat += segons < 10 ? "0"+segons: segons;
         return resultat;
+    }
+    
+    public static Image redimensionarImatge(ImageIcon imatge, int px){
+        return imatge.getImage().getScaledInstance(px, px, Image.SCALE_DEFAULT);
     }
     
     public static BufferedImage redimensionarImatge(BufferedImage originalImage, int tipus, int amplada, int altura) {

@@ -160,23 +160,24 @@ public class Laberint {
         EElement objecteAgafat = this.tauler[fila][columna];
         if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
             this.nMonedes--;
-            if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
-                //Toca sortejar un nou item
-                Punt puntItem = sortejarPosicioItem();
-                EElement item = sortejarItem();
-                Item nouItem = new Item(partida, item, objecteAgafat, this, puntItem);
-                int filaItem = puntItem.obtenirFila();
-                int columnaItem = puntItem.obtenirColumna();
-                this.tauler[filaItem][columnaItem] = item;
-                pintador.pintarNouItem(puntItem, item);
-                partida.assignarItemEspecial(nouItem);
-                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
-            }
+//            if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+//                //Toca sortejar un nou item
+//                Punt puntItem = sortejarPosicioItem();
+//                EElement item = sortejarItem();
+//                Item nouItem = new Item(partida, item, objecteAgafat, this, puntItem);
+//                int filaItem = puntItem.obtenirFila();
+//                int columnaItem = puntItem.obtenirColumna();
+//                this.tauler[filaItem][columnaItem] = item;
+//                pintador.pintarNouItem(puntItem, item);
+//                partida.assignarItemEspecial(nouItem);
+//                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+//            }
             if(nMonedes == 0){
                Punt sortida = sortejarSortida();
                int xSortida = sortida.obtenirColumna();
                int ySortida = sortida.obtenirFila();
                this.tauler[ySortida][xSortida] = EElement.SORTIDA;
+               pintador.pintarSortida(sortida);
                partida.assignarGuanyador();
             }
         }
@@ -189,7 +190,14 @@ public class Laberint {
     }
     
     private Punt sortejarSortida(){
-        return new Punt(costat-1, costat-1);
+        int fila;
+        int columna;
+        do{
+            fila = Utils.obtenirValorAleatori(costat);
+            columna = Utils.obtenirValorAleatori(costat);
+        }
+        while(tauler[fila][columna] == EElement.PARET);
+        return new Punt(fila, columna);
     }
     
     private EElement sortejarItem(){
@@ -280,7 +288,6 @@ public class Laberint {
     }
     
     public void pintarLaberint(){
-        if(pintador == null) log.afegirError("No hi ha pintador!");
         pintador.pintarLaberint(this);
     }
     
