@@ -1,6 +1,5 @@
 package logica;
 
-import java.awt.Image;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
@@ -30,7 +29,7 @@ public abstract class Personatge extends ItemMovible{
     protected Partida partida;
     protected boolean guanya;
     protected EEstatPersonatge estatPersonatge = null;
-    protected ImageIcon imatges[][];
+    protected final ImageIcon imatges[][];
     
     protected enum EEstatPersonatge{
         NORMAL, AMB_PATINS, AMB_MONEDES_X2, AMB_MONGETA;
@@ -38,6 +37,8 @@ public abstract class Personatge extends ItemMovible{
     
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
         super(partida, imatge, laberint, inici, Utils.Constants.FREQUENCIA_PERSONATGE);
+        imatges = new ImageIcon[4][2];
+        this.assignarImatges();
         this.partida = partida;
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;
@@ -123,25 +124,25 @@ public abstract class Personatge extends ItemMovible{
     @Override
     public void iniciarItemMovible() {
         super.iniciarItemMovible();
-        imatges = new ImageIcon[4][2];
-        int mida = laberint.obtenirMidaImatge();
-        
-        //Dreta
-//        imatges[0][0] =  new ImageIcon("res/pacman.png");
-        imatges[0][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        imatges[0][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        //Esquerra
-//        imatges[1][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        imatges[1][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        //Amun
-//        imatges[2][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        imatges[2][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        //Avall
-//        imatges[3][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
-//        imatges[3][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+//        imatges = new ImageIcon[4][2];
+//        int mida = laberint.obtenirMidaImatge();
 //        
-        
+//        //Dreta
+////        imatges[0][0] =  new ImageIcon("res/pacman.png");
+//        imatges[0][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        imatges[0][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        //Esquerra
+////        imatges[1][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        imatges[1][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        //Amun
+////        imatges[2][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        imatges[2][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        //Avall
+////        imatges[3][0] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        imatges[3][1] =  new ImageIcon(new ImageIcon("res/pacman.png").getImage().getScaledInstance(mida, mida , Image.SCALE_DEFAULT));
+////        
+//        
     }
     
-    
+    protected abstract void assignarImatges();
 }

@@ -247,8 +247,8 @@ public class Partida {
    public EEstatPersonatge obtenirEstatPacman(){
        return pacman.obtenirEstatPersonatge();
    }
-   public Punt obtenirPuntItem(){
-       if (itemEspecial == null)return null;
-       else return itemEspecial.posicio;
+   
+   public Item obtenirItem(){
+       return itemEspecial;
    }
 }

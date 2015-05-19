@@ -5,7 +5,6 @@
  */
 package interficie;
 
-import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import logica.Punt;

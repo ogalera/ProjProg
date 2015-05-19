@@ -158,20 +158,13 @@ public class Laberint {
         columna = p.obtenirColumna();
         fila = p.obtenirFila();
         EElement objecteAgafat = this.tauler[fila][columna];
-        if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
-            this.nMonedes--;
-//            if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
-//                //Toca sortejar un nou item
-//                Punt puntItem = sortejarPosicioItem();
-//                EElement item = sortejarItem();
-//                Item nouItem = new Item(partida, item, objecteAgafat, this, puntItem);
-//                int filaItem = puntItem.obtenirFila();
-//                int columnaItem = puntItem.obtenirColumna();
-//                this.tauler[filaItem][columnaItem] = item;
-//                pintador.pintarNouItem(puntItem, item);
-//                partida.assignarItemEspecial(nouItem);
-//                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
-//            }
+        
+        if(objecteAgafat == EElement.MONGETA || objecteAgafat == EElement.PATINS || objecteAgafat == EElement.MONEDES_X2){
+            EElement item = partida.obtenirItem().obtenirElementTrapitgat();
+            if(item == EElement.MONEDA || item == EElement.MONEDA_EXTRA){
+                this.nMonedes--;
+                System.out.println("*****************\nmoneda agafada sota item queden "+nMonedes);
+            }
             if(nMonedes == 0){
                Punt sortida = sortejarSortida();
                int xSortida = sortida.obtenirColumna();
@@ -181,7 +174,32 @@ public class Laberint {
                partida.assignarGuanyador();
             }
         }
-        if(objecteAgafat == EElement.SORTIDA){
+        
+        if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
+            this.nMonedes--;
+            System.out.println("*****************\nqueden "+nMonedes);
+            if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+                //Toca sortejar un nou item
+                Punt puntItem = sortejarPosicioItem();
+                EElement item = sortejarItem();
+                Item nouItem = new Item(partida, item, objecteAgafat, this, puntItem);
+                int filaItem = puntItem.obtenirFila();
+                int columnaItem = puntItem.obtenirColumna();
+                this.tauler[filaItem][columnaItem] = item;
+                pintador.pintarNouItem(puntItem, item);
+                partida.assignarItemEspecial(nouItem);
+                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+            }
+            if(nMonedes == 0){
+               Punt sortida = sortejarSortida();
+               int xSortida = sortida.obtenirColumna();
+               int ySortida = sortida.obtenirFila();
+               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
+               pintador.pintarSortida(sortida);
+               partida.assignarGuanyador();
+            }
+        }
+        else if(objecteAgafat == EElement.SORTIDA){
             partida.finalitzarPartida();
         }
         this.tauler[fila][columna] = objecteAMoure;
@@ -190,6 +208,7 @@ public class Laberint {
     }
     
     private Punt sortejarSortida(){
+        System.out.println("\n\n*****\nSORTEJEM SORTIDA");
         int fila;
         int columna;
         do{

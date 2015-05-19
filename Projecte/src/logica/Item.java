@@ -115,6 +115,10 @@ public class Item extends ItemMovible {
         return "Item "+tipusElement;
     }
 
+    public EElement obtenirElementTrapitgat(){
+        return elementTrapitjat;
+    }
+    
     @Override
     public EElement realitzarMoviment() {
         if(seguentMoviment != EDireccio.QUIET){

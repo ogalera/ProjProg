@@ -36,6 +36,18 @@ public class Fantasma3 extends Personatge{
         omplenaMoneder();
         buscaObjectiu();
     }
+
+    @Override
+    protected void assignarImatges() {
+        this.imatges[0][0] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[0][1] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[1][0] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[1][1] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[2][0] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[2][1] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[3][0] = EElement.FANTASMA3.obtenirImatge();
+        this.imatges[3][1] = EElement.FANTASMA3.obtenirImatge();
+    }
     private enum EMode{
         FUGIR, //En aquest mode es calcula un cami de n posicions que maximitza la distancia amb el perseguidor, on n es la profunditat del BackTracking
         SEGUIMENT, //Es persegueix un objectiu movible. Es calcula el cami minim a cada moviment i nomes es porta a terme el primer pas d'aquest cami calculat.
@@ -65,14 +77,14 @@ public class Fantasma3 extends Personatge{
                 break;
         }
        
-        if (ruta.esBuida()){
+        if (ruta == null || ruta.esBuida()){
             buscaObjectiu();
         }
         EDireccio res = ruta.obtenirUltimMoviment();
         if (movimentValid(res))ruta.eliminarMoviment();
         else res = EDireccio.QUIET;
         long fi = System.currentTimeMillis();
-        System.out.println("TEMPS DE FANTASMA3 A PENDRE UNA DECISIO (Calcul de distancies + Calcul de ruta)"+ (fi - ini) + " ms");
+//        System.out.println("TEMPS DE FANTASMA3 A PENDRE UNA DECISIO (Calcul de distancies + Calcul de ruta)"+ (fi - ini) + " ms");
         return res;
     }
     
@@ -164,8 +176,7 @@ public class Fantasma3 extends Personatge{
                     }
                 }
                 else if (elementEsItem(objectiu.element)){
-                    Punt p = partida.obtenirPuntItem();
-                    if (p == null){//El Item ja no es troba en el Laberint
+                    if (partida.obtenirItem() == null){//El Item ja no es troba en el Laberint
                         objectiu = null;
                         mode = EMode.NAVEGACIO;
                     }
@@ -227,7 +238,7 @@ public class Fantasma3 extends Personatge{
                 ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
             }
             else if (hiHaItemEspecialAProp()){
-                Punt p = partida.obtenirPuntItem();
+                Punt p = partida.obtenirItem().posicio;
                 EElement e = EElement.MONGETA;  //Fantasma 3 no diferencia entre els items, utilitzarem mongeta com a per defecte per a identificar un item
                 objectiu = new Objectiu(p,e);
                 ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
@@ -237,7 +248,7 @@ public class Fantasma3 extends Personatge{
             switch(objectiu.element){
                 case PATINS:
                 case MONEDES_X2:
-                case MONGETA: objectiu.posicio = partida.obtenirPuntItem();
+                case MONGETA: objectiu.posicio = partida.obtenirItem().posicio;
                     break;
                 case PACMAN: objectiu.posicio = partida.obtenirPuntPacman();
                     break;      
@@ -326,17 +337,18 @@ public class Fantasma3 extends Personatge{
             c.afegirDistanciaAlObjectiu(gestorCami.trobarCamiMinim(posicio, c.obtenirPunt()).size());
         }
         long fi = System.currentTimeMillis();
-        System.out.println("TEMPS A CALCULAR EL CAMI MINIM DE " + mida +"  MONEDES -> "+ (fi-ini) + " ms");
+//        System.out.println("TEMPS A CALCULAR EL CAMI MINIM DE " + mida +"  MONEDES -> "+ (fi-ini) + " ms");
         moneder.ordena();
         long fin = System.currentTimeMillis();
-        System.out.println("TEMPS A ORDENAR " + mida +"  MONEDES -> "+ (fin-fi) + " ms");
+//        System.out.println("TEMPS A ORDENAR " + mida +"  MONEDES -> "+ (fin-fi) + " ms");
         
     }
     
     private boolean hiHaItemEspecialAProp(){
         boolean hiHaItemAProp = false;
-        Punt p = partida.obtenirPuntItem();
-        if (p != null){
+        Item item =  partida.obtenirItem();
+        if (item != null){
+            Punt p = item.posicio;
             int distancia = gestorCami.trobarCamiMinim(posicio, p).size();
             if (distancia < DISTANCIA_CONSIDERABLE)hiHaItemAProp=true;
         }

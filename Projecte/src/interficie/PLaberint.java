@@ -7,7 +7,6 @@ package interficie;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import logica.enumeracions.EElement;
@@ -79,7 +78,7 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         
         int numCaselles = laberint.obtenirMidaCostatTauler();
         this.setLayout(new GridLayout(numCaselles, numCaselles));
-        midaLabels = MIDA_PREFERIDA/numCaselles;
+        midaLabels = MIDA_MINIMA/numCaselles;
         laberintGrafic = new JLabel[numCaselles][numCaselles];
         EElement.redimensionarImatges(midaLabels);
 

@@ -90,4 +90,9 @@ public enum EElement {
         else element = INDEFINIT;
         return element;
     }
+    
+    @Override
+    public String toString(){
+        return  this.name();
+    }
 }

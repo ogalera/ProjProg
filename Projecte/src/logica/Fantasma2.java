@@ -163,4 +163,16 @@ public class Fantasma2 extends Personatge{
     @Override public String nomItemMovible(){
         return "Fantasma2";
     }
+
+    @Override
+    protected void assignarImatges() {
+        this.imatges[0][0] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[0][1] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[1][0] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[1][1] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[2][0] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[2][1] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[3][0] = EElement.FANTASMA2.obtenirImatge();
+        this.imatges[3][1] = EElement.FANTASMA2.obtenirImatge();
+    }
 }
