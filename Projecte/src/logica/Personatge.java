@@ -58,7 +58,6 @@ public abstract class Personatge extends ItemMovible{
     
     @Override
     public EElement realitzarMoviment(){
-        
         EElement elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatges[0][0]);
         posicio = posicio.generarPuntDesplasat(seguentMoviment);
         return elementObtingut;

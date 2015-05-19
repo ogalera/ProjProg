@@ -174,15 +174,23 @@ public class Laberint {
                partida.assignarGuanyador();
             }
         }
-        
-        if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
+        else if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
             this.nMonedes--;
             System.out.println("*****************\nqueden "+nMonedes);
-            if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+            if(nMonedes == 0){
+               Punt sortida = sortejarSortida();
+               int xSortida = sortida.obtenirColumna();
+               int ySortida = sortida.obtenirFila();
+               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
+               System.out.println("Sortida a "+sortida);
+               pintador.pintarSortida(sortida);
+               partida.assignarGuanyador();
+            }
+            else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
                 //Toca sortejar un nou item
                 Punt puntItem = sortejarPosicioItem();
                 EElement item = sortejarItem();
-                Item nouItem = new Item(partida, item, objecteAgafat, this, puntItem);
+                Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
                 int filaItem = puntItem.obtenirFila();
                 int columnaItem = puntItem.obtenirColumna();
                 this.tauler[filaItem][columnaItem] = item;
@@ -190,16 +198,9 @@ public class Laberint {
                 partida.assignarItemEspecial(nouItem);
                 System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
             }
-            if(nMonedes == 0){
-               Punt sortida = sortejarSortida();
-               int xSortida = sortida.obtenirColumna();
-               int ySortida = sortida.obtenirFila();
-               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
-               pintador.pintarSortida(sortida);
-               partida.assignarGuanyador();
-            }
         }
         else if(objecteAgafat == EElement.SORTIDA){
+            System.out.println("s A ARRIBAT A LA SORTIDA "+p);
             partida.finalitzarPartida();
         }
         this.tauler[fila][columna] = objecteAMoure;

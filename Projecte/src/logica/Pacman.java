@@ -63,7 +63,7 @@ public class Pacman extends Personatge{
                     partida.assignarItemAPacman(elementObtingut);
                 }break;
             }
-            return elementObtingut;
+            return null;
         }
         return null;
     }

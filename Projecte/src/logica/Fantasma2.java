@@ -42,7 +42,7 @@ public class Fantasma2 extends Personatge{
             moviment = EDireccio.AMUNT;
         }
         else if (interesAbaix > interesDreta && interesAbaix > interesEsquerra && interesAbaix > interesAdalt){
-            //Interessa mes anar adalt;
+            //Interessa mes anar avall;
             moviment = EDireccio.AVALL;
         }
         else{
@@ -54,9 +54,17 @@ public class Fantasma2 extends Personatge{
                 //Opció 2 -> sortejar una direcció on (0 -> DRETA, 1 -> ESQUERRA, 2 -> AMUN, 3 -> AVALL)
                 if(!historicMoviments.esBuida()){
                     //Tenim alguna direcció en l'historic per tant cal tirar enrrere;
-                    marxaEnrrere = true;
+//                    marxaEnrrere = true;
                     moviment = historicMoviments.obtenirUltimMoviment();
                     moviment = moviment.obtenirMovimentInvers();
+                    Punt tmp = posicio.generarPuntDesplasat(moviment);
+                    if(laberint.obtenirElement(tmp) != EElement.PACMAN){
+                        marxaEnrrere = true;
+                        historicMoviments.eliminarMoviment();
+                    }
+                    else{
+                        moviment = EDireccio.QUIET;
+                    }
                 }
                 else{
                     //No tenim res en l'historic llavors optem per l'opció 2;
@@ -66,7 +74,7 @@ public class Fantasma2 extends Personatge{
                         int index = Utils.obtenirValorAleatori(4);
                         moviment = EDireccio.values()[index];
                         p = posicio.generarPuntDesplasat(moviment);
-                    }while(!laberint.posicioValida(p));
+                    }while(!laberint.posicioValida(p) || laberint.obtenirElement(p) != EElement.PACMAN);
                 }
             }
             else{
@@ -90,14 +98,41 @@ public class Fantasma2 extends Personatge{
     
     @Override
     public EElement realitzarMoviment(){
+        /*****/
+        if(obtenirEstatPersonatge() != EEstatPersonatge.AMB_MONGETA){
+            Punt p = partida.obtenirPuntPacman();
+            switch(seguentMoviment){
+                case AMUNT:{
+                    int tmp = posicio.obtenirFila() - p.obtenirFila();
+                    if(p.obtenirColumna() == posicio.obtenirColumna() &&  (tmp == 0 || tmp == 1)){
+                        seguentMoviment = EDireccio.QUIET;
+                    }
+                }break;
+                case AVALL:{
+                    int tmp = p.obtenirFila() - posicio.obtenirFila();
+                    if(p.obtenirColumna() == posicio.obtenirColumna() && (tmp == 0 || tmp == 1)){
+                        seguentMoviment = EDireccio.QUIET;
+                    }
+                }break;
+                case DRETA:{
+                    int tmp = p.obtenirFila() - posicio.obtenirFila();
+                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
+                        seguentMoviment = EDireccio.QUIET;
+                    }
+                }break;
+                case ESQUERRA:{
+                    int tmp = posicio.obtenirFila() - p.obtenirFila();
+                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
+                        seguentMoviment = EDireccio.QUIET;
+                    }
+                }break;
+            }
+        }
+        /*****/
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-            
             if(!marxaEnrrere){
                 this.historicMoviments.afegirMoviment(super.seguentMoviment);
-            }
-            else{
-                this.historicMoviments.eliminarMoviment();
             }
             switch(elementObtingut){
                 case MONEDA:{

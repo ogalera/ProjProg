@@ -159,19 +159,21 @@ public class Partida {
         log.afegirDebug("S'ha finalitzat la partida a les "+Utils.obtenirHoraSistema());
         long diferencia = momentFi-momentInici;
         log.afegirDebug("La partida a durat un total de "+Utils.obtenirMomentEnFormatHoraMinutsSegons(diferencia));
-//        pacman.finalitzarItem();
-        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
+        pacman.finalitzarItem();
+//        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
     }
     
     public void assignarGuanyador(){
-//        if(pacman.obtenirPunts() > fantasma.obtenirPunts()){
-//            pacman.assignarGuanya(true);
-//            fantasma.assignarGuanya(false);
-//        }
-//        else {
-//            pacman.assignarGuanya(false);
-//            fantasma.assignarGuanya(true);
-//        }
+        if(pacman.obtenirPunts() > enemic.obtenirPunts()){
+            System.out.println("GUANYA PACMAN");
+            pacman.assignarGuanya(true);
+            enemic.assignarGuanya(false);
+        }
+        else {
+            System.out.println("GUANYA ENEMIC");
+            pacman.assignarGuanya(false);
+            enemic.assignarGuanya(true);
+        }
     }
    
     public void itemCapturat(){
