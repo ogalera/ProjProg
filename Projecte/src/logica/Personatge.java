@@ -23,10 +23,12 @@ public abstract class Personatge extends ItemMovible{
     
     protected int punts;
     
+    private boolean oberta = false;
+    private int r = 0;
+    
     /**
      * Partida en la que es troba el personatge
      **/
-    protected Partida partida;
     protected boolean guanya;
     protected EEstatPersonatge estatPersonatge = null;
     protected final ImageIcon imatges[][];
@@ -38,10 +40,9 @@ public abstract class Personatge extends ItemMovible{
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
         super(partida, imatge, laberint, inici, Utils.Constants.FREQUENCIA_PERSONATGE);
         imatges = new ImageIcon[4][2];
-        this.assignarImatges();
-        this.partida = partida;
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;
+        laberint.marcarIntencio(posicio);
     }
     
     public int obtenirPunts(){
@@ -58,7 +59,35 @@ public abstract class Personatge extends ItemMovible{
     
     @Override
     public EElement realitzarMoviment(){
-        EElement elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatges[0][0]);
+        ImageIcon imatge;
+        switch(seguentMoviment){
+            case DRETA:{
+                if(oberta) imatge = imatges[0][0];
+                else imatge = imatges[0][1];
+                r = 0;
+            }break;
+            case ESQUERRA:{
+                if(oberta) imatge = imatges[1][0];
+                else imatge = imatges[1][1];
+                r = 1;
+            }break;
+            case AMUNT:{
+                if(oberta) imatge = imatges[2][0];
+                else imatge = imatges[2][1];
+                r = 2;
+            }break;
+            case AVALL:{
+                if(oberta) imatge = imatges[3][0];
+                else imatge = imatges[3][1];
+                r = 3;
+            }break;
+            default:{
+                if(oberta) imatge = imatges[r][0];
+                else imatge = imatges[r][1];
+            }
+        }
+        oberta = !oberta;
+        EElement elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatge);
         posicio = posicio.generarPuntDesplasat(seguentMoviment);
         return elementObtingut;
     }
@@ -122,6 +151,7 @@ public abstract class Personatge extends ItemMovible{
 
     @Override
     public void iniciarItemMovible() {
+        assignarImatges();
         super.iniciarItemMovible();
 //        imatges = new ImageIcon[4][2];
 //        int mida = laberint.obtenirMidaImatge();

@@ -28,6 +28,8 @@ import logica.Utils;
 public class Laberint {
     protected EElement tauler[][];
     
+    protected boolean matriuDIntencions[][];
+    
     protected Log log = Log.getInstance(Laberint.class);
     
     protected int costat = -1;
@@ -47,6 +49,14 @@ public class Laberint {
         log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
         File f = new File(fitxer);
         this.partida = partida;
+        
+        matriuDIntencions = new boolean [costat][costat];
+        for(int i = 0; i < costat; i++){
+            for(int j = 0; j < costat; j++){
+                matriuDIntencions[i][j] = true;
+            }
+        }
+        
         try(BufferedReader br = new BufferedReader(new FileReader(f))){
             String linia;
             if((linia = br.readLine()) != null){
@@ -146,6 +156,7 @@ public class Laberint {
         tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
         tauler[filaOrigen][columnaOrigen] = elementARestaurar;
         pintador.pintarMovimentItem(posicio, direccio, elementARestaurar.obtenirImatge());
+        desmarcarIntencio(puntDesplasat);
         return elementTrapitjat;
     }
     
@@ -205,6 +216,7 @@ public class Laberint {
         }
         this.tauler[fila][columna] = objecteAMoure;
         pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
+        desmarcarIntencio(posicio);
         return objecteAgafat;
     }
     
@@ -313,5 +325,17 @@ public class Laberint {
     
     public int obtenirMidaImatge(){
         return this.pintador.obtenirMidaImatge();
+    }
+    
+    public synchronized boolean esIntencioValida(Punt posicio){
+        return matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()];
+    }
+    
+    public synchronized void marcarIntencio(Punt posicio){
+        matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = false;
+    }
+    
+    public synchronized void desmarcarIntencio(Punt posicio){
+        matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = true;
     }
 }

@@ -160,6 +160,7 @@ public class Partida {
         long diferencia = momentFi-momentInici;
         log.afegirDebug("La partida a durat un total de "+Utils.obtenirMomentEnFormatHoraMinutsSegons(diferencia));
         pacman.finalitzarItem();
+        pintador.pintarFinalPartida();
 //        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
     }
     

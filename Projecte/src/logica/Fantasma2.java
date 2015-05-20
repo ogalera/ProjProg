@@ -13,7 +13,6 @@ import logica.enumeracions.EDireccio;
  * @author oscar
  */
 public class Fantasma2 extends Personatge{
-    private boolean marxaEnrrere;
     
     public Fantasma2(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA2.obtenirImatge(), inici);
@@ -21,7 +20,6 @@ public class Fantasma2 extends Personatge{
 
     @Override
     public EDireccio calcularMoviment() {
-        marxaEnrrere = false;
         int interesDreta = explorarDireccio(EDireccio.DRETA);
         int interesEsquerra = explorarDireccio(EDireccio.ESQUERRA);
         int interesAdalt = explorarDireccio(EDireccio.AMUNT);
@@ -58,9 +56,9 @@ public class Fantasma2 extends Personatge{
                     moviment = historicMoviments.obtenirUltimMoviment();
                     moviment = moviment.obtenirMovimentInvers();
                     Punt tmp = posicio.generarPuntDesplasat(moviment);
-                    if(laberint.obtenirElement(tmp) != EElement.PACMAN){
-                        marxaEnrrere = true;
+                    if(laberint.posicioValida(tmp) && laberint.obtenirElement(tmp) != EElement.PACMAN){
                         historicMoviments.eliminarMoviment();
+                        historicMoviments.afegirMoviment(super.seguentMoviment);
                     }
                     else{
                         moviment = EDireccio.QUIET;
@@ -88,52 +86,49 @@ public class Fantasma2 extends Personatge{
                 moviment = possiblesDireccions[index];
             }
         }
-//        System.out.println("dreta "+interesDreta);
-//        System.out.println("esquerra "+interesEsquerra);
-//        System.out.println("amunt "+interesAdalt);
-//        System.out.println("abaix "+interesAbaix);
-//        System.out.println("calculat "+moviment);
+        System.out.println("dreta "+interesDreta);
+        System.out.println("esquerra "+interesEsquerra);
+        System.out.println("amunt "+interesAdalt);
+        System.out.println("abaix "+interesAbaix);
+        System.out.println("calculat "+moviment);
         return moviment;
     }
     
     @Override
     public EElement realitzarMoviment(){
         /*****/
-        if(obtenirEstatPersonatge() != EEstatPersonatge.AMB_MONGETA){
-            Punt p = partida.obtenirPuntPacman();
-            switch(seguentMoviment){
-                case AMUNT:{
-                    int tmp = posicio.obtenirFila() - p.obtenirFila();
-                    if(p.obtenirColumna() == posicio.obtenirColumna() &&  (tmp == 0 || tmp == 1)){
-                        seguentMoviment = EDireccio.QUIET;
-                    }
-                }break;
-                case AVALL:{
-                    int tmp = p.obtenirFila() - posicio.obtenirFila();
-                    if(p.obtenirColumna() == posicio.obtenirColumna() && (tmp == 0 || tmp == 1)){
-                        seguentMoviment = EDireccio.QUIET;
-                    }
-                }break;
-                case DRETA:{
-                    int tmp = p.obtenirFila() - posicio.obtenirFila();
-                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
-                        seguentMoviment = EDireccio.QUIET;
-                    }
-                }break;
-                case ESQUERRA:{
-                    int tmp = posicio.obtenirFila() - p.obtenirFila();
-                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
-                        seguentMoviment = EDireccio.QUIET;
-                    }
-                }break;
-            }
-        }
+//        if(obtenirEstatPersonatge() != EEstatPersonatge.AMB_MONGETA){
+//            Punt p = partida.obtenirPuntPacman();
+//            switch(seguentMoviment){
+//                case AMUNT:{
+//                    int tmp = posicio.obtenirFila() - p.obtenirFila();
+//                    if(p.obtenirColumna() == posicio.obtenirColumna() &&  (tmp == 0 || tmp == 1)){
+//                        seguentMoviment = EDireccio.QUIET;
+//                    }
+//                }break;
+//                case AVALL:{
+//                    int tmp = p.obtenirFila() - posicio.obtenirFila();
+//                    if(p.obtenirColumna() == posicio.obtenirColumna() && (tmp == 0 || tmp == 1)){
+//                        seguentMoviment = EDireccio.QUIET;
+//                    }
+//                }break;
+//                case DRETA:{
+//                    int tmp = p.obtenirFila() - posicio.obtenirFila();
+//                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
+//                        seguentMoviment = EDireccio.QUIET;
+//                    }
+//                }break;
+//                case ESQUERRA:{
+//                    int tmp = posicio.obtenirFila() - p.obtenirFila();
+//                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
+//                        seguentMoviment = EDireccio.QUIET;
+//                    }
+//                }break;
+//            }
+//        }
         /*****/
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-            if(!marxaEnrrere){
-                this.historicMoviments.afegirMoviment(super.seguentMoviment);
-            }
             switch(elementObtingut){
                 case MONEDA:{
                     super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
@@ -168,9 +163,8 @@ public class Fantasma2 extends Personatge{
                 n++;
                 interes += 10/n;
             }
-            else if(element == EElement.PACMAN){
-                if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA) interes += Integer.MAX_VALUE;
-                else interes -= Integer.MAX_VALUE;
+            else if(element == EElement.PACMAN && obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
+                interes += Integer.MAX_VALUE;
             }
             else if(element == EElement.PATINS || element == EElement.MONGETA || element == EElement.MONEDES_X2){
                 interes += Integer.MAX_VALUE;

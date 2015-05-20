@@ -9,6 +9,7 @@ import interficie.IPintadorLaberint;
 import java.util.Random;
 import logica.Partida;
 import logica.Punt;
+import logica.Utils;
 import logica.ValidadorLaberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
@@ -20,6 +21,7 @@ import logica.log.Log;
  * @author oscar
  */
 public class LaberintAleatori extends Laberint{
+    
     public LaberintAleatori(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintAleatori.class);
@@ -27,11 +29,33 @@ public class LaberintAleatori extends Laberint{
         if(!enemic.esEnemic()) throw new ELaberint("Hi ha de haver un enemic en el laberint");
         this.costat = costat;
         generarLaberint(enemic);
+        
         this.nMonedes = numeroMonedes();
         this.nMondesPerItem = (int)(nMonedes*0.3);
         this.pintador = pintadorLaberint;
+        
+        int nMonedesExtra = (nMonedes*Utils.Constants.TAN_X_CENT_MONEDES_EXTRA)/100;
+        
+//        for(int i = 0; i < nMonedesExtra; i++){
+//            int fila;
+//            int columna;
+//            do{
+//                fila = Utils.obtenirValorAleatori(costat);
+//                columna = Utils.obtenirValorAleatori(costat);
+//            }while(tauler[fila][columna] == EElement.MONEDA);
+//            tauler[fila][columna] = EElement.MONEDES_X2;
+//        }
+        
+        matriuDIntencions = new boolean [costat][costat];
+        for(int i = 0; i < costat; i++){
+            for(int j = 0; j < costat; j++){
+                matriuDIntencions[i][j] = true;
+            }
+        }
+        
     }
-    private EElement[][] generarLaberint(EElement enemic) {
+    
+    private void generarLaberint(EElement enemic) {
         log.afegirDebug("Procedim a generar un laberint aleatori de "+costat+"X"+costat);
         long tempsInici = System.currentTimeMillis();
         
@@ -43,7 +67,6 @@ public class LaberintAleatori extends Laberint{
         int llindar = (int) (costat*costat*0.7);
 
         Random r = new Random(System.currentTimeMillis());
-        
         do{
             int nCandidats = 2;
             //Omplim el tauler de parets;
@@ -82,8 +105,6 @@ public class LaberintAleatori extends Laberint{
         System.out.println();
         long tempsFi = System.currentTimeMillis();
         log.afegirDebug("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms");
-        return tauler;
-        
     }
     
     private int ferCamiTauler(Punt origen, Punt desti, EElement[][]tauler, Punt[] candidats, int nCandidats){

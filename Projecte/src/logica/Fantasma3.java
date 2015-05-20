@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
@@ -24,7 +26,7 @@ public class Fantasma3 extends Personatge{
     private EMode mode;
     private final LlistaOrdenadaCandidats moneder;
     private static final int DISTANCIA_PERILLOSA = 9; //distancia < DISTANCIA_PERILLOSA es considera perill 
-    private static final int DISTANCIA_CONSIDERABLE = 0;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
+    private static final int DISTANCIA_CONSIDERABLE = 8;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
     
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
@@ -39,14 +41,15 @@ public class Fantasma3 extends Personatge{
 
     @Override
     protected void assignarImatges() {
-        this.imatges[0][0] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[0][1] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[1][0] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[1][1] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[2][0] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[2][1] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[3][0] = EElement.FANTASMA3.obtenirImatge();
-        this.imatges[3][1] = EElement.FANTASMA3.obtenirImatge();
+        int midaImatge = laberint.obtenirMidaImatge();
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic3D0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic3D1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic3E0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic3E1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic3A0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic3A1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic3B0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic3B1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
     }
     private enum EMode{
         FUGIR, //En aquest mode es calcula un cami de n posicions que maximitza la distancia amb el perseguidor, on n es la profunditat del BackTracking
@@ -110,6 +113,11 @@ public class Fantasma3 extends Personatge{
                     partida.itemCapturat();
                     super.assignarEstatPersonatge(elementObtingut);
                     partida.assignarItemAEnemic(elementObtingut);
+                    Punt[] posicions = puntDesplasat.obtenirPosicionsDelVoltant();
+                    if(laberint.posicioValida(posicions[0]))laberint.desmarcarIntencio(posicions[0]);
+                    if(laberint.posicioValida(posicions[1]))laberint.desmarcarIntencio(posicions[1]);
+                    if(laberint.posicioValida(posicions[2]))laberint.desmarcarIntencio(posicions[2]);
+                    if(laberint.posicioValida(posicions[3]))laberint.desmarcarIntencio(posicions[3]);
                 }break;
             }
             return elementObtingut;
@@ -208,7 +216,9 @@ public class Fantasma3 extends Personatge{
             if (!quedenMonedes() && guanya){
                    exitLaberint();
             }
-            else buscaObjectiu();
+            else if(!quedenMonedes() && !guanya){
+                mode = EMode.SEGUIMENT;
+            }
         }
         else{//Si tinc objectiu
             //Haure de canviar de objectiu si: - He arrivat al meu objectiu o el meu objectiu ja no es troba en la mateixa posicio.
@@ -269,8 +279,17 @@ public class Fantasma3 extends Personatge{
     private boolean movimentValid(EDireccio mov){
         boolean valid = true;
         Punt p = posicio.generarPuntDesplasat(mov);
-        EElement element = laberint.obtenirElement(p);
-        if (element == EElement.PACMAN && estatPersonatge != EEstatPersonatge.AMB_MONGETA)valid = false;
+        if(laberint.posicioValida(p)){
+            if(laberint.esIntencioValida(p)){
+                laberint.marcarIntencio(p);
+            }
+            else if(estatPersonatge != EEstatPersonatge.AMB_MONGETA){
+                valid = false;
+            }
+        }
+        else valid = false;
+//        if (element == EElement.PACMAN && estatPersonatge != EEstatPersonatge.AMB_MONGETA)valid = false;
+        
         return valid;
     }
     

@@ -180,7 +180,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
     
     @Override
     public void pintarFinalPartida() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cronometre.pararCrono();
     }
 
     @Override

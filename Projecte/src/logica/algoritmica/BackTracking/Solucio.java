@@ -21,7 +21,7 @@ import logica.algoritmica.AEstrella.BuscadorCamiMinim;
  */
 public class Solucio {
     
-    private static final int PROFUNDITAT = 6;
+    private static final int PROFUNDITAT = 7;
     
     private final Log log;
     private final Laberint laberint;

@@ -103,10 +103,15 @@ public class Item extends ItemMovible {
         return valid;
     }
     private boolean movimentValid(EDireccio mov){
-        boolean valid = false;
+        boolean valid = true;
         Punt p = posicio.generarPuntDesplasat(mov);
-        EElement element = laberint.obtenirElement(p);
-        if (element == EElement.MONEDA ||element == EElement.MONEDA_EXTRA || element == EElement.RES)valid = true;
+        if(laberint.posicioValida(p)){
+            if(laberint.esIntencioValida(p)){
+                laberint.marcarIntencio(p);
+            }
+            else valid = false;
+        }
+        else valid = false;
         return valid;
     }
 
@@ -121,7 +126,6 @@ public class Item extends ItemMovible {
     
     @Override
     public EElement realitzarMoviment() {
-        
         if(seguentMoviment != EDireccio.QUIET){
             elementTrapitjat = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
             posicio = posicio.generarPuntDesplasat(seguentMoviment);

@@ -16,13 +16,13 @@ import logica.Utils;
  * @author oscar
  */
 public enum EElement {
-    PACMAN(20, false, "res/pacman.png", 'P'),
+    PACMAN(20, false, "res/pacmanD1.png", 'P'),
     FANTASMA1(21, true, "res/fantasma1.png", 'A'), 
     FANTASMA2(22, true, "res/fantasma2.png", 'B'), 
     FANTASMA3(23, true, "res/fantasma3.png", 'C'), 
     PARET(-1, false, "res/paret.png", 'X'), 
     MONEDA(1, false, "res/moneda.png", 'O'), 
-    MONEDA_EXTRA(2, false, "res/moneda.png", 'E'), 
+    MONEDA_EXTRA(2, false, "res/moneda_extra.png", 'E'), 
     RES(0, false, null, 'R'),
     PATINS(3, false, "res/patins.png", 'U'),
     MONEDES_X2(4, false, "res/monedes_x2.png", 'M'),
