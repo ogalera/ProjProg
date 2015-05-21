@@ -7,28 +7,95 @@ package logica;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import logica.enumeracions.EElement;
 
 /**
- *
  * @author oscar
  */
 public class Usuari {
-    private int id;
     private final String nomUsuari;
     private final String urlImatge;
-    private int nivell;
+    private ENivells nivell;
+    private EDificultat dificultat;
+    
+    public static enum EDificultat{
+        FACIL(EElement.FANTASMA1), MITJA(EElement.FANTASMA2), DIFICIL(EElement.FANTASMA3);
+        EElement enemic;
+        private EDificultat(EElement enemic){
+            this.enemic = enemic;
+        }
+        
+        public EElement obtenirEnemicAssignatADificultat(){
+            return this.enemic;
+        }
+    };
+    
+    public static enum ENivells{
+        PRIMER(10), SEGON(15), TERCER(20), QUART(25), CINQUE(35);
+        private final int midaLaberint;
+        
+        private ENivells(int midaLaberint){
+            this.midaLaberint = midaLaberint;
+        }
+        
+        public int obtenirMidaLaberint(){
+            return this.midaLaberint;
+        }
+        
+        public ENivells seguentNivell(){
+            switch(this){
+                case PRIMER:{
+                    return SEGON;
+                }
+                case SEGON:{
+                    return TERCER;
+                }
+                case TERCER:{
+                    return QUART;
+                }
+                default:{
+                    return CINQUE;
+                }
+            }
+        }
+        
+        public static ENivells obtenirNivellPerId(int id){
+            switch(id){
+                case 1:{
+                    return PRIMER;
+                }
+                case 2:{
+                    return SEGON;
+                }
+                case 3:{
+                    return TERCER;
+                }
+                case 4:{
+                    return QUART;
+                }
+                default:{
+                    return CINQUE;
+                }
+            }
+        }
+    }
     
     public Usuari(int id, String nomUsuari, int nivell, String urlImatge){
+        this.dificultat = EDificultat.FACIL;
         this.nomUsuari = nomUsuari;
-        this.nivell = nivell;
+        this.nivell = ENivells.obtenirNivellPerId(nivell);
         this.urlImatge = urlImatge;
+    }
+    
+    public EDificultat obtenirDificultat(){
+        return this.dificultat;
     }
     
     public String obtenirNomUsuari(){
         return this.nomUsuari;
     }
     
-    public int obtenirNivell(){
+    public ENivells obtenirNivell(){
         return this.nivell;
     }
     
@@ -36,8 +103,17 @@ public class Usuari {
         return new ImageIcon(urlImatge);
     }
     
-    public void augmentarNivell(){
-        nivell++;
+    public void pantallaSuperada(){
+        if(dificultat == EDificultat.FACIL){
+            dificultat = EDificultat.MITJA;
+        }
+        else if(dificultat == EDificultat.MITJA){
+            dificultat = EDificultat.DIFICIL;
+        }
+        else{
+            nivell = nivell.seguentNivell();
+            dificultat = EDificultat.FACIL;
+        }
     }
     
     public static class PuntuacioNivell{

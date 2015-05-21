@@ -36,15 +36,15 @@ public class LaberintAleatori extends Laberint{
         
         int nMonedesExtra = (nMonedes*Utils.Constants.TAN_X_CENT_MONEDES_EXTRA)/100;
         
-//        for(int i = 0; i < nMonedesExtra; i++){
-//            int fila;
-//            int columna;
-//            do{
-//                fila = Utils.obtenirValorAleatori(costat);
-//                columna = Utils.obtenirValorAleatori(costat);
-//            }while(tauler[fila][columna] == EElement.MONEDA);
-//            tauler[fila][columna] = EElement.MONEDES_X2;
-//        }
+        for(int i = 0; i < nMonedesExtra; i++){
+            int fila;
+            int columna;
+            do{
+                fila = Utils.obtenirValorAleatori(costat);
+                columna = Utils.obtenirValorAleatori(costat);
+            }while(tauler[fila][columna] != EElement.MONEDA);
+            tauler[fila][columna] = EElement.MONEDA_EXTRA;
+        }
         
         matriuDIntencions = new boolean [costat][costat];
         for(int i = 0; i < costat; i++){

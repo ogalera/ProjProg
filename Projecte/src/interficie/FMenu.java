@@ -11,6 +11,8 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import logica.Partida;
 import logica.Usuari;
+import logica.Usuari.EDificultat;
+import logica.Usuari.ENivells;
 import logica.controladors_pacman.ControladorTeclat;
 import logica.controladors_pacman.IControlador;
 import logica.enumeracions.EElement;
@@ -173,9 +175,11 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             IControlador controlador = new ControladorTeclat();
             PLaberint fLaberint = new PLaberint();
             FPartida fPartida = new FPartida(fLaberint);
+            EDificultat dificultat = FLogin.obtenirUsuari().obtenirDificultat();
+            ENivells nivell = FLogin.obtenirUsuari().obtenirNivell();
             Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI/*LABERINT_LINEAL_HORITZONTAL*/,
-                                            11, 
-                                            EElement.FANTASMA3, 
+                                            nivell.obtenirMidaLaberint(), 
+                                            dificultat.obtenirEnemicAssignatADificultat(), 
                                             fPartida,
                                             fLaberint,
                                             controlador);

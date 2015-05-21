@@ -28,6 +28,8 @@ public abstract class ItemMovible {
     private boolean iniciat = false;
     public final ImageIcon imatgePerfil;
     protected final Partida partida;
+    private long tempsTotalCalcul = 0;
+    
     
     public ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia){
         this.partida = partida;
@@ -35,12 +37,12 @@ public abstract class ItemMovible {
         this.laberint = laberint;
         this.posicio = inici;
         this.frequencia = frequencia;
-        temporitzador = new Timer("Thread "+this.nomItemMovible());
-        seguentMoviment = this.calcularMoviment();
         tascaAplicarMoviment = new TascaAplicarMoviment();
     }
     
     public void iniciarItemMovible(){
+        temporitzador = new Timer("Thread "+this.nomItemMovible());
+        seguentMoviment = this.calcularMoviment();
         if(iniciat) throw new EItemMovibleIniciat(this.nomItemMovible());
         iniciat = true;
         temporitzador.scheduleAtFixedRate(tascaAplicarMoviment, 0, frequencia);
@@ -63,13 +65,22 @@ public abstract class ItemMovible {
     }
     
     private class TascaAplicarMoviment extends TimerTask{
-        public boolean calcularProximMoviment = true;
+        private boolean calcularProximMoviment = true;
         @Override
         public void run() {
             realitzarMoviment();
-            if(calcularProximMoviment) seguentMoviment = calcularMoviment();
+            if(calcularProximMoviment){
+                long tempsIniciCalcul = System.currentTimeMillis();
+                seguentMoviment = calcularMoviment();
+                long tempsFinalCalcul = System.currentTimeMillis();
+                tempsTotalCalcul += tempsFinalCalcul-tempsIniciCalcul;
+            }
         }
         
+    }
+    
+    public long obtenirTempsTotalCalcul(){
+        return tempsTotalCalcul;
     }
     
     public abstract EElement realitzarMoviment();

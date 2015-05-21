@@ -80,7 +80,7 @@ public class Laberint {
             throw new EFormatLaberint("No s'ha pogut llegir el fitxer per importar el laberint, missatge:\n"+fnfe.getMessage());
         }
         this.nMonedes = numeroMonedes();
-        this.nMondesPerItem = (int) (nMonedes*0.3);
+        this.nMondesPerItem = (int) (nMonedes*0.1);
     }
     
     private EElement [] parseLiniaLaberint(String linia) throws EFormatLaberint{
@@ -173,8 +173,7 @@ public class Laberint {
         if(objecteAgafat == EElement.MONGETA || objecteAgafat == EElement.PATINS || objecteAgafat == EElement.MONEDES_X2){
             EElement item = partida.obtenirItem().obtenirElementTrapitgat();
             if(item == EElement.MONEDA || item == EElement.MONEDA_EXTRA){
-                this.nMonedes--;
-                System.out.println("*****************\nmoneda agafada sota item queden "+nMonedes);
+                nMonedes--;
             }
             if(nMonedes == 0){
                Punt sortida = sortejarSortida();
@@ -187,7 +186,6 @@ public class Laberint {
         }
         else if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
             this.nMonedes--;
-            System.out.println("*****************\nqueden "+nMonedes);
             if(nMonedes == 0){
                Punt sortida = sortejarSortida();
                int xSortida = sortida.obtenirColumna();
@@ -228,7 +226,7 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
         }
-        while(tauler[fila][columna] == EElement.PARET);
+        while(tauler[fila][columna] == EElement.PARET || !esIntencioValida(new Punt(fila, columna)));
         return new Punt(fila, columna);
     }
     
@@ -255,7 +253,7 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
             element = tauler[fila][columna];
-        }while(element != EElement.RES && element != EElement.MONEDA && element != EElement.MONEDA_EXTRA);
+        }while((element != EElement.RES && element != EElement.MONEDA && element != EElement.MONEDA_EXTRA) || !esIntencioValida(new Punt(fila, columna)));
         return new Punt(fila, columna);
     }
     
@@ -334,6 +332,35 @@ public class Laberint {
     public synchronized void marcarIntencio(Punt posicio){
         matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = false;
     }
+    
+//    public synchronized void marcarIntencions(Punt p, EDireccio ... direccions){
+//        for (EDireccio direccion : direccions) {
+//            Punt tmp = p.generarPuntDesplasat(direccion);
+//            if(posicioValida(p)){
+//                matriuDIntencions[tmp.obtenirFila()][tmp.obtenirColumna()] = false;
+//            }
+//        }
+//    }
+//    
+//    public synchronized void desmarcarIntencions(Punt p, EDireccio ... direccions){
+//        for (EDireccio direccion : direccions) {
+//            Punt tmp = p.generarPuntDesplasat(direccion);
+//            if(posicioValida(p)){
+//                matriuDIntencions[tmp.obtenirFila()][tmp.obtenirColumna()] = true;
+//            }
+//        }
+//    }
+    
+//    public synchronized void mostrarMatriuDIntencions(){
+//        System.out.println("\nMATRIU D'INTENCIONS");
+//        for(int i = 0; i < costat; i++){
+//            for(int j = 0; j <costat; j++){
+//                if(matriuDIntencions[i][j]) System.out.print("C ");
+//                else System.out.print("X ");
+//            }
+//            System.out.print("\n");
+//        }
+//    }
     
     public synchronized void desmarcarIntencio(Punt posicio){
         matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = true;

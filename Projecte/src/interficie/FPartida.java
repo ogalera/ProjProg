@@ -44,6 +44,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         panellLaberint.setFocusable(true);
         this.setFocusable(false);
         cronometre = new Crono();
+        this.setAlwaysOnTop(true);
         //this.add(cronometre, BorderLayout.SOUTH);
     }
     
@@ -197,5 +198,10 @@ public class FPartida extends JFrame implements IPintadorPartida{
     @Override
     public void pintarItemEnemic(ImageIcon imatge) {
         itemEnemic.setIcon(imatge);
+    }
+
+    @Override
+    public void tancarPantalla() {
+        this.dispose();
     }
 }

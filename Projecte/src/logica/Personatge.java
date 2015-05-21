@@ -39,10 +39,10 @@ public abstract class Personatge extends ItemMovible{
     
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
         super(partida, imatge, laberint, inici, Utils.Constants.FREQUENCIA_PERSONATGE);
+        laberint.marcarIntencio(posicio);
         imatges = new ImageIcon[4][2];
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;
-        laberint.marcarIntencio(posicio);
     }
     
     public int obtenirPunts(){
@@ -139,6 +139,7 @@ public abstract class Personatge extends ItemMovible{
                     canviarFrequenciaMoviment(Utils.Constants.FREQUENCIA_PERSONATGE);
                 }
                 estatPersonatge = EEstatPersonatge.NORMAL;
+                notificarPerduaEstat();
             }
         };
         Timer t = new Timer("Thread cambiar estat personatge a normal");
@@ -173,5 +174,6 @@ public abstract class Personatge extends ItemMovible{
 //        
     }
     
+    protected abstract void notificarPerduaEstat();
     protected abstract void assignarImatges();
 }

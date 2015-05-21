@@ -21,4 +21,5 @@ public interface IPintadorPartida{
     public void pintarPartida(Partida partida);
     public void pintarFinalPartida();
     public void pintarIniciPartida();
+    public void tancarPantalla();
 }

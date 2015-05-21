@@ -119,6 +119,12 @@ public class Fantasma3 extends Personatge{
                     if(laberint.posicioValida(posicions[2]))laberint.desmarcarIntencio(posicions[2]);
                     if(laberint.posicioValida(posicions[3]))laberint.desmarcarIntencio(posicions[3]);
                 }break;
+                case PACMAN:{
+                    int puntsRobats = partida.reiniciarPuntsPacman();
+                    incrementarPunts(puntsRobats);
+                    partida.reiniciarPuntsPacman();
+                    partida.assignarPuntsEnemic(punts);
+                }
             }
             return elementObtingut;
         }
@@ -282,6 +288,7 @@ public class Fantasma3 extends Personatge{
         if(laberint.posicioValida(p)){
             if(laberint.esIntencioValida(p)){
                 laberint.marcarIntencio(p);
+//                laberint.mostrarMatriuDIntencions();
             }
             else if(estatPersonatge != EEstatPersonatge.AMB_MONGETA){
                 valid = false;
@@ -560,4 +567,9 @@ public class Fantasma3 extends Personatge{
 //        return moneda;
 //    }
 
+    
+    @Override
+    protected void notificarPerduaEstat() {
+        partida.assignarItemAEnemic(EElement.RES);
+    }
 }

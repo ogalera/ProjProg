@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
@@ -33,6 +34,13 @@ public class Fantasma1 extends Personatge{
             case MONEDA_EXTRA:{
                 this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
             }break;
+            case MONGETA:
+            case MONEDES_X2:
+            case PATINS:{
+                partida.itemCapturat();
+                assignarEstatPersonatge(elementObtingut);
+                partida.assignarItemAEnemic(elementObtingut);
+            }
         }
         partida.assignarPuntsEnemic(punts);
         return elementObtingut;
@@ -46,7 +54,8 @@ public class Fantasma1 extends Personatge{
             int index = Utils.obtenirValorAleatori(4);
             moviment = EDireccio.values()[index];
             p = posicio.generarPuntDesplasat(moviment);
-        }while(!laberint.posicioValida(p) || laberint.obtenirElement(p) == EElement.PARET);
+        }while(laberint.obtenirElement(p) == EElement.PARET || !laberint.esIntencioValida(p));
+        laberint.marcarIntencio(p);
         return moviment;
     }
 
@@ -56,13 +65,19 @@ public class Fantasma1 extends Personatge{
 
     @Override
     protected void assignarImatges() {
-        this.imatges[0][0] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[0][1] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[1][0] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[1][1] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[2][0] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[2][1] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[3][0] = EElement.FANTASMA1.obtenirImatge();
-        this.imatges[3][1] = EElement.FANTASMA1.obtenirImatge();
+        int midaImatge = laberint.obtenirMidaImatge();
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic1D0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic1D1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic1E0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic1E1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic1A0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic1A1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic1B0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic1B1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+    }
+
+    @Override
+    protected void notificarPerduaEstat() {
+        partida.assignarItemAEnemic(EElement.RES);
     }
 }

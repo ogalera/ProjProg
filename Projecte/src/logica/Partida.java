@@ -5,6 +5,7 @@
  */
 package logica;
 
+import interficie.FLogin;
 import logica.laberints.Laberint;
 import logica.enumeracions.EElement;
 import logica.excepcions.EFinalitzarPartida;
@@ -154,6 +155,7 @@ public class Partida {
     public void finalitzarPartida(){
         if(momentInici == -1) throw new EFinalitzarPartida("No pots finalitzar una partida sense haver-la iniciat abans");
         if(momentFi != -1) throw new EFinalitzarPartida("No pots finalitzar una partida ja finalitzada");
+        if(itemEspecial != null) itemEspecial.finalitzarItem();
         enemic.finalitzarItem();
         momentFi = System.currentTimeMillis();
         log.afegirDebug("S'ha finalitzat la partida a les "+Utils.obtenirHoraSistema());
@@ -161,7 +163,12 @@ public class Partida {
         log.afegirDebug("La partida a durat un total de "+Utils.obtenirMomentEnFormatHoraMinutsSegons(diferencia));
         pacman.finalitzarItem();
         pintador.pintarFinalPartida();
-//        System.out.println(log.obtenirContingutCompletDelLogAmbColor());
+        if(pacman.obtenirPunts() > enemic.obtenirPunts()){
+            FLogin.obtenirUsuari().pantallaSuperada();
+        }
+        pintador.tancarPantalla();
+        System.out.println("TEMPS TOTAL CALCUL PACMAN "+pacman.obtenirTempsTotalCalcul()+"s");
+        System.out.println("TEMPS TOTAL CALCUL ENEMIC "+enemic.obtenirTempsTotalCalcul()+"s");
     }
     
     public void assignarGuanyador(){
@@ -212,7 +219,7 @@ public class Partida {
        pintador.pintarPuntsEnemic(punts);
    }
    
-   public int reiniciarPuntsEnemic(){
+   public synchronized int reiniciarPuntsEnemic(){
        pintador.pintarPuntsEnemic(0);
        return enemic.reiniciarPunts();
    }

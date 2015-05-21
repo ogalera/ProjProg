@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import logica.laberints.Laberint;
 import logica.enumeracions.EElement;
 import logica.enumeracions.EDireccio;
@@ -30,18 +27,26 @@ public class Fantasma2 extends Personatge{
         if(interesDreta > interesEsquerra && interesDreta > interesAdalt && interesDreta > interesAbaix){
             //Interessa mes anar a la dreta;
             moviment = EDireccio.DRETA;
+            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
+            historicMoviments.afegirMoviment(moviment);
         }
         else if (interesEsquerra > interesDreta && interesEsquerra > interesAdalt && interesEsquerra > interesAbaix){
             //Interessa mes anar a l'esquerra;
             moviment = EDireccio.ESQUERRA;
+            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
+            historicMoviments.afegirMoviment(moviment);
         }
         else if (interesAdalt > interesDreta && interesAdalt > interesEsquerra && interesAdalt > interesAbaix){
             //Interessa mes anar adalt;
             moviment = EDireccio.AMUNT;
+            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
+            historicMoviments.afegirMoviment(moviment);
         }
         else if (interesAbaix > interesDreta && interesAbaix > interesEsquerra && interesAbaix > interesAdalt){
             //Interessa mes anar avall;
             moviment = EDireccio.AVALL;
+            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
+            historicMoviments.afegirMoviment(moviment);
         }
         else{
             int maxim = obtenirMaxim(interesDreta, interesEsquerra, interesAdalt, interesAbaix);
@@ -51,14 +56,12 @@ public class Fantasma2 extends Personatge{
                 //Opció 1 -> anar enrrere segons l'historic "Sempre que hi hagi algo en l'historic"
                 //Opció 2 -> sortejar una direcció on (0 -> DRETA, 1 -> ESQUERRA, 2 -> AMUN, 3 -> AVALL)
                 if(!historicMoviments.esBuida()){
-                    //Tenim alguna direcció en l'historic per tant cal tirar enrrere;
-//                    marxaEnrrere = true;
-                    moviment = historicMoviments.obtenirUltimMoviment();
-                    moviment = moviment.obtenirMovimentInvers();
-                    Punt tmp = posicio.generarPuntDesplasat(moviment);
-                    if(laberint.posicioValida(tmp) && laberint.obtenirElement(tmp) != EElement.PACMAN){
+                    //Tenim alguna direcció en l'historic per tant cal tirar enrrere "si es pot";
+                    moviment = historicMoviments.obtenirUltimMoviment().obtenirMovimentInvers();
+                    Punt puntDesplasat = posicio.generarPuntDesplasat(moviment);
+                    if(laberint.obtenirElement(puntDesplasat)!= EElement.PARET && laberint.esIntencioValida(puntDesplasat)){
                         historicMoviments.eliminarMoviment();
-                        historicMoviments.afegirMoviment(super.seguentMoviment);
+                        laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
                     }
                     else{
                         moviment = EDireccio.QUIET;
@@ -67,100 +70,87 @@ public class Fantasma2 extends Personatge{
                 else{
                     //No tenim res en l'historic llavors optem per l'opció 2;
                     //i sortegem una direcció pseudoaleatoria;
-                    Punt p;
-                    do{
-                        int index = Utils.obtenirValorAleatori(4);
-                        moviment = EDireccio.values()[index];
-                        p = posicio.generarPuntDesplasat(moviment);
-                    }while(!laberint.posicioValida(p) || laberint.obtenirElement(p) != EElement.PACMAN);
+                    int index = Utils.obtenirValorAleatori(4);
+                    moviment = EDireccio.values()[index];
+                    Punt p = posicio.generarPuntDesplasat(moviment);
+                    if(laberint.obtenirElement(p) == EElement.PARET || !laberint.esIntencioValida(p)){
+                        moviment = EDireccio.QUIET;
+                    }
+                    else{
+                        laberint.marcarIntencio(p);
+                    }
                 }
             }
             else{
-                EDireccio possiblesDireccions[] = new EDireccio[4];
-                int nPossiblesDireccions = 0;
-                if(interesDreta == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.DRETA;
-                if(interesEsquerra == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.ESQUERRA;
-                if(interesAdalt == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AMUNT;
-                if(interesAbaix == maxim) possiblesDireccions[nPossiblesDireccions++] = EDireccio.AVALL;
-                int index = Utils.obtenirValorAleatori(nPossiblesDireccions);
-                moviment = possiblesDireccions[index];
+                //Estem en una situacio en que hi ha un empat en l'interes per anar a una possicio
+                //per tant mirem quin es la primera direccio del empat i si s'hi pot anar;
+                if(maxim == interesDreta){
+                    moviment = EDireccio.DRETA;
+                }
+                else if(maxim == interesEsquerra){
+                    moviment = EDireccio.ESQUERRA;
+                }
+                else if(maxim == interesAdalt){
+                    moviment = EDireccio.AMUNT;
+                }
+                else moviment = EDireccio.AVALL;
+                Punt p = posicio.generarPuntDesplasat(moviment);
+                if(laberint.obtenirElement(p) == EElement.PARET || !laberint.esIntencioValida(p)){
+                    moviment = EDireccio.QUIET;
+                }
+                else{
+                    historicMoviments.afegirMoviment(moviment);
+                    laberint.marcarIntencio(p);
+                }
             }
         }
-        System.out.println("dreta "+interesDreta);
-        System.out.println("esquerra "+interesEsquerra);
-        System.out.println("amunt "+interesAdalt);
-        System.out.println("abaix "+interesAbaix);
-        System.out.println("calculat "+moviment);
+//        System.out.println("dreta "+interesDreta);
+//        System.out.println("esquerra "+interesEsquerra);
+//        System.out.println("amunt "+interesAdalt);
+//        System.out.println("abaix "+interesAbaix);
+//        System.out.println("calculat "+moviment);
         return moviment;
     }
     
     @Override
     public EElement realitzarMoviment(){
-        /*****/
-//        if(obtenirEstatPersonatge() != EEstatPersonatge.AMB_MONGETA){
-//            Punt p = partida.obtenirPuntPacman();
-//            switch(seguentMoviment){
-//                case AMUNT:{
-//                    int tmp = posicio.obtenirFila() - p.obtenirFila();
-//                    if(p.obtenirColumna() == posicio.obtenirColumna() &&  (tmp == 0 || tmp == 1)){
-//                        seguentMoviment = EDireccio.QUIET;
-//                    }
-//                }break;
-//                case AVALL:{
-//                    int tmp = p.obtenirFila() - posicio.obtenirFila();
-//                    if(p.obtenirColumna() == posicio.obtenirColumna() && (tmp == 0 || tmp == 1)){
-//                        seguentMoviment = EDireccio.QUIET;
-//                    }
-//                }break;
-//                case DRETA:{
-//                    int tmp = p.obtenirFila() - posicio.obtenirFila();
-//                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
-//                        seguentMoviment = EDireccio.QUIET;
-//                    }
-//                }break;
-//                case ESQUERRA:{
-//                    int tmp = posicio.obtenirFila() - p.obtenirFila();
-//                    if(p.obtenirFila()== posicio.obtenirFila()&& (tmp == 0 || tmp == 1)){
-//                        seguentMoviment = EDireccio.QUIET;
-//                    }
-//                }break;
-//            }
-//        }
-        /*****/
         EElement elementObtingut = super.realitzarMoviment();
-        if(elementObtingut != EElement.PACMAN || super.obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-            switch(elementObtingut){
-                case MONEDA:{
-                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
-                    partida.assignarPuntsEnemic(punts);
-                }break;
-                case MONEDA_EXTRA:{
-                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
-                    partida.assignarPuntsEnemic(punts);
-                }break;
-                case PATINS:
-                case MONEDES_X2:
-                case MONGETA:{
-                    //Em agafat algún item
-                    partida.itemCapturat();
-                    super.assignarEstatPersonatge(elementObtingut);
-                }break;
-            }
-            return elementObtingut;
+        switch(elementObtingut){
+            case MONEDA:{
+                super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
+                partida.assignarPuntsEnemic(punts);
+            }break;
+            case MONEDA_EXTRA:{
+                super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
+                partida.assignarPuntsEnemic(punts);
+            }break;
+            case PACMAN:{
+
+            }break;
+            case PATINS:
+            case MONEDES_X2:
+            case MONGETA:{
+                //Em agafat algún item
+                partida.itemCapturat();
+                assignarEstatPersonatge(elementObtingut);
+                partida.assignarItemAEnemic(elementObtingut);
+            }break;
         }
-        return null;
+        return elementObtingut;
     }
     
     private int explorarDireccio(EDireccio direccio){
-        Punt p = posicio;
-        EElement element;
+        Punt p = posicio.generarPuntDesplasat(direccio);
+        EElement element = laberint.obtenirElement(p);
+        if(element == EElement.PARET) return 0;
+        if(!laberint.esIntencioValida(p)) return 0;
         float interes = 0;
-        int n = 0;
+        int n = 1;
+        p = posicio;
         do{
             p = p.generarPuntDesplasat(direccio);
             element = laberint.obtenirElement(p);
             if(element == EElement.MONEDA){
-                n++;
                 interes += 10/n;
             }
             else if(element == EElement.PACMAN && obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
@@ -174,6 +164,7 @@ public class Fantasma2 extends Personatge{
                 System.out.println("Cap a la sortida!!!");
                 interes = Integer.MAX_VALUE;
             }
+            n++;
         }while(element != EElement.PARET);
         return (int)interes;
     }
@@ -195,13 +186,19 @@ public class Fantasma2 extends Personatge{
 
     @Override
     protected void assignarImatges() {
-        this.imatges[0][0] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[0][1] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[1][0] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[1][1] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[2][0] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[2][1] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[3][0] = EElement.FANTASMA2.obtenirImatge();
-        this.imatges[3][1] = EElement.FANTASMA2.obtenirImatge();
+        int midaImatge = laberint.obtenirMidaImatge();
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic2D0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic2D1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic2E0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic2E1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic2A0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic2A1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic2B0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic2B1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+    }
+    
+    @Override
+    protected void notificarPerduaEstat() {
+        partida.assignarItemAEnemic(EElement.RES);
     }
 }

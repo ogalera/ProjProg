@@ -37,7 +37,6 @@ public class Item extends ItemMovible {
 
     @Override
     public EDireccio calcularMoviment(){
-       
         if (seguentMoviment == null || posicio == null) {
             return EDireccio.QUIET;
         }
@@ -82,7 +81,6 @@ public class Item extends ItemMovible {
         EDireccio res = ruta.obtenirUltimMoviment();
         if (movimentValid(res))ruta.eliminarMoviment();
         else res = EDireccio.QUIET;
-        
         return res;
     }
     

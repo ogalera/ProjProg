@@ -19,7 +19,6 @@ import logica.enumeracions.EElement;
  * @author oscar
  */
 public class Pacman extends Personatge{
-    private EDireccio teclaPremuda;
     
     public Pacman(Partida partida, Laberint laberint, IControlador controlador, Punt inici) {
         super(partida, laberint, EElement.PACMAN.obtenirImatge(), inici);
@@ -51,15 +50,14 @@ public class Pacman extends Personatge{
                 case FANTASMA2:
                 case FANTASMA3:{
                     int puntsRobats = partida.reiniciarPuntsEnemic();
-                    super.incrementarPunts(puntsRobats);
+                    incrementarPunts(puntsRobats);
+                    partida.reiniciarPuntsEnemic();
                     partida.assignarPuntsPacman(punts);
                 }break;
                 case PATINS:
                 case MONEDES_X2:
                 case MONGETA:{
                     //Em agafat algún item
-                    Item item = partida.obtenirItem();
-                    
                     partida.itemCapturat();
                     super.assignarEstatPersonatge(elementObtingut);
                     partida.assignarItemAPacman(elementObtingut);
@@ -76,26 +74,35 @@ public class Pacman extends Personatge{
     }
 
     @Override
-    public EDireccio calcularMoviment() {
-        EDireccio direccio = EDireccio.QUIET;
-        EDireccio tmp;
-        synchronized(this){
-            tmp = teclaPremuda;
-        }
-        if(tmp != null){
-            Punt desti = posicio.generarPuntDesplasat(tmp);
-            if (laberint.obtenirElement(desti) != EElement.PARET){
-                if(laberint.esIntencioValida(desti)){
-                    direccio = tmp;
-                    laberint.marcarIntencio(desti);
-                }
-                else if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-                    direccio = tmp;
-                }
-            }
-        }
-        return direccio;
+    public synchronized EDireccio calcularMoviment() { 
+        Punt desti = posicio.generarPuntDesplasat(seguentMoviment);
+        if(laberint.obtenirElement(desti) == EElement.PARET) return EDireccio.QUIET;
+        laberint.marcarIntencio(desti);
+        laberint.marcarIntencio(posicio);
+        return seguentMoviment;
     }
+    
+//    @Override
+//    public EDireccio calcularMoviment() {
+//        EDireccio direccio = EDireccio.QUIET;
+//        EDireccio tmp;
+//        synchronized(this){
+//            tmp = teclaPremuda;
+//        }
+//        if(tmp != null){
+//            Punt desti = posicio.generarPuntDesplasat(tmp);
+//            if (laberint.obtenirElement(desti) != EElement.PARET){
+//                if(laberint.esIntencioValida(desti)){
+//                    direccio = tmp;
+//                    laberint.marcarIntencio(desti);
+//                }
+//                else if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
+//                    direccio = tmp;
+//                }
+//            }
+//        }
+//        return direccio;
+//    }
     
     @Override
     public String nomItemMovible(){
@@ -103,7 +110,20 @@ public class Pacman extends Personatge{
     }
     
     public synchronized void nouMoviment(EDireccio teclaPremuda){
-        this.teclaPremuda = teclaPremuda;
+        if(teclaPremuda != null){
+            Punt desti = posicio.generarPuntDesplasat(teclaPremuda);
+            if (laberint.obtenirElement(desti) != EElement.PARET){
+                if(laberint.esIntencioValida(desti)){
+                    Punt tmp = posicio.generarPuntDesplasat(seguentMoviment);
+                    seguentMoviment = teclaPremuda;
+                    laberint.marcarIntencio(desti);
+                    laberint.desmarcarIntencio(tmp);
+                }
+                else if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
+                    seguentMoviment = teclaPremuda;
+                }
+            }
+        }
     }
 
     @Override
@@ -117,5 +137,10 @@ public class Pacman extends Personatge{
         this.imatges[2][1] = new ImageIcon(new ImageIcon("res/pacmanA1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
         this.imatges[3][0] = new ImageIcon(new ImageIcon("res/pacmanB0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
         this.imatges[3][1] = new ImageIcon(new ImageIcon("res/pacmanB1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+    }
+    
+    @Override
+    protected void notificarPerduaEstat() {
+        partida.assignarItemAPacman(EElement.RES);
     }
 }
