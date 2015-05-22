@@ -28,7 +28,7 @@ import logica.Utils;
 public class Laberint {
     protected EElement tauler[][];
     
-    protected boolean matriuDIntencions[][];
+//    protected boolean matriuDIntencions[][];
     
     protected Log log = Log.getInstance(Laberint.class);
     
@@ -49,13 +49,6 @@ public class Laberint {
         log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
         File f = new File(fitxer);
         this.partida = partida;
-        
-        matriuDIntencions = new boolean [costat][costat];
-        for(int i = 0; i < costat; i++){
-            for(int j = 0; j < costat; j++){
-                matriuDIntencions[i][j] = true;
-            }
-        }
         
         try(BufferedReader br = new BufferedReader(new FileReader(f))){
             String linia;
@@ -147,17 +140,112 @@ public class Laberint {
     }
     
     public synchronized EElement moureItem(Punt posicio, EDireccio direccio, EElement elementARestaurar){
-        int filaOrigen = posicio.obtenirFila();
-        int columnaOrigen = posicio.obtenirColumna();
         Punt puntDesplasat = posicio.generarPuntDesplasat(direccio);
         int filaDesti = puntDesplasat.obtenirFila();
         int columnaDesti = puntDesplasat.obtenirColumna();
         EElement elementTrapitjat = tauler[filaDesti][columnaDesti];
-        tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
-        tauler[filaOrigen][columnaOrigen] = elementARestaurar;
-        pintador.pintarMovimentItem(posicio, direccio, elementARestaurar.obtenirImatge());
-        if(direccio != EDireccio.QUIET) desmarcarIntencio(puntDesplasat);
+        if(!elementTrapitjat.esEnemic() && elementTrapitjat != EElement.PACMAN){
+            int filaOrigen = posicio.obtenirFila();
+            int columnaOrigen = posicio.obtenirColumna();
+            tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
+            tauler[filaOrigen][columnaOrigen] = elementARestaurar;
+            pintador.pintarMovimentItem(posicio, direccio, elementARestaurar.obtenirImatge());
+        }
         return elementTrapitjat;
+    }
+    
+    public synchronized EElement mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat){
+        Punt desti = origen.generarPuntDesplasat(direccio);
+        int columna = desti.obtenirColumna();
+        int fila = desti.obtenirFila();
+        EElement elementObtingut = tauler[fila][columna];
+        switch(elementObtingut){
+            case MONEDA:
+            case MONEDA_EXTRA:{
+                nMonedes--;
+                EElement elementOrigen = tauler[origen.obtenirFila()][origen.obtenirColumna()];
+                tauler[origen.obtenirFila()][origen.obtenirColumna()] = EElement.RES;
+                tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+                pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                if(nMonedes == 0){
+                    Punt sortida = sortejarSortida();
+                    columna = sortida.obtenirColumna();
+                    fila = sortida.obtenirFila();
+                    tauler[fila][columna] = EElement.SORTIDA;
+                    pintador.pintarSortida(sortida);
+                    partida.assignarGuanyador();
+                }
+                else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+                    //Toca sortejar un nou item
+                    Punt puntItem = sortejarPosicioItem();
+                    EElement item = sortejarItem();
+                    Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
+                    fila = puntItem.obtenirFila();
+                    columna = puntItem.obtenirColumna();
+                    tauler[fila][columna] = item;
+                    pintador.pintarNouItem(puntItem, item);
+                    partida.assignarItemEspecial(nouItem);
+                    System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+                }
+            }break;
+            case SORTIDA:{
+                System.out.println("s A ARRIBAT A LA SORTIDA "+desti);
+                partida.finalitzarPartida();
+            }break;
+            case RES:{
+                aplicarMoviment(origen, direccio, imatge);
+            }break;
+            case MONGETA:
+            case PATINS:
+            case MONEDES_X2:{
+                EElement elementTrapitjat = partida.obtenirItem().obtenirElementTrapitgat();
+                if(elementTrapitjat == EElement.MONEDA || elementTrapitjat == EElement.MONEDA_EXTRA){
+                    nMonedes--;
+                    EElement elementOrigen = tauler[origen.obtenirFila()][origen.obtenirColumna()];
+                    tauler[origen.obtenirFila()][origen.obtenirColumna()] = elementTrapitjat;
+                    tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+                    if(nMonedes == 0){
+                        Punt sortida = sortejarSortida();
+                        tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
+                        pintador.pintarSortida(sortida);
+                        partida.assignarGuanyador();
+                    }
+                    else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+                        //Toca sortejar un nou item
+                        Punt puntItem = sortejarPosicioItem();
+                        EElement item = sortejarItem();
+                        Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
+                        tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
+                        pintador.pintarNouItem(puntItem, item);
+                        partida.assignarItemEspecial(nouItem);
+                        System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+                    }
+                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                }
+                else aplicarMoviment(origen, direccio, imatge);
+            }break;
+            default:{
+                if(superEstat){
+                    EElement elementOrigen = tauler[origen.obtenirFila()][origen.obtenirColumna()];
+                    tauler[origen.obtenirFila()][origen.obtenirColumna()] = EElement.RES;
+                    tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                }
+                else elementObtingut = obtenirElement(origen);
+            }break;
+        }
+        System.out.println(this);
+        return elementObtingut;
+    }
+    
+    private synchronized void aplicarMoviment(Punt origen, EDireccio direccio, ImageIcon imatge){
+        int columna = origen.obtenirColumna();
+        int fila = origen.obtenirFila();
+        Punt desti = origen.generarPuntDesplasat(direccio);
+        EElement elementOrigen = tauler[fila][columna];
+        tauler[fila][columna] = EElement.RES;
+        tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+        pintador.pintarMovimentPersonatge(origen, direccio, imatge);
     }
     
     public synchronized EElement mourePersonatge(Punt posicio, EDireccio direccio, ImageIcon imatge){
@@ -215,12 +303,13 @@ public class Laberint {
         this.tauler[fila][columna] = objecteAMoure;
         if(direccio != EDireccio.QUIET) {
             pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
-            desmarcarIntencio(posicio);
+//            desmarcarIntencio(posicio);
         }
+        System.out.println(this);
         return objecteAgafat;
     }
     
-    private Punt sortejarSortida(){
+    private synchronized Punt sortejarSortida(){
         System.out.println("\n\n*****\nSORTEJEM SORTIDA");
         int fila;
         int columna;
@@ -228,11 +317,11 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
         }
-        while(tauler[fila][columna] == EElement.PARET || !esIntencioValida(new Punt(fila, columna)));
+        while(tauler[fila][columna] == EElement.PARET);
         return new Punt(fila, columna);
     }
     
-    private EElement sortejarItem(){
+    private synchronized EElement sortejarItem(){
         int index = Utils.obtenirValorAleatori(3);
         switch(index){
             case 1:{
@@ -255,7 +344,7 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
             element = tauler[fila][columna];
-        }while((element != EElement.RES && element != EElement.MONEDA && element != EElement.MONEDA_EXTRA) || !esIntencioValida(new Punt(fila, columna)));
+        }while(element != EElement.RES && element != EElement.MONEDA && element != EElement.MONEDA_EXTRA);
         return new Punt(fila, columna);
     }
     
@@ -328,14 +417,6 @@ public class Laberint {
         return this.pintador.obtenirMidaImatge();
     }
     
-    public synchronized boolean esIntencioValida(Punt posicio){
-        return matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()];
-    }
-    
-    public synchronized void marcarIntencio(Punt posicio){
-        matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = false;
-    }
-    
 //    public synchronized void marcarIntencions(Punt p, EDireccio ... direccions){
 //        for (EDireccio direccion : direccions) {
 //            Punt tmp = p.generarPuntDesplasat(direccion);
@@ -353,21 +434,6 @@ public class Laberint {
 //            }
 //        }
 //    }
-    
-    public synchronized void mostrarMatriuDIntencions(){
-        System.out.println("\nMATRIU D'INTENCIONS");
-        for(int i = 0; i < costat; i++){
-            for(int j = 0; j <costat; j++){
-                if(matriuDIntencions[i][j]) System.out.print("C ");
-                else System.out.print("X ");
-            }
-            System.out.print("\n");
-        }
-    }
-    
-    public synchronized void desmarcarIntencio(Punt posicio){
-        matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = true;
-    }
     
     
     ///////////////////////////////////////////////////////

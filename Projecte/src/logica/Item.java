@@ -104,10 +104,7 @@ public class Item extends ItemMovible {
         boolean valid = true;
         Punt p = posicio.generarPuntDesplasat(mov);
         if(laberint.obtenirElement(p) != EElement.PARET){
-            if(laberint.esIntencioValida(p)){
-                laberint.marcarIntencio(p);
-            }
-            else valid = false;
+            valid = false;
         }
         else valid = false;
         return valid;
@@ -126,8 +123,9 @@ public class Item extends ItemMovible {
     public EElement realitzarMoviment() {
         if(seguentMoviment != EDireccio.QUIET){
             elementTrapitjat = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
-            posicio = posicio.generarPuntDesplasat(seguentMoviment);
-            return elementTrapitjat;
+            if(elementTrapitjat != EElement.MONEDES_X2 && elementTrapitjat != EElement.MONGETA && elementTrapitjat != EElement.PATINS){
+                posicio = posicio.generarPuntDesplasat(seguentMoviment);
+            }
         }
         return null;
     }

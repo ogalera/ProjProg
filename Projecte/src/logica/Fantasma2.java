@@ -27,25 +27,21 @@ public class Fantasma2 extends Personatge{
         if(interesDreta > interesEsquerra && interesDreta > interesAdalt && interesDreta > interesAbaix){
             //Interessa mes anar a la dreta;
             moviment = EDireccio.DRETA;
-            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
             historicMoviments.afegirMoviment(moviment);
         }
         else if (interesEsquerra > interesDreta && interesEsquerra > interesAdalt && interesEsquerra > interesAbaix){
             //Interessa mes anar a l'esquerra;
             moviment = EDireccio.ESQUERRA;
-            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
             historicMoviments.afegirMoviment(moviment);
         }
         else if (interesAdalt > interesDreta && interesAdalt > interesEsquerra && interesAdalt > interesAbaix){
             //Interessa mes anar adalt;
             moviment = EDireccio.AMUNT;
-            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
             historicMoviments.afegirMoviment(moviment);
         }
         else if (interesAbaix > interesDreta && interesAbaix > interesEsquerra && interesAbaix > interesAdalt){
             //Interessa mes anar avall;
             moviment = EDireccio.AVALL;
-            laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
             historicMoviments.afegirMoviment(moviment);
         }
         else{
@@ -59,9 +55,8 @@ public class Fantasma2 extends Personatge{
                     //Tenim alguna direcció en l'historic per tant cal tirar enrrere "si es pot";
                     moviment = historicMoviments.obtenirUltimMoviment().obtenirMovimentInvers();
                     Punt puntDesplasat = posicio.generarPuntDesplasat(moviment);
-                    if(laberint.obtenirElement(puntDesplasat)!= EElement.PARET && laberint.esIntencioValida(puntDesplasat)){
+                    if(laberint.obtenirElement(puntDesplasat)!= EElement.PARET){
                         historicMoviments.eliminarMoviment();
-                        laberint.marcarIntencio(posicio.generarPuntDesplasat(moviment));
                     }
                     else{
                         moviment = EDireccio.QUIET;
@@ -73,11 +68,8 @@ public class Fantasma2 extends Personatge{
                     int index = Utils.obtenirValorAleatori(4);
                     moviment = EDireccio.values()[index];
                     Punt p = posicio.generarPuntDesplasat(moviment);
-                    if(laberint.obtenirElement(p) == EElement.PARET || !laberint.esIntencioValida(p)){
+                    if(laberint.obtenirElement(p) == EElement.PARET){
                         moviment = EDireccio.QUIET;
-                    }
-                    else{
-                        laberint.marcarIntencio(p);
                     }
                 }
             }
@@ -95,12 +87,11 @@ public class Fantasma2 extends Personatge{
                 }
                 else moviment = EDireccio.AVALL;
                 Punt p = posicio.generarPuntDesplasat(moviment);
-                if(laberint.obtenirElement(p) == EElement.PARET || !laberint.esIntencioValida(p)){
+                if(laberint.obtenirElement(p) == EElement.PARET){
                     moviment = EDireccio.QUIET;
                 }
                 else{
                     historicMoviments.afegirMoviment(moviment);
-                    laberint.marcarIntencio(p);
                 }
             }
         }
@@ -109,42 +100,44 @@ public class Fantasma2 extends Personatge{
 //        System.out.println("amunt "+interesAdalt);
 //        System.out.println("abaix "+interesAbaix);
 //        System.out.println("calculat "+moviment);
-        laberint.mostrarMatriuDIntencions();
         return moviment;
     }
     
     @Override
     public EElement realitzarMoviment(){
         EElement elementObtingut = super.realitzarMoviment();
-        switch(elementObtingut){
-            case MONEDA:{
-                super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
-                partida.assignarPuntsEnemic(punts);
-            }break;
-            case MONEDA_EXTRA:{
-                super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
-                partida.assignarPuntsEnemic(punts);
-            }break;
-            case PACMAN:{
+        if(elementObtingut != null && elementObtingut != EElement.FANTASMA2){
+            System.out.println("element "+elementObtingut);
+            posicio = posicio.generarPuntDesplasat(seguentMoviment);
+            switch(elementObtingut){
+                case MONEDA:{
+                    incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+                case MONEDA_EXTRA:{
+                    incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+                case PACMAN:{
 
-            }break;
-            case PATINS:
-            case MONEDES_X2:
-            case MONGETA:{
-                //Em agafat algún item
-                partida.itemCapturat();
-                assignarEstatPersonatge(elementObtingut);
-                partida.assignarItemAEnemic(elementObtingut);
-            }break;
+                }break;
+                case PATINS:
+                case MONEDES_X2:
+                case MONGETA:{
+                    //Em agafat algún item
+                    partida.itemCapturat();
+                    assignarEstatPersonatge(elementObtingut);
+                    partida.assignarItemAEnemic(elementObtingut);
+                }break;
+            }
         }
-        return elementObtingut;
+        return null;
     }
     
     private int explorarDireccio(EDireccio direccio){
         Punt p = posicio.generarPuntDesplasat(direccio);
         EElement element = laberint.obtenirElement(p);
         if(element == EElement.PARET) return 0;
-        if(!laberint.esIntencioValida(p)) return 0;
         float interes = 0;
         int n = 1;
         p = posicio;

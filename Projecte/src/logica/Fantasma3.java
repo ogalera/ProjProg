@@ -91,7 +91,6 @@ public class Fantasma3 extends Personatge{
         res = ruta.obtenirUltimMoviment();
         if (movimentValid(res)){
             ruta.eliminarMoviment();
-            laberint.marcarIntencio(posicio.generarPuntDesplasat(res));
         }
         else res = EDireccio.QUIET;
         long fi = System.currentTimeMillis();
@@ -123,10 +122,6 @@ public class Fantasma3 extends Personatge{
                     super.assignarEstatPersonatge(elementObtingut);
                     partida.assignarItemAEnemic(elementObtingut);
                     Punt[] posicions = puntDesplasat.obtenirPosicionsDelVoltant();
-                    if(laberint.posicioValida(posicions[0]))laberint.desmarcarIntencio(posicions[0]);
-                    if(laberint.posicioValida(posicions[1]))laberint.desmarcarIntencio(posicions[1]);
-                    if(laberint.posicioValida(posicions[2]))laberint.desmarcarIntencio(posicions[2]);
-                    if(laberint.posicioValida(posicions[3]))laberint.desmarcarIntencio(posicions[3]);
                 }break;
                 case PACMAN:{
                     int puntsRobats = partida.reiniciarPuntsPacman();
@@ -135,7 +130,6 @@ public class Fantasma3 extends Personatge{
                     partida.assignarPuntsEnemic(punts);
                 }
             }
-            laberint.mostrarMatriuDIntencions();
             return elementObtingut;
         }
         return null;
@@ -295,7 +289,7 @@ public class Fantasma3 extends Personatge{
     private boolean movimentValid(EDireccio mov){
         Punt p = posicio.generarPuntDesplasat(mov);
         EElement element = laberint.obtenirElement(p);
-        return laberint.posicioValida(p) && element != EElement.PARET && (laberint.esIntencioValida(p) || obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA);
+        return laberint.posicioValida(p) && element != EElement.PARET && obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA;
     }
     
     /**

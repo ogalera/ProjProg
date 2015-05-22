@@ -46,12 +46,12 @@ public class LaberintAleatori extends Laberint{
             tauler[fila][columna] = EElement.MONEDA_EXTRA;
         }
         
-        matriuDIntencions = new boolean [costat][costat];
-        for(int i = 0; i < costat; i++){
-            for(int j = 0; j < costat; j++){
-                matriuDIntencions[i][j] = true;
-            }
-        }
+//        matriuDIntencions = new boolean [costat][costat];
+//        for(int i = 0; i < costat; i++){
+//            for(int j = 0; j < costat; j++){
+//                matriuDIntencions[i][j] = true;
+//            }
+//        }
         
     }
     

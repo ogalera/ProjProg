@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import logica.laberints.Laberint;
 import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
-import logica.log.Log;
 
 /**
  *
@@ -27,23 +26,26 @@ public class Fantasma1 extends Personatge{
     @Override
     public EElement realitzarMoviment(){
         EElement elementObtingut = super.realitzarMoviment();
-        switch(elementObtingut){
-            case MONEDA:{
-                this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
-            }break;
-            case MONEDA_EXTRA:{
-                this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
-            }break;
-            case MONGETA:
-            case MONEDES_X2:
-            case PATINS:{
-                Audio.reprodueixMenjaItem();
-                partida.itemCapturat();
-                assignarEstatPersonatge(elementObtingut);
-                partida.assignarItemAEnemic(elementObtingut);
+        if(elementObtingut != null && elementObtingut != EElement.FANTASMA1){
+            posicio = posicio.generarPuntDesplasat(seguentMoviment);
+            switch(elementObtingut){
+                case MONEDA:{
+                    this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                }break;
+                case MONEDA_EXTRA:{
+                    this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                }break;
+                case MONGETA:
+                case MONEDES_X2:
+                case PATINS:{
+                    Audio.reprodueixMenjaItem();
+                    partida.itemCapturat();
+                    assignarEstatPersonatge(elementObtingut);
+                    partida.assignarItemAEnemic(elementObtingut);
+                }break;
             }
+            partida.assignarPuntsEnemic(punts);
         }
-        partida.assignarPuntsEnemic(punts);
         return elementObtingut;
     }
     
@@ -55,8 +57,7 @@ public class Fantasma1 extends Personatge{
             int index = Utils.obtenirValorAleatori(4);
             moviment = EDireccio.values()[index];
             p = posicio.generarPuntDesplasat(moviment);
-        }while(laberint.obtenirElement(p) == EElement.PARET || !laberint.esIntencioValida(p));
-        laberint.marcarIntencio(p);
+        }while(laberint.obtenirElement(p) == EElement.PARET);
         return moviment;
     }
 

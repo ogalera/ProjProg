@@ -3,6 +3,7 @@ package logica;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 import logica.laberints.Laberint;
 import logica.historic_moviments.HistoricMoviments;
@@ -39,7 +40,6 @@ public abstract class Personatge extends ItemMovible{
     
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
         super(partida, imatge, laberint, inici, Utils.Constants.FREQUENCIA_PERSONATGE);
-        laberint.marcarIntencio(posicio);
         imatges = new ImageIcon[4][2];
         this.historicMoviments = new HistoricMoviments();
         this.punts = 0;
@@ -59,6 +59,7 @@ public abstract class Personatge extends ItemMovible{
     
     @Override
     public EElement realitzarMoviment(){
+        EElement elementObtingut = null;
         ImageIcon imatge;
         switch(seguentMoviment){
             case DRETA:{
@@ -87,8 +88,9 @@ public abstract class Personatge extends ItemMovible{
             }
         }
         oberta = !oberta;
-        EElement elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatge);
-        posicio = posicio.generarPuntDesplasat(seguentMoviment);
+        if(seguentMoviment != EDireccio.QUIET){
+            elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatge, estatPersonatge == EEstatPersonatge.AMB_MONGETA);
+        }
         return elementObtingut;
     }
     
