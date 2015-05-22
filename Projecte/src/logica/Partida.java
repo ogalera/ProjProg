@@ -14,6 +14,8 @@ import logica.excepcions.EIniciarPartida;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
 import interficie.IPintadorPartida;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import logica.Personatge.EEstatPersonatge;
 import logica.controladors_pacman.IControlador;
@@ -144,6 +146,7 @@ public class Partida {
         if(momentFi != -1) throw new EIniciarPartida("No pots iniciar una partida que ja s'ha finalitzat");
         momentInici = System.currentTimeMillis();
         log.afegirDebug("S'ha iniciat la partida a les "+Utils.obtenirHoraSistema());
+        Audio.reprodueixInici();
         enemic.iniciarItemMovible();
         pacman.iniciarItemMovible();
     }
@@ -260,5 +263,9 @@ public class Partida {
    
    public Item obtenirItem(){
        return itemEspecial;
+   }
+   
+   public int obtenirPuntuacioPacman(){
+       return pacman.obtenirPunts();
    }
 }

@@ -61,7 +61,7 @@ public abstract class ItemMovible {
         tascaAplicarMoviment.calcularProximMoviment = false;
         tascaAplicarMoviment.cancel();
         temporitzador.purge();
-        System.out.println("Thread finalitzat: "+Thread.currentThread().getName());
+        System.out.println("Item capturat per: "+Thread.currentThread().getName());
     }
     
     private class TascaAplicarMoviment extends TimerTask{

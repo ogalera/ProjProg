@@ -19,7 +19,7 @@ public class Usuari {
     private EDificultat dificultat;
     
     public static enum EDificultat{
-        FACIL(EElement.FANTASMA1), MITJA(EElement.FANTASMA2), DIFICIL(EElement.FANTASMA3);
+        FACIL(EElement.FANTASMA2), MITJA(EElement.FANTASMA3), DIFICIL(EElement.FANTASMA3);
         EElement enemic;
         private EDificultat(EElement enemic){
             this.enemic = enemic;
@@ -31,7 +31,7 @@ public class Usuari {
     };
     
     public static enum ENivells{
-        PRIMER(10), SEGON(15), TERCER(20), QUART(25), CINQUE(35);
+        PRIMER(10)/*10*/, SEGON(15)/*15*/, TERCER(20)/*20*/, QUART(25), CINQUE(35);
         private final int midaLaberint;
         
         private ENivells(int midaLaberint){

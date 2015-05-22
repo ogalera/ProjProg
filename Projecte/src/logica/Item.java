@@ -103,7 +103,7 @@ public class Item extends ItemMovible {
     private boolean movimentValid(EDireccio mov){
         boolean valid = true;
         Punt p = posicio.generarPuntDesplasat(mov);
-        if(laberint.posicioValida(p)){
+        if(laberint.obtenirElement(p) != EElement.PARET){
             if(laberint.esIntencioValida(p)){
                 laberint.marcarIntencio(p);
             }

@@ -41,6 +41,10 @@ public class BuscadorCamiMinim {
     }    
     
     public HistoricMoviments BuscaCamiMesCurt(Punt origen, Punt desti){
+        if(desti == null){
+            int a = 3;
+            int b = a;
+        }
         EElement d = laberint.obtenirElement(desti);
         EElement o = laberint.obtenirElement(origen);
         if (d == EElement.PARET || o == EElement.PARET)throw new ExceptionBuscadorCamins("Els punts de origen o desti son del tipus PARET");

@@ -321,6 +321,7 @@ public class Laberint {
         pintador.pintarLaberint(this);
     }
     
+    
     public int obtenirMidaImatge(){
         return this.pintador.obtenirMidaImatge();
     }
@@ -351,18 +352,25 @@ public class Laberint {
 //        }
 //    }
     
-//    public synchronized void mostrarMatriuDIntencions(){
-//        System.out.println("\nMATRIU D'INTENCIONS");
-//        for(int i = 0; i < costat; i++){
-//            for(int j = 0; j <costat; j++){
-//                if(matriuDIntencions[i][j]) System.out.print("C ");
-//                else System.out.print("X ");
-//            }
-//            System.out.print("\n");
-//        }
-//    }
+    public synchronized void mostrarMatriuDIntencions(){
+        System.out.println("\nMATRIU D'INTENCIONS");
+        for(int i = 0; i < costat; i++){
+            for(int j = 0; j <costat; j++){
+                if(matriuDIntencions[i][j]) System.out.print("C ");
+                else System.out.print("X ");
+            }
+            System.out.print("\n");
+        }
+    }
     
     public synchronized void desmarcarIntencio(Punt posicio){
         matriuDIntencions[posicio.obtenirFila()][posicio.obtenirColumna()] = true;
     }
+    
+    
+    ///////////////////////////////////////////////////////
+   public synchronized int obtenirMonedes(){
+       return nMonedes;
+   }
+
 }

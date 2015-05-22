@@ -19,7 +19,6 @@ import logica.enumeracions.EElement;
  * @author oscar
  */
 public class Pacman extends Personatge{
-    
     public Pacman(Partida partida, Laberint laberint, IControlador controlador, Punt inici) {
         super(partida, laberint, EElement.PACMAN.obtenirImatge(), inici);
         seguentMoviment = EDireccio.QUIET;
@@ -39,10 +38,13 @@ public class Pacman extends Personatge{
             EElement elementObtingut = super.realitzarMoviment();
             switch(elementObtingut){
                 case MONEDA:{
+                    Audio.reprodueixMenjaMoneda();
                     super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
                     partida.assignarPuntsPacman(punts);
+                    
                 }break;
                 case MONEDA_EXTRA:{
+                    Audio.reprodueixMenjaMoneda();
                     super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
                     partida.assignarPuntsPacman(punts);
                 }break;
@@ -57,6 +59,7 @@ public class Pacman extends Personatge{
                 case PATINS:
                 case MONEDES_X2:
                 case MONGETA:{
+                    Audio.reprodueixMenjaItem();
                     //Em agafat algún item
                     partida.itemCapturat();
                     super.assignarEstatPersonatge(elementObtingut);
@@ -74,11 +77,13 @@ public class Pacman extends Personatge{
     }
 
     @Override
-    public synchronized EDireccio calcularMoviment() { 
-        Punt desti = posicio.generarPuntDesplasat(seguentMoviment);
-        if(laberint.obtenirElement(desti) == EElement.PARET) return EDireccio.QUIET;
-        laberint.marcarIntencio(desti);
-        laberint.marcarIntencio(posicio);
+    public  EDireccio calcularMoviment() { 
+        synchronized(laberint){
+            Punt desti = posicio.generarPuntDesplasat(seguentMoviment);
+            if(laberint.obtenirElement(desti) == EElement.PARET) return EDireccio.QUIET;
+            laberint.marcarIntencio(desti);
+            laberint.marcarIntencio(posicio);
+        }
         return seguentMoviment;
     }
     
@@ -109,7 +114,8 @@ public class Pacman extends Personatge{
         return "Pacman";
     }
     
-    public synchronized void nouMoviment(EDireccio teclaPremuda){
+    public void nouMoviment(EDireccio teclaPremuda){
+      synchronized(laberint){ 
         if(teclaPremuda != null){
             Punt desti = posicio.generarPuntDesplasat(teclaPremuda);
             if (laberint.obtenirElement(desti) != EElement.PARET){
@@ -124,6 +130,7 @@ public class Pacman extends Personatge{
                 }
             }
         }
+      }
     }
 
     @Override
@@ -143,4 +150,5 @@ public class Pacman extends Personatge{
     protected void notificarPerduaEstat() {
         partida.assignarItemAPacman(EElement.RES);
     }
+    
 }

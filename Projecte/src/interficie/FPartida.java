@@ -13,6 +13,7 @@ import javax.swing.BoxLayout;
 import java.awt.Color;
 import interficie.components.Crono;
 import interficie.components.Marcador;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import logica.Partida;
@@ -47,78 +48,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         this.setAlwaysOnTop(true);
         //this.add(cronometre, BorderLayout.SOUTH);
     }
-    
-//    @Override
-//    public void pintarPartida(){
-//        setVisible(true);
-//        
-//    }
-
-//    @Override
-//    public void pintarPartida(){
-////       assignaDimensions();
-////       assignaImatges();
-//        construeixPanells();
-//        afegeixComponents();
-//        setVisible(true);
-//    }
-    private void afegeixComponents(){
-
-        add(partEsquerra, BorderLayout.WEST);
-        add(partDreta, BorderLayout.EAST);
-        add(partInferior, BorderLayout.SOUTH);
-        add(partCentral, BorderLayout.CENTER);
-        colocaLaberint();
-    }
-    
-    private void construeixPanells(){
-        construeixPanellEsquerra();
-        construeixPanellDret();
-        construeixPanellInferior();
-        construeixPanellCentral();  
-    }
-    
-    private void construeixPanellEsquerra(){
-        partEsquerra = new JPanel();
-        partEsquerra.setLayout(new BoxLayout(partEsquerra, BoxLayout.X_AXIS));
-        //partEsquerra.setLayout(new FlowLayout(FlowLayout.CENTER));
-        partEsquerra.add(marcadorPacman);
-        partEsquerra.setBackground(Color.green);
-    }
-    
-    private void construeixPanellDret(){
-        partDreta = new JPanel();
-        partDreta.setLayout(new BoxLayout(partDreta, BoxLayout.X_AXIS));
-        //partDreta.setLayout(new FlowLayout(FlowLayout.CENTER));
-        partDreta.add(marcadorEnemic);
-        partDreta.setBackground(Color.blue);
-    }
-    
-    private void construeixPanellInferior(){
-        partInferior = new JPanel();
-        partInferior.setLayout(new FlowLayout());
-        partInferior.add(cronometre);
-        partInferior.setBackground(Color.red);
-    }
-    
-    private void construeixPanellCentral(){   
-        partCentral = new JPanel();
-        //partCentral.setLayout(new BoxLayout(partCentral, BoxLayout.Y_AXIS));
-        //partCentral.setLayout(new FlowLayout());
-        partCentral.setLayout(null);
-//        partCentral.add(pintadorLaberint);
-        partCentral.setBackground(Color.CYAN);
-        //pintadorLaberint.setVisible(true);
-
-    }
-    
-    private void colocaLaberint(){
-        Dimension centre = partCentral.getSize();
-//        Dimension laberint = pintadorLaberint.getSize();
-        //pintadorLaberint.setLocation((centre.width - laberint.width) / 2, (centre.height - laberint.height) / 2);
-//        pintadorLaberint.setLocation(100,10);
-    }
-
+   
     @Override
     public void pintarPuntsPacman(int punts) {
         marcadorPacman.canviarPuntuacio(punts);
@@ -191,17 +121,91 @@ public class FPartida extends JFrame implements IPintadorPartida{
 
     @Override
     public void pintarItemPacman(ImageIcon imatge) {
-        itemPacman.setIcon(imatge);
-        itemPacman.repaint();
+        //itemPacman.setIcon(imatge);
+        if (imatge != null) itemPacman.setIcon(new ImageIcon(imatge.getImage().getScaledInstance(50,50,Image.SCALE_AREA_AVERAGING)));
+        else itemPacman.setIcon(imatge);
     }
 
     @Override
     public void pintarItemEnemic(ImageIcon imatge) {
-        itemEnemic.setIcon(imatge);
+        if (imatge != null)itemEnemic.setIcon(new ImageIcon(imatge.getImage().getScaledInstance(50,50,Image.SCALE_AREA_AVERAGING)));
+        else itemEnemic.setIcon(imatge);
     }
 
     @Override
     public void tancarPantalla() {
         this.dispose();
     }
+    
+    
+    //    @Override
+//    public void pintarPartida(){
+//        setVisible(true);
+//        
+//    }
+
+//    @Override
+//    public void pintarPartida(){
+////       assignaDimensions();
+////       assignaImatges();
+//        construeixPanells();
+//        afegeixComponents();
+//        setVisible(true);
+//    }
+//    private void afegeixComponents(){
+//
+//        add(partEsquerra, BorderLayout.WEST);
+//        add(partDreta, BorderLayout.EAST);
+//        add(partInferior, BorderLayout.SOUTH);
+//        add(partCentral, BorderLayout.CENTER);
+//        colocaLaberint();
+//    }
+    
+//    private void construeixPanells(){
+//        construeixPanellEsquerra();
+//        construeixPanellDret();
+//        construeixPanellInferior();
+//        construeixPanellCentral();  
+//    }
+    
+//    private void construeixPanellEsquerra(){
+//        partEsquerra = new JPanel();
+//        partEsquerra.setLayout(new BoxLayout(partEsquerra, BoxLayout.X_AXIS));
+//        //partEsquerra.setLayout(new FlowLayout(FlowLayout.CENTER));
+//        partEsquerra.add(marcadorPacman);
+//        partEsquerra.setBackground(Color.green);
+//    }
+//    
+//    private void construeixPanellDret(){
+//        partDreta = new JPanel();
+//        partDreta.setLayout(new BoxLayout(partDreta, BoxLayout.X_AXIS));
+//        //partDreta.setLayout(new FlowLayout(FlowLayout.CENTER));
+//        partDreta.add(marcadorEnemic);
+//        partDreta.setBackground(Color.blue);
+//    }
+//    
+//    private void construeixPanellInferior(){
+//        partInferior = new JPanel();
+//        partInferior.setLayout(new FlowLayout());
+//        partInferior.add(cronometre);
+//        partInferior.setBackground(Color.red);
+//    }
+//    
+//    private void construeixPanellCentral(){   
+//        partCentral = new JPanel();
+//        //partCentral.setLayout(new BoxLayout(partCentral, BoxLayout.Y_AXIS));
+//        //partCentral.setLayout(new FlowLayout());
+//        partCentral.setLayout(null);
+////        partCentral.add(pintadorLaberint);
+//        partCentral.setBackground(Color.CYAN);
+//        //pintadorLaberint.setVisible(true);
+//
+//    }
+    
+//    private void colocaLaberint(){
+//        Dimension centre = partCentral.getSize();
+////        Dimension laberint = pintadorLaberint.getSize();
+//        //pintadorLaberint.setLocation((centre.width - laberint.width) / 2, (centre.height - laberint.height) / 2);
+////        pintadorLaberint.setLocation(100,10);
+//    }
 }

@@ -37,6 +37,7 @@ public class Fantasma1 extends Personatge{
             case MONGETA:
             case MONEDES_X2:
             case PATINS:{
+                Audio.reprodueixMenjaItem();
                 partida.itemCapturat();
                 assignarEstatPersonatge(elementObtingut);
                 partida.assignarItemAEnemic(elementObtingut);

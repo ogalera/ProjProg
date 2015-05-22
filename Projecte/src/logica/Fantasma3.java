@@ -14,6 +14,7 @@ import logica.algoritmica.GestorCamins;
 import logica.historic_moviments.HistoricMoviments;
 import logica.algoritmica.Casella;
 import logica.algoritmica.LlistaOrdenadaCandidats;
+import java.util.PriorityQueue;
 
 /**
  *
@@ -25,7 +26,8 @@ public class Fantasma3 extends Personatge{
     private HistoricMoviments ruta;
     private EMode mode;
     private final LlistaOrdenadaCandidats moneder;
-    private static final int DISTANCIA_PERILLOSA = 9; //distancia < DISTANCIA_PERILLOSA es considera perill 
+    //private final PriorityQueue<Casella> moneder;
+    private static final int DISTANCIA_PERILLOSA = 15; //distancia < DISTANCIA_PERILLOSA es considera perill 
     private static final int DISTANCIA_CONSIDERABLE = 8;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
     
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
@@ -36,7 +38,7 @@ public class Fantasma3 extends Personatge{
         mode = EMode.NAVEGACIO;
         moneder = new LlistaOrdenadaCandidats();
         omplenaMoneder();
-        buscaObjectiu();
+        buscaMoneda();
     }
 
     @Override
@@ -60,12 +62,16 @@ public class Fantasma3 extends Personatge{
    
     @Override
     public EDireccio calcularMoviment(){
+        EDireccio res;
+        synchronized(laberint){
         if (seguentMoviment == null || posicio == null)return EDireccio.QUIET;
         
-        Punt posicioPacman = partida.obtenirPuntPacman();     
+        Punt posicioPacman = partida.obtenirPuntPacman();   
+        
         moneder.elimina(new Casella(posicioPacman));//Elimino Aquesta Casella perque si esta en Pacman ja no hi haura moneda
         moneder.elimina(new Casella(posicio));//Elimino tambe la de la meva posicio
-        
+        System.out.println("Soc el fantasma3 i crec que queden: " + moneder.size());
+        System.out.println("Soc el fantasma3 i el Laberint te: " + laberint.obtenirMonedes());
         valorarSituacio();
         
         long ini = System.currentTimeMillis();
@@ -81,13 +87,15 @@ public class Fantasma3 extends Personatge{
         }
        
         if (ruta == null || ruta.esBuida()){
-            buscaObjectiu();
+            int a = 45;
         }
-        EDireccio res = ruta.obtenirUltimMoviment();
+        res = ruta.obtenirUltimMoviment();
         if (movimentValid(res))ruta.eliminarMoviment();
         else res = EDireccio.QUIET;
         long fi = System.currentTimeMillis();
 //        System.out.println("TEMPS DE FANTASMA3 A PENDRE UNA DECISIO (Calcul de distancies + Calcul de ruta)"+ (fi - ini) + " ms");
+        laberint.marcarIntencio(posicio);
+        }
         return res;
     }
     
@@ -126,6 +134,7 @@ public class Fantasma3 extends Personatge{
                     partida.assignarPuntsEnemic(punts);
                 }
             }
+            laberint.mostrarMatriuDIntencions();
             return elementObtingut;
         }
         return null;
@@ -145,7 +154,7 @@ public class Fantasma3 extends Personatge{
             //                               - En Pacman te una mongeta i esta a una DISTANCIA_PERILLOSA -> MODE_FUGIDA
             //                               - Hi ha algun Item a una distancia < DISTANCIA_CONSIDERABLE -> MODE_SEGUIMENT
             //                               - Tinc una mongeta --> MODE_SEGUIMENT (Haig d'atrapar en Pacman)
-             if (!quedenMonedes()){
+            if (!quedenMonedes()){
                 if (guanya)mode = EMode.NAVEGACIO;
                 else mode = EMode.SEGUIMENT;
                 objectiu = null;
@@ -175,7 +184,7 @@ public class Fantasma3 extends Personatge{
             //Haure de canviar de mode si: - En Pacman te una mongeta i esta a una distancia < DISTANCIA_PERILLOSA  
             //                             - Estic perseguint el Item i (o be l'ha agafat en Pacman o be l'ha agafat el fantasma3(objecte actual))
             //                             - Estic perseguint a en Pacman i ja l'he atrapat
-            
+            //                             - Estic perseguint a en Pacman i se m'han acabat els efectes de la mongeta 
             if (pacmanEsPerillos(distanciaPacman)){//Si en Pacman te mongeta i esta a una distancia < DISTANCIA_PERILLOSA
                 mode = EMode.FUGIR;
                 objectiu = null;
@@ -184,7 +193,11 @@ public class Fantasma3 extends Personatge{
             else if (objectiu != null){//Si tinc objectiu
                 if (objectiu.element == EElement.PACMAN){
                     Punt p = partida.obtenirPuntPacman();
-                    if (posicio.equals(p)){//Si he atrapat a En PACMAN
+                    if (posicio.equals(p) ){//Si he atrapat a En PACMAN 
+                        objectiu = null;
+                        mode = EMode.NAVEGACIO;
+                    }
+                    else if (!vullAtraparEnPacman()){
                         objectiu = null;
                         mode = EMode.NAVEGACIO;
                     }
@@ -211,26 +224,22 @@ public class Fantasma3 extends Personatge{
     }
     
     private void modeNavegacio(){
-        //Es Poden donar les seguents situacions:  - Acabo de sortir de un altre mode i no tinc objectiu --> buscar objectiu
+        //Es Poden donar les seguents situacions:  - Acabo de sortir de un altre mode i no tinc objectiu --> Buscu monedes o vaig a la sortida.
         //                                         - Estic navegant i encara no he arribat al meu objectiu --> comprovar que en el punt del meu objectiu 
         //                                           encara troba el meu objectiu. ( Es a dir, en Pacman no m'ha pispat cap moneda). En cas contrari
         //                                           buscar un nou objectiu.
         //                                         - He arrivat al meu objectiu --> acabar objetiu i buscar un altre nou objectiu
-        //                                         - S'han acabat les monedes i estic guanyant, llavors haig d'anar cap a la sortida
+        //                                         
         reCalcularDistanciesMonedes();
         if (objectiu == null){//No tinc objetiu
-            if (!quedenMonedes() && guanya){
-                   exitLaberint();
-            }
-            else if(!quedenMonedes() && !guanya){
-                mode = EMode.SEGUIMENT;
-            }
+            if (quedenMonedes())buscaMoneda();
+            else exitLaberint();
         }
         else{//Si tinc objectiu
             //Haure de canviar de objectiu si: - He arrivat al meu objectiu o el meu objectiu ja no es troba en la mateixa posicio.
             if (objectiu.posicio.equals(posicio) || !objectiuVerificat()){
                 objectiu = null;
-                buscaObjectiu();
+                buscaMoneda();
             }
         }
     }
@@ -285,7 +294,8 @@ public class Fantasma3 extends Personatge{
     private boolean movimentValid(EDireccio mov){
         boolean valid = true;
         Punt p = posicio.generarPuntDesplasat(mov);
-        if(laberint.posicioValida(p)){
+        EElement element = laberint.obtenirElement(p);
+        if(laberint.posicioValida(p) && element != EElement.PARET){
             if(laberint.esIntencioValida(p)){
                 laberint.marcarIntencio(p);
 //                laberint.mostrarMatriuDIntencions();
@@ -302,20 +312,16 @@ public class Fantasma3 extends Personatge{
     
     /**
      * @brief Busca una moneda o 
+     * @pre Queden Monedes
      * @post ruta conte un cami fins al objectiu
      */
-    private void buscaObjectiu(){
+    private void buscaMoneda(){
         Punt p = buscaMonedaMesProxima();
-        if (p == null){ //S'han acabat les monedes
-            objectiu = null;
-            ruta = null;
-        }
-        else{//Encara hi han Monedes
-            EElement element = laberint.obtenirElement(p);
-            Objectiu nouObjectiu = new Objectiu (p, element);
-            objectiu = nouObjectiu;
-            ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
-        }
+        EElement element = laberint.obtenirElement(p);
+        Objectiu nouObjectiu = new Objectiu (p, element);
+        objectiu = nouObjectiu;
+        ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
+        
     }
 
     private Punt buscaMonedaMesProxima(){
@@ -381,6 +387,12 @@ public class Fantasma3 extends Personatge{
         return hiHaItemAProp;
     }
     
+    private boolean vullAtraparEnPacman(){
+        boolean res = false;
+        if (estatPersonatge == EEstatPersonatge.AMB_MONGETA && partida.obtenirPuntuacioPacman() > 50 )res = true;//SI tinc mongeta i en Pacman te punts, llavors el vull atrapar
+        if (!quedenMonedes() && !guanya)res = true;//Si no queden monedes i no estic guanyant llavors el vull atrapar
+        return res;
+    }
     
     
     private boolean elementEsItem(EElement element){

@@ -28,7 +28,7 @@ public enum EElement {
     MONEDES_X2(4, false, "res/monedes_x2.png", 'M'),
     MONGETA(5, false, "res/mongeta.png", 'N'),
     INDEFINIT(-2 , false, "res/indefinit.png", 'I'),
-    SORTIDA(15, false, "res/moneda.png", 'S');
+    SORTIDA(15, false, "res/sortida.png", 'S');
     
     private final int id;
     private ImageIcon imatge;
