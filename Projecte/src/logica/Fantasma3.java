@@ -14,7 +14,6 @@ import logica.algoritmica.GestorCamins;
 import logica.historic_moviments.HistoricMoviments;
 import logica.algoritmica.Casella;
 import logica.algoritmica.LlistaOrdenadaCandidats;
-import java.util.PriorityQueue;
 
 /**
  *
@@ -63,7 +62,7 @@ public class Fantasma3 extends Personatge{
     @Override
     public EDireccio calcularMoviment(){
         EDireccio res;
-        synchronized(laberint){
+//        synchronized(laberint){
         if (seguentMoviment == null || posicio == null)return EDireccio.QUIET;
         
         Punt posicioPacman = partida.obtenirPuntPacman();   
@@ -90,12 +89,14 @@ public class Fantasma3 extends Personatge{
             int a = 45;
         }
         res = ruta.obtenirUltimMoviment();
-        if (movimentValid(res))ruta.eliminarMoviment();
+        if (movimentValid(res)){
+            ruta.eliminarMoviment();
+            laberint.marcarIntencio(posicio.generarPuntDesplasat(res));
+        }
         else res = EDireccio.QUIET;
         long fi = System.currentTimeMillis();
 //        System.out.println("TEMPS DE FANTASMA3 A PENDRE UNA DECISIO (Calcul de distancies + Calcul de ruta)"+ (fi - ini) + " ms");
-        laberint.marcarIntencio(posicio);
-        }
+//        }
         return res;
     }
     
@@ -292,22 +293,9 @@ public class Fantasma3 extends Personatge{
     
     
     private boolean movimentValid(EDireccio mov){
-        boolean valid = true;
         Punt p = posicio.generarPuntDesplasat(mov);
         EElement element = laberint.obtenirElement(p);
-        if(laberint.posicioValida(p) && element != EElement.PARET){
-            if(laberint.esIntencioValida(p)){
-                laberint.marcarIntencio(p);
-//                laberint.mostrarMatriuDIntencions();
-            }
-            else if(estatPersonatge != EEstatPersonatge.AMB_MONGETA){
-                valid = false;
-            }
-        }
-        else valid = false;
-//        if (element == EElement.PACMAN && estatPersonatge != EEstatPersonatge.AMB_MONGETA)valid = false;
-        
-        return valid;
+        return laberint.posicioValida(p) && element != EElement.PARET && (laberint.esIntencioValida(p) || obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA);
     }
     
     /**

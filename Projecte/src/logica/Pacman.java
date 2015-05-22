@@ -78,12 +78,12 @@ public class Pacman extends Personatge{
 
     @Override
     public  EDireccio calcularMoviment() { 
-        synchronized(laberint){
+//        synchronized(laberint){
             Punt desti = posicio.generarPuntDesplasat(seguentMoviment);
             if(laberint.obtenirElement(desti) == EElement.PARET) return EDireccio.QUIET;
             laberint.marcarIntencio(desti);
             laberint.marcarIntencio(posicio);
-        }
+//        }
         return seguentMoviment;
     }
     
@@ -115,22 +115,22 @@ public class Pacman extends Personatge{
     }
     
     public void nouMoviment(EDireccio teclaPremuda){
-      synchronized(laberint){ 
+//      synchronized(laberint){ 
         if(teclaPremuda != null){
             Punt desti = posicio.generarPuntDesplasat(teclaPremuda);
             if (laberint.obtenirElement(desti) != EElement.PARET){
                 if(laberint.esIntencioValida(desti)){
                     Punt tmp = posicio.generarPuntDesplasat(seguentMoviment);
+                    if(seguentMoviment != EDireccio.QUIET) laberint.desmarcarIntencio(tmp);
                     seguentMoviment = teclaPremuda;
                     laberint.marcarIntencio(desti);
-                    laberint.desmarcarIntencio(tmp);
                 }
                 else if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
                     seguentMoviment = teclaPremuda;
                 }
             }
         }
-      }
+//      }
     }
 
     @Override

@@ -156,7 +156,7 @@ public class Laberint {
         tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
         tauler[filaOrigen][columnaOrigen] = elementARestaurar;
         pintador.pintarMovimentItem(posicio, direccio, elementARestaurar.obtenirImatge());
-        desmarcarIntencio(puntDesplasat);
+        if(direccio != EDireccio.QUIET) desmarcarIntencio(puntDesplasat);
         return elementTrapitjat;
     }
     
@@ -213,8 +213,10 @@ public class Laberint {
             partida.finalitzarPartida();
         }
         this.tauler[fila][columna] = objecteAMoure;
-        pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
-        desmarcarIntencio(posicio);
+        if(direccio != EDireccio.QUIET) {
+            pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
+            desmarcarIntencio(posicio);
+        }
         return objecteAgafat;
     }
     

@@ -158,7 +158,6 @@ public class Partida {
     public void finalitzarPartida(){
         if(momentInici == -1) throw new EFinalitzarPartida("No pots finalitzar una partida sense haver-la iniciat abans");
         if(momentFi != -1) throw new EFinalitzarPartida("No pots finalitzar una partida ja finalitzada");
-        if(itemEspecial != null) itemEspecial.finalitzarItem();
         enemic.finalitzarItem();
         momentFi = System.currentTimeMillis();
         log.afegirDebug("S'ha finalitzat la partida a les "+Utils.obtenirHoraSistema());
@@ -175,6 +174,9 @@ public class Partida {
     }
     
     public void assignarGuanyador(){
+        if(itemEspecial != null){
+            itemEspecial.finalitzarItem();
+        }
         if(pacman.obtenirPunts() > enemic.obtenirPunts()){
             System.out.println("GUANYA PACMAN");
             pacman.assignarGuanya(true);

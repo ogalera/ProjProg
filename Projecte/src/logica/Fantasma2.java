@@ -109,6 +109,7 @@ public class Fantasma2 extends Personatge{
 //        System.out.println("amunt "+interesAdalt);
 //        System.out.println("abaix "+interesAbaix);
 //        System.out.println("calculat "+moviment);
+        laberint.mostrarMatriuDIntencions();
         return moviment;
     }
     
