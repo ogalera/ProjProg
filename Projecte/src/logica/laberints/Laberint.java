@@ -202,7 +202,7 @@ public class Laberint {
                 if(elementTrapitjat == EElement.MONEDA || elementTrapitjat == EElement.MONEDA_EXTRA){
                     nMonedes--;
                     System.out.println("nMonedes "+nMonedes);
-                    tauler[filaOrigen][columnaOrigen] = elementTrapitjat;
+                    tauler[filaOrigen][columnaOrigen] = EElement.RES;
                     tauler[filaDesti][columnaDesti] = elementOrigen;
                     if(nMonedes == 0){
                         Punt sortida = sortejarSortida();
@@ -318,7 +318,7 @@ public class Laberint {
             columna = Utils.obtenirValorAleatori(costat);
             element = tauler[fila][columna];
         }
-        while(element == EElement.PARET || element == EElement.MONGETA || element == EElement.MONEDES_X2 || element == EElement.PATINS);
+        while(element != EElement.RES);
         return new Punt(fila, columna);
     }
     
@@ -337,7 +337,7 @@ public class Laberint {
         }
     }
     
-    private Punt sortejarPosicioItem(){
+    private synchronized Punt sortejarPosicioItem(){
         int fila;
         int columna;
         EElement element;
