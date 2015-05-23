@@ -155,23 +155,25 @@ public class Laberint {
     }
     
     public synchronized EElement mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat){
+        System.out.println("mogut");
         Punt desti = origen.generarPuntDesplasat(direccio);
-        int columna = desti.obtenirColumna();
-        int fila = desti.obtenirFila();
-        EElement elementObtingut = tauler[fila][columna];
+        int filaOrigen = origen.obtenirFila();
+        int columnaOrigen = origen.obtenirColumna();
+        int filaDesti = desti.obtenirFila();
+        int columnaDesti = desti.obtenirColumna();
+        EElement elementOrigen = tauler[filaOrigen][columnaOrigen];
+        EElement elementObtingut = tauler[filaDesti][columnaDesti];
         switch(elementObtingut){
             case MONEDA:
             case MONEDA_EXTRA:{
                 nMonedes--;
-                EElement elementOrigen = tauler[origen.obtenirFila()][origen.obtenirColumna()];
-                tauler[origen.obtenirFila()][origen.obtenirColumna()] = EElement.RES;
-                tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+                System.out.println("nMonedes "+nMonedes);
+                tauler[filaOrigen][columnaOrigen] = EElement.RES;
+                tauler[filaDesti][columnaDesti] = elementOrigen;
                 pintador.pintarMovimentPersonatge(origen, direccio, imatge);
                 if(nMonedes == 0){
                     Punt sortida = sortejarSortida();
-                    columna = sortida.obtenirColumna();
-                    fila = sortida.obtenirFila();
-                    tauler[fila][columna] = EElement.SORTIDA;
+                    tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
                     pintador.pintarSortida(sortida);
                     partida.assignarGuanyador();
                 }
@@ -180,9 +182,7 @@ public class Laberint {
                     Punt puntItem = sortejarPosicioItem();
                     EElement item = sortejarItem();
                     Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
-                    fila = puntItem.obtenirFila();
-                    columna = puntItem.obtenirColumna();
-                    tauler[fila][columna] = item;
+                    tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
                     pintador.pintarNouItem(puntItem, item);
                     partida.assignarItemEspecial(nouItem);
                     System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
@@ -201,9 +201,9 @@ public class Laberint {
                 EElement elementTrapitjat = partida.obtenirItem().obtenirElementTrapitgat();
                 if(elementTrapitjat == EElement.MONEDA || elementTrapitjat == EElement.MONEDA_EXTRA){
                     nMonedes--;
-                    EElement elementOrigen = tauler[origen.obtenirFila()][origen.obtenirColumna()];
-                    tauler[origen.obtenirFila()][origen.obtenirColumna()] = elementTrapitjat;
-                    tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+                    System.out.println("nMonedes "+nMonedes);
+                    tauler[filaOrigen][columnaOrigen] = elementTrapitjat;
+                    tauler[filaDesti][columnaDesti] = elementOrigen;
                     if(nMonedes == 0){
                         Punt sortida = sortejarSortida();
                         tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
@@ -226,9 +226,8 @@ public class Laberint {
             }break;
             default:{
                 if(superEstat){
-                    EElement elementOrigen = tauler[origen.obtenirFila()][origen.obtenirColumna()];
-                    tauler[origen.obtenirFila()][origen.obtenirColumna()] = EElement.RES;
-                    tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
+                    tauler[filaOrigen][columnaOrigen] = EElement.RES;
+                    tauler[filaDesti][columnaDesti] = elementOrigen;
                     pintador.pintarMovimentPersonatge(origen, direccio, imatge);
                 }
                 else elementObtingut = obtenirElement(origen);
@@ -313,11 +312,13 @@ public class Laberint {
         System.out.println("\n\n*****\nSORTEJEM SORTIDA");
         int fila;
         int columna;
+        EElement element;
         do{
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
+            element = tauler[fila][columna];
         }
-        while(tauler[fila][columna] == EElement.PARET);
+        while(element == EElement.PARET || element == EElement.MONGETA || element == EElement.MONEDES_X2 || element == EElement.PATINS);
         return new Punt(fila, columna);
     }
     
@@ -344,7 +345,7 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
             element = tauler[fila][columna];
-        }while(element != EElement.RES && element != EElement.MONEDA && element != EElement.MONEDA_EXTRA);
+        }while(element == EElement.PARET || element.esEnemic());
         return new Punt(fila, columna);
     }
     

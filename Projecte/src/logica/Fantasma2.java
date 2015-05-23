@@ -95,6 +95,7 @@ public class Fantasma2 extends Personatge{
                 }
             }
         }
+        System.out.println("SEGUENT MOVIMENT " +moviment);
 //        System.out.println("dreta "+interesDreta);
 //        System.out.println("esquerra "+interesEsquerra);
 //        System.out.println("amunt "+interesAdalt);
@@ -145,7 +146,10 @@ public class Fantasma2 extends Personatge{
             p = p.generarPuntDesplasat(direccio);
             element = laberint.obtenirElement(p);
             if(element == EElement.MONEDA){
-                interes += 10/n;
+                interes += Utils.Constants.VALOR_MONEDA_NORMAL/n;
+            }
+            else if(element == EElement.MONEDA_EXTRA){
+                interes += Utils.Constants.VALOR_MONEDA_EXTRA/n;
             }
             else if(element == EElement.PACMAN && obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
                 interes += Integer.MAX_VALUE;
@@ -153,7 +157,7 @@ public class Fantasma2 extends Personatge{
             else if(element == EElement.PATINS || element == EElement.MONGETA || element == EElement.MONEDES_X2){
                 interes += Integer.MAX_VALUE;
             }
-            else if(element == EElement.SORTIDA && super.estaGuanyant()){
+            else if(element == EElement.SORTIDA && estaGuanyant()){
                 //A tot tall cap a la sortida!!!
                 System.out.println("Cap a la sortida!!!");
                 interes = Integer.MAX_VALUE;
