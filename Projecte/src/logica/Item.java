@@ -117,8 +117,9 @@ public class Item extends ItemMovible {
     @Override
     public EElement realitzarMoviment() {
         if(seguentMoviment != EDireccio.QUIET){
-            elementTrapitjat = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
+            EElement tmp = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
             if(elementTrapitjat != null && elementTrapitjat != EElement.MONEDES_X2 && elementTrapitjat != EElement.MONGETA && elementTrapitjat != EElement.PATINS){
+                elementTrapitjat = tmp;
                 ruta.eliminarMoviment();
                 posicio = posicio.generarPuntDesplasat(seguentMoviment);
             }
