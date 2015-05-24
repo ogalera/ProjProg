@@ -14,8 +14,6 @@ import logica.excepcions.EIniciarPartida;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
 import interficie.IPintadorPartida;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import logica.Personatge.EEstatPersonatge;
 import logica.controladors_pacman.IControlador;
@@ -141,6 +139,7 @@ public class Partida {
      */
     public void iniciarPartida(){
         laberint.pintarLaberint();
+        pintador.assignarPartida(this);
         pintador.pintarIniciPartida();
         if(momentInici != -1) throw new EIniciarPartida("La partida ja esta iniciada");
         if(momentFi != -1) throw new EIniciarPartida("No pots iniciar una partida que ja s'ha finalitzat");
@@ -165,11 +164,11 @@ public class Partida {
             log.afegirDebug("S'ha finalitzat la partida a les "+Utils.obtenirHoraSistema());
             long diferencia = momentFi-momentInici;
             log.afegirDebug("La partida a durat un total de "+Utils.obtenirMomentEnFormatHoraMinutsSegons(diferencia));
-            pintador.pintarFinalPartida();
             if(pacman.obtenirPunts() > enemic.obtenirPunts()){
-                FLogin.obtenirUsuari().pantallaSuperada();
+                FLogin.obtenirUsuari().pantallaSuperada(pacman.obtenirPunts());
+                pintador.pintarFinalPartida(true);
             }
-            pintador.tancarPantalla();
+            else pintador.pintarFinalPartida(false);
             System.out.println("TEMPS TOTAL CALCUL PACMAN "+pacman.obtenirTempsTotalCalcul()+"s");
             System.out.println("TEMPS TOTAL CALCUL ENEMIC "+enemic.obtenirTempsTotalCalcul()+"s");
         }
@@ -191,10 +190,12 @@ public class Partida {
         }
     }
    
-    public void itemCapturat(){
+    public EElement itemCapturat(){
+        EElement elementTrapitgat = itemEspecial.obtenirElementTrapitgat();
         this.itemEspecial.finalitzarItem();
         this.itemEspecial = null;
         this.pintador.pintarItemPartida(null);
+        return elementTrapitgat;
     }
     
     public void assignarItemEspecial(Item item){
@@ -227,13 +228,17 @@ public class Partida {
    }
    
    public synchronized int reiniciarPuntsEnemic(){
-       pintador.pintarPuntsEnemic(0);
-       return enemic.reiniciarPunts();
+        synchronized(laberint){
+            pintador.pintarPuntsEnemic(0);
+            return enemic.reiniciarPunts();
+        }
    }
    
    public int reiniciarPuntsPacman(){
-       pintador.pintarPuntsPacman(0);
-       return pacman.reiniciarPunts();
+        synchronized(laberint){
+            pintador.pintarPuntsPacman(0);
+            return pacman.reiniciarPunts();
+        }
    }
    
    public void assignarItemAPacman(EElement item){
@@ -270,6 +275,10 @@ public class Partida {
    }
    
    public int obtenirPuntuacioPacman(){
+       return pacman.obtenirPunts();
+   }
+   
+   public int obtenirPuntsPacman(){
        return pacman.obtenirPunts();
    }
 }

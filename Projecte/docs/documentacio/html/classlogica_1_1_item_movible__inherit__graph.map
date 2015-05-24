@@ -1,0 +1,8 @@
+<map id="logica.ItemMovible" name="logica.ItemMovible">
+<area shape="rect" id="node2" href="$classlogica_1_1_item.html" title="logica.Item" alt="" coords="118,80,205,107"/>
+<area shape="rect" id="node3" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="229,80,355,107"/>
+<area shape="rect" id="node4" href="$classlogica_1_1_fantasma1.html" title="logica.Fantasma1" alt="" coords="5,155,131,181"/>
+<area shape="rect" id="node5" href="$classlogica_1_1_fantasma2.html" title="logica.Fantasma2" alt="" coords="155,155,280,181"/>
+<area shape="rect" id="node6" href="$classlogica_1_1_fantasma3.html" title="logica.Fantasma3" alt="" coords="304,155,429,181"/>
+<area shape="rect" id="node7" href="$classlogica_1_1_pacman.html" title="logica.Pacman" alt="" coords="454,155,562,181"/>
+</map>

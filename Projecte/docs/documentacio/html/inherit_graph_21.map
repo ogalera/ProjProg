@@ -1,0 +1,6 @@
+<map id="Jerarquia Gràfica de la Classe" name="Jerarquia Gràfica de la Classe">
+<area shape="rect" id="node1" href="$classlogica_1_1laberints_1_1_laberint.html" title="logica.laberints.Laberint" alt="" coords="5,78,164,105"/>
+<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint_aleatori.html" title="logica.laberints.Laberint\lAleatori" alt="" coords="212,5,371,47"/>
+<area shape="rect" id="node3" href="$classlogica_1_1laberints_1_1_laberint_lineal_horitzontal.html" title="logica.laberints.Laberint\lLinealHoritzontal" alt="" coords="212,71,371,112"/>
+<area shape="rect" id="node4" href="$classlogica_1_1laberints_1_1_laberint_lineal_vertical.html" title="logica.laberints.Laberint\lLinealVertical" alt="" coords="212,136,371,177"/>
+</map>

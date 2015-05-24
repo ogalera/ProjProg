@@ -1,0 +1,105 @@
+\hypertarget{classlogica_1_1_personatge}{\section{Referència de la Classe logica.\+Personatge}
+\label{classlogica_1_1_personatge}\index{logica.\+Personatge@{logica.\+Personatge}}
+}
+
+
+Diagrama d'Herència per a logica.\+Personatge\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogica_1_1_personatge__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de col·laboració per a logica.\+Personatge\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogica_1_1_personatge__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{enumlogica_1_1_personatge_1_1_e_estat_personatge}{E\+Estat\+Personatge}
+\end{DoxyCompactItemize}
+\subsection*{Mètodes públics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_personatge_af207e20f6a0494a46e710d8c9f33ccff}{{\bfseries Personatge} (\hyperlink{classlogica_1_1_partida}{Partida} partida, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} laberint, Image\+Icon imatge, \hyperlink{classlogica_1_1_punt}{Punt} inici)}\label{classlogica_1_1_personatge_af207e20f6a0494a46e710d8c9f33ccff}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a9c68a159bb580a73ae28ce692ab5c92d}{int {\bfseries obtenir\+Punts} ()}\label{classlogica_1_1_personatge_a9c68a159bb580a73ae28ce692ab5c92d}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a32871fa2793634b05a0973ceec438560}{void {\bfseries assignar\+Guanya} (boolean \hyperlink{classlogica_1_1_personatge_a0c30dc6ca85f941043ae4a27e7583c67}{guanya})}\label{classlogica_1_1_personatge_a32871fa2793634b05a0973ceec438560}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a45c54c34068a2d0c0ee47c0222c6d6c8}{boolean {\bfseries esta\+Guanyant} ()}\label{classlogica_1_1_personatge_a45c54c34068a2d0c0ee47c0222c6d6c8}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a39387dbfebd1936e63c29c8a9dd85bb1}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries realitzar\+Moviment} ()}\label{classlogica_1_1_personatge_a39387dbfebd1936e63c29c8a9dd85bb1}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_afed860920a63cbd1efe126315a7370f4}{int {\bfseries reiniciar\+Punts} ()}\label{classlogica_1_1_personatge_afed860920a63cbd1efe126315a7370f4}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a5f171d79a5a8ca6d0184a250456c44d1}{void {\bfseries iniciar\+Item\+Movible} ()}\label{classlogica_1_1_personatge_a5f171d79a5a8ca6d0184a250456c44d1}
+
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Protegits}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_personatge_a8b39023213405003380501bff8fdee6b}{final void {\bfseries assignar\+Estat\+Personatge} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} item)}\label{classlogica_1_1_personatge_a8b39023213405003380501bff8fdee6b}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a72434a1f940bd10caa6e2d80b129adda}{void {\bfseries incrementar\+Punts} (int punts)}\label{classlogica_1_1_personatge_a72434a1f940bd10caa6e2d80b129adda}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_aa82af20d5b19f0a0401614ec642be499}{final \hyperlink{enumlogica_1_1_personatge_1_1_e_estat_personatge}{E\+Estat\+Personatge} {\bfseries obtenir\+Estat\+Personatge} ()}\label{classlogica_1_1_personatge_aa82af20d5b19f0a0401614ec642be499}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_add25ab819bc64920f353eedeac26efcf}{abstract void {\bfseries notificar\+Perdua\+Estat} ()}\label{classlogica_1_1_personatge_add25ab819bc64920f353eedeac26efcf}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_ae7f9cdfd1b01d6c7eaee1675decfaeca}{abstract void {\bfseries assignar\+Imatges} ()}\label{classlogica_1_1_personatge_ae7f9cdfd1b01d6c7eaee1675decfaeca}
+
+\end{DoxyCompactItemize}
+\subsection*{Atributs Protegits}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1_personatge_a86322efbc950e2954fe2a8cde806bbd9}{historic\+Moviments}
+\item 
+\hypertarget{classlogica_1_1_personatge_a2a46aceef25eeae45072cf2e6ece1506}{int {\bfseries punts}}\label{classlogica_1_1_personatge_a2a46aceef25eeae45072cf2e6ece1506}
+
+\item 
+boolean \hyperlink{classlogica_1_1_personatge_a0c30dc6ca85f941043ae4a27e7583c67}{guanya}
+\item 
+\hypertarget{classlogica_1_1_personatge_ac9325217d5c36660a38dd20eb240b278}{\hyperlink{enumlogica_1_1_personatge_1_1_e_estat_personatge}{E\+Estat\+Personatge} {\bfseries estat\+Personatge} = null}\label{classlogica_1_1_personatge_ac9325217d5c36660a38dd20eb240b278}
+
+\item 
+\hypertarget{classlogica_1_1_personatge_a60cb339a9fd71a85c7522deb3984a1f4}{final Image\+Icon {\bfseries imatges} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}\label{classlogica_1_1_personatge_a60cb339a9fd71a85c7522deb3984a1f4}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Descripció Detallada}
+\begin{DoxyAuthor}{Autor}
+oscar Representació de tot item que lluita per obtenir el maxim de punts, que pot anar canviant d'estat i que es comporta de forma diferent segons el seu estat. 
+\end{DoxyAuthor}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classlogica_1_1_personatge_a0c30dc6ca85f941043ae4a27e7583c67}{\index{logica\+::\+Personatge@{logica\+::\+Personatge}!guanya@{guanya}}
+\index{guanya@{guanya}!logica\+::\+Personatge@{logica\+::\+Personatge}}
+\subsubsection[{guanya}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Personatge.\+guanya\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_personatge_a0c30dc6ca85f941043ae4a27e7583c67}
+\hyperlink{classlogica_1_1_partida}{Partida} en la que es troba el personatge \hypertarget{classlogica_1_1_personatge_a86322efbc950e2954fe2a8cde806bbd9}{\index{logica\+::\+Personatge@{logica\+::\+Personatge}!historic\+Moviments@{historic\+Moviments}}
+\index{historic\+Moviments@{historic\+Moviments}!logica\+::\+Personatge@{logica\+::\+Personatge}}
+\subsubsection[{historic\+Moviments}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+Personatge.\+historic\+Moviments\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_personatge_a86322efbc950e2954fe2a8cde806bbd9}
+Estructura de dades de tipus F\+I\+F\+O on s'emagatzemen totes les direccions que ha agafat el personatge, Aquesta estructura l'utilitzem per si el personatge ha de fer marxa enrrere; 
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
+\item 
+/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Personatge.\+java\end{DoxyCompactItemize}

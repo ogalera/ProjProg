@@ -10,7 +10,6 @@ import java.awt.event.MouseListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import logica.Usuari;
 
 /**
  *
@@ -18,7 +17,7 @@ import logica.Usuari;
  */
 public class FHistoricUsuari extends JFrame implements MouseListener{
 
-    public FHistoricUsuari(String nomUsuari, Icon imatge, Usuari.PuntuacioNivell []puntuacions) {
+    public FHistoricUsuari(String nomUsuari, Icon imatge, int []puntuacions) {
         initComponents();
         carregarImatges(puntuacions.length);
         this.lblImatgePerfil.setIcon(imatge);

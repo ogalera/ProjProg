@@ -1,0 +1,152 @@
+\hypertarget{classlogica_1_1_punt}{\section{Referència de la Classe logica.\+Punt}
+\label{classlogica_1_1_punt}\index{logica.\+Punt@{logica.\+Punt}}
+}
+\subsection*{Mètodes públics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlogica_1_1_punt_ab09e076ff785e505903c303a6b390844}{Punt} (int fila, int columna)
+\item 
+int \hyperlink{classlogica_1_1_punt_a111fa13504fb44338c3ebae2e4eb104b}{obtenir\+Columna} ()
+\item 
+int \hyperlink{classlogica_1_1_punt_ac12261ec7534827c8cb7b4cba5bdd5db}{obtenir\+Fila} ()
+\item 
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1_punt_a8198234b3d10d9f83e634b0390c84dcb}{generar\+Punt\+Desplasat} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} moviment)
+\item 
+int \hyperlink{classlogica_1_1_punt_a20bb4168bbedb81b73947bfeaf31512a}{distancia} (\hyperlink{classlogica_1_1_punt}{Punt} desti)
+\item 
+\hyperlink{classlogica_1_1_punt}{Punt}\mbox{[}$\,$\mbox{]} \hyperlink{classlogica_1_1_punt_aae8b444d685a4fab660a51838fc42406}{obtenir\+Posicions\+Del\+Voltant} ()
+\item 
+\hypertarget{classlogica_1_1_punt_a7ecb9a24b9520b5036471fae8ef3aad5}{String {\bfseries to\+String} ()}\label{classlogica_1_1_punt_a7ecb9a24b9520b5036471fae8ef3aad5}
+
+\item 
+\hypertarget{classlogica_1_1_punt_a2734ff6782d3a601961365f018ba4402}{boolean {\bfseries equals} (Object obj)}\label{classlogica_1_1_punt_a2734ff6782d3a601961365f018ba4402}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripció Detallada}
+\begin{DoxyAuthor}{Autor}
+oscar D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L\+A C\+L\+A\+S\+S\+E Representació de un punt 2\+D; 
+\end{DoxyAuthor}
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1_punt_ab09e076ff785e505903c303a6b390844}{\index{logica\+::\+Punt@{logica\+::\+Punt}!Punt@{Punt}}
+\index{Punt@{Punt}!logica\+::\+Punt@{logica\+::\+Punt}}
+\subsubsection[{Punt}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+Punt.\+Punt (
+\begin{DoxyParamCaption}
+\item[{int}]{fila, }
+\item[{int}]{columna}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_punt_ab09e076ff785e505903c303a6b390844}
+\begin{DoxyPrecond}{Precondició}
+\+: --; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: definim un punt a traves de les coordenades x i y; 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Paràmetres}
+{\em fila} & valor del eix de les absices; \\
+\hline
+{\em columna} & valor del eix de les ordenades; \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_punt_a20bb4168bbedb81b73947bfeaf31512a}{\index{logica\+::\+Punt@{logica\+::\+Punt}!distancia@{distancia}}
+\index{distancia@{distancia}!logica\+::\+Punt@{logica\+::\+Punt}}
+\subsubsection[{distancia}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Punt.\+distancia (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{desti}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_punt_a20bb4168bbedb81b73947bfeaf31512a}
+\begin{DoxyPrecond}{Precondició}
+\+: --; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: em retornat el Q\+U\+A\+D\+R\+A\+T de la distancia amb desti; 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Paràmetres}
+{\em desti} & punt de referencia per calcular la distancia; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\+: la distancia al quadrat de contra destí; 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_punt_a8198234b3d10d9f83e634b0390c84dcb}{\index{logica\+::\+Punt@{logica\+::\+Punt}!generar\+Punt\+Desplasat@{generar\+Punt\+Desplasat}}
+\index{generar\+Punt\+Desplasat@{generar\+Punt\+Desplasat}!logica\+::\+Punt@{logica\+::\+Punt}}
+\subsubsection[{generar\+Punt\+Desplasat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+Punt.\+generar\+Punt\+Desplasat (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Direccio}}]{moviment}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_punt_a8198234b3d10d9f83e634b0390c84dcb}
+\begin{DoxyPrecond}{Precondició}
+\+: --; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: retornem el punt obtingut de aplicar un moviment; 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Paràmetres}
+{\em moviment} & a aplicar; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+punt desplaçat per moviment; 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_punt_a111fa13504fb44338c3ebae2e4eb104b}{\index{logica\+::\+Punt@{logica\+::\+Punt}!obtenir\+Columna@{obtenir\+Columna}}
+\index{obtenir\+Columna@{obtenir\+Columna}!logica\+::\+Punt@{logica\+::\+Punt}}
+\subsubsection[{obtenir\+Columna}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Punt.\+obtenir\+Columna (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_punt_a111fa13504fb44338c3ebae2e4eb104b}
+\begin{DoxyPrecond}{Precondició}
+\+: --; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: em retornat el valor del eix de les absices; 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Retorna}
+\+: valor del eix de les absices; 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_punt_ac12261ec7534827c8cb7b4cba5bdd5db}{\index{logica\+::\+Punt@{logica\+::\+Punt}!obtenir\+Fila@{obtenir\+Fila}}
+\index{obtenir\+Fila@{obtenir\+Fila}!logica\+::\+Punt@{logica\+::\+Punt}}
+\subsubsection[{obtenir\+Fila}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Punt.\+obtenir\+Fila (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_punt_ac12261ec7534827c8cb7b4cba5bdd5db}
+\begin{DoxyPrecond}{Precondició}
+\+: --; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: em retornat el valor del eix de les ordenades; 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Retorna}
+\+: valor del eix de les ordenades; 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_punt_aae8b444d685a4fab660a51838fc42406}{\index{logica\+::\+Punt@{logica\+::\+Punt}!obtenir\+Posicions\+Del\+Voltant@{obtenir\+Posicions\+Del\+Voltant}}
+\index{obtenir\+Posicions\+Del\+Voltant@{obtenir\+Posicions\+Del\+Voltant}!logica\+::\+Punt@{logica\+::\+Punt}}
+\subsubsection[{obtenir\+Posicions\+Del\+Voltant}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} \mbox{[}$\,$\mbox{]} logica.\+Punt.\+obtenir\+Posicions\+Del\+Voltant (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_punt_aae8b444d685a4fab660a51838fc42406}
+\begin{DoxyPrecond}{Precondició}
+\+: --; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+:em donat les 4 posicions del voltant; 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Retorna}
+\+: les 4 posicions del voltant; 
+\end{DoxyReturn}
+
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
+\item 
+/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Punt.\+java\end{DoxyCompactItemize}

@@ -5,6 +5,7 @@
  */
 package interficie;
 
+import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import logica.Punt;
@@ -22,6 +23,6 @@ public interface IPintadorLaberint extends KeyListener{
     public void pintarMovimentItem(Punt pOrigen, EDireccio direccio, ImageIcon imatge);
     public void pintarNouItem(Punt pNouItem, EElement item);
     public void pintarLaberint(Laberint laberint);
-    public int obtenirMidaImatge();
+    public Dimension obtenirMidaImatge();
     public void pintarSortida(Punt pSortida);
 }

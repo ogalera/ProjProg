@@ -30,8 +30,12 @@ import logica.enumeracions.EElement;
 import logica.ValidadorLaberint;
 
 /**
- *
  * @author oscar
+ * Frame que ens permet crear i dissenyar noves pantalles.
+ * En la part esquerra hi ha el conjunt de elemnts que es poden afegir al laberint
+ * i nomes cal seleccionar l'element i fer click en la posicio on es vol afegir.
+ * 
+ * Un cop creada la pantalla aquesta es validada i exportada en format .txt.
  */
 public class FEditorLaberint extends JFrame{
     private JButton btnPacman, btnFantasma, btnParet, btnMoneda, btnItemSeleccionat;
@@ -45,8 +49,6 @@ public class FEditorLaberint extends JFrame{
         log = Log.getInstance(FEditorLaberint.class);
         
         this.laberint = new int[costat][costat];
-        
-        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         /*JSplitPane spaFrame = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
         spaFrame.add(this.crearMenu());
@@ -210,6 +212,7 @@ public class FEditorLaberint extends JFrame{
                     JOptionPane.showMessageDialog(FEditorLaberint.this,
                                                 "S'ha exportat el mapa correctament a "+desti,
                                                 "Mapa exportar correctament!",JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
                 }
                 else{
                     JOptionPane.showMessageDialog(FEditorLaberint.this,

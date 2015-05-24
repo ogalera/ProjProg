@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import logica.laberints.Laberint;
@@ -27,26 +28,37 @@ public class Fantasma1 extends Personatge{
     public EElement realitzarMoviment(){
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != null && elementObtingut != EElement.FANTASMA1){
-            posicio = posicio.generarPuntDesplasat(seguentMoviment);
             switch(elementObtingut){
                 case MONEDA:{
-                    this.punts+= Utils.Constants.VALOR_MONEDA_NORMAL;
+                    incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
+                    partida.assignarPuntsEnemic(punts);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
                 case MONEDA_EXTRA:{
-                    this.punts+= Utils.Constants.VALOR_MONEDA_EXTRA;
+                    incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
+                    partida.assignarPuntsEnemic(punts);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
-                case MONGETA:
+                case PACMAN:{
+                    int puntsPacman = partida.reiniciarPuntsPacman();
+                    incrementarPunts(puntsPacman);
+                    partida.assignarPuntsEnemic(punts);
+                }break;
+                case PATINS:
                 case MONEDES_X2:
-                case PATINS:{
-                    Audio.reprodueixMenjaItem();
+                case MONGETA:{
+                    //Em agafat algún item
                     partida.itemCapturat();
                     assignarEstatPersonatge(elementObtingut);
                     partida.assignarItemAEnemic(elementObtingut);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
+                }break;
+                case RES:{
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
             }
-            partida.assignarPuntsEnemic(punts);
         }
-        return elementObtingut;
+        return null;
     }
     
     @Override
@@ -67,15 +79,15 @@ public class Fantasma1 extends Personatge{
 
     @Override
     protected void assignarImatges() {
-        int midaImatge = laberint.obtenirMidaImatge();
-        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic1D0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
-        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic1D1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic1E0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic1E1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic1A0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic1A1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic1B0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic1B1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        int llargada = laberint.obtenirMidaImatge().height;
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic1D0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic1D1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic1E0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic1E1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic1A0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic1A1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic1B0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic1B1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
 
     @Override

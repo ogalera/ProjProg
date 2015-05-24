@@ -19,6 +19,7 @@ import logica.enumeracions.EElement;
  * @author oscar
  */
 public class Pacman extends Personatge{
+    
     public Pacman(Partida partida, Laberint laberint, IControlador controlador, Punt inici) {
         super(partida, laberint, EElement.PACMAN.obtenirImatge(), inici);
         seguentMoviment = EDireccio.QUIET;
@@ -34,17 +35,18 @@ public class Pacman extends Personatge{
     public EElement realitzarMoviment(){
         EElement element = super.realitzarMoviment();
         if(element != null && element != EElement.PACMAN){
-            posicio = posicio.generarPuntDesplasat(seguentMoviment);
             switch(element){
                 case MONEDA:{
                     Audio.reprodueixMenjaMoneda();
                     super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
                     partida.assignarPuntsPacman(punts);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
                 case MONEDA_EXTRA:{
                     Audio.reprodueixMenjaMoneda();
                     super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
                     partida.assignarPuntsPacman(punts);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
                 case FANTASMA1:
                 case FANTASMA2:
@@ -62,16 +64,20 @@ public class Pacman extends Personatge{
                     partida.itemCapturat();
                     super.assignarEstatPersonatge(element);
                     partida.assignarItemAPacman(element);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
+                }break;
+                case RES:{
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
             }
         }
-        return element;
+        return null;
     }
 
     @Override
     public  EDireccio calcularMoviment() { 
         Punt desti = posicio.generarPuntDesplasat(seguentMoviment);
-        if(laberint.obtenirElement(desti) == EElement.PARET) return EDireccio.QUIET;
+        if(laberint.obtenirElement(desti) == EElement.PARET) seguentMoviment = EDireccio.QUIET;
         return seguentMoviment;
     }
     
@@ -113,15 +119,15 @@ public class Pacman extends Personatge{
 
     @Override
     protected void assignarImatges() {
-        int midaImatge = laberint.obtenirMidaImatge();
-        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/pacmanD0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
-        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/pacmanD1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/pacmanE0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/pacmanE1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/pacmanA0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/pacmanA1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/pacmanB0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/pacmanB1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        int llargada = laberint.obtenirMidaImatge().height;
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/pacmanD0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/pacmanD1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/pacmanE0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/pacmanE1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/pacmanA0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/pacmanA1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/pacmanB0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/pacmanB1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
     
     @Override

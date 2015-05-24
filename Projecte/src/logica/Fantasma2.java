@@ -10,13 +10,14 @@ import logica.enumeracions.EDireccio;
  * @author oscar
  */
 public class Fantasma2 extends Personatge{
-    
+    private boolean perHistoric;
     public Fantasma2(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA2.obtenirImatge(), inici);
     }
 
     @Override
     public EDireccio calcularMoviment() {
+        perHistoric = false;
         int interesDreta = explorarDireccio(EDireccio.DRETA);
         int interesEsquerra = explorarDireccio(EDireccio.ESQUERRA);
         int interesAdalt = explorarDireccio(EDireccio.AMUNT);
@@ -55,14 +56,13 @@ public class Fantasma2 extends Personatge{
                     //Tenim alguna direcció en l'historic per tant cal tirar enrrere "si es pot";
                     moviment = historicMoviments.obtenirUltimMoviment().obtenirMovimentInvers();
                     Punt puntDesplasat = posicio.generarPuntDesplasat(moviment);
-                    if(laberint.obtenirElement(puntDesplasat)!= EElement.PARET){
-                        historicMoviments.eliminarMoviment();
-                    }
-                    else{
+                    if(laberint.obtenirElement(puntDesplasat) == EElement.PARET){
                         moviment = EDireccio.QUIET;
                     }
+                    else perHistoric = true;
                 }
                 else{
+                    System.out.println("pila buida");
                     //No tenim res en l'historic llavors optem per l'opció 2;
                     //i sortegem una direcció pseudoaleatoria;
                     int index = Utils.obtenirValorAleatori(4);
@@ -95,12 +95,6 @@ public class Fantasma2 extends Personatge{
                 }
             }
         }
-        System.out.println("SEGUENT MOVIMENT " +moviment);
-//        System.out.println("dreta "+interesDreta);
-//        System.out.println("esquerra "+interesEsquerra);
-//        System.out.println("amunt "+interesAdalt);
-//        System.out.println("abaix "+interesAbaix);
-//        System.out.println("calculat "+moviment);
         return moviment;
     }
     
@@ -108,19 +102,22 @@ public class Fantasma2 extends Personatge{
     public EElement realitzarMoviment(){
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != null && elementObtingut != EElement.FANTASMA2){
-            System.out.println("element "+elementObtingut);
-            posicio = posicio.generarPuntDesplasat(seguentMoviment);
+            if(perHistoric) historicMoviments.eliminarMoviment();
             switch(elementObtingut){
                 case MONEDA:{
                     incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
                     partida.assignarPuntsEnemic(punts);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
                 case MONEDA_EXTRA:{
                     incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
                     partida.assignarPuntsEnemic(punts);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
                 case PACMAN:{
-
+                    int puntsPacman = partida.reiniciarPuntsPacman();
+                    incrementarPunts(puntsPacman);
+                    partida.assignarPuntsEnemic(punts);
                 }break;
                 case PATINS:
                 case MONEDES_X2:
@@ -129,6 +126,10 @@ public class Fantasma2 extends Personatge{
                     partida.itemCapturat();
                     assignarEstatPersonatge(elementObtingut);
                     partida.assignarItemAEnemic(elementObtingut);
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
+                }break;
+                case RES:{
+                    posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
             }
         }
@@ -152,7 +153,7 @@ public class Fantasma2 extends Personatge{
                 interes += Utils.Constants.VALOR_MONEDA_EXTRA/n;
             }
             else if(element == EElement.PACMAN && obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-                interes += Integer.MAX_VALUE;
+                if(partida.obtenirPuntsPacman() > 50) interes += Integer.MAX_VALUE;
             }
             else if(element == EElement.PATINS || element == EElement.MONGETA || element == EElement.MONEDES_X2){
                 interes += Integer.MAX_VALUE;
@@ -184,15 +185,15 @@ public class Fantasma2 extends Personatge{
 
     @Override
     protected void assignarImatges() {
-        int midaImatge = laberint.obtenirMidaImatge();
-        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic2D0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
-        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic2D1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic2E0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic2E1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic2A0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic2A1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic2B0.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
-        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic2B1.png").getImage().getScaledInstance(midaImatge, midaImatge, Image.SCALE_DEFAULT));
+        int llargada = laberint.obtenirMidaImatge().height;
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic2D0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic2D1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic2E0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic2E1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic2A0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic2A1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic2B0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic2B1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
     
     @Override

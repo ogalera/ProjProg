@@ -7,8 +7,10 @@ package interficie;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import logica.Partida;
 import logica.Usuari;
 import logica.Usuari.EDificultat;
@@ -45,15 +47,14 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         btnAventura = new javax.swing.JButton();
         btnProvarMapa = new javax.swing.JButton();
         btnCrearMapa = new javax.swing.JButton();
-        btnAfegirDispositiu = new javax.swing.JButton();
         btnSortir = new javax.swing.JButton();
         lblImatgeUsuari = new javax.swing.JLabel();
         lblUsuari = new javax.swing.JLabel();
         lblNivell = new javax.swing.JLabel();
         lblUSUARI = new javax.swing.JLabel();
         lblNIVELL = new javax.swing.JLabel();
+        lblInfoUsuari = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menú");
         setAlwaysOnTop(true);
         setName("fMenu"); // NOI18N
@@ -64,8 +65,6 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         btnProvarMapa.setText("Provar Mapa");
 
         btnCrearMapa.setText("Crear Mapa");
-
-        btnAfegirDispositiu.setText("Afegir Dispositiu");
 
         btnSortir.setText("Sortir");
         btnSortir.setName("btnSortir"); // NOI18N
@@ -81,6 +80,8 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
 
         lblNIVELL.setText("NIVELL");
 
+        lblInfoUsuari.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,7 +92,6 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
                     .addComponent(btnAventura, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(btnProvarMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCrearMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAfegirDispositiu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSortir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNivell)
@@ -106,6 +106,10 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
                 .addGap(49, 49, 49)
                 .addComponent(lblImatgeUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblInfoUsuari)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,14 +124,14 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNivell)
                     .addComponent(lblNIVELL))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblInfoUsuari)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAventura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnProvarMapa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCrearMapa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAfegirDispositiu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSortir)
                 .addContainerGap())
@@ -136,7 +140,6 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         btnAventura.getAccessibleContext().setAccessibleName("btnAventura");
         btnProvarMapa.getAccessibleContext().setAccessibleName("btnProbarMapa");
         btnCrearMapa.getAccessibleContext().setAccessibleName("btnCrearMapa");
-        btnAfegirDispositiu.getAccessibleContext().setAccessibleName("btnAfegirDispositiu");
         btnSortir.getAccessibleContext().setAccessibleName("btnSortir");
 
         pack();
@@ -150,18 +153,19 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         btnAventura.addActionListener(this);
         btnProvarMapa.addActionListener(this);
         btnCrearMapa.addActionListener(this);
-        btnAfegirDispositiu.addActionListener(this);
         btnSortir.addActionListener(this);
+        lblInfoUsuari.setText("Nivell "+usuari.obtenirNivell()+" Dificultat "+usuari.obtenirDificultat());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAfegirDispositiu;
     private javax.swing.JButton btnAventura;
     private javax.swing.JButton btnCrearMapa;
     private javax.swing.JButton btnProvarMapa;
     private javax.swing.JButton btnSortir;
     private javax.swing.JLabel lblImatgeUsuari;
+    private javax.swing.JLabel lblInfoUsuari;
     private javax.swing.JLabel lblNIVELL;
     private javax.swing.JLabel lblNivell;
     private javax.swing.JLabel lblUSUARI;
@@ -177,10 +181,10 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             FPartida fPartida = new FPartida(fLaberint);
             EDificultat dificultat = FLogin.obtenirUsuari().obtenirDificultat();
             ENivells nivell = FLogin.obtenirUsuari().obtenirNivell();
+            System.out.println(nivell);
             Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI/*LABERINT_LINEAL_HORITZONTAL*/,
-                                            5,//nivell.obtenirMidaLaberint(), 
-                                            EElement.FANTASMA2,
-                                            //dificultat.obtenirEnemicAssignatADificultat(), 
+                                            nivell.obtenirMidaLaberint(), 
+                                            dificultat.obtenirEnemicAssignatADificultat(), 
                                             fPartida,
                                             fLaberint,
                                             controlador);
@@ -208,11 +212,8 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         else if(e.getSource() == btnCrearMapa){
             new FEditorLaberint(5).mostrarFrame();
         }
-        else if(e.getSource() == btnAfegirDispositiu){
-            new FAfegirDispositiu().mostrarFrame();
-        }
         else{
-            this.dispose();
+            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }
     

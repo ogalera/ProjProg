@@ -80,7 +80,7 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         this.setLayout(new GridLayout(numCaselles, numCaselles));
         midaLabels = MIDA_MINIMA/numCaselles;
         laberintGrafic = new JLabel[numCaselles][numCaselles];
-        EElement.redimensionarImatges(midaLabels);
+//        EElement.redimensionarImatges(midaLabels);
 
         for (int fila = 0; fila < numCaselles; fila++){
             for (int columna = 0; columna < numCaselles; columna++){
@@ -106,8 +106,9 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         laberintGrafic[pOrigen.obtenirFila()][pOrigen.obtenirColumna()].setIcon(imatge);
     }
     
-    public int obtenirMidaImatge(){
-        return this.midaLabels;
+    @Override
+    public Dimension obtenirMidaImatge(){
+        return new Dimension(midaLabels, midaLabels);
     }
 
     @Override

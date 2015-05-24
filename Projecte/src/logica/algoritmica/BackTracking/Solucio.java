@@ -140,25 +140,25 @@ public class Solucio {
         Punt right = p.generarPuntDesplasat(EDireccio.DRETA);
         String s = "Els candidats per el punt "+p+" son: \n";
         if (laberint.obtenirElement(up) != EElement.PARET){
-            int dist = buscadorCamiMinim.BuscaCamiMesCurt(up, enemic).size();
+            int dist = buscadorCamiMinim.BuscaCamiMesCurt(up, enemic).obtenirMida();
             tauler[up.obtenirFila()][up.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[up.obtenirFila()][up.obtenirColumna()]);
             s = s + up + " \n";
         }
         if (laberint.obtenirElement(down) != EElement.PARET){
-            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(down, enemic).size();
+            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(down, enemic).obtenirMida();
             tauler[down.obtenirFila()][down.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[down.obtenirFila()][down.obtenirColumna()]);
             s = s + down + " \n";
         }
         if (laberint.obtenirElement(left) != EElement.PARET){
-            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(left, enemic).size();
+            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(left, enemic).obtenirMida();
             tauler[left.obtenirFila()][left.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[left.obtenirFila()][left.obtenirColumna()]);
             s = s + left + " \n";
         }
         if (laberint.obtenirElement(right) != EElement.PARET){
-            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(right, enemic).size();
+            int dist =  buscadorCamiMinim.BuscaCamiMesCurt(right, enemic).obtenirMida();
             tauler[right.obtenirFila()][right.obtenirColumna()].afegirDistanciaAlObjectiu(dist);
             res.afegir(tauler[right.obtenirFila()][right.obtenirColumna()]);
             s = s + right + " \n";

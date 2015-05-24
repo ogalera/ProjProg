@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.laberints;
 
 import java.io.BufferedReader;
@@ -14,6 +9,7 @@ import logica.enumeracions.EElement;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 import interficie.IPintadorLaberint;
+import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import logica.Item;
@@ -22,19 +18,24 @@ import logica.Punt;
 import logica.Utils;
 
 /**
- *
  * @author oscar
+ * @brief
+ * class que contè un tauler amb elements que es poden desplasar, no coneix
+ * en cap moment l'estat el seu estat sino que només coneix la seva representació.
+ * 
+ * El laberint s'ha de poder comunicar amb la partida per noficiar quan no queden
+ * monedes o quan s'ha obtingut un item (mongeta, patins o monedes x 2).
+ * 
+ * També caldrà que pugui enviar missatges a un pintador per així poder representar-se de forma gràfica
  */
 public class Laberint {
-    protected EElement tauler[][];
-    
-//    protected boolean matriuDIntencions[][];
+    protected EElement tauler[][]; /**<matriu de representacions per els elements que hi ha en el laberint**/
     
     protected Log log = Log.getInstance(Laberint.class);
     
-    protected int costat = -1;
+    protected int costat = -1; /**<costat del laberint, tot laberint ha de ser costat x costat*/
     
-    protected Partida partida;
+    protected Partida partida;/**<partida de la qual forma part el laberint i que li envia missatges*/
     
     protected int nMonedes = 0;
     
@@ -74,6 +75,7 @@ public class Laberint {
         }
         this.nMonedes = numeroMonedes();
         this.nMondesPerItem = (int) (nMonedes*0.1);
+        if(nMondesPerItem == 0) nMondesPerItem = 1;
     }
     
     private EElement [] parseLiniaLaberint(String linia) throws EFormatLaberint{
@@ -92,6 +94,7 @@ public class Laberint {
         this.partida = partida;
         this.nMonedes = numeroMonedes();
         this.nMondesPerItem = (int) (nMonedes*0.3);
+        if(nMondesPerItem == 0) nMondesPerItem = 1;
     }
     
     protected Laberint(Partida partida){
@@ -139,23 +142,25 @@ public class Laberint {
         return element;
     }
     
-    public synchronized EElement moureItem(Punt posicio, EDireccio direccio, EElement elementARestaurar){
-        Punt puntDesplasat = posicio.generarPuntDesplasat(direccio);
-        int filaDesti = puntDesplasat.obtenirFila();
-        int columnaDesti = puntDesplasat.obtenirColumna();
+    public synchronized EElement moureItem(Punt origen, EDireccio direccio, EElement elementARestaurar){
+        Punt desti = origen.generarPuntDesplasat(direccio);
+        int filaDesti = desti.obtenirFila();
+        int columnaDesti = desti.obtenirColumna();
         EElement elementTrapitjat = tauler[filaDesti][columnaDesti];
         if(!elementTrapitjat.esEnemic() && elementTrapitjat != EElement.PACMAN){
-            int filaOrigen = posicio.obtenirFila();
-            int columnaOrigen = posicio.obtenirColumna();
+            int filaOrigen = origen.obtenirFila();
+            int columnaOrigen = origen.obtenirColumna();
             tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
             tauler[filaOrigen][columnaOrigen] = elementARestaurar;
-            pintador.pintarMovimentItem(posicio, direccio, elementARestaurar.obtenirImatge());
+            pintador.pintarMovimentItem(origen, direccio, elementARestaurar.obtenirImatge());
+        }
+        else{
+            elementTrapitjat = null;
         }
         return elementTrapitjat;
     }
     
     public synchronized EElement mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat){
-        System.out.println("mogut");
         Punt desti = origen.generarPuntDesplasat(direccio);
         int filaOrigen = origen.obtenirFila();
         int columnaOrigen = origen.obtenirColumna();
@@ -167,10 +172,11 @@ public class Laberint {
             case MONEDA:
             case MONEDA_EXTRA:{
                 nMonedes--;
-                System.out.println("nMonedes "+nMonedes);
+                System.out.println(nMonedes);
                 tauler[filaOrigen][columnaOrigen] = EElement.RES;
                 tauler[filaDesti][columnaDesti] = elementOrigen;
                 pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+//                nMonedes = numeroMonedes();
                 if(nMonedes == 0){
                     Punt sortida = sortejarSortida();
                     tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
@@ -187,6 +193,7 @@ public class Laberint {
                     partida.assignarItemEspecial(nouItem);
                     System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
                 }
+                System.out.println(this);
             }break;
             case SORTIDA:{
                 System.out.println("s A ARRIBAT A LA SORTIDA "+desti);
@@ -201,9 +208,10 @@ public class Laberint {
                 EElement elementTrapitjat = partida.obtenirItem().obtenirElementTrapitgat();
                 if(elementTrapitjat == EElement.MONEDA || elementTrapitjat == EElement.MONEDA_EXTRA){
                     nMonedes--;
-                    System.out.println("nMonedes "+nMonedes);
+                    System.out.println(nMonedes);
                     tauler[filaOrigen][columnaOrigen] = EElement.RES;
                     tauler[filaDesti][columnaDesti] = elementOrigen;
+//                    nMonedes = numeroMonedes();
                     if(nMonedes == 0){
                         Punt sortida = sortejarSortida();
                         tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
@@ -221,22 +229,20 @@ public class Laberint {
                         System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
                     }
                     pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                    System.out.println(this);
                 }
                 else aplicarMoviment(origen, direccio, imatge);
             }break;
             default:{
                 if(superEstat){
-                    tauler[filaOrigen][columnaOrigen] = EElement.RES;
-                    tauler[filaDesti][columnaDesti] = elementOrigen;
-                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                    elementObtingut = tauler[desti.obtenirFila()][desti.obtenirColumna()];
                 }
                 else elementObtingut = obtenirElement(origen);
             }break;
         }
-        System.out.println(this);
         return elementObtingut;
     }
-    
+
     private synchronized void aplicarMoviment(Punt origen, EDireccio direccio, ImageIcon imatge){
         int columna = origen.obtenirColumna();
         int fila = origen.obtenirFila();
@@ -247,66 +253,66 @@ public class Laberint {
         pintador.pintarMovimentPersonatge(origen, direccio, imatge);
     }
     
-    public synchronized EElement mourePersonatge(Punt posicio, EDireccio direccio, ImageIcon imatge){
-        int columna = posicio.obtenirColumna();
-        int fila = posicio.obtenirFila();
-        EElement objecteAMoure = this.tauler[fila][columna];
-        this.tauler[fila][columna] = EElement.RES;
-        Punt p = posicio.generarPuntDesplasat(direccio);
-        columna = p.obtenirColumna();
-        fila = p.obtenirFila();
-        EElement objecteAgafat = this.tauler[fila][columna];
-        
-        if(objecteAgafat == EElement.MONGETA || objecteAgafat == EElement.PATINS || objecteAgafat == EElement.MONEDES_X2){
-            EElement item = partida.obtenirItem().obtenirElementTrapitgat();
-            if(item == EElement.MONEDA || item == EElement.MONEDA_EXTRA){
-                nMonedes--;
-            }
-            if(nMonedes == 0){
-               Punt sortida = sortejarSortida();
-               int xSortida = sortida.obtenirColumna();
-               int ySortida = sortida.obtenirFila();
-               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
-               pintador.pintarSortida(sortida);
-               partida.assignarGuanyador();
-            }
-        }
-        else if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
-            this.nMonedes--;
-            if(nMonedes == 0){
-               Punt sortida = sortejarSortida();
-               int xSortida = sortida.obtenirColumna();
-               int ySortida = sortida.obtenirFila();
-               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
-               System.out.println("Sortida a "+sortida);
-               pintador.pintarSortida(sortida);
-               partida.assignarGuanyador();
-            }
-            else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
-                //Toca sortejar un nou item
-                Punt puntItem = sortejarPosicioItem();
-                EElement item = sortejarItem();
-                Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
-                int filaItem = puntItem.obtenirFila();
-                int columnaItem = puntItem.obtenirColumna();
-                this.tauler[filaItem][columnaItem] = item;
-                pintador.pintarNouItem(puntItem, item);
-                partida.assignarItemEspecial(nouItem);
-                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
-            }
-        }
-        else if(objecteAgafat == EElement.SORTIDA){
-            System.out.println("s A ARRIBAT A LA SORTIDA "+p);
-            partida.finalitzarPartida();
-        }
-        this.tauler[fila][columna] = objecteAMoure;
-        if(direccio != EDireccio.QUIET) {
-            pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
-//            desmarcarIntencio(posicio);
-        }
-        System.out.println(this);
-        return objecteAgafat;
-    }
+//    public synchronized EElement mourePersonatge(Punt posicio, EDireccio direccio, ImageIcon imatge){
+//        int columna = posicio.obtenirColumna();
+//        int fila = posicio.obtenirFila();
+//        EElement objecteAMoure = this.tauler[fila][columna];
+//        this.tauler[fila][columna] = EElement.RES;
+//        Punt p = posicio.generarPuntDesplasat(direccio);
+//        columna = p.obtenirColumna();
+//        fila = p.obtenirFila();
+//        EElement objecteAgafat = this.tauler[fila][columna];
+//        
+//        if(objecteAgafat == EElement.MONGETA || objecteAgafat == EElement.PATINS || objecteAgafat == EElement.MONEDES_X2){
+//            EElement item = partida.obtenirItem().obtenirElementTrapitgat();
+//            if(item == EElement.MONEDA || item == EElement.MONEDA_EXTRA){
+//                nMonedes--;
+//            }
+//            if(nMonedes == 0){
+//               Punt sortida = sortejarSortida();
+//               int xSortida = sortida.obtenirColumna();
+//               int ySortida = sortida.obtenirFila();
+//               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
+//               pintador.pintarSortida(sortida);
+//               partida.assignarGuanyador();
+//            }
+//        }
+//        else if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
+//            this.nMonedes--;
+//            if(nMonedes == 0){
+//               Punt sortida = sortejarSortida();
+//               int xSortida = sortida.obtenirColumna();
+//               int ySortida = sortida.obtenirFila();
+//               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
+//               System.out.println("Sortida a "+sortida);
+//               pintador.pintarSortida(sortida);
+//               partida.assignarGuanyador();
+//            }
+//            else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+//                //Toca sortejar un nou item
+//                Punt puntItem = sortejarPosicioItem();
+//                EElement item = sortejarItem();
+//                Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
+//                int filaItem = puntItem.obtenirFila();
+//                int columnaItem = puntItem.obtenirColumna();
+//                this.tauler[filaItem][columnaItem] = item;
+//                pintador.pintarNouItem(puntItem, item);
+//                partida.assignarItemEspecial(nouItem);
+//                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+//            }
+//        }
+//        else if(objecteAgafat == EElement.SORTIDA){
+//            System.out.println("s A ARRIBAT A LA SORTIDA "+p);
+//            partida.finalitzarPartida();
+//        }
+//        this.tauler[fila][columna] = objecteAMoure;
+//        if(direccio != EDireccio.QUIET) {
+//            pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
+////            desmarcarIntencio(posicio);
+//        }
+//        System.out.println(this);
+//        return objecteAgafat;
+//    }
     
     private synchronized Punt sortejarSortida(){
         System.out.println("\n\n*****\nSORTEJEM SORTIDA");
@@ -317,8 +323,7 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
             element = tauler[fila][columna];
-        }
-        while(element != EElement.RES);
+        }while(element != EElement.RES);
         return new Punt(fila, columna);
     }
     
@@ -345,7 +350,7 @@ public class Laberint {
             fila = Utils.obtenirValorAleatori(costat);
             columna = Utils.obtenirValorAleatori(costat);
             element = tauler[fila][columna];
-        }while(element == EElement.PARET || element.esEnemic());
+        }while(element != EElement.RES);
         return new Punt(fila, columna);
     }
     
@@ -414,7 +419,7 @@ public class Laberint {
     }
     
     
-    public int obtenirMidaImatge(){
+    public Dimension obtenirMidaImatge(){
         return this.pintador.obtenirMidaImatge();
     }
     

@@ -5,6 +5,7 @@
  */
 package logica;
 
+import dades.BD;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import logica.enumeracions.EElement;
@@ -13,13 +14,15 @@ import logica.enumeracions.EElement;
  * @author oscar
  */
 public class Usuari {
+    private final int id;
     private final String nomUsuari;
     private final String urlImatge;
     private ENivells nivell;
     private EDificultat dificultat;
+    private int punts;
     
     public static enum EDificultat{
-        FACIL(EElement.FANTASMA2), MITJA(EElement.FANTASMA3), DIFICIL(EElement.FANTASMA3);
+        FACIL(EElement.FANTASMA1), MITJA(EElement.FANTASMA2), DIFICIL(EElement.FANTASMA3);
         EElement enemic;
         private EDificultat(EElement enemic){
             this.enemic = enemic;
@@ -27,6 +30,11 @@ public class Usuari {
         
         public EElement obtenirEnemicAssignatADificultat(){
             return this.enemic;
+        }
+        
+        @Override
+        public String toString(){
+            return this.name();
         }
     };
     
@@ -61,30 +69,53 @@ public class Usuari {
         
         public static ENivells obtenirNivellPerId(int id){
             switch(id){
-                case 1:{
-                    return PRIMER;
+                case 1:return PRIMER;
+                case 2:return SEGON;
+                case 3:return TERCER;
+                case 4:return QUART;
+                default:return CINQUE;
+            }
+        }
+        
+        public int obtenirIdNivell(){
+            switch(this){
+                case PRIMER: return 1;
+                case SEGON: return 2;
+                case TERCER: return 3;
+                case QUART: return 4;
+                default: return 5;
+            }
+        }
+        
+        @Override 
+        public String toString(){
+            switch(this){
+                case PRIMER:{
+                    return "1";
                 }
-                case 2:{
-                    return SEGON;
+                case SEGON:{
+                    return "2";
                 }
-                case 3:{
-                    return TERCER;
+                case TERCER:{
+                    return "3";
                 }
-                case 4:{
-                    return QUART;
+                case QUART:{
+                    return "4";
                 }
                 default:{
-                    return CINQUE;
+                    return "5";
                 }
             }
         }
     }
     
     public Usuari(int id, String nomUsuari, int nivell, String urlImatge){
+        this.id = id;
         this.dificultat = EDificultat.FACIL;
         this.nomUsuari = nomUsuari;
         this.nivell = ENivells.obtenirNivellPerId(nivell);
         this.urlImatge = urlImatge;
+        this.punts = 0;
     }
     
     public EDificultat obtenirDificultat(){
@@ -103,34 +134,21 @@ public class Usuari {
         return new ImageIcon(urlImatge);
     }
     
-    public void pantallaSuperada(){
-        if(dificultat == EDificultat.FACIL){
-            dificultat = EDificultat.MITJA;
-        }
-        else if(dificultat == EDificultat.MITJA){
-            dificultat = EDificultat.DIFICIL;
-        }
-        else{
-            nivell = nivell.seguentNivell();
-            dificultat = EDificultat.FACIL;
-        }
-    }
-    
-    public static class PuntuacioNivell{
-        int punts;
-        long tempsMillis;
-        
-        public PuntuacioNivell(int punts, long temps){
-            this.punts = punts;
-            this.tempsMillis = temps;
-        }
-
-        public int obtenirPuntsNivell(){
-            return this.punts;
-        }
-        
-        public int obtenirSegonsNivell(){
-            return (int)this.tempsMillis/1_000;
+    public void pantallaSuperada(int pnt){
+        punts += pnt;
+        switch(dificultat){
+            case FACIL:{
+                dificultat = EDificultat.MITJA;
+            }break;
+            case MITJA:{
+                dificultat = EDificultat.DIFICIL;
+            }break;
+            case DIFICIL:{
+                BD.nivellSuperat(nivell.obtenirIdNivell(), id, punts);
+                nivell = nivell.seguentNivell();
+                dificultat = EDificultat.FACIL;
+                this.punts = 0;
+            }break;
         }
     }
 }

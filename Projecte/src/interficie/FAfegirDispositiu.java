@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import java.net.InetAddress;
@@ -11,8 +6,10 @@ import javax.swing.ImageIcon;
 import logica.Utils.Constants;
 
 /**
- *
  * @author oscar
+ * @brief
+ * NO ESTÀ ACABAT D'IMPLEMENTAR PER TANT NO ENTRA DINS DEL NOSTRE PROJECTE;
+ * PERMET ASSOCIAR UN NOU DISPOSITIU MÒVIL PER CONTROLAR EN PACMAN
  */
 public class FAfegirDispositiu extends FFrameAmbLog {
 

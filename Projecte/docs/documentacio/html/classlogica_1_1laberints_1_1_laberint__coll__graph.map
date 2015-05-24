@@ -1,0 +1,6 @@
+<map id="logica.laberints.Laberint" name="logica.laberints.Laberint">
+<area shape="rect" id="node2" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/>
+<area shape="rect" id="node3" href="$classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/>
+<area shape="rect" id="node4" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/>
+<area shape="rect" id="node6" href="$classlogica_1_1_partida.html" title="logica.Partida" alt="" coords="196,157,297,184"/>
+</map>

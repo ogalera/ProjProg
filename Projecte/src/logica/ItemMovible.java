@@ -68,8 +68,8 @@ public abstract class ItemMovible {
         private boolean calcularProximMoviment = true;
         @Override
         public void run() {
-            realitzarMoviment();
             if(calcularProximMoviment){
+                realitzarMoviment();
                 long tempsIniciCalcul = System.currentTimeMillis();
                 seguentMoviment = calcularMoviment();
                 long tempsFinalCalcul = System.currentTimeMillis();

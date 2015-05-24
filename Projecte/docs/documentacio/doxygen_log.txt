@@ -1,0 +1,1156 @@
+Warning: Tag `CLANG_ASSISTED_PARSING' at line 1040 of file `-' belongs to an option that was not enabled at compile time.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u", or recompile doxygen with this feature enabled.
+Warning: Tag `CLANG_OPTIONS' at line 1048 of file `-' belongs to an option that was not enabled at compile time.
+         To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u", or recompile doxygen with this feature enabled.
+warning: The selected output language "catalan" has not been updated
+since release 1.8.0.  As a result some sentences may appear in English.
+Searching for include files...
+Searching for example files...
+Searching for images...
+Searching for dot files...
+Searching for msc files...
+Searching for dia files...
+Searching for files to exclude
+Searching for files to process...
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/dades
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/interficie
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/AEstrella
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints
+Searching for files in directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/log
+Reading and parsing tag files
+Parsing files
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/background.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/background.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Boto.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Boto.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Crono.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Crono.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Marcador.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Marcador.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FAfegirDispositiu.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FAfegirDispositiu.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FAlta.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FAlta.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FEditorLaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FEditorLaberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FFrameAmbLog.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FFrameAmbLog.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FHistoricUsuari.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FHistoricUsuari.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FLog.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FLog.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FLogin.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FLogin.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FMenu.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FMenu.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FRanking.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/FRanking.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/AEstrella/BuscadorCamiMinim.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/AEstrella/BuscadorCamiMinim.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/BuscadorCamiMaxim.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/BuscadorCamiMaxim.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/TestAlgoritmica.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/TestAlgoritmica.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Audio.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Audio.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorMobil.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorMobil.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorTeclat.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorTeclat.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/IControlador.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/IControlador.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/ELaberintsPredefinits.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/ELaberintsPredefinits.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EFinalitzarPartida.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EFinalitzarPartida.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EFormatLaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EFormatLaberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EGeneradorLaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EGeneradorLaberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EHistoric.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EHistoric.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EHistoricBuit.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EHistoricBuit.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EIniciarPartida.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EIniciarPartida.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EItemMovibleIniciat.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EItemMovibleIniciat.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ELaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ELaberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ExceptionBuscadorCamins.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ExceptionBuscadorCamins.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ExceptionPunt.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ExceptionPunt.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/Pila.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/Pila.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintAleatori.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintAleatori.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintLinealHoritzontal.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintLinealHoritzontal.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintLinealVertical.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintLinealVertical.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/log/Log.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/log/Log.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Projecte.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Projecte.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Punt.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Punt.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/Utils.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/Utils.java...
+Reading /home/oscar/Desktop/ProjProg/Projecte/src/logica/ValidadorLaberint.java...
+Parsing file /home/oscar/Desktop/ProjProg/Projecte/src/logica/ValidadorLaberint.java...
+Building group list...
+Building directory list...
+Building namespace list...
+Building file list...
+Building class list...
+Associating documentation with classes...
+Computing nesting relations for classes...
+Building example list...
+Searching for enumerations...
+Searching for documented typedefs...
+Searching for members imported via using declarations...
+Searching for included using directives...
+Searching for documented variables...
+Building interface member list...
+Building member list...
+Searching for friends...
+Searching for documented defines...
+Computing class inheritance relations...
+Computing class usage relations...
+Flushing cached template relations that have become invalid...
+Creating members for template instances...
+Computing class relations...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:41: warning: Compound logica::Usuari::ENivells is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Utils.java:17: warning: Compound logica::Utils::Constants is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:24: warning: Compound logica::Usuari::EDificultat is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:37: warning: Compound logica::Personatge::EEstatPersonatge is not documented.
+Add enum values to enums...
+Searching for member function documentation...
+Building page list...
+Search for main page...
+Computing page relations...
+Determining the scope of groups...
+Sorting lists...
+Freeing entry tree
+Determining which enums are documented
+Computing member relations...
+Building full member lists recursively...
+Adding members to member groups.
+Computing member references...
+Inheriting documentation...
+Generating disk names...
+Adding source references...
+Adding xrefitems...
+Sorting member lists...
+Computing dependencies between directories...
+Generating citations page...
+Counting data structures...
+Resolving user defined references...
+Finding anchors and sections in the documentation...
+Transferring function references...
+Combining using relations...
+Adding members to index pages...
+Generating style sheet...
+Generating search indices...
+Generating example documentation...
+Generating file sources...
+Generating file documentation...
+Generating page documentation...
+Generating group documentation...
+Generating class documentation...
+Generating namespace index...
+Generating docs for compound dades::BD...
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:23: warning: Member afegirUsuari(String user, String password, String rutaImatge) (function) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:57: warning: Member obtenirRanking(int topN) (function) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:91: warning: Member existeixUsuari(String usuari) (function) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:119: warning: Member nivellSuperat(int nivell, int usuId, int punts) (function) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:134: warning: Member obtenirUsuari(String user, String password) (function) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:165: warning: Member esPrimerAcces() (function) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:20: warning: Member PATH_BD (variable) of class dades::BD is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/dades/BD.java:21: warning: Member URL_BD (variable) of class dades::BD is not documented.
+Generating docs for compound interficie::FAfegirDispositiu...
+Generating docs for compound interficie::FAlta...
+Generating docs for compound interficie::FEditorLaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FEditorLaberint.java:48: warning: Member FEditorLaberint(int costat) (function) of class interficie::FEditorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FEditorLaberint.java:67: warning: Member mostrarFrame() (function) of class interficie::FEditorLaberint is not documented.
+Generating docs for compound interficie::FFrameAmbLog...
+Generating docs for compound interficie::FHistoricUsuari...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FHistoricUsuari.java:20: warning: Member FHistoricUsuari(String nomUsuari, Icon imatge, int[]puntuacions) (function) of class interficie::FHistoricUsuari is not documented.
+Generating docs for compound interficie::FLog...
+Generating docs for compound interficie::FLogin...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FLogin.java:26: warning: Member mostrarFrame() (function) of class interficie::FLogin is not documented.
+Generating docs for compound interficie::FMenu...
+Generating docs for compound interficie::FPartida...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:42: warning: Member FPartida(PLaberint panellLaberint) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:53: warning: Member pintarPuntsPacman(int punts) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:58: warning: Member pintarPuntsEnemic(int punts) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:63: warning: Member pintarPartida(Partida partida) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:107: warning: Member pintarItemPartida(ImageIcon item) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:113: warning: Member pintarFinalPartida() (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:118: warning: Member pintarIniciPartida() (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:123: warning: Member pintarItemPacman(ImageIcon imatge) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:130: warning: Member pintarItemEnemic(ImageIcon imatge) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:136: warning: Member tancarPantalla() (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/FPartida.java:213: warning: Member assignarPartida(final Partida partida) (function) of class interficie::FPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:25: warning: Member assignarPartida(Partida partida) (function) of class interficie::IPintadorPartida is not documented.
+Generating docs for compound interficie::FRanking...
+Generating docs for compound interficie::IPintadorLaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:20: warning: Member assignarControladorTeclat(KeyListener controlador) (function) of class interficie::IPintadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:21: warning: Member pintarMovimentPersonatge(Punt pOrigen, EDireccio direccio, ImageIcon imatge) (function) of class interficie::IPintadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:22: warning: Member pintarMovimentItem(Punt pOrigen, EDireccio direccio, ImageIcon imatge) (function) of class interficie::IPintadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:23: warning: Member pintarNouItem(Punt pNouItem, EElement item) (function) of class interficie::IPintadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:24: warning: Member pintarLaberint(Laberint laberint) (function) of class interficie::IPintadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:25: warning: Member obtenirMidaImatge() (function) of class interficie::IPintadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorLaberint.java:26: warning: Member pintarSortida(Punt pSortida) (function) of class interficie::IPintadorLaberint is not documented.
+Generating docs for compound interficie::IPintadorPartida...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:16: warning: Member pintarPuntsPacman(int punts) (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:17: warning: Member pintarPuntsEnemic(int punts) (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:18: warning: Member pintarItemPartida(ImageIcon imatge) (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:19: warning: Member pintarItemPacman(ImageIcon imatge) (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:20: warning: Member pintarItemEnemic(ImageIcon imatge) (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:21: warning: Member pintarPartida(Partida partida) (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:22: warning: Member pintarFinalPartida() (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:23: warning: Member pintarIniciPartida() (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:24: warning: Member tancarPantalla() (function) of class interficie::IPintadorPartida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/IPintadorPartida.java:25: warning: Member assignarPartida(Partida partida) (function) of class interficie::IPintadorPartida is not documented.
+Generating docs for compound interficie::PLaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:43: warning: Member keyTyped(KeyEvent e) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:48: warning: Member keyPressed(KeyEvent e) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:53: warning: Member keyReleased(KeyEvent e) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:58: warning: Member pintarMovimentPersonatge(Punt pOrigen, EDireccio direccio, ImageIcon imatge) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:65: warning: Member pintarNouItem(Punt pNouItem, EElement nouItem) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:73: warning: Member pintarLaberint(Laberint laberint) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:98: warning: Member assignarControladorTeclat(KeyListener controlador) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:103: warning: Member pintarMovimentItem(Punt pOrigen, EDireccio direccio, ImageIcon imatge) (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:109: warning: Member obtenirMidaImatge() (function) of class interficie::PLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/PLaberint.java:114: warning: Member pintarSortida(Punt pSortida) (function) of class interficie::PLaberint is not documented.
+Generating docs for compound interficie::components::background...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/background.java:22: warning: Member background(Image i, int altura, int amplada) (function) of class interficie::components::background is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/background.java:29: warning: Member paintComponent(Graphics g) (function) of class interficie::components::background is not documented.
+Generating docs for compound interficie::components::Boto...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Boto.java:42: warning: Member Boto(String text) (function) of class interficie::components::Boto is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Boto.java:52: warning: Member Boto(ImageIcon imtg) (function) of class interficie::components::Boto is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Boto.java:63: warning: Member paintComponent(Graphics g) (function) of class interficie::components::Boto is not documented.
+Generating docs for compound interficie::components::Crono...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Crono.java:44: warning: Member iniciarCrono() (function) of class interficie::components::Crono is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Crono.java:50: warning: Member pararCrono() (function) of class interficie::components::Crono is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Crono.java:55: warning: Member run() (function) of class interficie::components::Crono is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Crono.java:17: warning: Found unknown command `\Class'
+Generating docs for compound interficie::components::Marcador...
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Marcador.java:21: warning: Member Marcador(ImageIcon img) (function) of class interficie::components::Marcador is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Marcador.java:81: warning: Member canviarPuntuacio(int p) (function) of class interficie::components::Marcador is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/interficie/components/Marcador.java:15: warning: Found unknown command `\Class'
+Generating docs for compound logica::Audio...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Audio.java:29: warning: Member reprodueixMenjaMoneda() (function) of class logica::Audio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Audio.java:45: warning: Member reprodueixMenjaItem() (function) of class logica::Audio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Audio.java:62: warning: Member reprodueixInici() (function) of class logica::Audio is not documented.
+Generating docs for compound logica::Fantasma1...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java:21: warning: Member Fantasma1(Partida partida, Laberint laberint, Punt inici) (function) of class logica::Fantasma1 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java:27: warning: Member realitzarMoviment() (function) of class logica::Fantasma1 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java:64: warning: Member calcularMoviment() (function) of class logica::Fantasma1 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java:75: warning: Member nomItemMovible() (function) of class logica::Fantasma1 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:41: warning: Member Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:48: warning: Member obtenirPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:52: warning: Member assignarGuanya(boolean guanya) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:56: warning: Member estaGuanyant() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:61: warning: Member realitzarMoviment() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:121: warning: Member reiniciarPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:156: warning: Member iniciarItemMovible() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java:80: warning: Member assignarImatges() (function) of class logica::Fantasma1 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma1.java:93: warning: Member notificarPerduaEstat() (function) of class logica::Fantasma1 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:97: warning: Member assignarEstatPersonatge(EElement item) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:127: warning: Member incrementarPunts(int punts) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:151: warning: Member obtenirEstatPersonatge() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:179: warning: Member notificarPerduaEstat() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:180: warning: Member assignarImatges() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:25: warning: Member punts (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:34: warning: Member estatPersonatge (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:35: warning: Member imatges[][] (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+Generating docs for compound logica::Fantasma2...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java:14: warning: Member Fantasma2(Partida partida, Laberint laberint, Punt inici) (function) of class logica::Fantasma2 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java:19: warning: Member calcularMoviment() (function) of class logica::Fantasma2 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java:102: warning: Member realitzarMoviment() (function) of class logica::Fantasma2 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java:182: warning: Member nomItemMovible() (function) of class logica::Fantasma2 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:41: warning: Member Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:48: warning: Member obtenirPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:52: warning: Member assignarGuanya(boolean guanya) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:56: warning: Member estaGuanyant() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:61: warning: Member realitzarMoviment() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:121: warning: Member reiniciarPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:156: warning: Member iniciarItemMovible() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java:187: warning: Member assignarImatges() (function) of class logica::Fantasma2 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma2.java:200: warning: Member notificarPerduaEstat() (function) of class logica::Fantasma2 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:97: warning: Member assignarEstatPersonatge(EElement item) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:127: warning: Member incrementarPunts(int punts) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:151: warning: Member obtenirEstatPersonatge() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:179: warning: Member notificarPerduaEstat() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:180: warning: Member assignarImatges() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:25: warning: Member punts (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:34: warning: Member estatPersonatge (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:35: warning: Member imatges[][] (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+Generating docs for compound logica::Fantasma3...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java:32: warning: Member Fantasma3(Partida partida, Laberint laberint, Punt inici) (function) of class logica::Fantasma3 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java:63: warning: Member calcularMoviment() (function) of class logica::Fantasma3 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java:103: warning: Member realitzarMoviment() (function) of class logica::Fantasma3 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java:177: warning: Member nomItemMovible() (function) of class logica::Fantasma3 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:41: warning: Member Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:48: warning: Member obtenirPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:52: warning: Member assignarGuanya(boolean guanya) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:56: warning: Member estaGuanyant() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:61: warning: Member realitzarMoviment() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:121: warning: Member reiniciarPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:156: warning: Member iniciarItemMovible() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java:44: warning: Member assignarImatges() (function) of class logica::Fantasma3 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Fantasma3.java:604: warning: Member notificarPerduaEstat() (function) of class logica::Fantasma3 is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:97: warning: Member assignarEstatPersonatge(EElement item) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:127: warning: Member incrementarPunts(int punts) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:151: warning: Member obtenirEstatPersonatge() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:179: warning: Member notificarPerduaEstat() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:180: warning: Member assignarImatges() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:25: warning: Member punts (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:34: warning: Member estatPersonatge (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:35: warning: Member imatges[][] (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+Generating docs for compound logica::Item...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java:28: warning: Member Item(Partida partida, EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici) (function) of class logica::Item is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java:39: warning: Member calcularMoviment() (function) of class logica::Item is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java:111: warning: Member nomItemMovible() (function) of class logica::Item is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java:115: warning: Member obtenirElementTrapitgat() (function) of class logica::Item is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Item.java:120: warning: Member realitzarMoviment() (function) of class logica::Item is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+Generating docs for compound logica::ItemMovible...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+Generating docs for compound logica::Pacman...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:23: warning: Member Pacman(Partida partida, Laberint laberint, IControlador controlador, Punt inici) (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:35: warning: Member realitzarMoviment() (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:78: warning: Member calcularMoviment() (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:107: warning: Member nomItemMovible() (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:111: warning: Member nouMoviment(EDireccio teclaPremuda) (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:41: warning: Member Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:48: warning: Member obtenirPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:52: warning: Member assignarGuanya(boolean guanya) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:56: warning: Member estaGuanyant() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:61: warning: Member realitzarMoviment() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:121: warning: Member reiniciarPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:156: warning: Member iniciarItemMovible() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:121: warning: Member assignarImatges() (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Pacman.java:134: warning: Member notificarPerduaEstat() (function) of class logica::Pacman is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:97: warning: Member assignarEstatPersonatge(EElement item) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:127: warning: Member incrementarPunts(int punts) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:151: warning: Member obtenirEstatPersonatge() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:179: warning: Member notificarPerduaEstat() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:180: warning: Member assignarImatges() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:25: warning: Member punts (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:34: warning: Member estatPersonatge (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:35: warning: Member imatges[][] (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+Generating docs for compound logica::Partida...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:82: warning: Member Partida(ELaberintsPredefinits laberint, int costat, EElement enemic, IPintadorPartida pintadorPartida, IPintadorLaberint pintadorLaberint, IControlador controlador) (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:175: warning: Member assignarGuanyador() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:191: warning: Member itemCapturat() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:199: warning: Member assignarItemEspecial(Item item) (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:204: warning: Member hiHaItemEspecial() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:208: warning: Member obtenirImatgePacman() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:212: warning: Member obtenirImatgeFantasma() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:216: warning: Member obtenirLaberint() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:220: warning: Member assignarPuntsPacman(int punts) (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:224: warning: Member assignarPuntsEnemic(int punts) (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:228: warning: Member reiniciarPuntsEnemic() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:235: warning: Member reiniciarPuntsPacman() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:242: warning: Member assignarItemAPacman(EElement item) (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:246: warning: Member assignarItemAEnemic(EElement item) (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:250: warning: Member treureItemPacman() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:254: warning: Member treureItemEnemic() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:258: warning: Member obtenirPuntPacman() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:262: warning: Member obtenirPuntEnemic() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:267: warning: Member obtenirEstatPacman() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:271: warning: Member obtenirItem() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:275: warning: Member obtenirPuntuacioPacman() (function) of class logica::Partida is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Partida.java:279: warning: Member obtenirPuntsPacman() (function) of class logica::Partida is not documented.
+Generating docs for compound logica::Personatge...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:41: warning: Member Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:48: warning: Member obtenirPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:52: warning: Member assignarGuanya(boolean guanya) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:56: warning: Member estaGuanyant() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:61: warning: Member realitzarMoviment() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:121: warning: Member reiniciarPunts() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:156: warning: Member iniciarItemMovible() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:34: warning: Member ItemMovible(Partida partida, ImageIcon imatge, Laberint laberint, Punt inici, long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:43: warning: Member iniciarItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:60: warning: Member finalitzarItem() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:82: warning: Member obtenirTempsTotalCalcul() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:86: warning: Member realitzarMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:87: warning: Member calcularMoviment() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:88: warning: Member nomItemMovible() (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:97: warning: Member assignarEstatPersonatge(EElement item) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:127: warning: Member incrementarPunts(int punts) (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:151: warning: Member obtenirEstatPersonatge() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:179: warning: Member notificarPerduaEstat() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:180: warning: Member assignarImatges() (function) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:52: warning: Member canviarFrequenciaMoviment(long frequencia) (function) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:25: warning: Member punts (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:34: warning: Member estatPersonatge (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:35: warning: Member imatges[][] (variable) of class logica::Personatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:24: warning: Member laberint (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:25: warning: Member posicio (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:26: warning: Member seguentMoviment (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:30: warning: Member partida (variable) of class logica::ItemMovible is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java:29: warning: Member imatgePerfil (variable) of class logica::ItemMovible is not documented.
+Generating docs for nested compound logica::Personatge::EEstatPersonatge...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:38: warning: Member NORMAL (variable) of class logica::Personatge::EEstatPersonatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:38: warning: Member AMB_PATINS (variable) of class logica::Personatge::EEstatPersonatge is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Personatge.java:38: warning: Member AMB_MONEDES_X2 (variable) of class logica::Personatge::EEstatPersonatge is not documented.
+Generating docs for compound logica::Projecte...
+Generating docs for compound logica::Punt...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Punt.java:85: warning: Member toString() (function) of class logica::Punt is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Punt.java:91: warning: Member equals(Object obj) (function) of class logica::Punt is not documented.
+Generating docs for compound logica::Usuari...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:112: warning: Member Usuari(int id, String nomUsuari, int nivell, String urlImatge) (function) of class logica::Usuari is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:121: warning: Member obtenirDificultat() (function) of class logica::Usuari is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:125: warning: Member obtenirNomUsuari() (function) of class logica::Usuari is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:129: warning: Member obtenirNivell() (function) of class logica::Usuari is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:133: warning: Member obtenirImatge() (function) of class logica::Usuari is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Usuari.java:137: warning: Member pantallaSuperada(int pnt) (function) of class logica::Usuari is not documented.
+Generating docs for compound logica::Utils...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Utils.java:32: warning: Member obtenirValorAleatori(int max) (function) of class logica::Utils is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Utils.java:69: warning: Member redimensionarImatge(ImageIcon imatge, int px) (function) of class logica::Utils is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/Utils.java:73: warning: Member redimensionarImatge(BufferedImage originalImage, int tipus, int amplada, int altura) (function) of class logica::Utils is not documented.
+Generating docs for compound logica::ValidadorLaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ValidadorLaberint.java:43: warning: Member validarLaberint(int[][] laberint, int costat) (function) of class logica::ValidadorLaberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/ValidadorLaberint.java:150: warning: Member validarLaberint(EElement[][] laberint, int costat) (function) of class logica::ValidadorLaberint is not documented.
+Generating docs for compound logica::algoritmica::Casella...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:23: warning: Member Casella(Punt p) (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:31: warning: Member setParent(Casella _pare) (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:36: warning: Member getParent() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:40: warning: Member getProfunditat() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:44: warning: Member obtenirPunt() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:48: warning: Member afegirDistanciaAlObjectiu(int n) (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:51: warning: Member obtenirDistanciaAlObjectiu() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:54: warning: Member processat() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:57: warning: Member noProcessat() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:60: warning: Member haEstatProcessat() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:63: warning: Member reset() (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:72: warning: Member compareTo(Casella o) (function) of class logica::algoritmica::Casella is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/Casella.java:82: warning: Member equals(Object o) (function) of class logica::algoritmica::Casella is not documented.
+Generating docs for compound logica::algoritmica::GestorCamins...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java:21: warning: Member GestorCamins(Laberint lab) (function) of class logica::algoritmica::GestorCamins is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java:26: warning: Member trobarCamiMinim(Punt origen, Punt desti) (function) of class logica::algoritmica::GestorCamins is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java:30: warning: Member minimitzarDistancia(Punt inici, Punt desti) (function) of class logica::algoritmica::GestorCamins is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java:36: warning: Member trobarCamiMaximitzarDist(Punt inici, Punt puntAFugir) (function) of class logica::algoritmica::GestorCamins is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/GestorCamins.java:41: warning: Member maximitzarDistancia(Punt inici, Punt puntAFugir) (function) of class logica::algoritmica::GestorCamins is not documented.
+Generating docs for compound logica::algoritmica::LlistaOrdenadaCandidats...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:23: warning: Member obtenirPrimer() (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:26: warning: Member obtenirUltim() (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:31: warning: Member clear() (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:35: warning: Member afegir(Casella c) (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:40: warning: Member elimina(Casella c) (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:44: warning: Member esBuida() (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:47: warning: Member obtenirElement(int index) (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:50: warning: Member conteElement(Casella c) (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:54: warning: Member getElement(Casella c) (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:58: warning: Member size() (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/LlistaOrdenadaCandidats.java:61: warning: Member ordena() (function) of class logica::algoritmica::LlistaOrdenadaCandidats is not documented.
+Generating docs for compound logica::algoritmica::TestAlgoritmica...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/TestAlgoritmica.java:19: warning: Member main(String[] args) (function) of class logica::algoritmica::TestAlgoritmica is not documented.
+Generating docs for compound logica::algoritmica::AEstrella::BuscadorCamiMinim...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/AEstrella/BuscadorCamiMinim.java:28: warning: Member BuscadorCamiMinim(Laberint lab) (function) of class logica::algoritmica::AEstrella::BuscadorCamiMinim is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/AEstrella/BuscadorCamiMinim.java:43: warning: Member BuscaCamiMesCurt(Punt origen, Punt desti) (function) of class logica::algoritmica::AEstrella::BuscadorCamiMinim is not documented.
+Generating docs for compound logica::algoritmica::BackTracking::BuscadorCamiMaxim...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/BuscadorCamiMaxim.java:22: warning: Member BuscadorCamiMaxim(Laberint lab) (function) of class logica::algoritmica::BackTracking::BuscadorCamiMaxim is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/BuscadorCamiMaxim.java:28: warning: Member BuscaCamiMaxim(Punt personatge, Punt enemic) (function) of class logica::algoritmica::BackTracking::BuscadorCamiMaxim is not documented.
+Generating docs for compound logica::algoritmica::BackTracking::Solucio...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:37: warning: Member Solucio(Solucio s) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:60: warning: Member Solucio(Laberint lab) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:76: warning: Member esSolucioCompleta() (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:84: warning: Member assignaOrigenIPuntAFugir(Punt origen, Punt enemic) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:95: warning: Member esMillorSolucio(Solucio s) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:99: warning: Member acceptable(Casella c) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:103: warning: Member anotar(Casella c) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:110: warning: Member desanotar(Casella c) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:119: warning: Member potSerMillor(Solucio opt, Casella c) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:135: warning: Member generarCandidats(Punt p) (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:170: warning: Member generaRuta() (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking/Solucio.java:209: warning: Member reset() (function) of class logica::algoritmica::BackTracking::Solucio is not documented.
+Generating docs for compound logica::controladors_pacman::ControladorMobil...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorMobil.java:14: warning: Member ControladorMobil(ServerSocket socket) (function) of class logica::controladors_pacman::ControladorMobil is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorMobil.java:19: warning: Member assignarPacman(Pacman pacman) (function) of class logica::controladors_pacman::ControladorMobil is not documented.
+Generating docs for compound logica::controladors_pacman::ControladorTeclat...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorTeclat.java:15: warning: Member assignarPacman(Pacman pacman) (function) of class logica::controladors_pacman::ControladorTeclat is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorTeclat.java:20: warning: Member keyTyped(KeyEvent e) (function) of class logica::controladors_pacman::ControladorTeclat is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorTeclat.java:25: warning: Member keyPressed(KeyEvent e) (function) of class logica::controladors_pacman::ControladorTeclat is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/ControladorTeclat.java:44: warning: Member keyReleased(KeyEvent e) (function) of class logica::controladors_pacman::ControladorTeclat is not documented.
+Generating docs for compound logica::controladors_pacman::IControlador...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman/IControlador.java:10: warning: Member assignarPacman(Pacman pacman) (function) of class logica::controladors_pacman::IControlador is not documented.
+Generating docs for compound logica::enumeracions::EDireccio...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:19: warning: Member obtenirIncrementColumna() (function) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:23: warning: Member obtenirIncrementFila() (function) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:27: warning: Member obtenirMovimentInvers() (function) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:49: warning: Member obtenirRestaDireccions(EDireccio direccio) (function) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:79: warning: Member obtenirDireccio(Punt origen, Punt desti) (function) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:10: warning: Member AMUNT (variable) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:10: warning: Member AVALL (variable) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:10: warning: Member ESQUERRA (variable) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:10: warning: Member DRETA (variable) of class logica::enumeracions::EDireccio is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EDireccio.java:10: warning: Member QUIET (variable) of class logica::enumeracions::EDireccio is not documented.
+Generating docs for compound logica::enumeracions::EElement...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:52: warning: Member obtenirLletraRepresentacio() (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:56: warning: Member obtenirImatge() (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:60: warning: Member obtenirId() (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:64: warning: Member esEnemic() (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:95: warning: Member toString() (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:68: warning: Member redimensionarImatges(int px) (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:79: warning: Member buscarElementPerId(int id) (function) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:19: warning: Member PACMAN (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:20: warning: Member FANTASMA1 (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:21: warning: Member FANTASMA2 (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:22: warning: Member FANTASMA3 (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:23: warning: Member PARET (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:24: warning: Member MONEDA (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:25: warning: Member MONEDA_EXTRA (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:26: warning: Member RES (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:27: warning: Member PATINS (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:28: warning: Member MONEDES_X2 (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:29: warning: Member MONGETA (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:30: warning: Member INDEFINIT (variable) of class logica::enumeracions::EElement is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/EElement.java:31: warning: Member SORTIDA (variable) of class logica::enumeracions::EElement is not documented.
+Generating docs for compound logica::enumeracions::ELaberintsPredefinits...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/ELaberintsPredefinits.java:13: warning: Member LABERINT_ALEATORI (variable) of class logica::enumeracions::ELaberintsPredefinits is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions/ELaberintsPredefinits.java:13: warning: Member LABERINT_LINEAL_HORITZONTAL (variable) of class logica::enumeracions::ELaberintsPredefinits is not documented.
+Generating docs for compound logica::excepcions::EFinalitzarPartida...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EFinalitzarPartida.java:13: warning: Member EFinalitzarPartida(String msg) (function) of class logica::excepcions::EFinalitzarPartida is not documented.
+Generating docs for compound logica::excepcions::EFormatLaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EFormatLaberint.java:13: warning: Member EFormatLaberint(String msg) (function) of class logica::excepcions::EFormatLaberint is not documented.
+Generating docs for compound logica::excepcions::EGeneradorLaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EGeneradorLaberint.java:10: warning: Member EGeneradorLaberint(String missatge) (function) of class logica::excepcions::EGeneradorLaberint is not documented.
+Generating docs for compound logica::excepcions::EHistoric...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EHistoric.java:13: warning: Member EHistoric(String missatge) (function) of class logica::excepcions::EHistoric is not documented.
+Generating docs for compound logica::excepcions::EHistoricBuit...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EHistoric.java:13: warning: Member EHistoric(String missatge) (function) of class logica::excepcions::EHistoric is not documented.
+Generating docs for compound logica::excepcions::EIniciarPartida...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EIniciarPartida.java:13: warning: Member EIniciarPartida(String msg) (function) of class logica::excepcions::EIniciarPartida is not documented.
+Generating docs for compound logica::excepcions::EItemMovibleIniciat...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/EItemMovibleIniciat.java:13: warning: Member EItemMovibleIniciat(String nomItem) (function) of class logica::excepcions::EItemMovibleIniciat is not documented.
+Generating docs for compound logica::excepcions::ELaberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ELaberint.java:10: warning: Member ELaberint(String missatge) (function) of class logica::excepcions::ELaberint is not documented.
+Generating docs for compound logica::excepcions::ExceptionBuscadorCamins...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ExceptionBuscadorCamins.java:13: warning: Member ExceptionBuscadorCamins(String msg) (function) of class logica::excepcions::ExceptionBuscadorCamins is not documented.
+Generating docs for compound logica::excepcions::ExceptionPunt...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions/ExceptionPunt.java:13: warning: Member ExceptionPunt(String missatge) (function) of class logica::excepcions::ExceptionPunt is not documented.
+Generating docs for compound logica::historic_moviments::HistoricMoviments...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java:25: warning: Member afegirMoviment(EDireccio nouMoviment) (function) of class logica::historic_moviments::HistoricMoviments is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java:30: warning: Member eliminarMoviment() (function) of class logica::historic_moviments::HistoricMoviments is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java:37: warning: Member obtenirUltimMoviment() (function) of class logica::historic_moviments::HistoricMoviments is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java:41: warning: Member esBuida() (function) of class logica::historic_moviments::HistoricMoviments is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java:45: warning: Member size() (function) of class logica::historic_moviments::HistoricMoviments is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/HistoricMoviments.java:48: warning: Member mostrar() (function) of class logica::historic_moviments::HistoricMoviments is not documented.
+Generating docs for compound logica::historic_moviments::Pila< T >...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments/Pila.java:69: warning: Member mostrar() (function) of class logica::historic_moviments::Pila< T > is not documented.
+Generating docs for compound logica::laberints::Laberint...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:45: warning: Member Laberint(String fitxer, Partida partida, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:88: warning: Member Laberint(EElement elements[][], Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:142: warning: Member moureItem(Punt origen, EDireccio direccio, EElement elementARestaurar) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:157: warning: Member mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:349: warning: Member toString() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:360: warning: Member obtenirPosicioInicialPacman() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:378: warning: Member obtenirPosicioInicialEnemic() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:400: warning: Member assignarControladorTeclat(KeyListener listener) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:404: warning: Member obtenirMidaCostatTauler() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:408: warning: Member pintarLaberint() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:413: warning: Member obtenirMidaImatge() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:437: warning: Member obtenirMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:97: warning: Member Laberint(Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:101: warning: Member numeroMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:29: warning: Member tauler[][] (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:33: warning: Member log (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:35: warning: Member costat (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:37: warning: Member partida (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:39: warning: Member nMonedes (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:41: warning: Member pintador (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:43: warning: Member nMondesPerItem (variable) of class logica::laberints::Laberint is not documented.
+Generating docs for compound logica::laberints::LaberintAleatori...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintAleatori.java:25: warning: Member LaberintAleatori(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::LaberintAleatori is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:45: warning: Member Laberint(String fitxer, Partida partida, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:88: warning: Member Laberint(EElement elements[][], Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:142: warning: Member moureItem(Punt origen, EDireccio direccio, EElement elementARestaurar) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:157: warning: Member mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:349: warning: Member toString() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:360: warning: Member obtenirPosicioInicialPacman() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:378: warning: Member obtenirPosicioInicialEnemic() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:400: warning: Member assignarControladorTeclat(KeyListener listener) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:404: warning: Member obtenirMidaCostatTauler() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:408: warning: Member pintarLaberint() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:413: warning: Member obtenirMidaImatge() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:437: warning: Member obtenirMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:97: warning: Member Laberint(Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:101: warning: Member numeroMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:29: warning: Member tauler[][] (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:33: warning: Member log (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:35: warning: Member costat (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:37: warning: Member partida (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:39: warning: Member nMonedes (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:41: warning: Member pintador (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:43: warning: Member nMondesPerItem (variable) of class logica::laberints::Laberint is not documented.
+Generating docs for compound logica::laberints::LaberintLinealHoritzontal...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintLinealHoritzontal.java:14: warning: Member LaberintLinealHoritzontal(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::LaberintLinealHoritzontal is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:45: warning: Member Laberint(String fitxer, Partida partida, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:88: warning: Member Laberint(EElement elements[][], Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:142: warning: Member moureItem(Punt origen, EDireccio direccio, EElement elementARestaurar) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:157: warning: Member mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:349: warning: Member toString() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:360: warning: Member obtenirPosicioInicialPacman() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:378: warning: Member obtenirPosicioInicialEnemic() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:400: warning: Member assignarControladorTeclat(KeyListener listener) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:404: warning: Member obtenirMidaCostatTauler() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:408: warning: Member pintarLaberint() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:413: warning: Member obtenirMidaImatge() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:437: warning: Member obtenirMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:97: warning: Member Laberint(Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:101: warning: Member numeroMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:29: warning: Member tauler[][] (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:33: warning: Member log (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:35: warning: Member costat (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:37: warning: Member partida (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:39: warning: Member nMonedes (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:41: warning: Member pintador (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:43: warning: Member nMondesPerItem (variable) of class logica::laberints::Laberint is not documented.
+Generating docs for compound logica::laberints::LaberintLinealVertical...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintLinealVertical.java:19: warning: Member LaberintLinealVertical(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::LaberintLinealVertical is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:45: warning: Member Laberint(String fitxer, Partida partida, IPintadorLaberint pintadorLaberint) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:88: warning: Member Laberint(EElement elements[][], Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:142: warning: Member moureItem(Punt origen, EDireccio direccio, EElement elementARestaurar) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:157: warning: Member mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:349: warning: Member toString() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:360: warning: Member obtenirPosicioInicialPacman() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:378: warning: Member obtenirPosicioInicialEnemic() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:400: warning: Member assignarControladorTeclat(KeyListener listener) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:404: warning: Member obtenirMidaCostatTauler() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:408: warning: Member pintarLaberint() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:413: warning: Member obtenirMidaImatge() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:437: warning: Member obtenirMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:97: warning: Member Laberint(Partida partida) (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:101: warning: Member numeroMonedes() (function) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:29: warning: Member tauler[][] (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:33: warning: Member log (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:35: warning: Member costat (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:37: warning: Member partida (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:39: warning: Member nMonedes (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:41: warning: Member pintador (variable) of class logica::laberints::Laberint is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java:43: warning: Member nMondesPerItem (variable) of class logica::laberints::Laberint is not documented.
+Generating docs for compound logica::laberints::LaberintObert...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:29: warning: Member LaberintObert(int _costat) (function) of class logica::laberints::LaberintObert is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:82: warning: Member posicioValida(Punt posicio) (function) of class logica::laberints::LaberintObert is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:88: warning: Member obtenirElement(Punt posicio) (function) of class logica::laberints::LaberintObert is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:21: warning: Member tauler[][] (variable) of class logica::laberints::LaberintObert is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:23: warning: Member costat (variable) of class logica::laberints::LaberintObert is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:25: warning: Member partida (variable) of class logica::laberints::LaberintObert is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintObert.java:27: warning: Member nMonedes (variable) of class logica::laberints::LaberintObert is not documented.
+Generating docs for compound logica::log::Log...
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/log/Log.java:229: warning: Member obtenirUltimError() (function) of class logica::log::Log is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/log/Log.java:233: warning: Member obtenirUltimWarning() (function) of class logica::log::Log is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/log/Log.java:237: warning: Member obtenirUltimDebug() (function) of class logica::log::Log is not documented.
+/home/oscar/Desktop/ProjProg/Projecte/src/logica/log/Log.java:275: warning: Member exportarLogAFitxer(String fitxer) (function) of class logica::log::Log is not documented.
+Generating graph info page...
+Generating directory documentation...
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/AEstrella
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/algoritmica/BackTracking
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/interficie/components
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/controladors_pacman
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/dades
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/enumeracions
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/excepcions
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/historic_moviments
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/interficie
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica/log
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src/logica
+Generating dependency graph for directory /home/oscar/Desktop/ProjProg/Projecte/src
+Generating index page...
+Generating page index...
+Generating module index...
+Generating namespace index...
+Generating namespace member index...
+Generating annotated compound index...
+Generating alphabetical compound index...
+Generating hierarchical class index...
+Generating graphical class hierarchy...
+Generating member index...
+Generating file index...
+Generating file member index...
+Generating example index...
+finalizing index lists...
+Running dot...
+Generating dot graphs using 9 parallel threads...
+Running dot for graph 1/225
+Running dot for graph 2/225
+Running dot for graph 3/225
+Running dot for graph 4/225
+Running dot for graph 5/225
+Running dot for graph 6/225
+Running dot for graph 7/225
+Running dot for graph 8/225
+Running dot for graph 9/225
+Running dot for graph 10/225
+Running dot for graph 11/225
+Running dot for graph 12/225
+Running dot for graph 13/225
+Running dot for graph 14/225
+Running dot for graph 15/225
+Running dot for graph 16/225
+Running dot for graph 17/225
+Running dot for graph 18/225
+Running dot for graph 19/225
+Running dot for graph 20/225
+Running dot for graph 21/225
+Running dot for graph 22/225
+Running dot for graph 23/225
+Running dot for graph 24/225
+Running dot for graph 25/225
+Running dot for graph 26/225
+Running dot for graph 27/225
+Running dot for graph 28/225
+Running dot for graph 29/225
+Running dot for graph 30/225
+Running dot for graph 31/225
+Running dot for graph 32/225
+Running dot for graph 33/225
+Running dot for graph 34/225
+Running dot for graph 35/225
+Running dot for graph 36/225
+Running dot for graph 37/225
+Running dot for graph 38/225
+Running dot for graph 39/225
+Running dot for graph 40/225
+Running dot for graph 41/225
+Running dot for graph 42/225
+Running dot for graph 43/225
+Running dot for graph 44/225
+Running dot for graph 45/225
+Running dot for graph 46/225
+Running dot for graph 47/225
+Running dot for graph 48/225
+Running dot for graph 49/225
+Running dot for graph 50/225
+Running dot for graph 51/225
+Running dot for graph 52/225
+Running dot for graph 53/225
+Running dot for graph 54/225
+Running dot for graph 55/225
+Running dot for graph 56/225
+Running dot for graph 57/225
+Running dot for graph 58/225
+Running dot for graph 59/225
+Running dot for graph 60/225
+Running dot for graph 61/225
+Running dot for graph 62/225
+Running dot for graph 63/225
+Running dot for graph 64/225
+Running dot for graph 65/225
+Running dot for graph 66/225
+Running dot for graph 67/225
+Running dot for graph 68/225
+Running dot for graph 69/225
+Running dot for graph 70/225
+Running dot for graph 71/225
+Running dot for graph 72/225
+Running dot for graph 73/225
+Running dot for graph 74/225
+Running dot for graph 75/225
+Running dot for graph 76/225
+Running dot for graph 77/225
+Running dot for graph 78/225
+Running dot for graph 79/225
+Running dot for graph 80/225
+Running dot for graph 81/225
+Running dot for graph 82/225
+Running dot for graph 83/225
+Running dot for graph 84/225
+Running dot for graph 85/225
+Running dot for graph 86/225
+Running dot for graph 87/225
+Running dot for graph 88/225
+Running dot for graph 89/225
+Running dot for graph 90/225
+Running dot for graph 91/225
+Running dot for graph 92/225
+Running dot for graph 93/225
+Running dot for graph 94/225
+Running dot for graph 95/225
+Running dot for graph 96/225
+Running dot for graph 97/225
+Running dot for graph 98/225
+Running dot for graph 99/225
+Running dot for graph 100/225
+Running dot for graph 101/225
+Running dot for graph 102/225
+Running dot for graph 103/225
+Running dot for graph 104/225
+Running dot for graph 105/225
+Running dot for graph 106/225
+Running dot for graph 107/225
+Running dot for graph 108/225
+Running dot for graph 109/225
+Running dot for graph 110/225
+Running dot for graph 111/225
+Running dot for graph 112/225
+Running dot for graph 113/225
+Running dot for graph 114/225
+Running dot for graph 115/225
+Running dot for graph 116/225
+Running dot for graph 117/225
+Running dot for graph 118/225
+Running dot for graph 119/225
+Running dot for graph 120/225
+Running dot for graph 121/225
+Running dot for graph 122/225
+Running dot for graph 123/225
+Running dot for graph 124/225
+Running dot for graph 125/225
+Running dot for graph 126/225
+Running dot for graph 127/225
+Running dot for graph 128/225
+Running dot for graph 129/225
+Running dot for graph 130/225
+Running dot for graph 131/225
+Running dot for graph 132/225
+Running dot for graph 133/225
+Running dot for graph 134/225
+Running dot for graph 135/225
+Running dot for graph 136/225
+Running dot for graph 137/225
+Running dot for graph 138/225
+Running dot for graph 139/225
+Running dot for graph 140/225
+Running dot for graph 141/225
+Running dot for graph 142/225
+Running dot for graph 143/225
+Running dot for graph 144/225
+Running dot for graph 145/225
+Running dot for graph 146/225
+Running dot for graph 147/225
+Running dot for graph 148/225
+Running dot for graph 149/225
+Running dot for graph 150/225
+Running dot for graph 151/225
+Running dot for graph 152/225
+Running dot for graph 153/225
+Running dot for graph 154/225
+Running dot for graph 155/225
+Running dot for graph 156/225
+Running dot for graph 157/225
+Running dot for graph 158/225
+Running dot for graph 159/225
+Running dot for graph 160/225
+Running dot for graph 161/225
+Running dot for graph 162/225
+Running dot for graph 163/225
+Running dot for graph 164/225
+Running dot for graph 165/225
+Running dot for graph 166/225
+Running dot for graph 167/225
+Running dot for graph 168/225
+Running dot for graph 169/225
+Running dot for graph 170/225
+Running dot for graph 171/225
+Running dot for graph 172/225
+Running dot for graph 173/225
+Running dot for graph 174/225
+Running dot for graph 175/225
+Running dot for graph 176/225
+Running dot for graph 177/225
+Running dot for graph 178/225
+Running dot for graph 179/225
+Running dot for graph 180/225
+Running dot for graph 181/225
+Running dot for graph 182/225
+Running dot for graph 183/225
+Running dot for graph 184/225
+Running dot for graph 185/225
+Running dot for graph 186/225
+Running dot for graph 187/225
+Running dot for graph 188/225
+Running dot for graph 189/225
+Running dot for graph 190/225
+Running dot for graph 191/225
+Running dot for graph 192/225
+Running dot for graph 193/225
+Running dot for graph 194/225
+Running dot for graph 195/225
+Running dot for graph 196/225
+Running dot for graph 197/225
+Running dot for graph 198/225
+Running dot for graph 199/225
+Running dot for graph 200/225
+Running dot for graph 201/225
+Running dot for graph 202/225
+Running dot for graph 203/225
+Running dot for graph 204/225
+Running dot for graph 205/225
+Running dot for graph 206/225
+Running dot for graph 207/225
+Running dot for graph 208/225
+Running dot for graph 209/225
+Running dot for graph 210/225
+Running dot for graph 211/225
+Running dot for graph 212/225
+Running dot for graph 213/225
+Running dot for graph 214/225
+Running dot for graph 215/225
+Running dot for graph 216/225
+Running dot for graph 217/225
+Running dot for graph 218/225
+Running dot for graph 219/225
+Running dot for graph 220/225
+Running dot for graph 221/225
+Running dot for graph 222/225
+Running dot for graph 223/225
+Running dot for graph 224/225
+Running dot for graph 225/225
+Patching output file 1/115
+Patching output file 2/115
+Patching output file 3/115
+Patching output file 4/115
+Patching output file 5/115
+Patching output file 6/115
+Patching output file 7/115
+Patching output file 8/115
+Patching output file 9/115
+Patching output file 10/115
+Patching output file 11/115
+Patching output file 12/115
+Patching output file 13/115
+Patching output file 14/115
+Patching output file 15/115
+Patching output file 16/115
+Patching output file 17/115
+Patching output file 18/115
+Patching output file 19/115
+Patching output file 20/115
+Patching output file 21/115
+Patching output file 22/115
+Patching output file 23/115
+Patching output file 24/115
+Patching output file 25/115
+Patching output file 26/115
+Patching output file 27/115
+Patching output file 28/115
+Patching output file 29/115
+Patching output file 30/115
+Patching output file 31/115
+Patching output file 32/115
+Patching output file 33/115
+Patching output file 34/115
+Patching output file 35/115
+Patching output file 36/115
+Patching output file 37/115
+Patching output file 38/115
+Patching output file 39/115
+Patching output file 40/115
+Patching output file 41/115
+Patching output file 42/115
+Patching output file 43/115
+Patching output file 44/115
+Patching output file 45/115
+Patching output file 46/115
+Patching output file 47/115
+Patching output file 48/115
+Patching output file 49/115
+Patching output file 50/115
+Patching output file 51/115
+Patching output file 52/115
+Patching output file 53/115
+Patching output file 54/115
+Patching output file 55/115
+Patching output file 56/115
+Patching output file 57/115
+Patching output file 58/115
+Patching output file 59/115
+Patching output file 60/115
+Patching output file 61/115
+Patching output file 62/115
+Patching output file 63/115
+Patching output file 64/115
+Patching output file 65/115
+Patching output file 66/115
+Patching output file 67/115
+Patching output file 68/115
+Patching output file 69/115
+Patching output file 70/115
+Patching output file 71/115
+Patching output file 72/115
+Patching output file 73/115
+Patching output file 74/115
+Patching output file 75/115
+Patching output file 76/115
+Patching output file 77/115
+Patching output file 78/115
+Patching output file 79/115
+Patching output file 80/115
+Patching output file 81/115
+Patching output file 82/115
+Patching output file 83/115
+Patching output file 84/115
+Patching output file 85/115
+Patching output file 86/115
+Patching output file 87/115
+Patching output file 88/115
+Patching output file 89/115
+Patching output file 90/115
+Patching output file 91/115
+Patching output file 92/115
+Patching output file 93/115
+Patching output file 94/115
+Patching output file 95/115
+Patching output file 96/115
+Patching output file 97/115
+Patching output file 98/115
+Patching output file 99/115
+Patching output file 100/115
+Patching output file 101/115
+Patching output file 102/115
+Patching output file 103/115
+Patching output file 104/115
+Patching output file 105/115
+Patching output file 106/115
+Patching output file 107/115
+Patching output file 108/115
+Patching output file 109/115
+Patching output file 110/115
+Patching output file 111/115
+Patching output file 112/115
+Patching output file 113/115
+Patching output file 114/115
+Patching output file 115/115
+lookup cache used 392/65536 hits=2039 misses=520
+finished...
+*** Doxygen has finished

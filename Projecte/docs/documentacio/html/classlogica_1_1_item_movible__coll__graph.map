@@ -1,0 +1,9 @@
+<map id="logica.ItemMovible" name="logica.ItemMovible">
+<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint.html" title="logica.laberints.Laberint" alt="" coords="469,101,627,128"/>
+<area shape="rect" id="node3" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/>
+<area shape="rect" id="node4" href="$classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/>
+<area shape="rect" id="node5" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/>
+<area shape="rect" id="node7" href="$classlogica_1_1_partida.html" title="logica.Partida" alt="" coords="196,173,297,200"/>
+<area shape="rect" id="node8" href="$classlogica_1_1_punt.html" title="logica.Punt" alt="" coords="505,252,591,279"/>
+<area shape="rect" id="node10" href="$enumlogica_1_1enumeracions_1_1_e_direccio.html" title="logica.enumeracions.EDireccio" alt="" coords="447,353,649,380"/>
+</map>

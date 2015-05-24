@@ -160,6 +160,7 @@ public class FLogin extends JFrame implements ActionListener{
                     txtPassword.setText(null);
                     txtUsuari.setText(null);
                     new FMenu().mostrarFrame();
+                    dispose();
                 }
                 else{
                     lblAvis.setText("Usuari o password incorrecte");

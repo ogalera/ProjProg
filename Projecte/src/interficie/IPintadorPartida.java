@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import javax.swing.ImageIcon;
@@ -19,7 +14,7 @@ public interface IPintadorPartida{
     public void pintarItemPacman(ImageIcon imatge);
     public void pintarItemEnemic(ImageIcon imatge);
     public void pintarPartida(Partida partida);
-    public void pintarFinalPartida();
+    public void pintarFinalPartida(boolean guanyat);
     public void pintarIniciPartida();
-    public void tancarPantalla();
+    public void assignarPartida(Partida partida);
 }

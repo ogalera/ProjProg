@@ -3,8 +3,10 @@ package logica;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.filechooser.FileFilter;
 ///De la llibreria Apache Commons Codec 1.10 per codificar/decodificar 
 ///el password del usuari;
 import org.apache.commons.codec.binary.Base64;
@@ -23,7 +25,7 @@ public class Utils{
         public static final int PORT = 9988;
 //        public static final int FREQUENCIA_ITEM = 400;
         public static final int FREQUENCIA_ITEM = 400;
-        public static final int FREQUENCIA_PERSONATGE = 100;
+        public static final int FREQUENCIA_PERSONATGE = 300;
         public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
     }
     
@@ -76,5 +78,35 @@ public class Utils{
         g.drawImage(originalImage, 0, 0, amplada, altura, null);
         g.dispose();
         return resizedImage;
+    }
+    
+    /**
+     * @autor Oscar
+     * @brief 
+     * Classe per filtrar fitxers per extensió.
+     * Al crear l'objecte s'especifica l'extensió dels fitxers per la qual es filtrarà
+     */
+    public static class FiltreExtensio extends FileFilter{
+        private final String extensio;/**<extensió a filtrar*/
+        
+        /**
+         * @pre --;
+         * @post s'ha creat un nou filtre per extensió;
+         */
+        public FiltreExtensio(String extensio){
+            this.extensio = extensio;
+        }
+
+        @Override
+        public boolean accept(File f) {
+            return f.getName().endsWith(extensio);
+        }
+
+        @Override
+        public String getDescription() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        
+        
     }
 }

@@ -46,8 +46,8 @@ public class Item extends ItemMovible {
         int distanciaAFugir;
 
         long tempsInici = System.currentTimeMillis();
-        int distanciaPacman = gestorCami.trobarCamiMinim(posicio, posicioPacman).size();
-        int distanciaEnemic = gestorCami.trobarCamiMinim(posicio, posicioEnemic).size();
+        int distanciaPacman = gestorCami.trobarCamiMinim(posicio, posicioPacman).obtenirMida();
+        int distanciaEnemic = gestorCami.trobarCamiMinim(posicio, posicioEnemic).obtenirMida();
         distanciaAFugir = distanciaEnemic;
         long tempsFinal = System.currentTimeMillis();
         log.afegirDebug("Temps que triga l'algorisme A* a trobar els enemics: " + (tempsFinal - tempsInici) + " ms");
@@ -79,8 +79,7 @@ public class Item extends ItemMovible {
         log.afegirDebug("Temps total que triga el Item a recalcular una ruta: " + (tempsFinal - tempsInici) + " ms \n");
 
         EDireccio res = ruta.obtenirUltimMoviment();
-        if (movimentValid(res))ruta.eliminarMoviment();
-        else res = EDireccio.QUIET;
+        if (!movimentValid(res)) res = EDireccio.QUIET;
         return res;
     }
     
@@ -100,14 +99,10 @@ public class Item extends ItemMovible {
         if (element != EElement.PARET && p != posicio)valid = true;
         return valid;
     }
+
     private boolean movimentValid(EDireccio mov){
-        boolean valid = true;
-        Punt p = posicio.generarPuntDesplasat(mov);
-        if(laberint.obtenirElement(p) != EElement.PARET){
-            valid = false;
-        }
-        else valid = false;
-        return valid;
+        EElement e = laberint.obtenirElement(posicio.generarPuntDesplasat(mov));
+        return e != EElement.PARET;
     }
 
     @Override
@@ -124,6 +119,7 @@ public class Item extends ItemMovible {
         if(seguentMoviment != EDireccio.QUIET){
             elementTrapitjat = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
             if(elementTrapitjat != null && elementTrapitjat != EElement.MONEDES_X2 && elementTrapitjat != EElement.MONGETA && elementTrapitjat != EElement.PATINS){
+                ruta.eliminarMoviment();
                 posicio = posicio.generarPuntDesplasat(seguentMoviment);
             }
         }

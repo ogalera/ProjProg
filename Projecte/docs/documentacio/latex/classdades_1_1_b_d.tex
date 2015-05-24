@@ -1,0 +1,136 @@
+\hypertarget{classdades_1_1_b_d}{\section{Referència de la Classe dades.\+B\+D}
+\label{classdades_1_1_b_d}\index{dades.\+B\+D@{dades.\+B\+D}}
+}
+
+
+Classe d'utilitats amb les operacions per treballar sobre la B.\+D. \char`\"{}sqlite\char`\"{} utilitzada en el projecte;.  
+
+
+\subsection*{Mètodes Públics Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+static boolean \hyperlink{classdades_1_1_b_d_aebeb79a5b559c404967e7af4a51fbe07}{afegir\+Usuari} (String user, String password, String ruta\+Imatge)
+\item 
+static \hyperlink{classlogica_1_1_usuari}{Usuari}\mbox{[}$\,$\mbox{]} \hyperlink{classdades_1_1_b_d_adecdaacdefdcf4c26e307c3c6b13cbca}{obtenir\+Ranking} (int top\+N)
+\item 
+static boolean \hyperlink{classdades_1_1_b_d_ad5629c3a6ea389ca0ec6fe6f71f49e5a}{existeix\+Usuari} (String usuari)
+\item 
+static void \hyperlink{classdades_1_1_b_d_aee65076de634577866799db9ea3315b8}{nivell\+Superat} (int nivell, int usu\+Id, int punts)
+\item 
+static \hyperlink{classlogica_1_1_usuari}{Usuari} \hyperlink{classdades_1_1_b_d_ae8a0bfc4f5c75e66fd6ba1a6c9568b07}{obtenir\+Usuari} (String user, String password)
+\item 
+static boolean \hyperlink{classdades_1_1_b_d_a60b00af9b05e556fd66b8dbf69e012cd}{existeix\+Base\+De\+Dades} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributs Públics Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classdades_1_1_b_d_a9d49f7827869e7e71b4527473b673ce8}{static final String {\bfseries P\+A\+T\+H\+\_\+\+B\+D} = \char`\"{}raw/pacman.\+db\char`\"{}}\label{classdades_1_1_b_d_a9d49f7827869e7e71b4527473b673ce8}
+
+\item 
+static final String \hyperlink{classdades_1_1_b_d_abc83c541acdcd0be2ae8a33daa753077}{U\+R\+L\+\_\+\+B\+D} = \char`\"{}jdbc\+:sqlite\+:\char`\"{}+P\+A\+T\+H\+\_\+\+B\+D
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripció Detallada}
+Classe d'utilitats amb les operacions per treballar sobre la B.\+D. \char`\"{}sqlite\char`\"{} utilitzada en el projecte;. 
+
+\begin{DoxyAuthor}{Autor}
+oscar 
+\end{DoxyAuthor}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classdades_1_1_b_d_aebeb79a5b559c404967e7af4a51fbe07}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!afegir\+Usuari@{afegir\+Usuari}}
+\index{afegir\+Usuari@{afegir\+Usuari}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{afegir\+Usuari}]{\setlength{\rightskip}{0pt plus 5cm}static boolean dades.\+B\+D.\+afegir\+Usuari (
+\begin{DoxyParamCaption}
+\item[{String}]{user, }
+\item[{String}]{password, }
+\item[{String}]{ruta\+Imatge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_aebeb79a5b559c404967e7af4a51fbe07}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'ha registrat un nou usuari a la B.\+D. i retorna si l'operació s'ha realitzat correctament; 
+\end{DoxyPostcond}
+\hypertarget{classdades_1_1_b_d_a60b00af9b05e556fd66b8dbf69e012cd}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!existeix\+Base\+De\+Dades@{existeix\+Base\+De\+Dades}}
+\index{existeix\+Base\+De\+Dades@{existeix\+Base\+De\+Dades}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{existeix\+Base\+De\+Dades}]{\setlength{\rightskip}{0pt plus 5cm}static boolean dades.\+B\+D.\+existeix\+Base\+De\+Dades (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_a60b00af9b05e556fd66b8dbf69e012cd}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+diu si existeix el fitxer \char`\"{}sqlite\char`\"{} de la Base de dades; 
+\end{DoxyPostcond}
+\hypertarget{classdades_1_1_b_d_ad5629c3a6ea389ca0ec6fe6f71f49e5a}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!existeix\+Usuari@{existeix\+Usuari}}
+\index{existeix\+Usuari@{existeix\+Usuari}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{existeix\+Usuari}]{\setlength{\rightskip}{0pt plus 5cm}static boolean dades.\+B\+D.\+existeix\+Usuari (
+\begin{DoxyParamCaption}
+\item[{String}]{usuari}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_ad5629c3a6ea389ca0ec6fe6f71f49e5a}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+diu si està o no registrat usuari; 
+\end{DoxyPostcond}
+\hypertarget{classdades_1_1_b_d_aee65076de634577866799db9ea3315b8}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!nivell\+Superat@{nivell\+Superat}}
+\index{nivell\+Superat@{nivell\+Superat}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{nivell\+Superat}]{\setlength{\rightskip}{0pt plus 5cm}static void dades.\+B\+D.\+nivell\+Superat (
+\begin{DoxyParamCaption}
+\item[{int}]{nivell, }
+\item[{int}]{usu\+Id, }
+\item[{int}]{punts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_aee65076de634577866799db9ea3315b8}
+\begin{DoxyPrecond}{Precondició}
+nivell $>$ 0 usu\+Id valid i punts $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'ha registrat el nou nivell superat per l'usuari amb usu\+Id; 
+\end{DoxyPostcond}
+\hypertarget{classdades_1_1_b_d_adecdaacdefdcf4c26e307c3c6b13cbca}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!obtenir\+Ranking@{obtenir\+Ranking}}
+\index{obtenir\+Ranking@{obtenir\+Ranking}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{obtenir\+Ranking}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Usuari} \mbox{[}$\,$\mbox{]} dades.\+B\+D.\+obtenir\+Ranking (
+\begin{DoxyParamCaption}
+\item[{int}]{top\+N}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_adecdaacdefdcf4c26e307c3c6b13cbca}
+\begin{DoxyPrecond}{Precondició}
+top\+N $>$ 0; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el conjunt de usuaris que conformen el top\+N per ordre segons el nombre de punts; 
+\end{DoxyPostcond}
+\hypertarget{classdades_1_1_b_d_ae8a0bfc4f5c75e66fd6ba1a6c9568b07}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!obtenir\+Usuari@{obtenir\+Usuari}}
+\index{obtenir\+Usuari@{obtenir\+Usuari}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{obtenir\+Usuari}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Usuari} dades.\+B\+D.\+obtenir\+Usuari (
+\begin{DoxyParamCaption}
+\item[{String}]{user, }
+\item[{String}]{password}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_ae8a0bfc4f5c75e66fd6ba1a6c9568b07}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+si existeix l'usuari i el password és correcte es retorna la seva representació en forma d'objecte altrament es retorna null; 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classdades_1_1_b_d_abc83c541acdcd0be2ae8a33daa753077}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!U\+R\+L\+\_\+\+B\+D@{U\+R\+L\+\_\+\+B\+D}}
+\index{U\+R\+L\+\_\+\+B\+D@{U\+R\+L\+\_\+\+B\+D}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{U\+R\+L\+\_\+\+B\+D}]{\setlength{\rightskip}{0pt plus 5cm}final String dades.\+B\+D.\+U\+R\+L\+\_\+\+B\+D = \char`\"{}jdbc\+:sqlite\+:\char`\"{}+P\+A\+T\+H\+\_\+\+B\+D\hspace{0.3cm}{\ttfamily [static]}}}\label{classdades_1_1_b_d_abc83c541acdcd0be2ae8a33daa753077}
+path del driver per connectar-\/nos a a la B.\+D. 
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
+\item 
+/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/dades/B\+D.\+java\end{DoxyCompactItemize}

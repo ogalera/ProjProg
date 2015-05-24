@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.historic_moviments;
 
 import logica.enumeracions.EDireccio;
@@ -10,23 +5,35 @@ import logica.excepcions.EHistoricBuit;
 
 /**
  * @author oscar
- * DECLARACIÓ D'INTENCIONS DE LA CLASSE
- * Representació del historic de moviments realitzat per un personatge en el laberint
+ * @brief
+ * Historic de moviments de caràcter FIFO
  */
 public class HistoricMoviments {
     private final Pila<EDireccio> pila;
     private int nElement;
     
+    /**
+     * @pre --;
+     * @post s'ha creat un nou historic de moviments;
+     */
     public HistoricMoviments(){
         pila = new Pila<>();
         nElement = 0;
     }
     
+    /**
+     * @pre --;
+     * @post s'ha afegit un nou moviment al historic;
+     */
     public void afegirMoviment(EDireccio nouMoviment){
         pila.afegir(nouMoviment);
         nElement ++;
     }
     
+    /**
+     * @pre l'historic no està buit;
+     * @post s'ha retornat i eliminat l'últim element afegit al historic;
+     */
     public EDireccio eliminarMoviment(){
         if(this.esBuida()) throw new EHistoricBuit();
         EDireccio ultimMoviment = pila.desenpilar();
@@ -34,18 +41,27 @@ public class HistoricMoviments {
         return ultimMoviment;
     }
     
+    /**
+     * @pre l'historic no està buit;
+     * @post s'ha retornat l'ultim moviment afegit;
+     */
     public EDireccio obtenirUltimMoviment(){
         return pila.cim();
     }
     
+    /**
+     * @pre --;
+     * @post diu si l'historic està buit;
+     */
     public boolean esBuida(){
         return pila.esBuida();
     }
     
-    public int size(){
+    /**
+     * @pre --;
+     * @post s'ha retornat el nombre d'elements que contè l'historic;
+     */
+    public int obtenirMida(){
         return nElement;
-    }
-    public void mostrar(){
-        pila.mostrar();
     }
 }

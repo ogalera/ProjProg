@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['fafegirdispositiu',['FAfegirDispositiu',['../classinterficie_1_1_f_afegir_dispositiu.html',1,'interficie']]],
+  ['fafegirdispositiu',['FAfegirDispositiu',['../classinterficie_1_1_f_afegir_dispositiu.html#a587fa9fb0219ca9bf3db91a8249bd75c',1,'interficie::FAfegirDispositiu']]],
+  ['falta',['FAlta',['../classinterficie_1_1_f_alta.html',1,'interficie']]],
+  ['falta',['FAlta',['../classinterficie_1_1_f_alta.html#ad9049ce9f00f165a714f7d343227cb97',1,'interficie::FAlta']]],
+  ['fantasma1',['Fantasma1',['../classlogica_1_1_fantasma1.html',1,'logica']]],
+  ['fantasma2',['Fantasma2',['../classlogica_1_1_fantasma2.html',1,'logica']]],
+  ['fantasma3',['Fantasma3',['../classlogica_1_1_fantasma3.html',1,'logica']]],
+  ['feditorlaberint',['FEditorLaberint',['../classinterficie_1_1_f_editor_laberint.html',1,'interficie']]],
+  ['fframeamblog',['FFrameAmbLog',['../classinterficie_1_1_f_frame_amb_log.html',1,'interficie']]],
+  ['fhistoricusuari',['FHistoricUsuari',['../classinterficie_1_1_f_historic_usuari.html',1,'interficie']]],
+  ['finalitzarpartida',['finalitzarPartida',['../classlogica_1_1_partida.html#a44c3c25575052f971e90728f15f9c5a2',1,'logica::Partida']]],
+  ['flog',['FLog',['../classinterficie_1_1_f_log.html',1,'interficie']]],
+  ['flogin',['FLogin',['../classinterficie_1_1_f_login.html',1,'interficie']]],
+  ['fmenu',['FMenu',['../classinterficie_1_1_f_menu.html',1,'interficie']]],
+  ['fmenu',['FMenu',['../classinterficie_1_1_f_menu.html#a4ff4376b7bf65b5b36d63d50cc1e66d5',1,'interficie::FMenu']]],
+  ['fpartida',['FPartida',['../classinterficie_1_1_f_partida.html',1,'interficie']]],
+  ['franking',['FRanking',['../classinterficie_1_1_f_ranking.html',1,'interficie']]]
+];

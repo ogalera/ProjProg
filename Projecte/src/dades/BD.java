@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dades;
 
 import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,18 +12,24 @@ import logica.Utils;
 import logica.log.Log;
 
 /**
- *
  * @author oscar
+ * @brief
+ * Classe d'utilitats amb les operacions per treballar sobre la B.D. "sqlite"
+ * utilitzada en el projecte;
  */
-public class BD {
-    public static final String PATH_BD = "raw/pacman.db";
-    public static final String URL_BD = "jdbc:sqlite:"+PATH_BD;
+public abstract class BD {
+    public static final String PATH_BD = "raw/pacman.db";/**<ruta relativa de la B.D. */
+    public static final String URL_BD = "jdbc:sqlite:"+PATH_BD; /**<path del driver per connectar-nos a la B.D.*/
     
-    public static boolean afegirUsuari(String user, String password, String rutaImatge) throws IOException{
+    /**
+     * @pre --;
+     * @post s'ha registrat un nou usuari a la B.D. i retorna si l'operació s'ha realitzat correctament;
+     */
+    public static boolean afegirUsuari(String user, String password, String rutaImatge){
         boolean operacioOK = false;
         boolean taulesCreades = true;
         Log log = Log.getInstance(BD.class);
-        if(BD.esPrimerAcces()){
+        if(BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -59,11 +59,15 @@ public class BD {
         return operacioOK;
     }
     
+    /**
+     * @pre topN > 0;
+     * @post em retornat el conjunt de usuaris que conformen el topN per ordre segons el nombre de punts;
+     */
     public static Usuari[] obtenirRanking(int topN){
         Log log = Log.getInstance(BD.class);
         Usuari[] usuaris = null;
         boolean taulesCreades = true;
-        if(BD.esPrimerAcces()){
+        if(BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -93,11 +97,15 @@ public class BD {
         return usuaris;
     }
     
+    /**
+     * @pre --;
+     * @post diu si està o no registrat usuari;
+     */
     public static boolean existeixUsuari(String usuari){
         Log log = Log.getInstance(BD.class);
         boolean taulesCreades = true;
         boolean existeixUsuari = false;
-        if(BD.esPrimerAcces()){
+        if(BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -121,10 +129,41 @@ public class BD {
         return existeixUsuari;
     }
     
+    /**
+     * @pre nivell > 0 usuId valid i punts > 0
+     * @post s'ha registrat el nou nivell superat per l'usuari amb usuId;
+     */
+    public static void nivellSuperat(int nivell, int usuId, int punts){
+        Log log = Log.getInstance(BD.class);
+        String consulta = "UPDATE punts SET pnt_punts = "+punts+"\n" +
+                            "WHERE pnt_nivell = "+nivell+" and pnt_usu_id = "+usuId;
+        try(Connection connexio = DriverManager.getConnection(URL_BD);
+            Statement nivellSuperat = connexio.createStatement()){
+            if(nivellSuperat.executeUpdate(consulta) < 0){
+                throw new RuntimeException("ERROR AL MODIFICAR EL NIVELL AL USUARI");
+            }
+            else{
+                consulta = " INSERT INTO PUNTS (pnt_nivell, pnt_usu_id, pnt_punts)\n" +
+                            " VALUES ("+(nivell+1)+", "+usuId+", 0)";
+                if(nivellSuperat.executeUpdate(consulta) < 0){
+                    throw new RuntimeException("ERROR AL AFEGIR UN NOU NIVELL AL USUARI");
+                }
+            }
+        }
+        catch(SQLException excepcio){
+            log.afegirError("Error amb la B.D. "+excepcio.getMessage());
+        }
+    }
+    
+    /**
+     * @pre --;
+     * @post si existeix l'usuari i el password és correcte es retorna la seva
+     * representació en forma d'objecte altrament es retorna null;
+     **/
     public static Usuari obtenirUsuari(String user, String password){
         Usuari usuari = null;
         boolean taulesCreades = true;
-        if(BD.esPrimerAcces()){
+        if(BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -152,11 +191,20 @@ public class BD {
         return usuari;
     }
     
-    public static boolean esPrimerAcces(){
+    /**
+     * @pre --;
+     * @post diu si existeix el fitxer "sqlite" de la Base de dades;
+     */
+    public static boolean existeixBaseDeDades(){
         File baseDades = new File(PATH_BD);
         return !baseDades.exists();
     }
 
+    /**
+     * @pre --;
+     * @post s'han creat les taules d'Usuaris (usu_id, usu_nom, usu_pass, usu_ruta_imatge)
+     * i Punts(pnt_nivell, pnt_usu_id, pnt_punts);
+     */
     private static boolean crearTaules(){
         Log log = Log.getInstance(BD.class);
         boolean totOk = true;

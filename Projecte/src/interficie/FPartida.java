@@ -10,10 +10,11 @@ import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
-import java.awt.Color;
 import interficie.components.Crono;
 import interficie.components.Marcador;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import logica.Partida;
@@ -37,16 +38,15 @@ public class FPartida extends JFrame implements IPintadorPartida{
     private Marcador marcadorEnemic;
     private final Crono cronometre;
 
+    
     public FPartida(PLaberint panellLaberint){
         getContentPane().setLayout(new BorderLayout());
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(panellLaberint, BorderLayout.CENTER);
         panellLaberint.setFocusable(true);
         this.setFocusable(false);
         cronometre = new Crono();
         this.setAlwaysOnTop(true);
-        //this.add(cronometre, BorderLayout.SOUTH);
     }
    
     @Override
@@ -104,14 +104,23 @@ public class FPartida extends JFrame implements IPintadorPartida{
         this.setVisible(true);
     }
 
+    @Override
     public void pintarItemPartida(ImageIcon item){
         this.lblItem.setIcon(item);
         this.lblItem.repaint();
     }
     
     @Override
-    public void pintarFinalPartida() {
+    public void pintarFinalPartida(boolean guanyat) {
         cronometre.pararCrono();
+//        if(guanyat){
+//            JOptionPane.showMessageDialog("HAS GUANYAT!", null,JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        else{
+//            JOptionPane.showMessageDialog("HAS PERDUT","ERROR",JOptionPane.INFORMATION_MESSAGE);
+//        }
+        this.dispose();
+        
     }
 
     @Override
@@ -132,11 +141,6 @@ public class FPartida extends JFrame implements IPintadorPartida{
         else itemEnemic.setIcon(imatge);
     }
 
-    @Override
-    public void tancarPantalla() {
-        this.dispose();
-    }
-    
     
     //    @Override
 //    public void pintarPartida(){
@@ -208,4 +212,15 @@ public class FPartida extends JFrame implements IPintadorPartida{
 //        //pintadorLaberint.setLocation((centre.width - laberint.width) / 2, (centre.height - laberint.height) / 2);
 ////        pintadorLaberint.setLocation(100,10);
 //    }
+
+    @Override
+    public void assignarPartida(final Partida partida) {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e){
+                partida.finalitzarPartida();
+            }
+        });
+    }
+
 }

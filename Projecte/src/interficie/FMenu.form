@@ -31,7 +31,6 @@
                   <Component id="btnAventura" pref="180" max="32767" attributes="0"/>
                   <Component id="btnProvarMapa" max="32767" attributes="0"/>
                   <Component id="btnCrearMapa" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnAfegirDispositiu" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSortir" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="lblNivell" min="-2" max="-2" attributes="0"/>
@@ -51,6 +50,11 @@
               <Component id="lblImatgeUsuari" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblInfoUsuari" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -68,6 +72,8 @@
                   <Component id="lblNivell" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNIVELL" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblInfoUsuari" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnAventura" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -75,10 +81,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnCrearMapa" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAfegirDispositiu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnSortir" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,14 +111,6 @@
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnCrearMapa"/>
-      </AccessibilityProperties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnAfegirDispositiu">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Afegir Dispositiu"/>
-      </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnAfegirDispositiu"/>
       </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSortir">
@@ -156,6 +152,11 @@
     <Component class="javax.swing.JLabel" name="lblNIVELL">
       <Properties>
         <Property name="text" type="java.lang.String" value="NIVELL"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblInfoUsuari">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
   </SubComponents>

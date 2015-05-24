@@ -103,9 +103,7 @@ public class ValidadorLaberint {
                         //continua siguent valid, això ho farem mirant al costat
                         //dret i abaix, en cas que estiguin fora del tauler
                         //els dos o hi hagi pared llavors el laberint no serà valid;
-                        if((j+1 >= costat || laberint[i][j+1] == -1) 
-                                    &&
-                                (i+1 >= costat || laberint[i+1][j] == -1)){
+                        if((j+1 >= costat || laberint[i][j+1] == -1) && (i+1 >= costat || laberint[i+1][j] == -1)){
                             l.afegirError("La casella "+posActual+" esta aillada");
                             valid = false;
                         }
@@ -212,9 +210,7 @@ public class ValidadorLaberint {
                         //continua siguent valid, això ho farem mirant al costat
                         //dret i abaix, en cas que estiguin fora del tauler
                         //els dos o hi hagi pared llavors el laberint no serà valid;
-                        if((j+1 >= costat || laberint[i][j+1] == EElement.PARET) 
-                                    &&
-                                (i+1 >= costat || laberint[i+1][j] == EElement.PARET)){
+                        if((j+1 >= costat || laberint[i][j+1] == EElement.PARET) && (i+1 >= costat || laberint[i+1][j] == EElement.PARET)){
                             l.afegirError("La casella "+posActual+" esta aillada");
                             valid = false;
                         }
