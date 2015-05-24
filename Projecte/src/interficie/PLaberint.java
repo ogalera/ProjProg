@@ -6,7 +6,9 @@
 package interficie;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import logica.enumeracions.EElement;
@@ -17,23 +19,19 @@ import logica.Punt;
 import logica.enumeracions.EDireccio;
 import logica.laberints.Laberint;
 import logica.log.Log;
+import java.util.Stack;
 /**
  *
  * @author Moises
  */
 public class PLaberint extends JPanel implements IPintadorLaberint{
     private final Log log;
-//    private ImageIcon imgPacmanRedimensionada;
-//    private ImageIcon imgFantasma1Redimensionada;
-//    private ImageIcon imgFantasma2Redimensionada;
-//    private ImageIcon imgFantasma3Redimensionada;
-//    private ImageIcon imgParetRedimensionada;
-//    private ImageIcon imgMonedaRedimensionada;
     private JLabel[][] laberintGrafic;
     private static final int MIDA_PREFERIDA = 800;
     private static final int MIDA_MINIMA = 500;
     private static final int MIDA_MAXIMA = 900;
-    private int midaLabels;
+    private Dimension midaLabels;
+    private Stack<Punt> parets;
     
     public PLaberint(){
         log = Log.getInstance(PLaberint.class);
@@ -76,16 +74,19 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
         this.setMinimumSize(new Dimension(MIDA_MAXIMA, MIDA_MAXIMA));
         this.setBackground(Color.BLACK);
         
+        parets = new Stack<>();
+        
         int numCaselles = laberint.obtenirMidaCostatTauler();
         this.setLayout(new GridLayout(numCaselles, numCaselles));
-        midaLabels = MIDA_MINIMA/numCaselles;
+        midaLabels = new Dimension((MIDA_MINIMA/numCaselles),(MIDA_MINIMA/numCaselles)) ;
         laberintGrafic = new JLabel[numCaselles][numCaselles];
-//        EElement.redimensionarImatges(midaLabels);
+        EElement.redimensionarImatges(midaLabels.height);
 
         for (int fila = 0; fila < numCaselles; fila++){
             for (int columna = 0; columna < numCaselles; columna++){
                 laberintGrafic[fila][columna] = new JLabel();
                 EElement element = laberint.obtenirElement(new Punt(fila, columna));
+                if (element == EElement.PARET)parets.add(new Punt(fila, columna));
                 ImageIcon imatge = element.obtenirImatge();
                 laberintGrafic[fila][columna].setIcon(imatge);
                 this.add(laberintGrafic[fila][columna]);
@@ -108,12 +109,26 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     
     @Override
     public Dimension obtenirMidaImatge(){
-        return new Dimension(midaLabels, midaLabels);
+        return midaLabels;
     }
 
     @Override
     public void pintarSortida(Punt pSortida) {
         this.laberintGrafic[pSortida.obtenirFila()][pSortida.obtenirColumna()].setIcon(EElement.SORTIDA.obtenirImatge());
+    }
+    @Override
+    public void paint(Graphics g){
+        midaLabels = new Dimension (laberintGrafic[0][0].getSize().width, laberintGrafic[0][0].getSize().height);
+        if (!parets.empty())redimensionaParets();
+        super.paint(g);
+    }
+    
+    private void redimensionaParets(){
+        while (!parets.empty()){
+            Punt p = parets.pop();
+            ImageIcon imatge = EElement.PARET.obtenirImatge();
+            laberintGrafic[p.obtenirFila()][p.obtenirColumna()].setIcon(new ImageIcon(imatge.getImage().getScaledInstance(midaLabels.width, midaLabels.height, Image.SCALE_DEFAULT)));
+        }
     }
 }
 

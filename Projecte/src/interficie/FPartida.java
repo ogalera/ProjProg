@@ -33,7 +33,6 @@ public class FPartida extends JFrame implements IPintadorPartida{
     private JLabel lblItem;
     private JLabel itemPacman;
     private JLabel itemEnemic;
-    
     private Marcador marcadorPacman;
     private Marcador marcadorEnemic;
     private final Crono cronometre;
@@ -141,78 +140,6 @@ public class FPartida extends JFrame implements IPintadorPartida{
         else itemEnemic.setIcon(imatge);
     }
 
-    
-    //    @Override
-//    public void pintarPartida(){
-//        setVisible(true);
-//        
-//    }
-
-//    @Override
-//    public void pintarPartida(){
-////       assignaDimensions();
-////       assignaImatges();
-//        construeixPanells();
-//        afegeixComponents();
-//        setVisible(true);
-//    }
-//    private void afegeixComponents(){
-//
-//        add(partEsquerra, BorderLayout.WEST);
-//        add(partDreta, BorderLayout.EAST);
-//        add(partInferior, BorderLayout.SOUTH);
-//        add(partCentral, BorderLayout.CENTER);
-//        colocaLaberint();
-//    }
-    
-//    private void construeixPanells(){
-//        construeixPanellEsquerra();
-//        construeixPanellDret();
-//        construeixPanellInferior();
-//        construeixPanellCentral();  
-//    }
-    
-//    private void construeixPanellEsquerra(){
-//        partEsquerra = new JPanel();
-//        partEsquerra.setLayout(new BoxLayout(partEsquerra, BoxLayout.X_AXIS));
-//        //partEsquerra.setLayout(new FlowLayout(FlowLayout.CENTER));
-//        partEsquerra.add(marcadorPacman);
-//        partEsquerra.setBackground(Color.green);
-//    }
-//    
-//    private void construeixPanellDret(){
-//        partDreta = new JPanel();
-//        partDreta.setLayout(new BoxLayout(partDreta, BoxLayout.X_AXIS));
-//        //partDreta.setLayout(new FlowLayout(FlowLayout.CENTER));
-//        partDreta.add(marcadorEnemic);
-//        partDreta.setBackground(Color.blue);
-//    }
-//    
-//    private void construeixPanellInferior(){
-//        partInferior = new JPanel();
-//        partInferior.setLayout(new FlowLayout());
-//        partInferior.add(cronometre);
-//        partInferior.setBackground(Color.red);
-//    }
-//    
-//    private void construeixPanellCentral(){   
-//        partCentral = new JPanel();
-//        //partCentral.setLayout(new BoxLayout(partCentral, BoxLayout.Y_AXIS));
-//        //partCentral.setLayout(new FlowLayout());
-//        partCentral.setLayout(null);
-////        partCentral.add(pintadorLaberint);
-//        partCentral.setBackground(Color.CYAN);
-//        //pintadorLaberint.setVisible(true);
-//
-//    }
-    
-//    private void colocaLaberint(){
-//        Dimension centre = partCentral.getSize();
-////        Dimension laberint = pintadorLaberint.getSize();
-//        //pintadorLaberint.setLocation((centre.width - laberint.width) / 2, (centre.height - laberint.height) / 2);
-////        pintadorLaberint.setLocation(100,10);
-//    }
-
     @Override
     public void assignarPartida(final Partida partida) {
         addWindowListener(new WindowAdapter() {
@@ -222,5 +149,5 @@ public class FPartida extends JFrame implements IPintadorPartida{
             }
         });
     }
-
+    
 }

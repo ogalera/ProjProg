@@ -65,12 +65,12 @@ public enum EElement {
         return this.esEnemic;
     }
     
-//    public static void redimensionarImatges(int px){
-//        for (EElement e : EElement.values()){
-//            ImageIcon img = e.obtenirImatge();
-//            if(img != null) e.establirImatge(Utils.redimensionarImatge(img, px));
-//        }
-//    }
+    public static void redimensionarImatges(int px){
+        for (EElement e : EElement.values()){
+            ImageIcon img = e.obtenirImatge();
+            if(img != null) e.establirImatge(Utils.redimensionarImatge(img, px));
+        }
+    }
     
     private void establirImatge(Image img){
         this.imatge = new ImageIcon(img);

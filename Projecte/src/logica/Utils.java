@@ -25,7 +25,7 @@ public class Utils{
         public static final int PORT = 9988;
 //        public static final int FREQUENCIA_ITEM = 400;
         public static final int FREQUENCIA_ITEM = 400;
-        public static final int FREQUENCIA_PERSONATGE = 300;
+        public static final int FREQUENCIA_PERSONATGE = 240;
         public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
     }
     
