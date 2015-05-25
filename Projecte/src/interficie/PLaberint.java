@@ -118,7 +118,7 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     }
     @Override
     public void paint(Graphics g){
-        midaLabels = new Dimension (laberintGrafic[0][0].getSize().width, laberintGrafic[0][0].getSize().height);
+        midaLabels = new Dimension (laberintGrafic[0][0].getSize().width, laberintGrafic[0][0].getSize().height);//En aquest punt els labels ja tenen assignada una mida
         if (!parets.empty())redimensionaParets();
         super.paint(g);
     }

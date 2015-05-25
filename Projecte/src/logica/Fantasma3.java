@@ -48,6 +48,10 @@ public class Fantasma3 extends Personatge{
         this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic3B0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
         this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic3B1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
+    
+    /**
+     * @brief Diferents Modes que adopta Fantasma 3 durant una partida
+     */
     private enum EMode{
         FUGIR, //En aquest mode es calcula un cami de n posicions que maximitza la distancia amb el perseguidor, on n es la profunditat del BackTracking
         SEGUIMENT, //Es persegueix un objectiu movible. Es calcula el cami minim a cada moviment i nomes es porta a terme el primer pas d'aquest cami calculat.
@@ -307,7 +311,11 @@ public class Fantasma3 extends Personatge{
         }
             
     }
-
+     /**
+     * @brief Assigna la sortida com a objectiu.
+     * @pre La sortida ha estat assignada en el objecte laberint.
+     * @post Objecte actual te com a objectiu EElement.SORTIDA i ruta conte el cami mes curt cap a aquest objectiu.
+     */
     private void exitLaberint(){
         EElement element = EElement.SORTIDA;
         Punt p = buscaElement(EElement.SORTIDA);
@@ -318,14 +326,19 @@ public class Fantasma3 extends Personatge{
     }
     
     
+    /**
+     * @brief Diu si un moviment es vàlid.
+     * @return Retorna cert si la posicio a la que accedirem efectuant el moviment mov, es diferent de EElement.PARET
+     */
     private boolean movimentValid(EDireccio mov){
         return laberint.obtenirElement(posicio.generarPuntDesplasat(mov)) != EElement.PARET;
     }
     
+    
     /**
-     * @brief Busca una moneda o 
-     * @pre Queden Monedes
-     * @post ruta conte un cami fins al objectiu
+     * @brief Assigna un objectiu del tipus Moneda al objecte actual. 
+     * @pre Queden Monedes.
+     * @post Objecte actual te com a objectiu EElement.MONEDA o EElement.MONEDA_DOBLE i ruta conte el cami mes curt cap a aquest objectiu.
      */
     private void buscaMoneda(){
         Punt p = buscaMonedaMesProxima();
@@ -336,12 +349,12 @@ public class Fantasma3 extends Personatge{
         
     }
 
-//    private Punt buscaMonedaMesProxima(){
-//        if (!moneder.esBuida())return moneder.obtenirPrimer().obtenirPunt();
-//        else return null;
-//    }
     
-    //Pre: queden Monedes
+    /**
+     * @brief Troba una moneda més próxima.
+     * @pre Quede monedes en el Laberint
+     * @return Retorna el Punt on es troba la moneda més próxima.
+     */
     private Punt buscaMonedaMesProxima(){
         int mida = laberint.obtenirMidaCostatTauler();
         int monedesContades =0;
