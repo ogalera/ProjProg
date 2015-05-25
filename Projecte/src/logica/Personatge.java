@@ -43,8 +43,9 @@ public abstract class Personatge extends ItemMovible{
     public Personatge(Partida partida, Laberint laberint, ImageIcon imatge, Punt inici) {
         super(partida, imatge, laberint, inici, Utils.Constants.FREQUENCIA_PERSONATGE);
         imatges = new ImageIcon[4][2];
-        this.historicMoviments = new HistoricMoviments();
-        this.punts = 0;
+        historicMoviments = new HistoricMoviments();
+        punts = 0;
+        guanya = true;
     }
     
     public int obtenirPunts(){
@@ -91,7 +92,11 @@ public abstract class Personatge extends ItemMovible{
         }
         oberta = !oberta;
         if(seguentMoviment != EDireccio.QUIET){
-            elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatge, estatPersonatge == EEstatPersonatge.AMB_MONGETA);
+            ///Tindrem superpoders quan o be tinguem una mongeta o be estiguem perdent
+            ///només podem perdre quan s'han acabat les monedes, s'ha sortejat la porta de sortida
+            ///i portem menys punts que el contrincant;
+            boolean superPoder = !guanya || estatPersonatge == EEstatPersonatge.AMB_MONGETA;
+            elementObtingut = laberint.mourePersonatge(posicio, seguentMoviment, imatge, superPoder);
         }
         return elementObtingut;
     }

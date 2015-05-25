@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  *
  * @author oscar
  */
-public class FFrameAmbLog extends JFrame implements ActionListener{
+public abstract class FFrameAmbLog extends JFrame implements ActionListener{
     public FFrameAmbLog() {
         initComponents();
         itmMostrarLog.addActionListener(this);

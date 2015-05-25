@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.laberints;
 
 import interficie.IPintadorLaberint;
@@ -17,11 +12,29 @@ import logica.excepcions.ELaberint;
 import logica.log.Log;
 
 /**
- *
  * @author oscar
+ * @brief
+ * Laberint amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és:
+ * Posar en pacman al extrem esquerra superior "casella [0, 0]" i l'enemic especificat
+ * en l'extrem inferior dret "casella [N, N].
+ * 
+ * Llavors sortejar una casella dins del tauler, buscar la posició habilitada
+ * més propera al punt sortejat i traçar un camí, en tot el camí es van posant
+ * monedes.
+ * 
+ * Aquest procés s'ha de repetir fins arribar a un nombre de monedes proporcional
+ * a la mida del tauler i mentre el tauler no sigui valid.
+ * 
+ * Per validar el tauler s'utilitza la classe ValidadorLaberint.java
  */
 public class LaberintAleatori extends Laberint{
     
+    /**
+     * @pre costat > 5 i enemic és Fantasma1, Fantasma2 o Fantasma3
+     * @post em cret un labrint aleatori (costat x costat) que forma part de partida, es pintarà a traves
+     * de pintadorLaberint i on l'extrem superior esquerra [0, 0] hi ha en pacman 
+     * i en l'extrem inferior dret hi ha l'enemic;
+     */
     public LaberintAleatori(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintAleatori.class);
@@ -36,6 +49,7 @@ public class LaberintAleatori extends Laberint{
         
         int nMonedesExtra = (nMonedes*Utils.Constants.TAN_X_CENT_MONEDES_EXTRA)/100;
         
+        ///Un cop generat el laberint sortejem les monedes extra;
         for(int i = 0; i < nMonedesExtra; i++){
             int fila;
             int columna;
@@ -45,16 +59,12 @@ public class LaberintAleatori extends Laberint{
             }while(tauler[fila][columna] != EElement.MONEDA);
             tauler[fila][columna] = EElement.MONEDA_EXTRA;
         }
-        
-//        matriuDIntencions = new boolean [costat][costat];
-//        for(int i = 0; i < costat; i++){
-//            for(int j = 0; j < costat; j++){
-//                matriuDIntencions[i][j] = true;
-//            }
-//        }
-        
     }
     
+    /**
+     * @pre enemic és Fantasma1, Fantasma2 o Fantasma3
+     * @post s'ha generat el laberint aleatori;
+     */
     private void generarLaberint(EElement enemic) {
         log.afegirDebug("Procedim a generar un laberint aleatori de "+costat+"X"+costat);
         long tempsInici = System.currentTimeMillis();
@@ -64,7 +74,7 @@ public class LaberintAleatori extends Laberint{
         Punt[] candidats = new Punt[costat*costat];
         candidats[0] = new Punt(0, 0);
         candidats[1] = new Punt(costat-1, costat-1);
-        int llindar = (int) (costat*costat*0.7);
+        int llindar = (int) (costat*costat*Utils.Constants.LLINDAR_MONEDES);
 
         Random r = new Random(System.currentTimeMillis());
         do{
@@ -92,7 +102,7 @@ public class LaberintAleatori extends Laberint{
                 }while(tauler[fila][columna] != EElement.PARET);
                 Punt origen = new Punt(fila, columna);
                 Punt desti = distanciaMinima(origen, candidats, nCandidats);
-                nCandidats += ferCamiTauler(origen, desti, tauler, candidats, nCandidats);
+                nCandidats += ferCamiTauler(origen, desti, candidats, nCandidats);
             }
         }while(!ValidadorLaberint.validarLaberint(tauler, costat));
         
@@ -107,7 +117,7 @@ public class LaberintAleatori extends Laberint{
         log.afegirDebug("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms");
     }
     
-    private int ferCamiTauler(Punt origen, Punt desti, EElement[][]tauler, Punt[] candidats, int nCandidats){
+    private int ferCamiTauler(Punt origen, Punt desti, Punt[] candidats, int nCandidats){
         EDireccio movimentLateral = movimentLateral(origen.obtenirColumna(), desti.obtenirColumna());
         EDireccio movimentVertical = movimentVertical(origen.obtenirFila(), desti.obtenirFila());
         int nAfegides = 0;

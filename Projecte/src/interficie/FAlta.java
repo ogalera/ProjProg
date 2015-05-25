@@ -139,10 +139,9 @@ public class FAlta extends JFrame implements ActionListener{
     private String seleccionarImatge(){
         String pathImatge = Constants.rutaImatgeDefecteUsuari;
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FiltreExtensio(".png"));
-//        fileChooser.setAcceptAllFileFilterUsed(false);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int resultatSeleccio = fileChooser.showDialog(this, "OK");
+//        fileChooser.setFileFilter(new FiltreExtensio(".png"));
+        int resultatSeleccio = fileChooser.showOpenDialog(this);
         if(resultatSeleccio == JFileChooser.APPROVE_OPTION){
             pathImatge = fileChooser.getSelectedFile().getAbsolutePath();
         }

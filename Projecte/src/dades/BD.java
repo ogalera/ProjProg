@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import logica.Usuari;
 import logica.Utils;
 import logica.log.Log;
@@ -71,7 +72,7 @@ public abstract class BD {
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
-            String consulta = " SELECT SUM(p.pnt_punts) AS pnt_punts, u.usu_nom, u.usu_ruta_imatge\n" +
+            String consulta = " SELECT SUM(p.pnt_punts) AS pnt_punts, u.usu_id, u.usu_nom, u.usu_ruta_imatge\n" +
                                 " FROM punts p, usuaris u\n" +
                                 " WHERE u.usu_id = p.pnt_usu_id\n" +
                                 " GROUP BY u.usu_id, u.usu_nom, usu_ruta_imatge\n" +
@@ -82,7 +83,7 @@ public abstract class BD {
                 int n = 0; 
                 ArrayList<Usuari> tmp = new ArrayList<>();
                 while(n < topN && rs.next()){
-                    tmp.add(new Usuari(-1, rs.getString("usu_nom"), -1, rs.getString("usu_ruta_imatge")));
+                    tmp.add(new Usuari(rs.getInt("usu_id"), rs.getString("usu_nom"), -1, rs.getString("usu_ruta_imatge")));
                     n++;
                 }
                 usuaris = new Usuari[n];
@@ -230,5 +231,35 @@ public abstract class BD {
             totOk = false;
         }
         return totOk;
+    }
+    
+    /**
+     * @pre usuari està registrat en el sistema;
+     * @post s'ha retornat un array amb el conjunt de nivells superats on 
+     * l'index correspon al nivell i el contingut als punts.
+     * 
+     * nivell[5] -> 4000 vol dir que del nivell 5 s'han fet 4000 punts
+     * 
+     * En cas de haver un problema amb la B.D. es retorna null;
+     */
+    public static int [] obtenirHistoricPuntsUsuari(Usuari usuari){
+        int resultat[] = null;
+        try(Connection connexio = DriverManager.getConnection(URL_BD);
+            Statement consultarHistoricUsuari = connexio.createStatement()){
+            ResultSet rs = consultarHistoricUsuari.executeQuery(" SELECT pnt_punts, pnt_nivell\n" +
+                                                                " FROM punts\n" +
+                                                                " WHERE pnt_usu_id = "+usuari.obtenirId()+" AND pnt_punts <> 0\n" +
+                                                                " ORDER BY pnt_nivell ASC");
+            resultat = new int[6];
+            int x = 0;
+            while(rs.next()){
+                resultat[++x] = rs.getInt("pnt_punts");
+            }
+            resultat = Arrays.copyOf(resultat, x+1);
+        }
+        catch(SQLException sqlException){
+            System.err.println(sqlException.getMessage());
+        }
+        return resultat;
     }
 }

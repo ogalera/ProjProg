@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,7 +12,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import logica.Partida;
+import logica.Usuari;
 
 /**
  *
@@ -36,7 +33,8 @@ public class FPartida extends JFrame implements IPintadorPartida{
     private Marcador marcadorPacman;
     private Marcador marcadorEnemic;
     private final Crono cronometre;
-
+    private JLabel lblDificultat;
+    private JLabel lblNivell;
     
     public FPartida(PLaberint panellLaberint){
         getContentPane().setLayout(new BorderLayout());
@@ -46,6 +44,12 @@ public class FPartida extends JFrame implements IPintadorPartida{
         this.setFocusable(false);
         cronometre = new Crono();
         this.setAlwaysOnTop(true);
+    }
+    
+    public FPartida(PLaberint panellLaberint, JLabel nivell, JLabel dificultat){
+        this(panellLaberint);
+        this.lblDificultat = dificultat;
+        this.lblNivell = nivell;
     }
    
     @Override
@@ -60,7 +64,6 @@ public class FPartida extends JFrame implements IPintadorPartida{
 
     @Override
     public void pintarPartida(Partida partida) {
-        
         //Creacio part esquerra
         JPanel zonaEsquerra = new JPanel();
         zonaEsquerra.setLayout(new BoxLayout(zonaEsquerra, BoxLayout.X_AXIS));
@@ -112,14 +115,18 @@ public class FPartida extends JFrame implements IPintadorPartida{
     @Override
     public void pintarFinalPartida(boolean guanyat) {
         cronometre.pararCrono();
-//        if(guanyat){
-//            JOptionPane.showMessageDialog("HAS GUANYAT!", null,JOptionPane.INFORMATION_MESSAGE);
-//        }
-//        else{
-//            JOptionPane.showMessageDialog("HAS PERDUT","ERROR",JOptionPane.INFORMATION_MESSAGE);
-//        }
+        if(guanyat){
+            JOptionPane.showMessageDialog(this, "has guanyat", "Partida acabada",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "has perdut", "Partida acabada",JOptionPane.WARNING_MESSAGE);
+        }
+        if(lblNivell != null){
+            Usuari usuari = FLogin.obtenirUsuari();
+            lblNivell.setText(usuari.obtenirNivell().toString());
+            lblDificultat.setText(usuari.obtenirDificultat().toString());
+        }
         this.dispose();
-        
     }
 
     @Override
@@ -145,7 +152,7 @@ public class FPartida extends JFrame implements IPintadorPartida{
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e){
-                partida.finalitzarPartida();
+                partida.tancarPartida();
             }
         });
     }

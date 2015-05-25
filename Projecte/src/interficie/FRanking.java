@@ -105,12 +105,9 @@ public class FRanking extends FFrameAmbLog implements ListSelectionListener, Act
     @Override
     public void valueChanged(ListSelectionEvent e) {
         if(e.getValueIsAdjusting()){
-            Usuari usuari = usuaris[e.getFirstIndex()];
-//            Usuari.PuntuacioNivell puntuacions[] = new Usuari.PuntuacioNivell[3];
-//            puntuacions[0] = new Usuari.PuntuacioNivell(1000, 100000);
-//            puntuacions[1] = new Usuari.PuntuacioNivell(1000, 100000);
-//            puntuacions[2] = new Usuari.PuntuacioNivell(1000, 100000);
-//            new FHistoricUsuari(usuari.obtenirNomUsuari(), usuari.obtenirImatge(), puntuacions).mostrarFrame();
+            Usuari usuari = usuaris[jliRanking.getSelectedIndex()];
+            int historic []= BD.obtenirHistoricPuntsUsuari(usuari);
+            new FHistoricUsuari(usuari.obtenirNomUsuari(), usuari.obtenirImatge(), historic).mostrarFrame();
         }
     }
 

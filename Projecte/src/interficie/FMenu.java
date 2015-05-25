@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import java.awt.event.ActionEvent;
@@ -17,13 +12,11 @@ import logica.Usuari.EDificultat;
 import logica.Usuari.ENivells;
 import logica.controladors_pacman.ControladorTeclat;
 import logica.controladors_pacman.IControlador;
-import logica.enumeracions.EElement;
 import logica.enumeracions.ELaberintsPredefinits;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 
 /**
- *
  * @author oscar
  */
 public class FMenu extends FFrameAmbLog implements ActionListener{
@@ -53,7 +46,8 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         lblNivell = new javax.swing.JLabel();
         lblUSUARI = new javax.swing.JLabel();
         lblNIVELL = new javax.swing.JLabel();
-        lblInfoUsuari = new javax.swing.JLabel();
+        lblDificultat = new javax.swing.JLabel();
+        lblDIFICULTAT = new javax.swing.JLabel();
 
         setTitle("Menú");
         setAlwaysOnTop(true);
@@ -80,12 +74,18 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
 
         lblNIVELL.setText("NIVELL");
 
-        lblInfoUsuari.setText("jLabel1");
+        lblDificultat.setText("Dificultat");
+
+        lblDIFICULTAT.setText("DIFICULTAT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblImatgeUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,16 +100,12 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblUsuari)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblUSUARI)))
+                        .addComponent(lblUSUARI))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblDificultat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDIFICULTAT)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(lblImatgeUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblInfoUsuari)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +121,9 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
                     .addComponent(lblNivell)
                     .addComponent(lblNIVELL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfoUsuari)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDificultat)
+                    .addComponent(lblDIFICULTAT))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAventura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -148,13 +146,13 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
     public void mostrarFrame(){
         Usuari usuari = FLogin.obtenirUsuari();
         lblUSUARI.setText(usuari.obtenirNomUsuari());
-        lblNIVELL.setText(usuari.obtenirNivell()+"");
+        lblNIVELL.setText(usuari.obtenirNivell().toString());
+        lblDIFICULTAT.setText(usuari.obtenirDificultat().toString());
         lblImatgeUsuari.setIcon(usuari.obtenirImatge());
         btnAventura.addActionListener(this);
         btnProvarMapa.addActionListener(this);
         btnCrearMapa.addActionListener(this);
         btnSortir.addActionListener(this);
-        lblInfoUsuari.setText("Nivell "+usuari.obtenirNivell()+" Dificultat "+usuari.obtenirDificultat());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
@@ -164,8 +162,9 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
     private javax.swing.JButton btnCrearMapa;
     private javax.swing.JButton btnProvarMapa;
     private javax.swing.JButton btnSortir;
+    private javax.swing.JLabel lblDIFICULTAT;
+    private javax.swing.JLabel lblDificultat;
     private javax.swing.JLabel lblImatgeUsuari;
-    private javax.swing.JLabel lblInfoUsuari;
     private javax.swing.JLabel lblNIVELL;
     private javax.swing.JLabel lblNivell;
     private javax.swing.JLabel lblUSUARI;
@@ -178,13 +177,13 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         if(e.getSource() == btnAventura){
             IControlador controlador = new ControladorTeclat();
             PLaberint fLaberint = new PLaberint();
-            FPartida fPartida = new FPartida(fLaberint);
+            FPartida fPartida = new FPartida(fLaberint, lblNIVELL, lblDIFICULTAT);
             EDificultat dificultat = FLogin.obtenirUsuari().obtenirDificultat();
             ENivells nivell = FLogin.obtenirUsuari().obtenirNivell();
             System.out.println(nivell);
-            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI/*LABERINT_LINEAL_HORITZONTAL*/,
+            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI,
                                             nivell.obtenirMidaLaberint(), 
-                                            EElement.FANTASMA3/*dificultat.obtenirEnemicAssignatADificultat()*/, 
+                                            dificultat.obtenirEnemicAssignatADificultat()/*dificultat.obtenirEnemicAssignatADificultat()*/, 
                                             fPartida,
                                             fLaberint,
                                             controlador);
@@ -212,7 +211,7 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         else if(e.getSource() == btnCrearMapa){
             new FEditorLaberint(5).mostrarFrame();
         }
-        else{
+        else if(e.getSource() == btnSortir) {
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }

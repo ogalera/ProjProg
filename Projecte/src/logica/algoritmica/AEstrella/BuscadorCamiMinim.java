@@ -80,24 +80,20 @@ public class BuscadorCamiMinim {
             
             for (Punt adjacent : adjacents){
                 if (laberint.posicioValida(adjacent)){
-                    EElement aux = laberint.obtenirElement(adjacent);
-                    if (aux != EElement.PARET){
-                        Casella vei = tauler[adjacent.obtenirFila()][adjacent.obtenirColumna()];
-                        if (!vei.haEstatProcessat()){
-                            if (!llistaOberta.conteElement(vei)){//No esta a la llista oberta
+                    Casella vei = tauler[adjacent.obtenirFila()][adjacent.obtenirColumna()];
+                    if (!vei.haEstatProcessat()){
+                        if (!llistaOberta.conteElement(vei)){//No esta a la llista oberta
+                            vei.assignarParent(actual);
+                            vei.assignarDistanciaAlObjectiu(adjacent.distancia(desti)); 
+                            llistaOberta.afegir(vei);
+                        }
+                        else{//Ja estava a la llista oberta
+                            if (vei.obtenirProfunditat() > actual.obtenirProfunditat() +1 ){
                                 vei.assignarParent(actual);
-                                vei.assignarDistanciaAlObjectiu(adjacent.distancia(desti)); 
-                                llistaOberta.afegir(vei);
                             }
-                            else{//Ja estava a la llista oberta
-                                if (vei.obtenirProfunditat() > actual.obtenirProfunditat() +1 ){
-                                    vei.assignarParent(actual);
-                                }
-                                
-                            }
+
                         }
                     }
-                   
                 }
             }
             actual = llistaOberta.obtenirPrimer();

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import java.awt.Image;
@@ -15,14 +10,12 @@ import logica.controladors_pacman.IControlador;
 import logica.enumeracions.EElement;
 
 /**
- *
  * @author oscar
  */
 public class Pacman extends Personatge{
     
     public Pacman(Partida partida, Laberint laberint, IControlador controlador, Punt inici) {
         super(partida, laberint, EElement.PACMAN.obtenirImatge(), inici);
-        seguentMoviment = EDireccio.QUIET;
         controlador.assignarPacman(this);
         if(controlador instanceof ControladorTeclat){
             ControladorTeclat controladorTeclatGrafic = (ControladorTeclat) controlador;
@@ -38,13 +31,13 @@ public class Pacman extends Personatge{
             switch(element){
                 case MONEDA:{
                     Audio.reprodueixMenjaMoneda();
-                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
+                    incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
                     partida.assignarPuntsPacman(punts);
                     posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
                 case MONEDA_EXTRA:{
                     Audio.reprodueixMenjaMoneda();
-                    super.incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
+                    incrementarPunts(Utils.Constants.VALOR_MONEDA_EXTRA);
                     partida.assignarPuntsPacman(punts);
                     posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
@@ -59,10 +52,10 @@ public class Pacman extends Personatge{
                 case PATINS:
                 case MONEDES_X2:
                 case MONGETA:{
-                    Audio.reprodueixMenjaItem();
                     //Em agafat algún item
+                    Audio.reprodueixMenjaItem();
                     partida.itemCapturat();
-                    super.assignarEstatPersonatge(element);
+                    assignarEstatPersonatge(element);
                     partida.assignarItemAPacman(element);
                     posicio = posicio.generarPuntDesplasat(seguentMoviment);
                 }break;
@@ -81,28 +74,6 @@ public class Pacman extends Personatge{
         return seguentMoviment;
     }
     
-//    @Override
-//    public EDireccio calcularMoviment() {
-//        EDireccio direccio = EDireccio.QUIET;
-//        EDireccio tmp;
-//        synchronized(this){
-//            tmp = teclaPremuda;
-//        }
-//        if(tmp != null){
-//            Punt desti = posicio.generarPuntDesplasat(tmp);
-//            if (laberint.obtenirElement(desti) != EElement.PARET){
-//                if(laberint.esIntencioValida(desti)){
-//                    direccio = tmp;
-//                    laberint.marcarIntencio(desti);
-//                }
-//                else if(obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-//                    direccio = tmp;
-//                }
-//            }
-//        }
-//        return direccio;
-//    }
-    
     @Override
     public String nomItemMovible(){
         return "Pacman";
@@ -120,7 +91,7 @@ public class Pacman extends Personatge{
     @Override
     protected void assignarImatges() {
         int llargada = laberint.obtenirMidaImatge().height;
-        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/pacmanD0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/pacmanD0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
         this.imatges[0][1] = new ImageIcon(new ImageIcon("res/pacmanD1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
         this.imatges[1][0] = new ImageIcon(new ImageIcon("res/pacmanE0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
         this.imatges[1][1] = new ImageIcon(new ImageIcon("res/pacmanE1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
@@ -134,5 +105,4 @@ public class Pacman extends Personatge{
     protected void notificarPerduaEstat() {
         partida.assignarItemAPacman(EElement.RES);
     }
-    
 }

@@ -31,22 +31,32 @@ import logica.Utils;
 public class Laberint {
     protected EElement tauler[][]; /**<matriu de representacions per els elements que hi ha en el laberint**/
     
-    protected Log log = Log.getInstance(Laberint.class);
+    protected Log log;
     
     protected int costat = -1; /**<costat del laberint, tot laberint ha de ser costat x costat*/
     
     protected Partida partida;/**<partida de la qual forma part el laberint i que li envia missatges*/
     
-    protected int nMonedes = 0;
+    protected int nMonedes = 0;/**<nombre de monedes que hi ha a en el laberint, al final de la partida
+                                * hi haurà de valdre 0*/
     
-    protected IPintadorLaberint pintador;
+    protected IPintadorLaberint pintador; /**<Representació gràfica del laberint, nosaltres no sabem
+                                            * sobre que estem pintant el laberint però tampoc ens importa,
+                                            * ens limitem a enviar missatges per pintar com evoluciona el laberint*/
     
-    protected int nMondesPerItem;
+    protected int nMondesPerItem; /**<nombre de monedes que s'han de capturar per que aparegui un item en la partida
+                                      aquest valor sempre ha de cumplir 0 < nMonedesPerItem < nMonedes*/
     
+    /**
+     * @pre el fitxer existeix i té un format correcte;
+     * @post em creat un laberint a partir del fitxer que forma part de la partida i
+     * que la seva representació gràfica serà sobre pintadorLaberint;
+     */
     public Laberint(String fitxer,
                     Partida partida, 
                     IPintadorLaberint pintadorLaberint) throws EFormatLaberint{
         this.pintador = pintadorLaberint;
+        log = Log.getInstance(Laberint.class);
         log.afegirDebug("Carreguem un laberint del fitxer "+fitxer);
         File f = new File(fitxer);
         this.partida = partida;
@@ -74,10 +84,14 @@ public class Laberint {
             throw new EFormatLaberint("No s'ha pogut llegir el fitxer per importar el laberint, missatge:\n"+fnfe.getMessage());
         }
         this.nMonedes = numeroMonedes();
-        this.nMondesPerItem = (int) (nMonedes*0.1);
+        this.nMondesPerItem = (int) (nMonedes*Utils.Constants.TAN_X_CENT_MONEDES_ITEM);
         if(nMondesPerItem == 0) nMondesPerItem = 1;
     }
     
+    /**
+     * @pre --;
+     * @post em parsejat linia sobre un array de EElement
+     */
     private EElement [] parseLiniaLaberint(String linia) throws EFormatLaberint{
         String camps[] = linia.split(" ");
         EElement [] liniaElements = new EElement[camps.length];
@@ -87,20 +101,34 @@ public class Laberint {
         return liniaElements;
     }
     
+    /**
+     * @pre elements ha de ser una matriu cuadrada;
+     * @post em creat un laberint a partir de elements i forma part de partida;
+     */
     public Laberint(EElement elements[][], Partida partida){
+        log = Log.getInstance(Laberint.class);
         log.afegirDebug("Carreguem un laberint des de una matriu quadrada");
         this.costat = elements[0].length;
         this.tauler = elements;
         this.partida = partida;
         this.nMonedes = numeroMonedes();
-        this.nMondesPerItem = (int) (nMonedes*0.3);
+        this.nMondesPerItem = (int) (nMonedes*Utils.Constants.TAN_X_CENT_MONEDES_ITEM);
         if(nMondesPerItem == 0) nMondesPerItem = 1;
     }
     
+    /**
+     * @pre --;
+     * @post em creat un laberint que forma part de partida;
+     */
     protected Laberint(Partida partida){
+        log = Log.getInstance(Laberint.class);
         this.partida = partida;
     }
     
+    /**
+     * @pre --;
+     * @post em retornat el nombre de monedes que hi ha en el laberint;
+     */
     protected final int numeroMonedes(){
         int numMonedes = 0;
         for(int i = 0; i < costat; i++){
@@ -115,39 +143,48 @@ public class Laberint {
     
     /**
      * @pre: --;
-     * @post: retornem si la posició és valida dins del tauler;
-     * @param posicio: a comparar;
-     * @return si la posició està dins del tauler;
+     * @post: retornem si la posició és valida dins del tauler, per valida entenem
+     * que no surt del rang del tauler i no és paret;
      */
     public boolean posicioValida(Punt posicio){
-        int fila = posicio.obtenirColumna();
-        int columna = posicio.obtenirFila();
-        return fila >= 0 && columna >= 0 && fila < costat && columna < costat;
+        return this.obtenirElement(posicio) != EElement.PARET;
     }
     
     /**
      * @pre: --;
-     * @post: retornem l'element de ubicat en posició, si la posició està fora del
-     * laberint es retorna PARET;
-     * @param posicio: a consultar;
-     * @return: element ubicat en posició;
+     * @post: retornem l'element ubicat en posició, si la posició no és valida es retorna PARET;
      */
     public EElement obtenirElement(Punt posicio){
         EElement element = EElement.PARET;
-        if(posicioValida(posicio)){
-           int columna = posicio.obtenirColumna();
-           int fila = posicio.obtenirFila();
+        int fila = posicio.obtenirFila();
+        int columna = posicio.obtenirColumna();
+        if(fila >= 0 && fila < costat && columna >= 0 && columna < costat){
            element = tauler[fila][columna];
         }
         return element;
     }
     
+    /**
+     * @pre en origen hi ha un item, origen desplaçat per direccio produeix una 
+     * posició valida i direccio != QUIET;
+     * @post en cas que origen desplaçat per direcció sigui legal (per legal 
+     * entenem que no trapitja un enemic ni a en pacman)
+     * 
+     * llavors: em desplasat item de origen al punt generat amb la direcció i en origen
+     *          hi em restaurat elementARestaurar, em retornat l'element capturat;
+     * 
+     * altrament, el moviment no és legal i
+     *          retornem null;
+     */
     public synchronized EElement moureItem(Punt origen, EDireccio direccio, EElement elementARestaurar){
+        ///Em de rebre elementARestaurar ja que al desplasar-se un item pot contenir monedes a sota
+        ///que s'han de restaurar per evitar inconsistencies;
         Punt desti = origen.generarPuntDesplasat(direccio);
         int filaDesti = desti.obtenirFila();
         int columnaDesti = desti.obtenirColumna();
         EElement elementTrapitjat = tauler[filaDesti][columnaDesti];
         if(!elementTrapitjat.esEnemic() && elementTrapitjat != EElement.PACMAN){
+            ///no trapitjem a en pacman ni a un enemic;
             int filaOrigen = origen.obtenirFila();
             int columnaOrigen = origen.obtenirColumna();
             tauler[filaDesti][columnaDesti] = tauler[filaOrigen][columnaOrigen];
@@ -155,178 +192,121 @@ public class Laberint {
             pintador.pintarMovimentItem(origen, direccio, elementARestaurar.obtenirImatge());
         }
         else{
+            ///el moviment no és legal, volem trapitjar a en pacman o a un enemic;
             elementTrapitjat = null;
         }
         return elementTrapitjat;
     }
     
-    public synchronized EElement mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superEstat){
+    /**
+     * @pre en origen hi ha un personatge, origen desplaçat per direccio produeix 
+     * una posició valida i direccio != QUIET;
+     * @post en cas que origen desplaçat per direcció sigui legal (per legal 
+     * entenem que no trapitja un enemic ni a en pacman a no ser que tingui super poders)
+     * 
+     * llavors: em desplasat personatge de origen al punt generat amb la direcció i en origen
+     *          hi em deixat RES, em retornat l'element capturat;
+     * 
+     * altrament, el moviment no és legal:
+     *          retornem null;
+     */
+    public synchronized EElement mourePersonatge(Punt origen, EDireccio direccio, ImageIcon imatge, boolean superPoders){
         Punt desti = origen.generarPuntDesplasat(direccio);
-        int filaOrigen = origen.obtenirFila();
-        int columnaOrigen = origen.obtenirColumna();
         int filaDesti = desti.obtenirFila();
         int columnaDesti = desti.obtenirColumna();
-        EElement elementOrigen = tauler[filaOrigen][columnaOrigen];
         EElement elementObtingut = tauler[filaDesti][columnaDesti];
-        switch(elementObtingut){
-            case MONEDA:
-            case MONEDA_EXTRA:{
-                nMonedes--;
-                System.out.println(nMonedes);
-                tauler[filaOrigen][columnaOrigen] = EElement.RES;
-                tauler[filaDesti][columnaDesti] = elementOrigen;
-                pintador.pintarMovimentPersonatge(origen, direccio, imatge);
-//                nMonedes = numeroMonedes();
-                if(nMonedes == 0){
-                    Punt sortida = sortejarSortida();
-                    tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
-                    pintador.pintarSortida(sortida);
-                    partida.assignarGuanyador();
-                }
-                else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
-                    //Toca sortejar un nou item
-                    Punt puntItem = sortejarPosicioItem();
-                    EElement item = sortejarItem();
-                    Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
-                    tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
-                    pintador.pintarNouItem(puntItem, item);
-                    partida.assignarItemEspecial(nouItem);
-                    System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
-                }
-                System.out.println(this);
-            }break;
-            case SORTIDA:{
-                System.out.println("s A ARRIBAT A LA SORTIDA "+desti);
-                partida.finalitzarPartida();
-            }break;
-            case RES:{
-                aplicarMoviment(origen, direccio, imatge);
-            }break;
-            case MONGETA:
-            case PATINS:
-            case MONEDES_X2:{
-                EElement elementTrapitjat = partida.obtenirItem().obtenirElementTrapitgat();
-                if(elementTrapitjat == EElement.MONEDA || elementTrapitjat == EElement.MONEDA_EXTRA){
+        ///Per que el moviment sigui "legal" no has de trapitjar a un enemic o a en pacman
+        ///a no ser que tinguis "super poders" (al estar en poseció de la mongeta)
+        if(!elementObtingut.esEnemic() && elementObtingut != EElement.PACMAN){
+            ///Moviment legal
+            int filaOrigen = origen.obtenirFila();
+            int columnaOrigen = origen.obtenirColumna();
+            EElement elementOrigen = tauler[filaOrigen][columnaOrigen];
+            switch(elementObtingut){
+                case MONEDA:
+                case MONEDA_EXTRA:{
+                    ///Em capturat una moneda
                     nMonedes--;
-                    System.out.println(nMonedes);
+                    ///desplaçem al personatge i deixem RES en l'origen;
                     tauler[filaOrigen][columnaOrigen] = EElement.RES;
                     tauler[filaDesti][columnaDesti] = elementOrigen;
-//                    nMonedes = numeroMonedes();
-                    if(nMonedes == 0){
-                        Punt sortida = sortejarSortida();
-                        tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
-                        pintador.pintarSortida(sortida);
-                        partida.assignarGuanyador();
-                    }
-                    else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
-                        //Toca sortejar un nou item
-                        Punt puntItem = sortejarPosicioItem();
-                        EElement item = sortejarItem();
-                        Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
-                        tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
-                        pintador.pintarNouItem(puntItem, item);
-                        partida.assignarItemEspecial(nouItem);
-                        System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
-                    }
+                    ///pintem el moviment;
                     pintador.pintarMovimentPersonatge(origen, direccio, imatge);
-                    System.out.println(this);
-                }
-                else aplicarMoviment(origen, direccio, imatge);
-            }break;
-            default:{
-                if(superEstat){
-                    elementObtingut = tauler[desti.obtenirFila()][desti.obtenirColumna()];
-                }
-                else elementObtingut = obtenirElement(origen);
-            }break;
+                    monedaCapturada();
+                }break;
+                case SORTIDA:{
+                    ///S'ha arribat a la sortida, cal finalitzar la partida;
+                    tauler[filaOrigen][columnaOrigen] = EElement.RES;
+                    tauler[filaDesti][columnaDesti] = elementOrigen;
+                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                    partida.finalitzarPartida();
+                }break;
+                case RES:{
+                    ///Si no s'ha capturat res l'únic que cal és pintar el moviment;
+                    tauler[filaOrigen][columnaOrigen] = EElement.RES;
+                    tauler[filaDesti][columnaDesti] = elementOrigen;
+                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                }break;
+                case MONGETA:
+                case PATINS:
+                case MONEDES_X2:{
+                    ///S'ha capturat un item, que tenia sota?
+                    EElement elementTrapitjat = partida.obtenirItem().obtenirElementTrapitgat();
+                    if(elementTrapitjat == EElement.MONEDA || elementTrapitjat == EElement.MONEDA_EXTRA){
+                        ///el que tenia sota l'item era una moneda per tant cal decrementar el nombre
+                        ///de monedes i mirar si toca sortejar item;
+                        nMonedes--;
+                        monedaCapturada();
+                    }
+                    tauler[filaOrigen][columnaOrigen] = EElement.RES;
+                    tauler[filaDesti][columnaDesti] = elementOrigen;
+                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+                }break;
+            }
         }
+        else if(superPoders){
+            ///Seria "ilegal" però no passa res per que tenim super poders per tant
+            ///retornem l'element tocat;
+            elementObtingut = tauler[desti.obtenirFila()][desti.obtenirColumna()];
+        }
+        else {
+            ///Moviment "il·legal" retornarem null;
+            elementObtingut = null;
+        }
+        
         return elementObtingut;
     }
 
-    private synchronized void aplicarMoviment(Punt origen, EDireccio direccio, ImageIcon imatge){
-        int columna = origen.obtenirColumna();
-        int fila = origen.obtenirFila();
-        Punt desti = origen.generarPuntDesplasat(direccio);
-        EElement elementOrigen = tauler[fila][columna];
-        tauler[fila][columna] = EElement.RES;
-        tauler[desti.obtenirFila()][desti.obtenirColumna()] = elementOrigen;
-        pintador.pintarMovimentPersonatge(origen, direccio, imatge);
+    /**
+     * @pre --;
+     * @post es valora si cal sortejar sortida o cal sortejar un nou item
+     * que formarà part de la partida;
+     */
+    private synchronized void monedaCapturada(){
+        if(nMonedes == 0){
+            ///No queden monedes, requisit únic i obligatori per sortejar una sortida
+            Punt sortida = sortejarPosicioBuida();
+            tauler[sortida.obtenirFila()][sortida.obtenirColumna()] = EElement.SORTIDA;
+            pintador.pintarSortida(sortida);
+            partida.assignarGuanyador();
+        }
+        else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
+            ///No hi havia un item voltant per la partida i em obtingut un nombre 
+            ///de monedes considerat per llençar-ne un de nou
+            Punt puntItem = sortejarPosicioBuida();
+            EElement item = sortejarItem();
+            Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
+            tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
+            pintador.pintarNouItem(puntItem, item);
+            partida.assignarItemEspecial(nouItem);
+            System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+        }
     }
     
-//    public synchronized EElement mourePersonatge(Punt posicio, EDireccio direccio, ImageIcon imatge){
-//        int columna = posicio.obtenirColumna();
-//        int fila = posicio.obtenirFila();
-//        EElement objecteAMoure = this.tauler[fila][columna];
-//        this.tauler[fila][columna] = EElement.RES;
-//        Punt p = posicio.generarPuntDesplasat(direccio);
-//        columna = p.obtenirColumna();
-//        fila = p.obtenirFila();
-//        EElement objecteAgafat = this.tauler[fila][columna];
-//        
-//        if(objecteAgafat == EElement.MONGETA || objecteAgafat == EElement.PATINS || objecteAgafat == EElement.MONEDES_X2){
-//            EElement item = partida.obtenirItem().obtenirElementTrapitgat();
-//            if(item == EElement.MONEDA || item == EElement.MONEDA_EXTRA){
-//                nMonedes--;
-//            }
-//            if(nMonedes == 0){
-//               Punt sortida = sortejarSortida();
-//               int xSortida = sortida.obtenirColumna();
-//               int ySortida = sortida.obtenirFila();
-//               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
-//               pintador.pintarSortida(sortida);
-//               partida.assignarGuanyador();
-//            }
-//        }
-//        else if(objecteAgafat == EElement.MONEDA || objecteAgafat == EElement.MONEDA_EXTRA){
-//            this.nMonedes--;
-//            if(nMonedes == 0){
-//               Punt sortida = sortejarSortida();
-//               int xSortida = sortida.obtenirColumna();
-//               int ySortida = sortida.obtenirFila();
-//               this.tauler[ySortida][xSortida] = EElement.SORTIDA;
-//               System.out.println("Sortida a "+sortida);
-//               pintador.pintarSortida(sortida);
-//               partida.assignarGuanyador();
-//            }
-//            else if(nMonedes%nMondesPerItem == 0 && !partida.hiHaItemEspecial()){
-//                //Toca sortejar un nou item
-//                Punt puntItem = sortejarPosicioItem();
-//                EElement item = sortejarItem();
-//                Item nouItem = new Item(partida, item, obtenirElement(puntItem), this, puntItem);
-//                int filaItem = puntItem.obtenirFila();
-//                int columnaItem = puntItem.obtenirColumna();
-//                this.tauler[filaItem][columnaItem] = item;
-//                pintador.pintarNouItem(puntItem, item);
-//                partida.assignarItemEspecial(nouItem);
-//                System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
-//            }
-//        }
-//        else if(objecteAgafat == EElement.SORTIDA){
-//            System.out.println("s A ARRIBAT A LA SORTIDA "+p);
-//            partida.finalitzarPartida();
-//        }
-//        this.tauler[fila][columna] = objecteAMoure;
-//        if(direccio != EDireccio.QUIET) {
-//            pintador.pintarMovimentPersonatge(posicio, direccio, imatge);
-////            desmarcarIntencio(posicio);
-//        }
-//        System.out.println(this);
-//        return objecteAgafat;
-//    }
-    
-    private synchronized Punt sortejarSortida(){
-        System.out.println("\n\n*****\nSORTEJEM SORTIDA");
-        int fila;
-        int columna;
-        EElement element;
-        do{
-            fila = Utils.obtenirValorAleatori(costat);
-            columna = Utils.obtenirValorAleatori(costat);
-            element = tauler[fila][columna];
-        }while(element != EElement.RES);
-        return new Punt(fila, columna);
-    }
-    
+    /**
+     * @pre --;
+     * @post em retornat un item pseudoaleatoriament;
+     */
     private synchronized EElement sortejarItem(){
         int index = Utils.obtenirValorAleatori(3);
         switch(index){
@@ -342,7 +322,11 @@ public class Laberint {
         }
     }
     
-    private synchronized Punt sortejarPosicioItem(){
+    /**
+     * @pre --;
+     * @post em retornat un punt on hi havia RES
+     */
+    private synchronized Punt sortejarPosicioBuida(){
         int fila;
         int columna;
         EElement element;
@@ -366,7 +350,11 @@ public class Laberint {
         return resultat;
     }
     
-    public Punt obtenirPosicioInicialPacman(){
+    /**
+     * @pre --
+     * @post retornem la posició on hi ha en pacman;
+     */
+    public Punt obtenirPosicioPacman(){
         Punt posicio = null;
         boolean trobat = false;
         int i = 0;
@@ -384,6 +372,10 @@ public class Laberint {
         return posicio;
     }
     
+    /**
+     * @pre --;
+     * @post em retornat la posició del tauler on hi ha l'enemic;
+     */
     public Punt obtenirPosicioInicialEnemic(){
         Punt posicio = null;
         boolean trobat = false;
@@ -402,49 +394,45 @@ public class Laberint {
         return posicio;
     }
     
-//    public FLaberint obtenirPintadorLaberint(){
-//        return pintador;
-//    }
-//    
+    /**
+     * @pre --;
+     * @post em assignat un controlador de teclat asociat al pintador;
+     */
     public void assignarControladorTeclat(KeyListener listener){
+        ///Aquest controlador l'utilitzarem per moure en pacman per el laberint
+        ///utilitzant les tecles de direcció del keyboard;
         pintador.assignarControladorTeclat(listener);
     }
     
+    /**
+     * @pre --;
+     * @post em retornat la mida del costat del laberint;
+     */
     public int obtenirMidaCostatTauler(){
         return this.costat;
     }
-    
+
+    /**
+     * @pre --;
+     * @post em pintat el laberint sobre un surface gràfic;
+     */
     public void pintarLaberint(){
         pintador.pintarLaberint(this);
     }
-    
-    
+
+    /**
+     * @pre --;
+     * @post em obtingut la mida que ha de fer una imatge dins d'una casella del tauler;
+     */
     public Dimension obtenirMidaImatge(){
-        return this.pintador.obtenirMidaImatge();
+        return pintador.obtenirMidaImatge();
     }
     
-//    public synchronized void marcarIntencions(Punt p, EDireccio ... direccions){
-//        for (EDireccio direccion : direccions) {
-//            Punt tmp = p.generarPuntDesplasat(direccion);
-//            if(posicioValida(p)){
-//                matriuDIntencions[tmp.obtenirFila()][tmp.obtenirColumna()] = false;
-//            }
-//        }
-//    }
-//    
-//    public synchronized void desmarcarIntencions(Punt p, EDireccio ... direccions){
-//        for (EDireccio direccion : direccions) {
-//            Punt tmp = p.generarPuntDesplasat(direccion);
-//            if(posicioValida(p)){
-//                matriuDIntencions[tmp.obtenirFila()][tmp.obtenirColumna()] = true;
-//            }
-//        }
-//    }
-    
-    
-    ///////////////////////////////////////////////////////
-   public synchronized int obtenirMonedes(){
-       return nMonedes;
-   }
-
+    /**
+     * @pre --;
+     * @post em retornat el nombre de monedes que hi ha en el laberint;
+     */
+    public synchronized int obtenirMonedes(){
+        return nMonedes;
+    }
 }

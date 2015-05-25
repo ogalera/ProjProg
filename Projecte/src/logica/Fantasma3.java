@@ -84,15 +84,17 @@ public class Fantasma3 extends Personatge{
         System.out.println("Estat: " + donamNomMode(mode));
         if (objectiu != null)System.out.println("Objectiu: " + donamNomElement(objectiu.element));
         else System.out.println("Objectiu: null");
-        if (ruta == null || ruta.esBuida()){
-            System.out.println("IIEEEEPPPPPP!!! la ruta esta buida! ");
-            int a = 45;
+        if(ruta.esBuida()){
+            EElement e;
+            do{
+                int index = Utils.obtenirValorAleatori(4);
+                res = EDireccio.values()[index];
+                Punt p = posicio.generarPuntDesplasat(res);
+                e = laberint.obtenirElement(p);
+            }while(e == EElement.PARET || e == EElement.PACMAN || e.esEnemic());
         }
-        res = ruta.obtenirUltimMoviment();
-        
-        System.out.println("Proxim moviment: "+ donamNomMov(res));
-        System.out.println("Fi CALCULAR MOVIMENT: "+ donamNomMov(res));
-        if(!movimentValid(res)) res = EDireccio.QUIET;
+        else res = ruta.obtenirUltimMoviment();
+        if (!movimentValid(res)) res = EDireccio.QUIET;
         return res;
     }
     

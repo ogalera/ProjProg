@@ -77,8 +77,17 @@ public class Item extends ItemMovible {
         }
         tempsFinal = System.currentTimeMillis();
         log.afegirDebug("Temps total que triga el Item a recalcular una ruta: " + (tempsFinal - tempsInici) + " ms \n");
-
-        EDireccio res = ruta.obtenirUltimMoviment();
+        EDireccio res;
+        if(ruta.esBuida()){
+            EElement e;
+            do{
+                int index = Utils.obtenirValorAleatori(4);
+                res = EDireccio.values()[index];
+                Punt p = posicio.generarPuntDesplasat(res);
+                e = laberint.obtenirElement(p);
+            }while(e == EElement.PARET || e == EElement.PACMAN || e.esEnemic());
+        }
+        else res = ruta.obtenirUltimMoviment();
         if (!movimentValid(res)) res = EDireccio.QUIET;
         return res;
     }
@@ -118,7 +127,7 @@ public class Item extends ItemMovible {
     public EElement realitzarMoviment() {
         if(seguentMoviment != EDireccio.QUIET){
             EElement tmp = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
-            if(elementTrapitjat != null && elementTrapitjat != EElement.MONEDES_X2 && elementTrapitjat != EElement.MONGETA && elementTrapitjat != EElement.PATINS){
+            if(tmp != null && tmp != EElement.MONEDES_X2 && tmp != EElement.MONGETA && tmp != EElement.PATINS){
                 elementTrapitjat = tmp;
                 ruta.eliminarMoviment();
                 posicio = posicio.generarPuntDesplasat(seguentMoviment);

@@ -33,6 +33,8 @@ public class PLaberint extends JPanel implements IPintadorLaberint{
     private Dimension midaLabels;
     private Stack<Punt> parets;
     
+    
+    
     public PLaberint(){
         log = Log.getInstance(PLaberint.class);
     }

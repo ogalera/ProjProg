@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import interficie.FLogin;
@@ -128,7 +123,7 @@ public class Partida {
     }
     
     private Personatge obtenirPacman(IControlador controlador){
-        Punt posicioPacman = laberint.obtenirPosicioInicialPacman();
+        Punt posicioPacman = laberint.obtenirPosicioPacman();
         pacman = new Pacman (this, laberint, controlador, posicioPacman);
         return pacman;
     }
@@ -172,6 +167,12 @@ public class Partida {
             System.out.println("TEMPS TOTAL CALCUL PACMAN "+pacman.obtenirTempsTotalCalcul()+"s");
             System.out.println("TEMPS TOTAL CALCUL ENEMIC "+enemic.obtenirTempsTotalCalcul()+"s");
         }
+    }
+    
+    public void tancarPartida(){
+        enemic.finalitzarItem();
+        pacman.finalitzarItem();
+        if(itemEspecial != null) itemEspecial.finalitzarItem();
     }
     
     public void assignarGuanyador(){

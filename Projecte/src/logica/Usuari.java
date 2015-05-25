@@ -122,6 +122,10 @@ public class Usuari {
         return this.dificultat;
     }
     
+    public int obtenirId(){
+        return this.id;
+    }
+    
     public String obtenirNomUsuari(){
         return this.nomUsuari;
     }

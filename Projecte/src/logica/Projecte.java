@@ -1,6 +1,7 @@
 package logica;
 
 
+import interficie.FFrameAmbLog;
 import interficie.FLogin;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -69,7 +70,6 @@ public class Projecte {
 //        catch(IOException e){
 //            System.out.println("ERROR MISSATGE "+e.getMessage());
 //        } 
-
         FLogin fLogin = new FLogin();
         fLogin.mostrarFrame();
         //System.out.println(log.obtenirDebugsLog());

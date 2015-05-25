@@ -17,6 +17,8 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class Utils{
     public static class Constants{
+        public static final float LLINDAR_MONEDES = 0.7f;
+        public static final int TAN_X_CENT_MONEDES_ITEM = 10;
         public static final int TAN_X_CENT_MONEDES_EXTRA = 10;
         public static final int VALOR_MONEDA_NORMAL = 10;
         public static final int VALOR_MONEDA_EXTRA = 30;
@@ -25,7 +27,7 @@ public class Utils{
         public static final int PORT = 9988;
 //        public static final int FREQUENCIA_ITEM = 400;
         public static final int FREQUENCIA_ITEM = 400;
-        public static final int FREQUENCIA_PERSONATGE = 240;
+        public static final int FREQUENCIA_PERSONATGE = 250;
         public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
     }
     

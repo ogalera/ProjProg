@@ -62,17 +62,9 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblPUNTS" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTEMPS" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblDATA" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblData" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblPunts" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTemps" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="lblPUNTS" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="lblPunts" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -98,16 +90,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblPUNTS" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPunts" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTEMPS" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTemps" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblDATA" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblData" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -191,27 +173,7 @@
         <Property name="text" type="java.lang.String" value="Punts"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblTEMPS">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Temps"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblDATA">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Data"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblPunts">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="---"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTemps">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="---"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblData">
       <Properties>
         <Property name="text" type="java.lang.String" value="---"/>
       </Properties>

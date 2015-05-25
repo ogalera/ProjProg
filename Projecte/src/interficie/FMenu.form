@@ -25,6 +25,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <Component id="lblImatgeUsuari" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -42,18 +47,13 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblUSUARI" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblDificultat" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblDIFICULTAT" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Component id="lblImatgeUsuari" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblInfoUsuari" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,7 +73,10 @@
                   <Component id="lblNIVELL" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblInfoUsuari" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblDificultat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDIFICULTAT" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnAventura" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -154,9 +157,14 @@
         <Property name="text" type="java.lang.String" value="NIVELL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoUsuari">
+    <Component class="javax.swing.JLabel" name="lblDificultat">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="Dificultat"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDIFICULTAT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DIFICULTAT"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -7,7 +7,6 @@ import logica.excepcions.ELaberint;
 import logica.log.Log;
 
 /**
- *
  * @author oscar
  */
 public class LaberintLinealHoritzontal extends Laberint{

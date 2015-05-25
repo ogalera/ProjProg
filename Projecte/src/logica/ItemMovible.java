@@ -38,6 +38,7 @@ public abstract class ItemMovible {
         this.posicio = inici;
         this.frequencia = frequencia;
         tascaAplicarMoviment = new TascaAplicarMoviment();
+        seguentMoviment = EDireccio.QUIET;
     }
     
     public void iniciarItemMovible(){

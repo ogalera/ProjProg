@@ -16,12 +16,13 @@ import javax.swing.JFrame;
  * @author oscar
  */
 public class FHistoricUsuari extends JFrame implements MouseListener{
-
+    private int punts[];
     public FHistoricUsuari(String nomUsuari, Icon imatge, int []puntuacions) {
         initComponents();
-        carregarImatges(puntuacions.length);
+        carregarImatges(puntuacions.length-1);
         this.lblImatgePerfil.setIcon(imatge);
         this.lblUsuari.setText(nomUsuari);
+        this.punts = puntuacions;
     }
 
     private void carregarImatges(int nivell){
@@ -95,11 +96,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
         lblStart5Gran = new javax.swing.JLabel();
         lblUsuari = new javax.swing.JLabel();
         lblPUNTS = new javax.swing.JLabel();
-        lblTEMPS = new javax.swing.JLabel();
-        lblDATA = new javax.swing.JLabel();
         lblPunts = new javax.swing.JLabel();
-        lblTemps = new javax.swing.JLabel();
-        lblData = new javax.swing.JLabel();
         lblNivell = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -130,15 +127,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
 
         lblPUNTS.setText("Punts");
 
-        lblTEMPS.setText("Temps");
-
-        lblDATA.setText("Data");
-
         lblPunts.setText("---");
-
-        lblTemps.setText("---");
-
-        lblData.setText("---");
 
         lblNivell.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblNivell.setText("Nivell");
@@ -175,15 +164,9 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(152, 152, 152)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPUNTS, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTEMPS, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDATA, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblData)
-                    .addComponent(lblPunts, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTemps, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(lblPUNTS)
+                .addGap(42, 42, 42)
+                .addComponent(lblPunts)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -206,14 +189,6 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPUNTS)
                     .addComponent(lblPunts))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTEMPS)
-                    .addComponent(lblTemps))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDATA)
-                    .addComponent(lblData))
                 .addContainerGap())
         );
 
@@ -230,8 +205,6 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblDATA;
-    private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblImatgePerfil;
     private javax.swing.JLabel lblNivell;
     private javax.swing.JLabel lblPUNTS;
@@ -241,8 +214,6 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
     private javax.swing.JLabel lblStart3Gran;
     private javax.swing.JLabel lblStart4Gran;
     private javax.swing.JLabel lblStart5Gran;
-    private javax.swing.JLabel lblTEMPS;
-    private javax.swing.JLabel lblTemps;
     private javax.swing.JLabel lblUsuari;
     // End of variables declaration//GEN-END:variables
 
@@ -251,22 +222,23 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
         if(e.getButton() == MouseEvent.BUTTON1){
             if(e.getSource() == lblStart1Gran){
                 lblNivell.setText("Nivell 1");
+                lblPunts.setText(punts[1]+"");
             }
             else if(e.getSource() == lblStart2Gran){
                 lblNivell.setText("Nivell 2");
-
+                lblPunts.setText(punts[2]+"");
             }
             else if(e.getSource() == lblStart3Gran){
                 lblNivell.setText("Nivell 3");
-
+                lblPunts.setText(punts[3]+"");
             }
             else if(e.getSource() == lblStart4Gran){
                 lblNivell.setText("Nivell 4");
-
+                lblPunts.setText(punts[4]+"");
             }
             else if(e.getSource() == lblStart5Gran){
                 lblNivell.setText("Nivell 5");
-
+                lblPunts.setText(punts[5]+"");
             }
         }
     }

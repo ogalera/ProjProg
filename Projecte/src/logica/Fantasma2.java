@@ -71,6 +71,9 @@ public class Fantasma2 extends Personatge{
                     if(laberint.obtenirElement(p) == EElement.PARET){
                         moviment = EDireccio.QUIET;
                     }
+                    else{
+                        historicMoviments.afegirMoviment(moviment);
+                    }
                 }
             }
             else{
