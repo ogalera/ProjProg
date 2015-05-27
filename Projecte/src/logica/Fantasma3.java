@@ -79,11 +79,7 @@ public class Fantasma3 extends Personatge{
         
         
         
-        System.out.println("Conclusio de la situacio:");
-        System.out.println("Posicio: " + posicio);
-        System.out.println("Estat: " + donamNomMode(mode));
-        if (objectiu != null)System.out.println("Objectiu: " + donamNomElement(objectiu.element));
-        else System.out.println("Objectiu: null");
+        
         if(ruta.esBuida()){
             EElement e;
             do{
@@ -95,6 +91,12 @@ public class Fantasma3 extends Personatge{
         }
         else res = ruta.obtenirUltimMoviment();
         if (!movimentValid(res)) res = EDireccio.QUIET;
+        System.out.println("Conclusio de la situacio:");
+        System.out.println("Posicio: " + posicio);
+        System.out.println("Proxim moviment: "+ donamNomMov(res) );
+        System.out.println("Estat: " + donamNomMode(mode));
+        if (objectiu != null)System.out.println("Objectiu: " + donamNomElement(objectiu.element));
+        else System.out.println("Objectiu: null");
         return res;
     }
     
@@ -230,6 +232,7 @@ public class Fantasma3 extends Personatge{
             System.out.println("Estic en mode fugida i m'he quedat sense ruta, torno a calcular una altre ");
             Punt puntPacman = partida.obtenirPuntPacman();
             ruta = gestorCami.trobarCamiMaximitzarDist(posicio, puntPacman);
+             System.out.println("Ruta per fugir calculada:  " + ruta.obtenirMida() + " moviments calculats");
         }else System.out.println("Estic en mode fugida i tinc encara:" + ruta.obtenirMida()+ " moviments per fer");
     }
     
@@ -498,11 +501,12 @@ public class Fantasma3 extends Personatge{
     
     /**
      * @brief Conté la logica que defineix si fantasma3 considera perillos a en PACMAN
-     * @return Retorna cert si PACMAN te mongeta i PACMAN esta a una distancia < DISTANCIA_PERILLOSA
+     * @return Retorna cert si PACMAN te mongeta i PACMAN esta a una distancia < DISTANCIA_PERILLOSA i tinc mes del 30% de la puntuacio del Pacman
      */
     private boolean pacmanEsPerillos(int distanciaPacman){
-        //Es perillos si te mongeta i esta a una distancia < DISTANCIA_PERILLOSA
-        return partida.obtenirEstatPacman() == EEstatPersonatge.AMB_MONGETA && distanciaPacman < DISTANCIA_PERILLOSA;
+        //Es perillos si te mongeta i esta a una distancia < DISTANCIA_PERILLOSA && Tinc una puntuacio que estaria be no perdre ( el 30% de la puntuacio del pacman)
+        int puntuacioPacman = partida.obtenirPuntuacioPacman();
+        return partida.obtenirEstatPacman() == EEstatPersonatge.AMB_MONGETA && distanciaPacman < DISTANCIA_PERILLOSA && puntuacioPacman * 0.30 < this.punts ;
     }
     
     /**

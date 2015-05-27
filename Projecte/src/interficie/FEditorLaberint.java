@@ -26,6 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.WindowConstants;
+import interficie.components.Boto;
 import logica.enumeracions.EElement;
 import logica.ValidadorLaberint;
 
@@ -39,7 +40,7 @@ import logica.ValidadorLaberint;
  */
 public class FEditorLaberint extends JFrame{
     private JButton btnPacman, btnFantasma, btnParet, btnMoneda, btnItemSeleccionat;
-    private JButton btnValidar;
+    private Boto btnValidar;
     private final int [][] laberint;
     private final Log log;
     private EElement elementSeleccionat = EElement.RES;
@@ -87,7 +88,7 @@ public class FEditorLaberint extends JFrame{
             }
         }
         contingut.add(panellLaberint);
-        btnValidar = new JButton("Validar");
+        btnValidar = new Boto("Validar");
         btnValidar.addActionListener(new ActionValidarLaberint());
         contingut.add(btnValidar);
         return contingut;

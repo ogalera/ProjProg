@@ -60,19 +60,19 @@ public class Audio {
     
     
     public static void reprodueixInici(){
-//        Thread fil = new Thread(){
-//           @Override
-//           public void run(){
-//               try {
-//                   Clip audio = AudioSystem.getClip();
-//                   audio.open(AudioSystem.getAudioInputStream(SO_INICI));
-//                   audio.start();
-//               } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-//                   Logger.getLogger(Audio.class.getName()).log(Level.SEVERE, null, ex);
-//               }
-//           }
-//       };
-//        fil.start();
+        Thread fil = new Thread(){
+           @Override
+           public void run(){
+               try {
+                   Clip audio = AudioSystem.getClip();
+                   audio.open(AudioSystem.getAudioInputStream(SO_INICI));
+                   audio.start();
+               } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                   Logger.getLogger(Audio.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           }
+       };
+        fil.start();
     }
 
 }

@@ -21,6 +21,7 @@ public class FLogin extends JFrame implements ActionListener{
     private static Usuari usuari;
     public FLogin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public void mostrarFrame(){
