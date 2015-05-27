@@ -202,6 +202,7 @@ public class Partida {
     public void assignarItemEspecial(Item item){
         this.itemEspecial = item;
         this.pintador.pintarItemPartida(itemEspecial.imatgePerfil);
+        Audio.reprodueixAparicioItem();
     }
     
     public boolean hiHaItemEspecial(){
@@ -231,13 +232,16 @@ public class Partida {
    public synchronized int reiniciarPuntsEnemic(){
         synchronized(laberint){
             pintador.pintarPuntsEnemic(0);
+            Audio.reprodueixSubstraccioPunts();
             return enemic.reiniciarPunts();
+           
         }
    }
    
    public int reiniciarPuntsPacman(){
         synchronized(laberint){
             pintador.pintarPuntsPacman(0);
+            Audio.reprodueixSubstraccioPunts();
             return pacman.reiniciarPunts();
         }
    }
