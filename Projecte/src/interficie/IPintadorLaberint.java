@@ -16,9 +16,20 @@ import logica.laberints.Laberint;
 /**
  *
  * @author Moises
+ * @brief Descriu els metodes que necessiten els objectes Laberint
+ * per a mostrar-se per pantalla.
+ * @details Laberint es representa per cel·les, on en cada cel·la  
  */
 public interface IPintadorLaberint extends KeyListener{
+    
     public void assignarControladorTeclat(KeyListener controlador);
+    
+    /**
+     * @brief Mostra per pantalla el desplaçament de un objecte Personatge. Persona
+     * @param pOrigen 
+     * @param direccio
+     * @param imatge 
+     */
     public void pintarMovimentPersonatge(Punt pOrigen, EDireccio direccio, ImageIcon imatge);
     public void pintarMovimentItem(Punt pOrigen, EDireccio direccio, ImageIcon imatge);
     public void pintarNouItem(Punt pNouItem, EElement item);

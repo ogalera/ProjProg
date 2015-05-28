@@ -129,7 +129,7 @@ public class Item extends ItemMovible {
             EElement tmp = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
             if(tmp != null && tmp != EElement.MONEDES_X2 && tmp != EElement.MONGETA && tmp != EElement.PATINS){
                 elementTrapitjat = tmp;
-                ruta.eliminarMoviment();
+                if (!ruta.esBuida())ruta.eliminarMoviment();
                 posicio = posicio.generarPuntDesplasat(seguentMoviment);
             }
         }

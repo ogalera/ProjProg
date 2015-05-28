@@ -10,17 +10,21 @@ import logica.Punt;
 /**
  *
  * @author Moises
- * @brief Conte la informació heuristica necessaria per a poder implementar els algoritmes 
- * de backTracking i AStar. 
- * La Heuristica seguida en el algorisme de AStar es:
- * F = profunditat + distanciaAlObjectiu (on distanciaAlObjectiu, es la distancia Manhattan entre dos punts dintre de un Laberint format per cel·les)
+ * @brief Conté la informació heuristica necessaria per a poder implementar els algoritmes 
+ * de backTracking i AStar.  La Heuristica utilitzada en el algorisme de AStar es:
+ * F = profunditat + distanciaAlObjectiu (on distanciaAlObjectiu, es la distancia Manhattan 
+ * entre dos punts dintre de un Laberint format per cel·les)
  */
 public class Casella implements Comparable<Casella> {
-    private final Punt posicio;//!< Guarda les coordenades que corresponen a una posicio en la taula de EElements de un Objecte tipus Laberint
-    private Casella pare;//<! En el algorisme de AStar s'utilitza per referenciar al predecessor d'una casella en la cerca del cami minim.
-    private int distanciaAlObjectiu;//!< Distancia Manhattan entre dos punts dintre de un Laberint format per cel·les
-    private int profunditat;//!< En el algorisme de AStar s'utilitza per guardar en cuants pasos hem arrivat a la Casella actual.
-    private boolean processat;//!< Guarda l'estat si la casella ha estat processada o no.
+    private final Punt posicio;/*!< Guarda les coordenades que corresponen a una posicio en la taula de EElements de un Objecte tipus Laberint*/
+    private Casella pare;/*!< En el algorisme de AStar s'utilitza per referenciar al predecessor d'una casella en la cerca del cami minim.*/
+    private int distanciaAlObjectiu;/*!< Distancia Manhattan entre dos punts dintre de un Laberint format per cel·les.*/
+    private int profunditat;/*!< En el algorisme de AStar s'utilitza per guardar en cuants pasos hem arrivat a la Casella actual.*/
+    private boolean processat;/*!< Guarda l'estat si la casella ha estat processada o no.*/
+    /**
+     *@invariant: posicio != null.
+     */
+    
     
     public Casella(Punt p){
         posicio = p;
