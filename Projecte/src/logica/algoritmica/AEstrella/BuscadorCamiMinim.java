@@ -73,7 +73,7 @@ public class BuscadorCamiMinim {
         
         Casella actual = llistaOberta.obtenirPrimer();
         while(!llistaOberta.esBuida() && !actual.obtenirPunt().equals(desti)){
-            llistaOberta.elimina(actual);
+            llistaOberta.eliminar(actual);
             actual.processat();
             
             Punt [] adjacents = actual.obtenirPunt().obtenirPosicionsDelVoltant();

@@ -203,6 +203,7 @@ public class Partida {
         Audio.reprodueixAparicioItem();
         this.itemEspecial = item;
         this.pintador.pintarItemPartida(itemEspecial.imatgePerfil);
+        Audio.reprodueixAparicioItem();
     }
     
     public boolean hiHaItemEspecial(){
@@ -233,7 +234,9 @@ public class Partida {
         synchronized(laberint){
             Audio.reprodueixSubstraccioPunts();
             pintador.pintarPuntsEnemic(0);
+            Audio.reprodueixSubstraccioPunts();
             return enemic.reiniciarPunts();
+           
         }
    }
    
@@ -241,6 +244,7 @@ public class Partida {
         synchronized(laberint){
             Audio.reprodueixSubstraccioPunts();
             pintador.pintarPuntsPacman(0);
+            Audio.reprodueixSubstraccioPunts();
             return pacman.reiniciarPunts();
         }
    }

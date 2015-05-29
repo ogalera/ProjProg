@@ -23,6 +23,7 @@ import java.util.Stack;
 /**
  *
  * @author Moises
+ * @brief Encarregada de mostrar per pantalla objectes del tipus Laberint
  */
 public class PLaberint extends JPanel implements IPintadorLaberint{
     private final Log log;

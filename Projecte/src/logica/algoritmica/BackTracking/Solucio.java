@@ -234,5 +234,6 @@ public class Solucio {
         enemic = null;
         cami.clear();
         distancia = 0;
+        nivell = 0;
     }
 }
