@@ -14,9 +14,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import logica.Utils;
 import logica.Utils.Constants;
-import logica.Utils.FiltreExtensio;
 import logica.log.Log;
 
 /**
@@ -40,6 +40,7 @@ public class FAlta extends JFrame implements ActionListener{
     public FAlta() {
         log = Log.getInstance(FAlta.class);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -127,7 +128,7 @@ public class FAlta extends JFrame implements ActionListener{
      * @post s'ha mostrat el frame;
      */
     public void mostrarFrame(){
-        ImageIcon icon = new ImageIcon("res/imatge_perfil.png");
+        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource(Constants.PATH_IMATGES+"imatge_perfil.png"));
         btnImatgeUsuari.setIcon(icon);
         btnImatgeUsuari.setContentAreaFilled(false);
         btnImatgeUsuari.addActionListener(this);
@@ -136,11 +137,17 @@ public class FAlta extends JFrame implements ActionListener{
         this.setVisible(true);
     }
     
-    private String seleccionarImatge(){
+    /**
+     * @pre --;
+     * @post em retornat la ruta de l'imatge seleccionada;
+     * @return 
+     */
+    private String seleccionarImatgePNG(){
         String pathImatge = Constants.rutaImatgeDefecteUsuari;
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-//        fileChooser.setFileFilter(new FiltreExtensio(".png"));
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("png", "png");
+        fileChooser.setFileFilter(fnef);
         int resultatSeleccio = fileChooser.showOpenDialog(this);
         if(resultatSeleccio == JFileChooser.APPROVE_OPTION){
             pathImatge = fileChooser.getSelectedFile().getAbsolutePath();
@@ -148,6 +155,10 @@ public class FAlta extends JFrame implements ActionListener{
         return pathImatge;
     }
     
+    /**
+     * @pre desti és una ruta valida;
+     * @post em guardat en desti l'imatge que conté l'atribut imatgeRedimensionada
+     */
     private void guardarImatgeSeleccionada(String desti) throws IOException{
         File d = new File(desti);
         if(ImageIO.write(imatgeRedimensionada, "png", d)){
@@ -156,14 +167,22 @@ public class FAlta extends JFrame implements ActionListener{
         else log.afegirError("Error al afegir la nova imatge amb desti "+desti);
     }
     
+    /**
+     * @pre --;
+     * @post registrem l'usuari i password sobre la B.D. amb l'imatge seleccionada
+     * i diu si l'operació s'ha realitzat correctament;
+     */
     private boolean guardar(String usuari, String password){
         boolean guardatOk = false;
         try{
             SimpleDateFormat format = new SimpleDateFormat("dd_MM_yyyy_kk_mm");
             String data = format.format(new Date());
-            String rutaImatge = "res/imatges_usuaris/"+usuari+"_"+data+".png";
+            if(!new File("imatges_usuaris").exists()){
+                new File("imatges_usuaris").mkdir();
+            }
+            String rutaImatge = "imatges_usuaris/"+usuari+"_"+data+".png";
             if(imatgeRedimensionada == null){
-                this.redimensionarImatge("res/imatge_perfil.png");
+                redimensionarImatge(ClassLoader.getSystemResource(Constants.PATH_IMATGES+"imatge_perfil.png").toString());
             }
             guardarImatgeSeleccionada(rutaImatge);
             if(BD.afegirUsuari(usuari, password, rutaImatge)){
@@ -179,6 +198,15 @@ public class FAlta extends JFrame implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        ///TRACTEM EVENTS PER ELS BOTONS
+        ///     -btnRegistrarse -> L'usuari es vol registrar, procedim a guardar les 
+        ///     dades en la B.D.
+        ///
+        ///     -btnImatgeUsuari -> l'usuari vol seleccionar una imatge de perfil
+        ///     llençem un navegador de fitxers;
+        ///
+        ///     -btnSortir -> l'usuari vol sortir del dialeg;
+        
         if(e.getSource() == btnRegistrarse){
             ///S'ha pressionat el boto per registrar l'usuari;
             String usuari, password;
@@ -209,7 +237,7 @@ public class FAlta extends JFrame implements ActionListener{
             }
         }
         else if(e.getSource() == btnImatgeUsuari){
-            String rutaImatgeSeleccionada = seleccionarImatge();
+            String rutaImatgeSeleccionada = seleccionarImatgePNG();
             redimensionarImatge(rutaImatgeSeleccionada);
         }
         else if(e.getSource() == btnSortir){
@@ -217,6 +245,11 @@ public class FAlta extends JFrame implements ActionListener{
         }
     }
     
+    /**
+     * @pre la ruta de la imatge és correcte;
+     * @post em redimensionat rutaImatgeSeleccionada a una mida concreta (MIDA_IMATGE)
+     * i s'ha guardat sobre el buffer imatgeRedimensionada;
+     */
     private void redimensionarImatge(String rutaImatgeSeleccionada){
         try{
             File fitxerOrigen = new File(rutaImatgeSeleccionada);

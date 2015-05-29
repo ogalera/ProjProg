@@ -91,14 +91,14 @@ public class Pacman extends Personatge{
     @Override
     protected void assignarImatges() {
         int llargada = laberint.obtenirMidaImatge().height;
-        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/pacmanD0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/pacmanD1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/pacmanE0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/pacmanE1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/pacmanA0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/pacmanA1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/pacmanB0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/pacmanB1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[0][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanD0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[0][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanD1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanE0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanE1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanA0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanA1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanB0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/pacmanB1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
     
     @Override

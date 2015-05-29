@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.enumeracions;
 
 import java.awt.Image;
 import logica.log.Log;
-import java.io.File;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import logica.Utils;
 /**
@@ -16,19 +9,19 @@ import logica.Utils;
  * @author oscar
  */
 public enum EElement {
-    PACMAN(20, false, "res/pacmanD1.png", 'P'),
-    FANTASMA1(21, true, "res/fantasma1.png", 'A'), 
-    FANTASMA2(22, true, "res/fantasma2.png", 'B'), 
-    FANTASMA3(23, true, "res/fantasma3.png", 'C'), 
-    PARET(-1, false, "res/paret.png", 'X'), 
-    MONEDA(1, false, "res/moneda.png", 'O'), 
-    MONEDA_EXTRA(2, false, "res/moneda_extra.png", 'E'), 
+    PACMAN(20, false, "res/imatges/pacmanD1.png", 'P'),
+    FANTASMA1(21, true, "res/imatges/fantasma1.png", 'A'), 
+    FANTASMA2(22, true, "res/imatges/fantasma2.png", 'B'), 
+    FANTASMA3(23, true, "res/imatges/fantasma3.png", 'C'), 
+    PARET(-1, false, "res/imatges/paret.png", 'X'), 
+    MONEDA(1, false, "res/imatges/moneda.png", 'O'), 
+    MONEDA_EXTRA(2, false, "res/imatges/moneda_extra.png", 'E'), 
     RES(0, false, null, 'R'),
-    PATINS(3, false, "res/patins.png", 'U'),
-    MONEDES_X2(4, false, "res/monedes_x2.png", 'M'),
-    MONGETA(5, false, "res/mongeta.png", 'N'),
-    INDEFINIT(-2 , false, "res/indefinit.png", 'I'),
-    SORTIDA(15, false, "res/sortida.png", 'S');
+    PATINS(3, false, "res/imatges/patins.png", 'U'),
+    MONEDES_X2(4, false, "res/imatges/monedes_x2.png", 'M'),
+    MONGETA(5, false, "res/imatges/mongeta.png", 'N'),
+    INDEFINIT(-2 , false, "res/imatges/indefinit.png", 'I'),
+    SORTIDA(15, false, "res/imatges/sortida.png", 'S');
     
     private final int id;
     private ImageIcon imatge;
@@ -41,8 +34,7 @@ public enum EElement {
         this.esEnemic = esEnemic;
         Log log = Log.getInstance(EElement.class);
         try{
-            File f = new File(recurs);
-            imatge = new ImageIcon(ImageIO.read(f));
+            imatge = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource(recurs)).getImage());
         }
         catch(Exception ioe){
             log.afegirError("error al carregar l'imatge, missatge: "+ioe.getMessage());

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import logica.laberints.Laberint;
@@ -62,15 +57,15 @@ public abstract class ItemMovible {
         tascaAplicarMoviment.calcularProximMoviment = false;
         tascaAplicarMoviment.cancel();
         temporitzador.purge();
-        System.out.println("Item capturat per: "+Thread.currentThread().getName());
+//        System.out.println("Item capturat per: "+Thread.currentThread().getName());
     }
     
     private class TascaAplicarMoviment extends TimerTask{
         private boolean calcularProximMoviment = true;
         @Override
         public void run() {
+            realitzarMoviment();
             if(calcularProximMoviment){
-                realitzarMoviment();
                 long tempsIniciCalcul = System.currentTimeMillis();
                 seguentMoviment = calcularMoviment();
                 long tempsFinalCalcul = System.currentTimeMillis();

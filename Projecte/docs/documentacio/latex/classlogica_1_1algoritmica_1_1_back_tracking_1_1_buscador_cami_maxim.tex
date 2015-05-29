@@ -1,21 +1,55 @@
 \hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim}{\section{Referència de la Classe logica.\+algoritmica.\+Back\+Tracking.\+Buscador\+Cami\+Maxim}
 \label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim}\index{logica.\+algoritmica.\+Back\+Tracking.\+Buscador\+Cami\+Maxim@{logica.\+algoritmica.\+Back\+Tracking.\+Buscador\+Cami\+Maxim}}
 }
+
+
+Classe que implementa l'algorisme de Backtracking per a trobar un camí que maximitzi la distancia desde un punt inici respecte a un punt enemic.  
+
+
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_a67aadbdebeeb60a4b5aab24c9a2e42e9}{{\bfseries Buscador\+Cami\+Maxim} (\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} lab)}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_a67aadbdebeeb60a4b5aab24c9a2e42e9}
 
 \item 
-\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_a42d7b99f36cc48910a8a10d4daaf4bcb}{\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} {\bfseries Busca\+Cami\+Maxim} (\hyperlink{classlogica_1_1_punt}{Punt} personatge, \hyperlink{classlogica_1_1_punt}{Punt} enemic)}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_a42d7b99f36cc48910a8a10d4daaf4bcb}
-
-\end{DoxyCompactItemize}
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_afbd9364d6bdb5233798dde0d34090eec}{busca\+Cami\+Maxim} (\hyperlink{classlogica_1_1_punt}{Punt} personatge, \hyperlink{classlogica_1_1_punt}{Punt} enemic)
+\begin{DoxyCompactList}\small\item\em Retorna el cami amb maxima distancia desde personatge respecte enemic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Classe que implementa l'algorisme de Backtracking per a trobar un camí que maximitzi la distancia desde un punt inici respecte a un punt enemic. 
+
 \begin{DoxyAuthor}{Autor}
 Moises 
 \end{DoxyAuthor}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_afbd9364d6bdb5233798dde0d34090eec}{\index{logica\+::algoritmica\+::\+Back\+Tracking\+::\+Buscador\+Cami\+Maxim@{logica\+::algoritmica\+::\+Back\+Tracking\+::\+Buscador\+Cami\+Maxim}!busca\+Cami\+Maxim@{busca\+Cami\+Maxim}}
+\index{busca\+Cami\+Maxim@{busca\+Cami\+Maxim}!logica\+::algoritmica\+::\+Back\+Tracking\+::\+Buscador\+Cami\+Maxim@{logica\+::algoritmica\+::\+Back\+Tracking\+::\+Buscador\+Cami\+Maxim}}
+\subsubsection[{busca\+Cami\+Maxim}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+algoritmica.\+Back\+Tracking.\+Buscador\+Cami\+Maxim.\+busca\+Cami\+Maxim (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{personatge, }
+\item[{{\bf Punt}}]{enemic}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim_afbd9364d6bdb5233798dde0d34090eec}
+
+
+Retorna el cami amb maxima distancia desde personatge respecte enemic. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em personatge} & \hyperlink{classlogica_1_1_punt}{Punt} inicial. \\
+\hline
+{\em enemic} & \hyperlink{classlogica_1_1_punt}{Punt} del qual ens volem distanciar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondició}
+personatge != null, enemic != null 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+Retorna els moviments necessaris per a maximitzar la distancia desde personatge respecte a enemic 
+\end{DoxyReturn}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}

@@ -3,6 +3,11 @@
 }
 
 
+class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l'estat el seu estat sino que només coneix la seva representació.  
+
+
+
+
 Diagrama d'Herència per a logica.\+laberints.\+Laberint\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,88 +27,207 @@ Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a17654384a8abae885f2cf50c9fa7cfa1}{{\bfseries Laberint} (String fitxer, \hyperlink{classlogica_1_1_partida}{Partida} partida, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)  throws E\+Format\+Laberint}\label{classlogica_1_1laberints_1_1_laberint_a17654384a8abae885f2cf50c9fa7cfa1}
-
+\hyperlink{classlogica_1_1laberints_1_1_laberint_a17654384a8abae885f2cf50c9fa7cfa1}{Laberint} (String fitxer, \hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)  throws E\+Format\+Laberint
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_aadddfcf8789a27b7bf2fae055801abe5}{{\bfseries Laberint} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} elements\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, \hyperlink{classlogica_1_1_partida}{Partida} partida)}\label{classlogica_1_1laberints_1_1_laberint_aadddfcf8789a27b7bf2fae055801abe5}
-
+\hyperlink{classlogica_1_1laberints_1_1_laberint_aadddfcf8789a27b7bf2fae055801abe5}{Laberint} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} elements\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, \hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida})
 \item 
 boolean \hyperlink{classlogica_1_1laberints_1_1_laberint_a91596ecf3d32f4dfd732c45bec1bd02e}{posicio\+Valida} (\hyperlink{classlogica_1_1_punt}{Punt} posicio)
 \item 
 \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1laberints_1_1_laberint_a99ff8e97f8082b5a0d9dd7964773216a}{obtenir\+Element} (\hyperlink{classlogica_1_1_punt}{Punt} posicio)
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a94464a4d4905f10bdad3ef4d4ec2ebb4}{synchronized \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries moure\+Item} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element\+A\+Restaurar)}\label{classlogica_1_1laberints_1_1_laberint_a94464a4d4905f10bdad3ef4d4ec2ebb4}
-
+synchronized \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1laberints_1_1_laberint_a94464a4d4905f10bdad3ef4d4ec2ebb4}{moure\+Item} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element\+A\+Restaurar)
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_abfe7812a958e1a1de08255bb31ceb361}{synchronized \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries moure\+Personatge} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, Image\+Icon imatge, boolean super\+Estat)}\label{classlogica_1_1laberints_1_1_laberint_abfe7812a958e1a1de08255bb31ceb361}
-
+synchronized \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1laberints_1_1_laberint_a04c988eb6a665553733b7b2aede683f6}{moure\+Personatge} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, Image\+Icon imatge, boolean super\+Poders)
 \item 
 \hypertarget{classlogica_1_1laberints_1_1_laberint_a445a31e1cf30bacd1c7c8b71b41f2941}{String {\bfseries to\+String} ()}\label{classlogica_1_1laberints_1_1_laberint_a445a31e1cf30bacd1c7c8b71b41f2941}
 
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a2d77a17c6bff1915eadbde709255169a}{\hyperlink{classlogica_1_1_punt}{Punt} {\bfseries obtenir\+Posicio\+Inicial\+Pacman} ()}\label{classlogica_1_1laberints_1_1_laberint_a2d77a17c6bff1915eadbde709255169a}
-
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1laberints_1_1_laberint_a742e29f97d31bf39424e68a27d00dfda}{obtenir\+Posicio\+Pacman} ()
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_ad42c2fd34f5287a44177544772fe06b8}{\hyperlink{classlogica_1_1_punt}{Punt} {\bfseries obtenir\+Posicio\+Inicial\+Enemic} ()}\label{classlogica_1_1laberints_1_1_laberint_ad42c2fd34f5287a44177544772fe06b8}
-
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1laberints_1_1_laberint_ad42c2fd34f5287a44177544772fe06b8}{obtenir\+Posicio\+Inicial\+Enemic} ()
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_abbda03bcf4c8a1efead70f997d7357cb}{void {\bfseries assignar\+Controlador\+Teclat} (Key\+Listener listener)}\label{classlogica_1_1laberints_1_1_laberint_abbda03bcf4c8a1efead70f997d7357cb}
-
+void \hyperlink{classlogica_1_1laberints_1_1_laberint_abbda03bcf4c8a1efead70f997d7357cb}{assignar\+Controlador\+Teclat} (Key\+Listener listener)
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a9c8bcefff67ad264c9c68f3d77f951c8}{int {\bfseries obtenir\+Mida\+Costat\+Tauler} ()}\label{classlogica_1_1laberints_1_1_laberint_a9c8bcefff67ad264c9c68f3d77f951c8}
-
+int \hyperlink{classlogica_1_1laberints_1_1_laberint_a9c8bcefff67ad264c9c68f3d77f951c8}{obtenir\+Mida\+Costat\+Tauler} ()
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_ab3dc6c50c9899e1efbe9bb8e2798718f}{void {\bfseries pintar\+Laberint} ()}\label{classlogica_1_1laberints_1_1_laberint_ab3dc6c50c9899e1efbe9bb8e2798718f}
-
+void \hyperlink{classlogica_1_1laberints_1_1_laberint_ab3dc6c50c9899e1efbe9bb8e2798718f}{pintar\+Laberint} ()
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a2208d4cfbf40d57c7dd05cf4996c661d}{int {\bfseries obtenir\+Mida\+Imatge} ()}\label{classlogica_1_1laberints_1_1_laberint_a2208d4cfbf40d57c7dd05cf4996c661d}
-
+Dimension \hyperlink{classlogica_1_1laberints_1_1_laberint_a1007d6f98352b39e410eb505256e346d}{obtenir\+Mida\+Imatge} ()
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_abd37167c2c8d87ad1e9d0e177585b12b}{synchronized int {\bfseries obtenir\+Monedes} ()}\label{classlogica_1_1laberints_1_1_laberint_abd37167c2c8d87ad1e9d0e177585b12b}
-
+synchronized int \hyperlink{classlogica_1_1laberints_1_1_laberint_abd37167c2c8d87ad1e9d0e177585b12b}{obtenir\+Monedes} ()
 \end{DoxyCompactItemize}
 \subsection*{Mètodes Protegits}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_acc391bde3e1696de4a510411f294b354}{{\bfseries Laberint} (\hyperlink{classlogica_1_1_partida}{Partida} partida)}\label{classlogica_1_1laberints_1_1_laberint_acc391bde3e1696de4a510411f294b354}
-
+\hyperlink{classlogica_1_1laberints_1_1_laberint_acc391bde3e1696de4a510411f294b354}{Laberint} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida})
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a0eb77e8f02d64a81ce07dd6851c55603}{final int {\bfseries numero\+Monedes} ()}\label{classlogica_1_1laberints_1_1_laberint_a0eb77e8f02d64a81ce07dd6851c55603}
-
+final int \hyperlink{classlogica_1_1laberints_1_1_laberint_a0eb77e8f02d64a81ce07dd6851c55603}{numero\+Monedes} ()
 \end{DoxyCompactItemize}
 \subsection*{Atributs Protegits}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_adf27aa8fa875b4a3f996756bc5cf9e69}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries tauler} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}\label{classlogica_1_1laberints_1_1_laberint_adf27aa8fa875b4a3f996756bc5cf9e69}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_adf27aa8fa875b4a3f996756bc5cf9e69}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1laberints_1_1_laberint_adf27aa8fa875b4a3f996756bc5cf9e69}{tauler} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}\label{classlogica_1_1laberints_1_1_laberint_adf27aa8fa875b4a3f996756bc5cf9e69}
+
+\begin{DoxyCompactList}\small\item\em matriu de representacions per els elements que hi ha en el laberint \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1laberints_1_1_laberint_af79e8923817b5a8eece7bf85aba9290c}{\hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log}}\label{classlogica_1_1laberints_1_1_laberint_af79e8923817b5a8eece7bf85aba9290c}
 
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_af79e8923817b5a8eece7bf85aba9290c}{\hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log} = \hyperlink{classlogica_1_1log_1_1_log_ab38bea9cfc1ad368b40a2773f93d14b8}{Log.\+get\+Instance}(Laberint.\+class)}\label{classlogica_1_1laberints_1_1_laberint_af79e8923817b5a8eece7bf85aba9290c}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat} = -\/1}\label{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}
 
-\item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{int {\bfseries costat} = -\/1}\label{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}
+\begin{DoxyCompactList}\small\item\em costat del laberint, tot laberint ha de ser costat x costat \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}}\label{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}
 
-\item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{\hyperlink{classlogica_1_1_partida}{Partida} {\bfseries partida}}\label{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}
+\begin{DoxyCompactList}\small\item\em partida de la qual forma part el laberint i que li envia missatges \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1laberints_1_1_laberint_af1c4b00f98c8109c6bb2c7aadedd024d}{int \hyperlink{classlogica_1_1laberints_1_1_laberint_af1c4b00f98c8109c6bb2c7aadedd024d}{n\+Monedes} = 0}\label{classlogica_1_1laberints_1_1_laberint_af1c4b00f98c8109c6bb2c7aadedd024d}
 
-\item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_af1c4b00f98c8109c6bb2c7aadedd024d}{int {\bfseries n\+Monedes} = 0}\label{classlogica_1_1laberints_1_1_laberint_af1c4b00f98c8109c6bb2c7aadedd024d}
+\begin{DoxyCompactList}\small\item\em nombre de monedes que hi ha a en el laberint, al final de la partida hi haurà de valdre 0 \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a4073632c1d1ab02ede9cddc2bbb6da2f}{\hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} \hyperlink{classlogica_1_1laberints_1_1_laberint_a4073632c1d1ab02ede9cddc2bbb6da2f}{pintador}}\label{classlogica_1_1laberints_1_1_laberint_a4073632c1d1ab02ede9cddc2bbb6da2f}
 
-\item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a4073632c1d1ab02ede9cddc2bbb6da2f}{\hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} {\bfseries pintador}}\label{classlogica_1_1laberints_1_1_laberint_a4073632c1d1ab02ede9cddc2bbb6da2f}
+\begin{DoxyCompactList}\small\item\em Representació gràfica del laberint, nosaltres no sabem sobre que estem pintant el laberint però tampoc ens importa, ens limitem a enviar missatges per pintar com evoluciona el laberint. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a65b89b5e73ed4533df3a8c2296e492be}{int \hyperlink{classlogica_1_1laberints_1_1_laberint_a65b89b5e73ed4533df3a8c2296e492be}{n\+Mondes\+Per\+Item}}\label{classlogica_1_1laberints_1_1_laberint_a65b89b5e73ed4533df3a8c2296e492be}
 
-\item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_a65b89b5e73ed4533df3a8c2296e492be}{int {\bfseries n\+Mondes\+Per\+Item}}\label{classlogica_1_1laberints_1_1_laberint_a65b89b5e73ed4533df3a8c2296e492be}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em nombre de monedes que s'han de capturar per que aparegui un item en la partida aquest valor sempre ha de cumplir 0 $<$ n\+Monedes\+Per\+Item $<$ n\+Monedes \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l'estat el seu estat sino que només coneix la seva representació. 
+
 \begin{DoxyAuthor}{Autor}
-oscar 
+oscar El laberint s'ha de poder comunicar amb la partida per noficiar quan no queden monedes o quan s'ha obtingut un item (mongeta, patins o monedes x 2).
 \end{DoxyAuthor}
+També caldrà que pugui enviar missatges a un pintador per així poder representar-\/se de forma gràfica 
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a17654384a8abae885f2cf50c9fa7cfa1}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!Laberint@{Laberint}}
+\index{Laberint@{Laberint}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{Laberint}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+laberints.\+Laberint.\+Laberint (
+\begin{DoxyParamCaption}
+\item[{String}]{fitxer, }
+\item[{{\bf Partida}}]{partida, }
+\item[{{\bf I\+Pintador\+Laberint}}]{pintador\+Laberint}
+\end{DoxyParamCaption}
+) throws {\bf E\+Format\+Laberint}}}\label{classlogica_1_1laberints_1_1_laberint_a17654384a8abae885f2cf50c9fa7cfa1}
+\begin{DoxyPrecond}{Precondició}
+el fitxer existeix i té un format correcte; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat un laberint a partir del fitxer que forma part de la partida i que la seva representació gràfica serà sobre pintador\+Laberint; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aadddfcf8789a27b7bf2fae055801abe5}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!Laberint@{Laberint}}
+\index{Laberint@{Laberint}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{Laberint}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+laberints.\+Laberint.\+Laberint (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{elements\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Partida}}]{partida}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_aadddfcf8789a27b7bf2fae055801abe5}
+\begin{DoxyPrecond}{Precondició}
+elements ha de ser una matriu cuadrada; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat un laberint a partir de elements i forma part de partida; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_acc391bde3e1696de4a510411f294b354}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!Laberint@{Laberint}}
+\index{Laberint@{Laberint}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{Laberint}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+laberints.\+Laberint.\+Laberint (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1laberints_1_1_laberint_acc391bde3e1696de4a510411f294b354}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat un laberint que forma part de partida; 
+\end{DoxyPostcond}
 
 
 \subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_abbda03bcf4c8a1efead70f997d7357cb}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!assignar\+Controlador\+Teclat@{assignar\+Controlador\+Teclat}}
+\index{assignar\+Controlador\+Teclat@{assignar\+Controlador\+Teclat}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{assignar\+Controlador\+Teclat}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+laberints.\+Laberint.\+assignar\+Controlador\+Teclat (
+\begin{DoxyParamCaption}
+\item[{Key\+Listener}]{listener}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_abbda03bcf4c8a1efead70f997d7357cb}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em assignat un controlador de teclat asociat al pintador; 
+\end{DoxyPostcond}
+Aquest controlador l'utilitzarem per moure en pacman per el laberint utilitzant les tecles de direcció del keyboard; \hypertarget{classlogica_1_1laberints_1_1_laberint_a94464a4d4905f10bdad3ef4d4ec2ebb4}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!moure\+Item@{moure\+Item}}
+\index{moure\+Item@{moure\+Item}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{moure\+Item}]{\setlength{\rightskip}{0pt plus 5cm}synchronized {\bf E\+Element} logica.\+laberints.\+Laberint.\+moure\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{origen, }
+\item[{{\bf E\+Direccio}}]{direccio, }
+\item[{{\bf E\+Element}}]{element\+A\+Restaurar}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_a94464a4d4905f10bdad3ef4d4ec2ebb4}
+\begin{DoxyPrecond}{Precondició}
+en origen hi ha un item, origen desplaçat per direccio produeix una posició valida i direccio != Q\+U\+I\+E\+T; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+en cas que origen desplaçat per direcció sigui legal (per legal entenem que no trapitja un enemic ni a en pacman)
+\end{DoxyPostcond}
+llavors\+: em desplasat item de origen al punt generat amb la direcció i en origen hi em restaurat element\+A\+Restaurar, em retornat l'element capturat;
+
+altrament, el moviment no és legal i retornem null; Em de rebre element\+A\+Restaurar ja que al desplasar-\/se un item pot contenir monedes a sota que s'han de restaurar per evitar inconsistencies;
+
+no trapitjem a en pacman ni a un enemic;
+
+el moviment no és legal, volem trapitjar a en pacman o a un enemic; \hypertarget{classlogica_1_1laberints_1_1_laberint_a04c988eb6a665553733b7b2aede683f6}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!moure\+Personatge@{moure\+Personatge}}
+\index{moure\+Personatge@{moure\+Personatge}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{moure\+Personatge}]{\setlength{\rightskip}{0pt plus 5cm}synchronized {\bf E\+Element} logica.\+laberints.\+Laberint.\+moure\+Personatge (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{origen, }
+\item[{{\bf E\+Direccio}}]{direccio, }
+\item[{Image\+Icon}]{imatge, }
+\item[{boolean}]{super\+Poders}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_a04c988eb6a665553733b7b2aede683f6}
+\begin{DoxyPrecond}{Precondició}
+en origen hi ha un personatge, origen desplaçat per direccio produeix una posició valida i direccio != Q\+U\+I\+E\+T; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+en cas que origen desplaçat per direcció sigui legal (per legal entenem que no trapitja un enemic ni a en pacman a no ser que tingui super poders)
+\end{DoxyPostcond}
+llavors\+: em desplasat personatge de origen al punt generat amb la direcció i en origen hi em deixat R\+E\+S, em retornat l'element capturat;
+
+altrament, el moviment no és legal\+: retornem null; Per que el moviment sigui \char`\"{}legal\char`\"{} no has de trapitjar a un enemic o a en pacman a no ser que tinguis \char`\"{}super poders\char`\"{} (al estar en poseció de la mongeta)
+
+Moviment legal
+
+Em capturat una moneda
+
+desplaçem al personatge i deixem R\+E\+S en l'origen;
+
+pintem el moviment;
+
+S'ha arribat a la sortida, cal finalitzar la partida;
+
+Si no s'ha capturat res l'únic que cal és pintar el moviment;
+
+S'ha capturat un item, que tenia sota?
+
+el que tenia sota l'item era una moneda per tant cal decrementar el nombre de monedes i mirar si toca sortejar item;
+
+Seria \char`\"{}ilegal\char`\"{} però no passa res per que tenim super poders per tant retornem l'element tocat;
+
+Moviment \char`\"{}il·legal\char`\"{} retornarem null; \hypertarget{classlogica_1_1laberints_1_1_laberint_a0eb77e8f02d64a81ce07dd6851c55603}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!numero\+Monedes@{numero\+Monedes}}
+\index{numero\+Monedes@{numero\+Monedes}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{numero\+Monedes}]{\setlength{\rightskip}{0pt plus 5cm}final int logica.\+laberints.\+Laberint.\+numero\+Monedes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1laberints_1_1_laberint_a0eb77e8f02d64a81ce07dd6851c55603}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el nombre de monedes que hi ha en el laberint; 
+\end{DoxyPostcond}
 \hypertarget{classlogica_1_1laberints_1_1_laberint_a99ff8e97f8082b5a0d9dd7964773216a}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!obtenir\+Element@{obtenir\+Element}}
 \index{obtenir\+Element@{obtenir\+Element}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
 \subsubsection[{obtenir\+Element}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} logica.\+laberints.\+Laberint.\+obtenir\+Element (
@@ -115,16 +239,86 @@ oscar
 \+: --; 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-\+: retornem l'element de ubicat en posició, si la posició està fora del laberint es retorna P\+A\+R\+E\+T; 
+\+: retornem l'element ubicat en posició, si la posició no és valida es retorna P\+A\+R\+E\+T; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em posicio} & a consultar; \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-\+: element ubicat en posició; 
-\end{DoxyReturn}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a9c8bcefff67ad264c9c68f3d77f951c8}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!obtenir\+Mida\+Costat\+Tauler@{obtenir\+Mida\+Costat\+Tauler}}
+\index{obtenir\+Mida\+Costat\+Tauler@{obtenir\+Mida\+Costat\+Tauler}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{obtenir\+Mida\+Costat\+Tauler}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+laberints.\+Laberint.\+obtenir\+Mida\+Costat\+Tauler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_a9c8bcefff67ad264c9c68f3d77f951c8}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat la mida del costat del laberint; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a1007d6f98352b39e410eb505256e346d}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!obtenir\+Mida\+Imatge@{obtenir\+Mida\+Imatge}}
+\index{obtenir\+Mida\+Imatge@{obtenir\+Mida\+Imatge}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{obtenir\+Mida\+Imatge}]{\setlength{\rightskip}{0pt plus 5cm}Dimension logica.\+laberints.\+Laberint.\+obtenir\+Mida\+Imatge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_a1007d6f98352b39e410eb505256e346d}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em obtingut la mida que ha de fer una imatge dins d'una casella del tauler; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_abd37167c2c8d87ad1e9d0e177585b12b}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!obtenir\+Monedes@{obtenir\+Monedes}}
+\index{obtenir\+Monedes@{obtenir\+Monedes}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{obtenir\+Monedes}]{\setlength{\rightskip}{0pt plus 5cm}synchronized int logica.\+laberints.\+Laberint.\+obtenir\+Monedes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_abd37167c2c8d87ad1e9d0e177585b12b}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el nombre de monedes que hi ha en el laberint; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_ad42c2fd34f5287a44177544772fe06b8}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!obtenir\+Posicio\+Inicial\+Enemic@{obtenir\+Posicio\+Inicial\+Enemic}}
+\index{obtenir\+Posicio\+Inicial\+Enemic@{obtenir\+Posicio\+Inicial\+Enemic}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{obtenir\+Posicio\+Inicial\+Enemic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+laberints.\+Laberint.\+obtenir\+Posicio\+Inicial\+Enemic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_ad42c2fd34f5287a44177544772fe06b8}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat la posició del tauler on hi ha l'enemic; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_a742e29f97d31bf39424e68a27d00dfda}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!obtenir\+Posicio\+Pacman@{obtenir\+Posicio\+Pacman}}
+\index{obtenir\+Posicio\+Pacman@{obtenir\+Posicio\+Pacman}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{obtenir\+Posicio\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+laberints.\+Laberint.\+obtenir\+Posicio\+Pacman (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_a742e29f97d31bf39424e68a27d00dfda}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+retornem la posició on hi ha en pacman; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_ab3dc6c50c9899e1efbe9bb8e2798718f}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!pintar\+Laberint@{pintar\+Laberint}}
+\index{pintar\+Laberint@{pintar\+Laberint}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
+\subsubsection[{pintar\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+laberints.\+Laberint.\+pintar\+Laberint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_ab3dc6c50c9899e1efbe9bb8e2798718f}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em pintat el laberint sobre un surface gràfic; 
+\end{DoxyPostcond}
 \hypertarget{classlogica_1_1laberints_1_1_laberint_a91596ecf3d32f4dfd732c45bec1bd02e}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!posicio\+Valida@{posicio\+Valida}}
 \index{posicio\+Valida@{posicio\+Valida}!logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}}
 \subsubsection[{posicio\+Valida}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+laberints.\+Laberint.\+posicio\+Valida (
@@ -136,16 +330,8 @@ oscar
 \+: --; 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-\+: retornem si la posició és valida dins del tauler; 
+\+: retornem si la posició és valida dins del tauler, per valida entenem que no surt del rang del tauler i no és paret; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em posicio} & a comparar; \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-si la posició està dins del tauler; 
-\end{DoxyReturn}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}

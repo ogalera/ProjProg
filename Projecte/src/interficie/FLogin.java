@@ -21,6 +21,7 @@ public class FLogin extends JFrame implements ActionListener{
     private static Usuari usuari;
     public FLogin() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     public void mostrarFrame(){
@@ -63,10 +64,6 @@ public class FLogin extends JFrame implements ActionListener{
         lblUSUARI.setText("Usuari");
 
         lblPASSWORD.setText("Password");
-
-        txtUsuari.setText("kobe24");
-
-        txtPassword.setText("bryant24");
 
         btnEntrar.setText("Entrar");
 

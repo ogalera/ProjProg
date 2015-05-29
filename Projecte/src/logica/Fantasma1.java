@@ -46,6 +46,7 @@ public class Fantasma1 extends Personatge{
                 case PATINS:
                 case MONEDES_X2:
                 case MONGETA:{
+                    Audio.reprodueixMenjaItem();
                     //Em agafat algún item
                     partida.itemCapturat();
                     assignarEstatPersonatge(elementObtingut);
@@ -79,14 +80,14 @@ public class Fantasma1 extends Personatge{
     @Override
     protected void assignarImatges() {
         int llargada = laberint.obtenirMidaImatge().height;
-        this.imatges[0][0] = new ImageIcon(new ImageIcon("res/enemic1D0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
-        this.imatges[0][1] = new ImageIcon(new ImageIcon("res/enemic1D1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[1][0] = new ImageIcon(new ImageIcon("res/enemic1E0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[1][1] = new ImageIcon(new ImageIcon("res/enemic1E1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[2][0] = new ImageIcon(new ImageIcon("res/enemic1A0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[2][1] = new ImageIcon(new ImageIcon("res/enemic1A1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[3][0] = new ImageIcon(new ImageIcon("res/enemic1B0.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[3][1] = new ImageIcon(new ImageIcon("res/enemic1B1.png").getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[0][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1D0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1D1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1E0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1E1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1A0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1A1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1B0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1B1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
 
     @Override

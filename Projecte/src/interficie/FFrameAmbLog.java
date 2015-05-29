@@ -17,6 +17,7 @@ public abstract class FFrameAmbLog extends JFrame implements ActionListener{
     public FFrameAmbLog() {
         initComponents();
         itmMostrarLog.addActionListener(this);
+        setLocationRelativeTo(null);
     }
     
     /**

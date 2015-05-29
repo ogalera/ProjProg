@@ -7,6 +7,7 @@ var searchData=
   ['fantasma1',['Fantasma1',['../classlogica_1_1_fantasma1.html',1,'logica']]],
   ['fantasma2',['Fantasma2',['../classlogica_1_1_fantasma2.html',1,'logica']]],
   ['fantasma3',['Fantasma3',['../classlogica_1_1_fantasma3.html',1,'logica']]],
+  ['feditorlaberint',['FEditorLaberint',['../classinterficie_1_1_f_editor_laberint.html#a1a43698ec96d8c97972115436bdfecea',1,'interficie::FEditorLaberint']]],
   ['feditorlaberint',['FEditorLaberint',['../classinterficie_1_1_f_editor_laberint.html',1,'interficie']]],
   ['fframeamblog',['FFrameAmbLog',['../classinterficie_1_1_f_frame_amb_log.html',1,'interficie']]],
   ['fhistoricusuari',['FHistoricUsuari',['../classinterficie_1_1_f_historic_usuari.html',1,'interficie']]],

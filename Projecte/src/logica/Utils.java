@@ -23,12 +23,16 @@ public class Utils{
         public static final int VALOR_MONEDA_NORMAL = 10;
         public static final int VALOR_MONEDA_EXTRA = 30;
         public static final int MIDA_IMATGE = 100;
-        public static final String rutaImatgeDefecteUsuari = "res/imatge_perfil.png";
+        public static final String PATH_IMATGES = "res/imatges/";
+        public static final String PATH_BD = "res/raw/";
+        public static final String PATH_SONS = "res/sons";
+        public static final String rutaImatgeDefecteUsuari = "res/imatges/imatge_perfil.png";
         public static final int PORT = 9988;
 //        public static final int FREQUENCIA_ITEM = 400;
         public static final int FREQUENCIA_ITEM = 400;
         public static final int FREQUENCIA_PERSONATGE = 250;
         public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
+        public static final int MINIM_COSTAT_LABERINT = 5;
     }
     
     private static final Random random = new Random(System.currentTimeMillis());
@@ -108,7 +112,9 @@ public class Utils{
         public String getDescription() {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
-        
-        
+    }
+    
+    public static String obtenirPathRecurs(String recurs){
+        return Utils.class.getResource("res/"+recurs).toString();
     }
 }

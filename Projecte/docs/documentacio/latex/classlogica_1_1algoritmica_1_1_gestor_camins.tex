@@ -1,30 +1,75 @@
 \hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins}{\section{Referència de la Classe logica.\+algoritmica.\+Gestor\+Camins}
 \label{classlogica_1_1algoritmica_1_1_gestor_camins}\index{logica.\+algoritmica.\+Gestor\+Camins@{logica.\+algoritmica.\+Gestor\+Camins}}
 }
+
+
+Encarregada de gestionar les cerques de camins sobre un objecte de tipus Laberint.  
+
+
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_a042c8215a6d89097b5b8048a70872e35}{{\bfseries Gestor\+Camins} (\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} lab)}\label{classlogica_1_1algoritmica_1_1_gestor_camins_a042c8215a6d89097b5b8048a70872e35}
 
 \item 
-\hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_a5d7198aa32d0be2a72e15eda16f2ba3d}{\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} {\bfseries trobar\+Cami\+Minim} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{classlogica_1_1_punt}{Punt} desti)}\label{classlogica_1_1algoritmica_1_1_gestor_camins_a5d7198aa32d0be2a72e15eda16f2ba3d}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_a0d693f225ae915f3024a13ce02ad40f6}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries minimitzar\+Distancia} (\hyperlink{classlogica_1_1_punt}{Punt} inici, \hyperlink{classlogica_1_1_punt}{Punt} desti)}\label{classlogica_1_1algoritmica_1_1_gestor_camins_a0d693f225ae915f3024a13ce02ad40f6}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_abe60dac7f02241b56588f5518a4442ea}{\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} {\bfseries trobar\+Cami\+Maximitzar\+Dist} (\hyperlink{classlogica_1_1_punt}{Punt} inici, \hyperlink{classlogica_1_1_punt}{Punt} punt\+A\+Fugir)}\label{classlogica_1_1algoritmica_1_1_gestor_camins_abe60dac7f02241b56588f5518a4442ea}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_ae550937a10a38e8a03748c922d4a6931}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries maximitzar\+Distancia} (\hyperlink{classlogica_1_1_punt}{Punt} inici, \hyperlink{classlogica_1_1_punt}{Punt} punt\+A\+Fugir)}\label{classlogica_1_1algoritmica_1_1_gestor_camins_ae550937a10a38e8a03748c922d4a6931}
-
-\end{DoxyCompactItemize}
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1algoritmica_1_1_gestor_camins_a5d7198aa32d0be2a72e15eda16f2ba3d}{trobar\+Cami\+Minim} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{classlogica_1_1_punt}{Punt} desti)
+\begin{DoxyCompactList}\small\item\em Retorna un camí mínim entre dos punts. \end{DoxyCompactList}\item 
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1algoritmica_1_1_gestor_camins_abe60dac7f02241b56588f5518a4442ea}{trobar\+Cami\+Maximitzar\+Dist} (\hyperlink{classlogica_1_1_punt}{Punt} inici, \hyperlink{classlogica_1_1_punt}{Punt} punt\+A\+Fugir)
+\begin{DoxyCompactList}\small\item\em Retorna un cami que maximitza la distancia respecte a punt\+A\+Fugir. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Encarregada de gestionar les cerques de camins sobre un objecte de tipus Laberint. 
+
 \begin{DoxyAuthor}{Autor}
 Moises 
 \end{DoxyAuthor}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_abe60dac7f02241b56588f5518a4442ea}{\index{logica\+::algoritmica\+::\+Gestor\+Camins@{logica\+::algoritmica\+::\+Gestor\+Camins}!trobar\+Cami\+Maximitzar\+Dist@{trobar\+Cami\+Maximitzar\+Dist}}
+\index{trobar\+Cami\+Maximitzar\+Dist@{trobar\+Cami\+Maximitzar\+Dist}!logica\+::algoritmica\+::\+Gestor\+Camins@{logica\+::algoritmica\+::\+Gestor\+Camins}}
+\subsubsection[{trobar\+Cami\+Maximitzar\+Dist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+algoritmica.\+Gestor\+Camins.\+trobar\+Cami\+Maximitzar\+Dist (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{inici, }
+\item[{{\bf Punt}}]{punt\+A\+Fugir}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_gestor_camins_abe60dac7f02241b56588f5518a4442ea}
+
+
+Retorna un cami que maximitza la distancia respecte a punt\+A\+Fugir. 
+
+\begin{DoxyPrecond}{Precondició}
+inici != null, punt\+A\+Fugir != null. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Paràmetres}
+{\em inici} & \hyperlink{classlogica_1_1_punt}{Punt} de partida \\
+\hline
+{\em punt\+A\+Fugir} & \hyperlink{classlogica_1_1_punt}{Punt} del qual volem maximitzar la distància \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna n-\/1 moviments que maximitzan la distancia desde inici respecte punt\+A\+Fugir. On n = profunditat del backtracking. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_gestor_camins_a5d7198aa32d0be2a72e15eda16f2ba3d}{\index{logica\+::algoritmica\+::\+Gestor\+Camins@{logica\+::algoritmica\+::\+Gestor\+Camins}!trobar\+Cami\+Minim@{trobar\+Cami\+Minim}}
+\index{trobar\+Cami\+Minim@{trobar\+Cami\+Minim}!logica\+::algoritmica\+::\+Gestor\+Camins@{logica\+::algoritmica\+::\+Gestor\+Camins}}
+\subsubsection[{trobar\+Cami\+Minim}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+algoritmica.\+Gestor\+Camins.\+trobar\+Cami\+Minim (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{origen, }
+\item[{{\bf Punt}}]{desti}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_gestor_camins_a5d7198aa32d0be2a72e15eda16f2ba3d}
+
+
+Retorna un camí mínim entre dos punts. 
+
+\begin{DoxyPrecond}{Precondició}
+origen != null, desti != null. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+Retorna el minim de moviments que cal fer per anar de origen a desti, en un objecte de tipus Laberint. 
+\end{DoxyReturn}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}

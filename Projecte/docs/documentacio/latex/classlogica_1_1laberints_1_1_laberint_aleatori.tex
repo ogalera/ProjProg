@@ -3,6 +3,11 @@
 }
 
 
+\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és\+: Posar en pacman al extrem esquerra superior \char`\"{}casella \mbox{[}0, 0\mbox{]}\char`\"{} i l'enemic especificat en l'extrem inferior dret "casella \mbox{[}N, N\mbox{]}.  
+
+
+
+
 Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Aleatori\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,17 +27,39 @@ Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Aleatori\+:\nop
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_aafae50e4b6d51475d8e53d7fee61785b}{{\bfseries Laberint\+Aleatori} (\hyperlink{classlogica_1_1_partida}{Partida} partida, int costat, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)}\label{classlogica_1_1laberints_1_1_laberint_aleatori_aafae50e4b6d51475d8e53d7fee61785b}
-
+\hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_aafae50e4b6d51475d8e53d7fee61785b}{Laberint\+Aleatori} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Descripció Detallada}
-\begin{DoxyAuthor}{Autor}
-oscar 
-\end{DoxyAuthor}
+\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és\+: Posar en pacman al extrem esquerra superior \char`\"{}casella \mbox{[}0, 0\mbox{]}\char`\"{} i l'enemic especificat en l'extrem inferior dret "casella \mbox{[}N, N\mbox{]}. 
 
+\begin{DoxyAuthor}{Autor}
+oscar Llavors sortejar una casella dins del tauler, buscar la posició habilitada més propera al punt sortejat i traçar un camí, en tot el camí es van posant monedes.
+\end{DoxyAuthor}
+Aquest procés s'ha de repetir fins arribar a un nombre de monedes proporcional a la mida del tauler i mentre el tauler no sigui valid.
+
+Per validar el tauler s'utilitza la classe Validador\+Laberint.\+java 
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_aafae50e4b6d51475d8e53d7fee61785b}{\index{logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}!Laberint\+Aleatori@{Laberint\+Aleatori}}
+\index{Laberint\+Aleatori@{Laberint\+Aleatori}!logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}}
+\subsubsection[{Laberint\+Aleatori}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+laberints.\+Laberint\+Aleatori.\+Laberint\+Aleatori (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida, }
+\item[{int}]{costat, }
+\item[{{\bf E\+Element}}]{enemic, }
+\item[{{\bf I\+Pintador\+Laberint}}]{pintador\+Laberint}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_aleatori_aafae50e4b6d51475d8e53d7fee61785b}
+\begin{DoxyPrecond}{Precondició}
+costat $>$ 5 i enemic és \hyperlink{classlogica_1_1_fantasma1}{Fantasma1}, \hyperlink{classlogica_1_1_fantasma2}{Fantasma2} o \hyperlink{classlogica_1_1_fantasma3}{Fantasma3} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em cret un labrint aleatori (costat x costat) que forma part de partida, es pintarà a traves de pintador\+Laberint i on l'extrem superior esquerra \mbox{[}0, 0\mbox{]} hi ha en pacman i en l'extrem inferior dret hi ha l'enemic; 
+\end{DoxyPostcond}
+Un cop generat el laberint sortejem les monedes extra; 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

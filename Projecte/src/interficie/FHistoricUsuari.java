@@ -23,12 +23,13 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
         this.lblImatgePerfil.setIcon(imatge);
         this.lblUsuari.setText(nomUsuari);
         this.punts = puntuacions;
+        setLocationRelativeTo(null);
     }
 
     private void carregarImatges(int nivell){
-        ImageIcon imgEstrellaOff = obtenirImatge("res/star_off.png");
+        ImageIcon imgEstrellaOff = obtenirImatge("res/imatges/star_off.png");
         ImageIcon imgEstrellaNivell;
-        if(nivell > 0 && (imgEstrellaNivell = obtenirImatge("res/star_nivell1.png")) != null){
+        if(nivell > 0 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell1.png")) != null){
             lblStart1Gran.setIcon(imgEstrellaNivell);
             lblStart1Gran.setToolTipText("Nivell 1 superat");
             lblStart1Gran.addMouseListener(this);
@@ -37,7 +38,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart1Gran.setIcon(imgEstrellaOff);
             lblStart1Gran.setToolTipText("Nivell 1 no superat");
         }
-        if(nivell > 1 && (imgEstrellaNivell = obtenirImatge("res/star_nivell2.png")) != null){
+        if(nivell > 1 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell2.png")) != null){
             lblStart2Gran.setIcon(imgEstrellaNivell);
             lblStart2Gran.setToolTipText("Nivell 2 superat");
             lblStart2Gran.addMouseListener(this);
@@ -46,7 +47,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart2Gran.setIcon(imgEstrellaOff);
             lblStart2Gran.setToolTipText("Nivell 2 no superat");
         }
-        if(nivell > 2 && (imgEstrellaNivell = obtenirImatge("res/star_nivell3.png")) != null){
+        if(nivell > 2 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell3.png")) != null){
             lblStart3Gran.setIcon(imgEstrellaNivell);
             lblStart3Gran.setToolTipText("Nivell 3 superat");
             lblStart3Gran.addMouseListener(this);
@@ -55,7 +56,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart3Gran.setIcon(imgEstrellaOff);
             lblStart3Gran.setToolTipText("Nivell 3 no superat");
         }
-        if(nivell > 3 && (imgEstrellaNivell = obtenirImatge("res/star_nivell4.png")) != null){
+        if(nivell > 3 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell4.png")) != null){
             lblStart4Gran.setIcon(imgEstrellaNivell);
             lblStart4Gran.setToolTipText("Nivell 4 superat");
             lblStart4Gran.addMouseListener(this);
@@ -64,7 +65,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart4Gran.setIcon(imgEstrellaOff);
             lblStart4Gran.setToolTipText("Nivell 4 no superat");
         }
-        if(nivell > 4 && (imgEstrellaNivell = obtenirImatge("res/star_nivell5.png")) != null){
+        if(nivell > 4 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell5.png")) != null){
             lblStart5Gran.setIcon(imgEstrellaNivell);
             lblStart5Gran.setToolTipText("Nivell 5 superat");
             lblStart5Gran.addMouseListener(this);
@@ -76,7 +77,7 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
     }
     
     private ImageIcon obtenirImatge(String ruta){
-        return new ImageIcon(ruta);
+        return new ImageIcon(ClassLoader.getSystemResource(ruta));
     }
     
     /**

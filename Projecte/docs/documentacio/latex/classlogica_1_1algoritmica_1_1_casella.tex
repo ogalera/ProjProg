@@ -3,7 +3,7 @@
 }
 
 
-Conte la informacio heuristica necessaria per a poder implementar els algoritmes de back\+Tracking i A$\ast$.  
+Conte la informació heuristica necessaria per a poder implementar els algoritmes de back\+Tracking i A\+Star. La Heuristica seguida en el algorisme de A\+Star es\+: F = profunditat + distancia\+Al\+Objectiu (on distancia\+Al\+Objectiu, es la distancia Manhattan entre dos punts dintre de un Laberint format per cel·les)  
 
 
 
@@ -30,50 +30,137 @@ Diagrama de col·laboració per a logica.\+algoritmica.\+Casella\+:\nopagebreak
 \hypertarget{classlogica_1_1algoritmica_1_1_casella_ab565ddc9c3aced4249653c8163162265}{{\bfseries Casella} (\hyperlink{classlogica_1_1_punt}{Punt} p)}\label{classlogica_1_1algoritmica_1_1_casella_ab565ddc9c3aced4249653c8163162265}
 
 \item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_a518a6e47fc3b6bf47e31c3cb9cf17bd8}{void {\bfseries set\+Parent} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} \+\_\+pare)}\label{classlogica_1_1algoritmica_1_1_casella_a518a6e47fc3b6bf47e31c3cb9cf17bd8}
+void \hyperlink{classlogica_1_1algoritmica_1_1_casella_afcf9ca06d7ab979116af8b6a13b6449b}{assignar\+Parent} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} \+\_\+pare)
+\begin{DoxyCompactList}\small\item\em Assigna un pare al objecte actual. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_a111e9b4400c472fd9eb0f4d1c16c65f9}{\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} \hyperlink{classlogica_1_1algoritmica_1_1_casella_a111e9b4400c472fd9eb0f4d1c16c65f9}{obtenir\+Parent} ()}\label{classlogica_1_1algoritmica_1_1_casella_a111e9b4400c472fd9eb0f4d1c16c65f9}
 
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_a4700701815c8a191d54b27e4803ee6d7}{\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} {\bfseries get\+Parent} ()}\label{classlogica_1_1algoritmica_1_1_casella_a4700701815c8a191d54b27e4803ee6d7}
+\begin{DoxyCompactList}\small\item\em Retorna el pare del objecte actual. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_a2ea078821a8d5122d1a55257e331a113}{void \hyperlink{classlogica_1_1algoritmica_1_1_casella_a2ea078821a8d5122d1a55257e331a113}{assignar\+Distancia\+Al\+Objectiu} (int n)}\label{classlogica_1_1algoritmica_1_1_casella_a2ea078821a8d5122d1a55257e331a113}
 
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_a01120c92c83fff750ac76b9b472ba4c7}{int {\bfseries get\+Profunditat} ()}\label{classlogica_1_1algoritmica_1_1_casella_a01120c92c83fff750ac76b9b472ba4c7}
+\begin{DoxyCompactList}\small\item\em Assigna la distancia al objecte actual. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_ada2b40fe62c15ff6f340091311ead53d}{int \hyperlink{classlogica_1_1algoritmica_1_1_casella_ada2b40fe62c15ff6f340091311ead53d}{obtenir\+Distancia\+Al\+Objectiu} ()}\label{classlogica_1_1algoritmica_1_1_casella_ada2b40fe62c15ff6f340091311ead53d}
 
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_afdf32ce73b821ce361044ed83a3b4003}{\hyperlink{classlogica_1_1_punt}{Punt} {\bfseries obtenir\+Punt} ()}\label{classlogica_1_1algoritmica_1_1_casella_afdf32ce73b821ce361044ed83a3b4003}
+\begin{DoxyCompactList}\small\item\em Retorna la distancia del objecte actual. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_a7508a35b8d809c1ec0dcf9d37cc4cdcf}{int \hyperlink{classlogica_1_1algoritmica_1_1_casella_a7508a35b8d809c1ec0dcf9d37cc4cdcf}{obtenir\+Profunditat} ()}\label{classlogica_1_1algoritmica_1_1_casella_a7508a35b8d809c1ec0dcf9d37cc4cdcf}
 
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_ac0f1536dfdfd1fde0d25ca950f4e330d}{void {\bfseries afegir\+Distancia\+Al\+Objectiu} (int n)}\label{classlogica_1_1algoritmica_1_1_casella_ac0f1536dfdfd1fde0d25ca950f4e330d}
+\begin{DoxyCompactList}\small\item\em Retorna la profunditat del objecte acutal. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_afdf32ce73b821ce361044ed83a3b4003}{\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1algoritmica_1_1_casella_afdf32ce73b821ce361044ed83a3b4003}{obtenir\+Punt} ()}\label{classlogica_1_1algoritmica_1_1_casella_afdf32ce73b821ce361044ed83a3b4003}
 
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_ada2b40fe62c15ff6f340091311ead53d}{int {\bfseries obtenir\+Distancia\+Al\+Objectiu} ()}\label{classlogica_1_1algoritmica_1_1_casella_ada2b40fe62c15ff6f340091311ead53d}
+\begin{DoxyCompactList}\small\item\em Retorna el \hyperlink{classlogica_1_1_punt}{Punt} del objecte actual. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_casella_aacd54c7a5a4c243769f7b4648f9bfd6d}{processat} ()
+\begin{DoxyCompactList}\small\item\em Marca el objecte actual com a processat. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_casella_a081ffe85bdbe5d97b330c40d2881a74f}{no\+Processat} ()
+\begin{DoxyCompactList}\small\item\em Marca el objecte actual com a no processat. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_a79b54543059fa328c5d18a96d694cf54}{boolean \hyperlink{classlogica_1_1algoritmica_1_1_casella_a79b54543059fa328c5d18a96d694cf54}{ha\+Estat\+Processat} ()}\label{classlogica_1_1algoritmica_1_1_casella_a79b54543059fa328c5d18a96d694cf54}
 
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_aacd54c7a5a4c243769f7b4648f9bfd6d}{void {\bfseries processat} ()}\label{classlogica_1_1algoritmica_1_1_casella_aacd54c7a5a4c243769f7b4648f9bfd6d}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_a081ffe85bdbe5d97b330c40d2881a74f}{void {\bfseries no\+Processat} ()}\label{classlogica_1_1algoritmica_1_1_casella_a081ffe85bdbe5d97b330c40d2881a74f}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_a79b54543059fa328c5d18a96d694cf54}{boolean {\bfseries ha\+Estat\+Processat} ()}\label{classlogica_1_1algoritmica_1_1_casella_a79b54543059fa328c5d18a96d694cf54}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_a8ed287353991f4b700bc45145dc00ab7}{void {\bfseries reset} ()}\label{classlogica_1_1algoritmica_1_1_casella_a8ed287353991f4b700bc45145dc00ab7}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_aae2b9f535fd0da3a750f6a6048db1944}{int {\bfseries compare\+To} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} o)}\label{classlogica_1_1algoritmica_1_1_casella_aae2b9f535fd0da3a750f6a6048db1944}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_casella_ab47747886e465a9fdda726b0cdb987da}{boolean {\bfseries equals} (Object o)}\label{classlogica_1_1algoritmica_1_1_casella_ab47747886e465a9fdda726b0cdb987da}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retorna cert si l'objecte actual ha estat processat, altrament fals. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_casella_a8ed287353991f4b700bc45145dc00ab7}{reset} ()
+\begin{DoxyCompactList}\small\item\em Es reinicien els valors heuristics. \end{DoxyCompactList}\item 
+int \hyperlink{classlogica_1_1algoritmica_1_1_casella_aae2b9f535fd0da3a750f6a6048db1944}{compare\+To} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} o)
+\begin{DoxyCompactList}\small\item\em Diu si objecte actual es mes petit que o. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1algoritmica_1_1_casella_ab47747886e465a9fdda726b0cdb987da}{equals} (Object o)
+\begin{DoxyCompactList}\small\item\em Diu si objecte actual es igual al objecte o. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
-Conte la informacio heuristica necessaria per a poder implementar els algoritmes de back\+Tracking i A$\ast$. 
+Conte la informació heuristica necessaria per a poder implementar els algoritmes de back\+Tracking i A\+Star. La Heuristica seguida en el algorisme de A\+Star es\+: F = profunditat + distancia\+Al\+Objectiu (on distancia\+Al\+Objectiu, es la distancia Manhattan entre dos punts dintre de un Laberint format per cel·les) 
 
 \begin{DoxyAuthor}{Autor}
 Moises 
 \end{DoxyAuthor}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_afcf9ca06d7ab979116af8b6a13b6449b}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!assignar\+Parent@{assignar\+Parent}}
+\index{assignar\+Parent@{assignar\+Parent}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{assignar\+Parent}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Casella.\+assignar\+Parent (
+\begin{DoxyParamCaption}
+\item[{{\bf Casella}}]{\+\_\+pare}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_casella_afcf9ca06d7ab979116af8b6a13b6449b}
+
+
+Assigna un pare al objecte actual. 
+
+\begin{DoxyPrecond}{Precondició}
+\+\_\+pare != null 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Objecte actual te un punter a \+\_\+pare. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_aae2b9f535fd0da3a750f6a6048db1944}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!compare\+To@{compare\+To}}
+\index{compare\+To@{compare\+To}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{compare\+To}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+algoritmica.\+Casella.\+compare\+To (
+\begin{DoxyParamCaption}
+\item[{{\bf Casella}}]{o}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_casella_aae2b9f535fd0da3a750f6a6048db1944}
+
+
+Diu si objecte actual es mes petit que o. 
+
+\begin{DoxyPrecond}{Precondició}
+o != null. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+Objecte actual es mes gran, si la seva funcio heurisitca es mes gran que la funció heuristica de o. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_ab47747886e465a9fdda726b0cdb987da}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!equals@{equals}}
+\index{equals@{equals}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+algoritmica.\+Casella.\+equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{o}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_casella_ab47747886e465a9fdda726b0cdb987da}
+
+
+Diu si objecte actual es igual al objecte o. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si objecte actual i objecte o tenen la mateixa posicio. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_a081ffe85bdbe5d97b330c40d2881a74f}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!no\+Processat@{no\+Processat}}
+\index{no\+Processat@{no\+Processat}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{no\+Processat}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Casella.\+no\+Processat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_casella_a081ffe85bdbe5d97b330c40d2881a74f}
+
+
+Marca el objecte actual com a no processat. 
+
+\begin{DoxyPostcond}{Postcondició}
+Objecte \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} no processat 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_aacd54c7a5a4c243769f7b4648f9bfd6d}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!processat@{processat}}
+\index{processat@{processat}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{processat}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Casella.\+processat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_casella_aacd54c7a5a4c243769f7b4648f9bfd6d}
+
+
+Marca el objecte actual com a processat. 
+
+\begin{DoxyPostcond}{Postcondició}
+Objecte \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} processat 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_a8ed287353991f4b700bc45145dc00ab7}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!reset@{reset}}
+\index{reset@{reset}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Casella.\+reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_casella_a8ed287353991f4b700bc45145dc00ab7}
+
+
+Es reinicien els valors heuristics. 
+
+\begin{DoxyPostcond}{Postcondició}
+Els valors heurisitics reiniciats als valors inicials. 
+\end{DoxyPostcond}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}

@@ -200,6 +200,7 @@ public class Partida {
     }
     
     public void assignarItemEspecial(Item item){
+        Audio.reprodueixAparicioItem();
         this.itemEspecial = item;
         this.pintador.pintarItemPartida(itemEspecial.imatgePerfil);
     }
@@ -230,6 +231,7 @@ public class Partida {
    
    public synchronized int reiniciarPuntsEnemic(){
         synchronized(laberint){
+            Audio.reprodueixSubstraccioPunts();
             pintador.pintarPuntsEnemic(0);
             return enemic.reiniciarPunts();
         }
@@ -237,6 +239,7 @@ public class Partida {
    
    public int reiniciarPuntsPacman(){
         synchronized(laberint){
+            Audio.reprodueixSubstraccioPunts();
             pintador.pintarPuntsPacman(0);
             return pacman.reiniciarPunts();
         }

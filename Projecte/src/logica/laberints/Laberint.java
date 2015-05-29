@@ -238,7 +238,6 @@ public class Laberint {
                     ///S'ha arribat a la sortida, cal finalitzar la partida;
                     tauler[filaOrigen][columnaOrigen] = EElement.RES;
                     tauler[filaDesti][columnaDesti] = elementOrigen;
-                    pintador.pintarMovimentPersonatge(origen, direccio, imatge);
                     partida.finalitzarPartida();
                 }break;
                 case RES:{
@@ -299,7 +298,8 @@ public class Laberint {
             tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
             pintador.pintarNouItem(puntItem, item);
             partida.assignarItemEspecial(nouItem);
-            System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
+            
+//            System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
         }
     }
     

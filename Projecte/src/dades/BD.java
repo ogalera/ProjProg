@@ -15,12 +15,12 @@ import logica.log.Log;
 /**
  * @author oscar
  * @brief
- * Classe d'utilitats amb les operacions per treballar sobre la B.D. "sqlite"
+ * modul funcional amb les operacions per treballar sobre la B.D. "sqlite"
  * utilitzada en el projecte;
  */
 public abstract class BD {
-    public static final String PATH_BD = "raw/pacman.db";/**<ruta relativa de la B.D. */
-    public static final String URL_BD = "jdbc:sqlite:"+PATH_BD; /**<path del driver per connectar-nos a la B.D.*/
+    public static final String NOM_BD = "pacman.db";/**<ruta relativa de la B.D. */
+    public static final String URL_BD = "jdbc:sqlite:"+NOM_BD; /**<path del driver per connectar-nos a la B.D.*/
     
     /**
      * @pre --;
@@ -30,7 +30,7 @@ public abstract class BD {
         boolean operacioOK = false;
         boolean taulesCreades = true;
         Log log = Log.getInstance(BD.class);
-        if(BD.existeixBaseDeDades()){
+        if(!BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -68,7 +68,7 @@ public abstract class BD {
         Log log = Log.getInstance(BD.class);
         Usuari[] usuaris = null;
         boolean taulesCreades = true;
-        if(BD.existeixBaseDeDades()){
+        if(!BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -106,7 +106,7 @@ public abstract class BD {
         Log log = Log.getInstance(BD.class);
         boolean taulesCreades = true;
         boolean existeixUsuari = false;
-        if(BD.existeixBaseDeDades()){
+        if(!BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -164,7 +164,7 @@ public abstract class BD {
     public static Usuari obtenirUsuari(String user, String password){
         Usuari usuari = null;
         boolean taulesCreades = true;
-        if(BD.existeixBaseDeDades()){
+        if(!BD.existeixBaseDeDades()){
             taulesCreades = crearTaules();
         }
         if(taulesCreades){
@@ -183,7 +183,9 @@ public abstract class BD {
                     int nivell = rs.getInt("nivell");
                     usuari = new Usuari(id, nomUsuari, nivell, rutaImatge);
                 }
-                else log.afegirDebug("Usuari "+user+" no registrat");
+                else {
+                    log.afegirError("Usuari "+user+" no registrat");
+                }
             }
             catch(SQLException excepcio){
                 log.afegirError("No em pogut consultar l'usuari "+user+" missatge:\n"+excepcio.getMessage());
@@ -197,8 +199,7 @@ public abstract class BD {
      * @post diu si existeix el fitxer "sqlite" de la Base de dades;
      */
     public static boolean existeixBaseDeDades(){
-        File baseDades = new File(PATH_BD);
-        return !baseDades.exists();
+        return new File(NOM_BD).exists();
     }
 
     /**
@@ -243,6 +244,7 @@ public abstract class BD {
      * En cas de haver un problema amb la B.D. es retorna null;
      */
     public static int [] obtenirHistoricPuntsUsuari(Usuari usuari){
+        Log log = Log.getInstance(BD.class);
         int resultat[] = null;
         try(Connection connexio = DriverManager.getConnection(URL_BD);
             Statement consultarHistoricUsuari = connexio.createStatement()){
@@ -258,7 +260,7 @@ public abstract class BD {
             resultat = Arrays.copyOf(resultat, x+1);
         }
         catch(SQLException sqlException){
-            System.err.println(sqlException.getMessage());
+            log.afegirError(sqlException.getMessage());
         }
         return resultat;
     }

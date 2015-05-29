@@ -1,5 +1,5 @@
 <map id="logica.laberints.LaberintAleatori" name="logica.laberints.LaberintAleatori">
-<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint.html" title="logica.laberints.Laberint" alt="" coords="447,80,605,107"/>
+<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="447,80,605,107"/>
 <area shape="rect" id="node3" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/>
 <area shape="rect" id="node4" href="$classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/>
 <area shape="rect" id="node5" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/>

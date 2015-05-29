@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import java.awt.Dimension;
@@ -25,50 +20,68 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
-import javax.swing.WindowConstants;
 import logica.enumeracions.EElement;
 import logica.ValidadorLaberint;
 
+/*****************************************************************/
+/*                          COMPONENT EXTRA                      */
+/*****************************************************************/
+
 /**
  * @author oscar
- * Frame que ens permet crear i dissenyar noves pantalles.
- * En la part esquerra hi ha el conjunt de elemnts que es poden afegir al laberint
- * i nomes cal seleccionar l'element i fer click en la posicio on es vol afegir.
+ * @brief 
+ *  Pantalla que ens permet crear i dissenyar nous mapes
  * 
- * Un cop creada la pantalla aquesta es validada i exportada en format .txt.
+ *  En la part esquerra hi ha el conjunt de elemnts que es poden afegir al laberint
+ *  i nomes cal seleccionar l'element i fer click en la posicio on es vol afegir
+ *  Un cop creada la pantalla aquesta es validada i exportada en format .txt.)
+ * 
+ *  @invariant
+ *  laberint != null, el costat sempre ha de ser > Utils.Constants.MINIM_COSTAT_LABERINT i 
+ *  la matriu ha de ser cuadrada de costat x costat
  */
 public class FEditorLaberint extends JFrame{
     private JButton btnPacman, btnFantasma, btnParet, btnMoneda, btnItemSeleccionat;
     private JButton btnValidar;
-    private final int [][] laberint;
-    private final Log log;
-    private EElement elementSeleccionat = EElement.RES;
-    private int costat;
     
+    private final int [][] laberint; /**< matriu \b(costat x costat) que conté els identificadors
+                                         dels elements que s'han afegit al nou mapa*/
+    private final Log log;
+    
+    private EElement elementSeleccionat = EElement.RES; /**<Element seleccionat en cada instant
+                                                            obiament al principi no en tenim cap*/
+    private int costat; /**<mida del costat del laberint*/
+
+    /**
+     * @pre costat > Utils.Constants.MINIM_COSTAT_LABERINT;
+     * @post em creat l'editor de laberints per un laberint de mida costat
+     */
     public FEditorLaberint(int costat){
         log = Log.getInstance(FEditorLaberint.class);
-        
         this.laberint = new int[costat][costat];
         
-        /*JSplitPane spaFrame = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-        spaFrame.add(this.crearMenu());
-        JButton sortir = new JButton("Sortir");
-        sortir.addActionListener(this);
-        spaFrame.add(sortir);*/
-        
         JSplitPane sp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-        sp.add(this.crearMenu());
+        sp.add(crearMenu());
         
-        sp.add(crearContingut(costat));
+        sp.add(crearMatriu(costat));
         this.add(sp);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
     
+    /**
+     * @pre el frame no s'ha mostrat
+     * @post s'ha mostrat el frame;
+     */
     public void mostrarFrame(){
         this.setVisible(true);
     }
     
-    private JPanel crearContingut(int costat){
+    
+    /**
+     * @pre costat > Utils.Constants.MINIM_COSTAT_LABERINT
+     * @post retornem un panell que conté una matriu (de mida costat x costata) de botons de mida
+     */
+    private JPanel crearMatriu(int costat){
         this.costat = costat;
         JPanel contingut = new JPanel();
         contingut.setLayout(new BoxLayout(contingut, BoxLayout.Y_AXIS));
@@ -93,8 +106,12 @@ public class FEditorLaberint extends JFrame{
         return contingut;
     }
     
+    /**
+     * @pre --
+     * @post retornem un panell que conté els items que es poden posar en el tauler;
+     */
     private JPanel crearMenu(){
-        //Split panel que contindrà els diferents elements que es poden afegir al laberint
+        //contindrà els diferents elements que es poden afegir al laberint
         //  Pacman
         //  Pared
         //  Fantasma
@@ -154,8 +171,9 @@ public class FEditorLaberint extends JFrame{
     
     /**
      * @author Oscar.Galera
+     * @brief
      * DECLARACIÓ D'INTENCIONS DE LA CLASSE
-     * Aquesta classe ens controla els events de clik sobre els botons
+     * controla els events de clik sobre els botons
      *      -btnPacman
      *      -btnFantasma
      *      -btnParet
@@ -186,6 +204,7 @@ public class FEditorLaberint extends JFrame{
             }
         }
     }
+    
     
     private class ActionValidarLaberint implements ActionListener{
         @Override

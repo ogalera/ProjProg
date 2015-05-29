@@ -3,6 +3,11 @@
 }
 
 
+Pantalla que ens permet crear i dissenyar nous mapes.  
+
+
+
+
 Diagrama d'Herència per a interficie.\+F\+Editor\+Laberint\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,8 +27,7 @@ Diagrama de col·laboració per a interficie.\+F\+Editor\+Laberint\+:\nopagebrea
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}{{\bfseries F\+Editor\+Laberint} (int costat)}\label{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}
-
+\hyperlink{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}{F\+Editor\+Laberint} (int costat)
 \item 
 \hypertarget{classinterficie_1_1_f_editor_laberint_a086984e576ea2a896cd286d6b5a0b2b7}{void {\bfseries mostrar\+Frame} ()}\label{classinterficie_1_1_f_editor_laberint_a086984e576ea2a896cd286d6b5a0b2b7}
 
@@ -31,10 +35,31 @@ Diagrama de col·laboració per a interficie.\+F\+Editor\+Laberint\+:\nopagebrea
 
 
 \subsection{Descripció Detallada}
+Pantalla que ens permet crear i dissenyar nous mapes. 
+
 \begin{DoxyAuthor}{Autor}
-oscar Frame que ens permet crear i dissenyar noves pantalles. En la part esquerra hi ha el conjunt de elemnts que es poden afegir al laberint i nomes cal seleccionar l'element i fer click en la posicio on es vol afegir.
+oscar En la part esquerra hi ha el conjunt de elemnts que es poden afegir al laberint i nomes cal seleccionar l'element i fer click en la posicio on es vol afegir Un cop creada la pantalla aquesta es validada i exportada en format .txt.)
 \end{DoxyAuthor}
-Un cop creada la pantalla aquesta es validada i exportada en format .txt. 
+\begin{DoxyInvariant}{Invariant}
+laberint != null, el costat sempre ha de ser $>$ 5 i la matriu ha de ser cuadrada de costat x costat 
+\end{DoxyInvariant}
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}{\index{interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}!F\+Editor\+Laberint@{F\+Editor\+Laberint}}
+\index{F\+Editor\+Laberint@{F\+Editor\+Laberint}!interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}}
+\subsubsection[{F\+Editor\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}interficie.\+F\+Editor\+Laberint.\+F\+Editor\+Laberint (
+\begin{DoxyParamCaption}
+\item[{int}]{costat}
+\end{DoxyParamCaption}
+)}}\label{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}
+\begin{DoxyPrecond}{Precondició}
+costat $>$ 5; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat l'editor de laberints per un laberint de mida costat 
+\end{DoxyPostcond}
+
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

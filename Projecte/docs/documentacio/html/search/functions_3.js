@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['eliminarmoviment',['eliminarMoviment',['../classlogica_1_1historic__moviments_1_1_historic_moviments.html#af8ab1a5f7f30d6bf02567247f551a56d',1,'logica::historic_moviments::HistoricMoviments']]],
-  ['esbuida',['esBuida',['../classlogica_1_1historic__moviments_1_1_historic_moviments.html#a6a28bbb1fb8d5d017b98ff6fae9cb684',1,'logica.historic_moviments.HistoricMoviments.esBuida()'],['../classlogica_1_1historic__moviments_1_1_pila_3_01_t_01_4.html#a8eb489a3420043963be8160a873f6d65',1,'logica.historic_moviments.Pila&lt; T &gt;.esBuida()']]],
-  ['existeixbasededades',['existeixBaseDeDades',['../classdades_1_1_b_d.html#a60b00af9b05e556fd66b8dbf69e012cd',1,'dades::BD']]],
-  ['existeixusuari',['existeixUsuari',['../classdades_1_1_b_d.html#ad5629c3a6ea389ca0ec6fe6f71f49e5a',1,'dades::BD']]]
+  ['desanotar',['desanotar',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html#a5d31926a0ae53314d9757bb3f560a69f',1,'logica::algoritmica::BackTracking::Solucio']]],
+  ['desenpilar',['desenpilar',['../classlogica_1_1historic__moviments_1_1_pila_3_01_t_01_4.html#a4eee9c634e4eb6a3a7fe84132374cee5',1,'logica::historic_moviments::Pila&lt; T &gt;']]],
+  ['distancia',['distancia',['../classlogica_1_1_punt.html#a20bb4168bbedb81b73947bfeaf31512a',1,'logica::Punt']]]
 ];

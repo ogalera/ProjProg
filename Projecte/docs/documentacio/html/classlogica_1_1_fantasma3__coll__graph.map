@@ -1,7 +1,7 @@
 <map id="logica.Fantasma3" name="logica.Fantasma3">
 <area shape="rect" id="node2" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="1141,349,1268,376"/>
 <area shape="rect" id="node3" href="$classlogica_1_1_item_movible.html" title="logica.ItemMovible" alt="" coords="829,208,959,235"/>
-<area shape="rect" id="node4" href="$classlogica_1_1laberints_1_1_laberint.html" title="logica.laberints.Laberint" alt="" coords="469,120,627,147"/>
+<area shape="rect" id="node4" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="469,120,627,147"/>
 <area shape="rect" id="node5" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/>
 <area shape="rect" id="node6" href="$classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/>
 <area shape="rect" id="node7" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/>

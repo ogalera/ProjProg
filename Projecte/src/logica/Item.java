@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import logica.laberints.Laberint;
@@ -129,7 +124,7 @@ public class Item extends ItemMovible {
             EElement tmp = laberint.moureItem(posicio, seguentMoviment, elementTrapitjat);
             if(tmp != null && tmp != EElement.MONEDES_X2 && tmp != EElement.MONGETA && tmp != EElement.PATINS){
                 elementTrapitjat = tmp;
-                ruta.eliminarMoviment();
+                if(!ruta.esBuida()) ruta.eliminarMoviment();
                 posicio = posicio.generarPuntDesplasat(seguentMoviment);
             }
         }

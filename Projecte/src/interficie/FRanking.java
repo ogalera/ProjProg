@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import dades.BD;
@@ -28,6 +23,7 @@ public class FRanking extends FFrameAmbLog implements ListSelectionListener, Act
     public FRanking() {
         usuaris = BD.obtenirRanking(10);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -34,6 +34,7 @@ public class FLog extends JFrame implements ItemListener, ActionListener{
     public FLog() {
         log = Log.getInstance(FLog.class);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

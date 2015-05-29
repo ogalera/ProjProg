@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['guanya',['guanya',['../classlogica_1_1_personatge.html#a0c30dc6ca85f941043ae4a27e7583c67',1,'logica::Personatge']]]
+  ['costat',['costat',['../classlogica_1_1laberints_1_1_laberint.html#ae874ac4889592b811709f5b967d85286',1,'logica::laberints::Laberint']]]
 ];
