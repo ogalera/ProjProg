@@ -18,6 +18,15 @@ import java.awt.Image;
 public class Marcador extends JPanel {
     JLabel imatge;
     JLabel puntuacio;
+    /**
+     *@invariant: imatge != null
+     */
+    
+    
+    /**
+     * @brief Constructor de Marcador
+     * @post Marcador preparat per mostrar per pantalla amb imatge img i puntuacio 0000
+     */
     public Marcador(ImageIcon img){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         inicialitzaComponents(img);
@@ -49,9 +58,9 @@ public class Marcador extends JPanel {
     }
     
     /**
-     * @brief Construccio de la imatge que representa al personatge
-     * @param img Imatge que representa al personatge
-     * @post imatge mostra per pantalla img
+     * @brief Construccio de la imatge que representa al personatge.
+     * @param img Imatge que representa al personatge.
+     * @post img es mostrat per pantalla,
      */
     private void creaImatge(ImageIcon img){
         imatge = new JLabel();
@@ -78,6 +87,11 @@ public class Marcador extends JPanel {
         puntuacio.setBorder(border);
     }
     
+    
+    /**
+     * @brief Mostra per pantalla la puntuacio p.
+     * @post p es mostrat per pantalla.
+     */
     public void canviarPuntuacio(int p){
         String pnt;
         if(p < 10){

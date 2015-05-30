@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interficie.components;
 import javax.swing.BoxLayout;
 import java.awt.Color;
@@ -15,19 +11,27 @@ import javax.swing.border.LineBorder;
 /**
  * @author Moises
  * @Class Crono
- * @brief Representacio gràfica d'un cronometre amb 00:00:000 minuts:segons:milesimes
+ * @brief Cronometre amb representacio gràfica amb 00:00:000 minuts:segons:milesimes
  */
 public class Crono extends JPanel implements Runnable {
     JLabel temps;
     Thread fil;
     boolean cronoActiu;
     
+    /**
+     * @brief Constructor
+     * @post Crono preperat per mostrar per pantalla i iniciar.
+     */
     public Crono(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         creaVisualitzacioTemps();
         
     }
     
+    /**
+     * @brief Construccio de la representació grafica de un cronometre
+     * @post Crono preperat per mostrar per pantalla.
+     */
     private void creaVisualitzacioTemps(){
         temps = new JLabel("00:00:000");
         temps.setFont( new Font("Consolas", Font.PLAIN, 50 ) );
@@ -40,17 +44,29 @@ public class Crono extends JPanel implements Runnable {
         add( temps);
     }
     
-    
+    /**
+     * @brief El crono inicia el seu compte
+     * @post Cronometre iniciat
+     */
     public void iniciarCrono(){
         cronoActiu = true;
         fil = new Thread(this);
         fil.start();
     }
     
+    
+    /**
+     * @brief Crono para el seu compte
+     * @post Cronometre parat.
+     */
     public void pararCrono(){
         cronoActiu = false;
     }
 
+    
+    /**
+     * @brief Fil que executa l'evolució d'un cronometre
+     */
     @Override
     public void run() {
         int minuts = 0, segons = 0, milesimes = 0;
