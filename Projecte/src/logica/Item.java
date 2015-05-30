@@ -9,17 +9,28 @@ import logica.algoritmica.GestorCamins;
 
 /**
  *
- * @author oscar
+ * @author Moises
+ * @brief Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA).
  */
 public class Item extends ItemMovible {
-    private final EElement tipusElement;
-    private EElement elementTrapitjat;
-    private final GestorCamins gestorCami;
-    private HistoricMoviments ruta;
-    private final Log log;
-    private static final int DISTANCIA_PERILLOSA = 10;
-    private boolean esticFugint;
+    private final EElement tipusElement;/*!< Tipus de EElement de objecte actual */
+    private EElement elementTrapitjat;/*!< EElement que comparteix cel·la amb Item */
+    private final GestorCamins gestorCami;/*!< Calcula els camins necessaris per moure's per el Laberint */
+    private HistoricMoviments ruta;/*!< Guarda els camins que retorna gestorCami */
+    private final Log log;/*!< Log per registrar comportament Item */
+    private static final int DISTANCIA_PERILLOSA = 10;/*!< Distancia que es considera perillos a l'hora de decidir fugir. (distancia de enemic < DISTANCIA_PERILLOSA --> fugir) */
+    private boolean esticFugint;/*!< Indica l'estat del Item (Fugir/No Fugir) */
     
+    
+    /**
+     * @brief Constructor de Item
+     * @param partida Partida actual.
+     * @param tipusElement Tipus de EElement de objecte actual.
+     * @param elementTrapitjat EElement contingut a la cel·la inici.
+     * @param laberint Laberint actual.
+     * @param inici Punt on apareixera Item.
+     * @post Objecte actual ja interectua amb EElements de Laberint.
+     */
     public Item(Partida partida, EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici){
         super(partida, tipusElement.obtenirImatge(), laberint, inici, Utils.Constants.FREQUENCIA_ITEM);
         log = Log.getInstance(Item.class);
@@ -45,7 +56,7 @@ public class Item extends ItemMovible {
         int distanciaEnemic = gestorCami.trobarCamiMinim(posicio, posicioEnemic).obtenirMida();
         distanciaAFugir = distanciaEnemic;
         long tempsFinal = System.currentTimeMillis();
-        log.afegirDebug("Temps que triga l'algorisme A* a trobar els enemics: " + (tempsFinal - tempsInici) + " ms");
+        log.afegirDebug("Temps que triga l'algorisme AStar a trobar els enemics: " + (tempsFinal - tempsInici) + " ms");
         
         
         if (distanciaPacman < distanciaEnemic) {
@@ -71,7 +82,7 @@ public class Item extends ItemMovible {
             }
         }
         tempsFinal = System.currentTimeMillis();
-        log.afegirDebug("Temps total que triga el Item a recalcular una ruta: " + (tempsFinal - tempsInici) + " ms \n");
+        log.afegirDebug("Temps total que triga el Item a recalcular una ruta amb AStar: " + (tempsFinal - tempsInici) + " ms \n");
         EDireccio res;
         if(ruta.esBuida()){
             EElement e;
@@ -124,11 +135,20 @@ public class Item extends ItemMovible {
         return e != EElement.PARET;
     }
 
+    /**
+     * @brief Retorna el tipus de EElement al que pertany objecte actual
+     */
     @Override
     public String nomItemMovible(){
         return "Item "+tipusElement;
     }
-
+    
+    /**
+     * @brief Retorna el element el qual esta a la mateixa cel·la que item.
+     * @details Laberint conté un EElements per cel·la. Quan item es mou es necessita 
+     * guardar el EElement que contenia la cel·la actual on es troba el item.
+     * @return Element que hi ha a la mateixa cel·la que item.
+     */
     public EElement obtenirElementTrapitgat(){
         return elementTrapitjat;
     }
