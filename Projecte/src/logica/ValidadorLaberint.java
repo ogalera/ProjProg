@@ -2,49 +2,28 @@ package logica;
 
 import logica.enumeracions.EElement;
 import logica.log.Log;
-import java.util.Arrays;
 
 /**
  * @author Oscar.Galera
- * DECLARACIÓ D'INTENCIONS DE LA CLASSE
+ * @brief
  * Aquesta classe conté la lògica per validar un laberint, entenem que un laberint
  * és valid si:
  *      -No hi ha cap punt inaccesible.
  *      -Com a mínim hi ha 2 caselles accesibles.
  *      -Hi ha un únic personatje principal.
  *      -Hi ha un únic enemic.
- * 
- * El format del laberint ha de ser:
- *      - -1 -> no és pot passar;
- *      -  0 -> no hi ha res;
- *      -  1 -> hi ha una moneda normal;
- *      -  2 -> hi ha una moneda especial;
- *      -100 -> posició del personatje principal;
- *      -101 -> posició del enemic;
  */
 public class ValidadorLaberint {
     
-//    private static int laberint1 [][] = {
-//                                    {100,-1,0,-1,-1},
-//                                    {-1,0,0,0,-1},
-//                                    {0,0,0,0,-1},
-//                                    {0,-1,-1,-1,-1},
-//                                    {0,0,0,0,101}
-//                                };
-    
-//    private static int laberint1 [][] = {
-//                                    {100,-1,-1,-1,-1},
-//                                    {-1,-1,0,0,-1},
-//                                    {-1,-1,-1,-1,-1},
-//                                    {-1,-1,-1,-1,-1},
-//                                    {-1,-1,-1,0,101}
-//                                };
-    
+    /**
+     * @pre costat >= 2 i laberint és de mida costat x costat
+     * @post diu si el laberint és valid o no.
+     */
     public static boolean validarLaberint(int [][] laberint, int costat){
         //Mode verbose pel Log
         Log l = Log.getInstance(ValidadorLaberint.class);
         l.afegirDebug("Validem un laberint de "+costat+" X "+costat);
-        
+        int idParet = EElement.PARET.obtenirId();
         int casellaPacman = -1;
         int casellaFantasma = -1;
         //Per indicar el nombre de pacmans que hi ha en el log;
@@ -62,7 +41,7 @@ public class ValidadorLaberint {
                 if(laberint[i][j] != -1){
                     if(laberint[i][j] == EElement.PACMAN.obtenirId()){
                         //Em trobat un pacman
-                        if(casellaPacman != EElement.PARET.obtenirId()){
+                        if(casellaPacman != idParet){
                             nPacmans++;
                             valid = false;
                         }
@@ -87,13 +66,13 @@ public class ValidadorLaberint {
                         }
                     }
                     //Mirem esquerra
-                    if(j-1 >= 0 && laberint[i][j-1] != -1){
+                    if(j-1 >= 0 && laberint[i][j-1] != idParet){
                         //No és pared ni estem fora;
                         int esquerra = i*costat+(j-1);
                         p.afegirALaParticio(esquerra, posActual);
                     }
                     //Altrament mirem amunt
-                    else if(i-1 >= 0 && laberint[i-1][j] != -1){
+                    else if(i-1 >= 0 && laberint[i-1][j] != idParet){
                         //No és pared ni estem fora;
                         int adalt = (i-1)*costat+j;
                         p.afegirALaParticio(adalt,posActual);
@@ -103,7 +82,7 @@ public class ValidadorLaberint {
                         //continua siguent valid, això ho farem mirant al costat
                         //dret i abaix, en cas que estiguin fora del tauler
                         //els dos o hi hagi pared llavors el laberint no serà valid;
-                        if((j+1 >= costat || laberint[i][j+1] == -1) && (i+1 >= costat || laberint[i+1][j] == -1)){
+                        if((j+1 >= costat || laberint[i][j+1] == idParet) && (i+1 >= costat || laberint[i+1][j] == idParet)){
                             l.afegirError("La casella "+posActual+" esta aillada");
                             valid = false;
                         }
@@ -139,14 +118,15 @@ public class ValidadorLaberint {
             else{
                 missatge+="\n\t-Hi ha mes de un fantasma en el laberint";
             }
-            
             l.afegirError(missatge);
-            
         }
-        
         return valid;
     }
     
+    /**
+     * @pre costat >= 2 i laberint és de mida costat x costat
+     * @post diu si el laberint és valid o no.
+     */
     public static boolean validarLaberint(EElement [][] laberint, int costat){
         //Mode verbose pel Log
         Log l = Log.getInstance(ValidadorLaberint.class);
@@ -246,11 +226,8 @@ public class ValidadorLaberint {
             else{
                 missatge+="\n\t-Hi ha mes de un fantasma en el laberint";
             }
-            
             l.afegirDebug(missatge);
-            
         }
-        
         return valid;
     }
     
@@ -261,26 +238,14 @@ public class ValidadorLaberint {
      * el seu funcionament és bàsicament el de una partició
      */
     private static class Particio{
-        /**
-         * Vector per guardar tots els elements de la partició
-         */
-        private final int [] particio;
+        private final int [] particio; /**<Vector per guardar tots els elements de la partició*/
+        private final int costat; /**<Determina la mida de la partició, la qual serà costat X costat*/
+        private int nParticions; /**<Contador que ens indica el nombre de "subParticions" que tenim en cada moment*/
         
         /**
-         * Determina la mida de la partició, la qual serà costat X costat
-         */
-        private final int costat;
-        
-        /**
-         * Contador que ens indica el nombre de "subParticions" que tenim en cada moment
-         */
-        private int nParticions;
-        
-        /**
-         * @pre: costat >= 0;
-         * @post: Em creat una partició de costat X costat on tots els seus
+         * @pre costat >= 0;
+         * @post Em creat una partició de costat X costat on tots els seus
          * elements són -1
-         * @param costat determina la mida de la partició
          */
         public Particio(int costat){
             this.costat = costat;
@@ -292,10 +257,8 @@ public class ValidadorLaberint {
         }
         
         /**
-         * @pre: pos >= 0 && pos < costat X costat
-         * @post: retornem l'id de la posició especificada;
-         * @param pos a buscar l'id
-         * @return id de la posició;
+         * @pre pos >= 0 && pos < costat X costat
+         * @post retornem l'id de la posició especificada;
          */
         public int obtenirId(int pos){
             boolean trobat = false;
@@ -310,11 +273,9 @@ public class ValidadorLaberint {
         }
         
         /**
-         * @pre: pare i pos són >= 0 i <= costat x costat
-         * @post: si pare i pos són iguals es crea una subpartició nova
+         * @pre pare i pos són >= 0 i <= costat x costat
+         * @post si pare i pos són iguals es crea una subpartició nova
          * altrament l'enter de la posició pos apunta a pare;
-         * @param pare de la fusió;
-         * @param pos de la fusió;
          */
         public void afegirALaParticio(int pare, int pos){
             if(pare == pos){
@@ -342,27 +303,11 @@ public class ValidadorLaberint {
         }
         
         /**
-         * @pre: --;
-         * @post: retornem el nombre de subparticions que té la partició;
-         * @return nombre de subparticions de la partició;
+         * @pre --
+         * @post retornem el nombre de subparticions que té la partició.
          */
         public int getNParticions(){
             return this.nParticions;
-        }
-        
-        /**
-         * MÈTODE TEMPORAL!!!!
-         * @pre: --;
-         * @post: mostrem l'estat de la partició;
-         */
-        public void mostrarParticio(){
-            System.out.print("[");
-            for(int i = 0; i < particio.length; i++){
-                System.out.print(i+", ");
-            }
-            System.out.print("]\n");
-            System.out.println(Arrays.toString(particio));
-            System.out.println("n particions "+nParticions);
         }
     }
 }

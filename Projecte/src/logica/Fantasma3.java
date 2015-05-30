@@ -94,7 +94,7 @@ public class Fantasma3 extends Personatge{
     }
     
     @Override
-    public EElement realitzarMoviment(){
+    public final EElement realitzarMoviment(){
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != null && elementObtingut != EElement.FANTASMA3){
             if(!ruta.esBuida())ruta.eliminarMoviment();

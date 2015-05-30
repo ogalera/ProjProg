@@ -27,6 +27,10 @@ import logica.log.Log;
  *      -Nom d'usuari
  *      -Password
  *      -Imatge de perfil (opcional) 
+ * 
+ * @invariant
+ * just abans de guardar l'usuari l'atribut imatgeRedimensionada ha de contenir
+ * l'imatge de perfil de l'usuari;
  */
 public class FAlta extends JFrame implements ActionListener{
     private final Log log;
@@ -139,8 +143,8 @@ public class FAlta extends JFrame implements ActionListener{
     
     /**
      * @pre --;
-     * @post em retornat la ruta de l'imatge seleccionada;
-     * @return 
+     * @post em retornat la ruta de l'imatge seleccionada (en cas que no es seleccioni cap
+     * imatge es retorna la ruta de l'imatge per defecte)
      */
     private String seleccionarImatgePNG(){
         String pathImatge = Constants.rutaImatgeDefecteUsuari;
@@ -169,8 +173,9 @@ public class FAlta extends JFrame implements ActionListener{
     
     /**
      * @pre --;
-     * @post registrem l'usuari i password sobre la B.D. amb l'imatge seleccionada
-     * i diu si l'operació s'ha realitzat correctament;
+     * @post registrem un nou usuari sobre la B.D. (usuari, password i ruta de l'imatge per defecte)
+     * i es guarda en el directori imatges_usuari l'imatge de perfil redimensionada i finalment
+     * diu si l'operació s'ha realitzat correctament;
      */
     private boolean guardar(String usuari, String password){
         boolean guardatOk = false;

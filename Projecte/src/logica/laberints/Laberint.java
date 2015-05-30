@@ -298,8 +298,6 @@ public class Laberint {
             tauler[puntItem.obtenirFila()][puntItem.obtenirColumna()] = item;
             pintador.pintarNouItem(puntItem, item);
             partida.assignarItemEspecial(nouItem);
-            
-//            System.out.println("S'ha de assignar un nou item a "+puntItem+" item "+nouItem);
         }
     }
     

@@ -12,18 +12,34 @@ import logica.Usuari.EDificultat;
 import logica.Usuari.ENivells;
 import logica.controladors_pacman.ControladorTeclat;
 import logica.controladors_pacman.IControlador;
-import logica.enumeracions.EElement;
 import logica.enumeracions.ELaberintsPredefinits;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
 
 /**
  * @author oscar
+ * @brief
+ * menu principal del joc on es mostren les diferents possibilitats per jugar, on:
+ *      Aventura (AVANÇA EN EL JOC) : 
+ *              Continuem la partida des de alla on es va deixar.
+ * 
+ *      Provar mapa (NO AVANÇA EN EL JOC):
+ *              Permet importar un fitxer en format text que conte un mapa, un cop
+ *              importat es valida i si tot es correcte s'inicia una partida amb 
+ *              el mapa importat.
+ * 
+ *      Crear mapa 
+ *              Ens mostra un editor per crear els nostres propis mapes. Aquests
+ *              mapes mes tart es podran importar per provar-los.
+ * 
+ *      Sortir 
+ *              Adeu.
  */
 public class FMenu extends FFrameAmbLog implements ActionListener{
 
     /**
-     * Creates new form FMenu
+     * @pre --;
+     * @post em creat el dialeg de menú.
      */
     public FMenu() {
         initComponents();
@@ -145,6 +161,10 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
         pack();
     }// </editor-fold>                        
 
+    /**
+     * @pre el dialeg no està visible.
+     * @post em mostrat el dialeg.
+     */
     public void mostrarFrame(){
         Usuari usuari = FLogin.obtenirUsuari();
         lblUSUARI.setText(usuari.obtenirNomUsuari());
@@ -176,7 +196,10 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
+        ///Que volem fer?
+        
         if(e.getSource() == btnAventura){
+            ///Continuar amb el joc.
             IControlador controlador = new ControladorTeclat();
             PLaberint fLaberint = new PLaberint();
             FPartida fPartida = new FPartida(fLaberint, lblNIVELL, lblDIFICULTAT);
@@ -193,6 +216,7 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             partida.iniciarPartida();
         }
         else if(e.getSource() == btnProvarMapa){
+            ///Provar un mapa importat
             File fitxer = obtenirFitxerLaberint();
             if(fitxer != null){
                 String laberint = fitxer.toString();
@@ -211,13 +235,20 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             }
         }
         else if(e.getSource() == btnCrearMapa){
+            ///Crear un nou mapa.
             new FEditorLaberint(5).mostrarFrame();
         }
         else if(e.getSource() == btnSortir) {
+            ///Sortir.
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }
     
+    /**
+     * @pre --
+     * @post s'ha mostrat un dialeg per seleccionar un fitxer de text i s'ha retornat
+     * el fitxer seleccionat (null si no s'en ha seleccionat cap)
+     */
     private File obtenirFitxerLaberint(){
         File fitxerSeleccionat = null;
         JFileChooser fc = new JFileChooser();

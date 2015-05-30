@@ -11,17 +11,28 @@ import javax.swing.ListCellRenderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import logica.Usuari;
+import logica.Utils.Constants;
 
 /**
- *
  * @author oscar
+ * 
+ * @brief
+ * Llistat amb els usuaris que tenen més punts ordenats pel nombre total de punts
+ * obtinguts en el mode aventura.
+ * 
+ * Al seleccionar un usuari es mostra el seu historic.
  */
 public class FRanking extends FFrameAmbLog implements ListSelectionListener, ActionListener{
     
-    private final Usuari[] usuaris;
+    private final Usuari[] usuaris; /**<Conjunt d'usuaris registrats en el sistema*/
     
+    /**
+     * @pre --
+     * @post em creat el ranking per els Utils.Constants.TOP_N_DEL_RANKING usuaris
+     * amb més punts.
+     */
     public FRanking() {
-        usuaris = BD.obtenirRanking(10);
+        usuaris = BD.obtenirRanking(Constants.TOP_N_DEL_RANKING);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -79,6 +90,10 @@ public class FRanking extends FFrameAmbLog implements ListSelectionListener, Act
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @pre el dialeg no s'ha mostrat.
+     * @post el dialeg s'esta mostrant.
+     */
     public void mostrarFrame(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
@@ -100,6 +115,7 @@ public class FRanking extends FFrameAmbLog implements ListSelectionListener, Act
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
+        ///Em seleccionat un usuari del ranking.
         if(e.getValueIsAdjusting()){
             Usuari usuari = usuaris[jliRanking.getSelectedIndex()];
             int historic []= BD.obtenirHistoricPuntsUsuari(usuari);
@@ -109,14 +125,22 @@ public class FRanking extends FFrameAmbLog implements ListSelectionListener, Act
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ///Em sortit del ranking.
         if(e.getSource() == btnSortir){
             this.dispose();
         }
     }
 }
 
+/**
+ * @author oscar
+ * @brief
+ * cada un dels registrs (seleccionable) del llistat d'usuaris.
+ * 
+ * esta format per la imatge de perfil de l'usuari seguit del seu nom.
+ */
 class RegistreUsuari extends JLabel implements ListCellRenderer<Usuari>{
-    private static final Color colorSeleccio = new Color(0,0,128);
+    private static final Color colorSeleccio = new Color(0,0,128); /**<Color de fons per el registre selecciona*/
     public RegistreUsuari(){
         this.setOpaque(true);
         this.setIconTextGap(12);

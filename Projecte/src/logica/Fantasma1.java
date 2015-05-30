@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import java.awt.Image;
@@ -12,21 +7,30 @@ import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 
 /**
- *
  * @author oscar
+ * @brief
+ * Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida.
+ * 
+ * CARACTERISTIQUES DEL FANTASMA 
+ * Els seus moviments són totalment aleatoris.
+ * Sempre serà igual de dolent (estigui com estigui el tauler)
  */
 public class Fantasma1 extends Personatge{
-    private final ImageIcon imatgeFantasma;
     
+    /**
+     * @pre inici és un punt valid dins de laberint.
+     * @post em creat el fantasma 1 i està dins de laberint en la posició inici i jugant partida.
+     */
     public Fantasma1(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA1.obtenirImatge(), inici);
-        this.imatgeFantasma = EElement.FANTASMA1.obtenirImatge();
     }
 
     @Override
-    public EElement realitzarMoviment(){
+    public final EElement realitzarMoviment(){
+        ///Apliquem el moviment que teniem pensat fer.
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != null && elementObtingut != EElement.FANTASMA1){
+            ///Que em obtingut?
             switch(elementObtingut){
                 case MONEDA:{
                     incrementarPunts(Utils.Constants.VALOR_MONEDA_NORMAL);
@@ -63,6 +67,7 @@ public class Fantasma1 extends Personatge{
     
     @Override
     public EDireccio calcularMoviment() {
+        ///El calcul del seguent moviment és simplement anar a una posició valida.
         EDireccio moviment;
         Punt p;
         do{
@@ -79,6 +84,7 @@ public class Fantasma1 extends Personatge{
 
     @Override
     protected void assignarImatges() {
+        ///Carreguem el conjunt de imatges per aquest fantasma
         int llargada = laberint.obtenirMidaImatge().height;
         this.imatges[0][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1D0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
         this.imatges[0][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic1D1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
@@ -92,6 +98,7 @@ public class Fantasma1 extends Personatge{
 
     @Override
     protected void notificarPerduaEstat() {
+        ///Anunciem a la partida que ja no tenim super poders.
         partida.assignarItemAEnemic(EElement.RES);
     }
 }

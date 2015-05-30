@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica.excepcions;
 
 /**
- *
  * @author oscar
+ * 
+ * @brief
+ * Excepció per quan hi ha algun problema al iniciar la partida.
  */
-public class EIniciarPartida extends RuntimeException{
+public class EIniciarPartida extends EPartida{
+    /**
+     * @pre --
+     * @post s'ha creat l'excepció amb msg.
+     */
     public EIniciarPartida(String msg){
         super(msg);
     }

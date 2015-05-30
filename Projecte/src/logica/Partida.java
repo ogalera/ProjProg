@@ -20,42 +20,31 @@ import logica.laberints.LaberintLinealVertical;
 
 /**
  * @author oscar
+ * @brief
+ * pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint
+ * ple de monedes amb l'objectiu de aconseguir-ne el maxim nombre possible.
+ * 
+ * la partida finalitza quan no queden monedes.
  */
 public class Partida {
-    /**
-     * Laberint on es desenvolupa el joc;
-     */
-    private final Laberint laberint;
-    
-    /**
-     * Personatge principal;
-     */
-    private Personatge pacman;
-    
-    /**
-     * Enemic controlat per la màquina;
-     */
-    private Personatge enemic;
-    
-    private Item itemEspecial = null;
-    
-    /**
-     * Frame per visualitzar per pantalla la partida
-     */
-    private IPintadorPartida pintador;
+    private final Laberint laberint; /**<laberint on es desenvolupa el joc*/
+    private Personatge pacman;/**<personatge principal*/
+    private Personatge enemic;/**<Enemic controlat per la màquina*/
+    private Item itemEspecial = null; /**<Item especial que corre pel laberint,
+                                            aquest item apareix i desapareix quan
+                                            algú l'agafa, per tant, nosaltres entenem
+                                            qui hi ha un item a la partida si el seu
+                                            valor no és null*/
+    private IPintadorPartida pintador; /**<Frame per visualitzar de forma gràfica la partida*/
 
     /**
      * Instants de temps en que inicia i finalitza la partida (respectivament)
      * aquest atributs els tenim per tal de generar informació del cicle de vida
      * de la partida;
      */
-    private long momentInici = -1;
-    private long momentFi = -1;
+    private long momentInici = -1; /**<Instant de temps en que s'inicia la partida*/
+    private long momentFi = -1;/**<Instant de temps en que finalitza la partida*/
     
-    /**
-     * Log per anar anotant les tot el que passa durant el cicle de vida de
-     * la partida;
-     */
     private final Log log;
     
     /**
@@ -70,10 +59,18 @@ public class Partida {
         pintador = pintadorPartida;
         log.afegirDebug("Carreguem la partida a traves del fitxer "+fitxer);
         laberint = new Laberint(fitxer, this, pintadorLaberint);
-        pacman = obtenirPacman(controlador);
-        enemic = obtenirEnemic();
+        crearPacman(controlador);
+        crearEnemic();
     }
     
+    /**
+     * @pre Utils.Constants.MINIM_COSTAT_LABERINT <= costat i enemic
+     * és realment un enemic.
+     * @post em creat una partida amb un laberint concret de mida costat
+     * amb en pacman a la posició [0, 0] un enemic en la posicio [costat-1, costat-1], 
+     * amb un pintador per la partida i per el laberint i un controlador per moure
+     * an pacman.
+     */
     public Partida(ELaberintsPredefinits laberint,
                     int costat, 
                     EElement enemic, 
@@ -82,6 +79,7 @@ public class Partida {
                     IControlador controlador){
         log = Log.getInstance(Partida.class);
         this.pintador = pintadorPartida;
+        ///Creem el laberint del tipus que ens han dit.
         switch(laberint){
             case LABERINT_LINEAL_HORITZONTAL:{
                 this.laberint = new LaberintLinealHoritzontal(this, costat, enemic, pintadorLaberint);
@@ -93,15 +91,15 @@ public class Partida {
                 this.laberint = new LaberintAleatori(this, costat, enemic, pintadorLaberint);
             }break;
         }
-        this.enemic = obtenirEnemic();
-        this.pacman = obtenirPacman(controlador);
+        crearEnemic();
+        crearPacman(controlador);
     }
     
     /**
-     * @pre: el laberint té un únic enemic;
-     * @post: em retornat l'enemic;
+     * @pre el laberint és valid.
+     * @post em creat l'enemic que juga la partida.
      */
-    private Personatge obtenirEnemic(){
+    private void crearEnemic(){
         Punt posicioFantasma = laberint.obtenirPosicioInicialEnemic();
         EElement tipusEnemic = laberint.obtenirElement(posicioFantasma);
         switch(tipusEnemic){
@@ -119,18 +117,20 @@ public class Partida {
             }
         }
         log.afegirDebug("L'enemic es de tipus "+enemic+" i esta en la posicio "+posicioFantasma);
-        return enemic;
-    }
-    
-    private Personatge obtenirPacman(IControlador controlador){
-        Punt posicioPacman = laberint.obtenirPosicioPacman();
-        pacman = new Pacman (this, laberint, controlador, posicioPacman);
-        return pacman;
     }
     
     /**
-     * @pre:la partida no ha sigut iniciada anteriorment;
-     * @post:em iniciat la partida juntament amb tots els seus elements;
+     * @pre el laberint és valid.
+     * @post em creat en pacman que juga la partida.
+     */
+    private void crearPacman(IControlador controlador){
+        Punt posicioPacman = laberint.obtenirPosicioPacman();
+        pacman = new Pacman (this, laberint, controlador, posicioPacman);
+    }
+    
+    /**
+     * @pre la partida no ha sigut iniciada anteriorment.
+     * @post em iniciat la partida juntament amb tots els seus elements.
      */
     public void iniciarPartida(){
         laberint.pintarLaberint();
@@ -146,8 +146,8 @@ public class Partida {
     }
     
     /**
-     * @pre: la partida està iniciada i no finalitzada;
-     * @post: em finalitzat la partida amb tots els seus elements;
+     * @pre la partida està iniciada i no finalitzada.
+     * @post em finalitzat la partida amb tots els seus elements.
      */
     public void finalitzarPartida(){
         synchronized(laberint){
@@ -169,28 +169,46 @@ public class Partida {
         }
     }
     
+    /**
+     * @pre la partida no ha sigut finalitzada
+     * @post em tancat la partida matant al enemic, an pacman i al item (si ni 
+     * havia en aquest moment).
+     */
     public void tancarPartida(){
         enemic.finalitzarItem();
         pacman.finalitzarItem();
         if(itemEspecial != null) itemEspecial.finalitzarItem();
     }
     
+    /**
+     * @pre el laberint ja no té monedes
+     * @post em assignat un guanyador (qui té més punts) i ara toca anar
+     * cap la sortida.
+     */
     public void assignarGuanyador(){
         if(itemEspecial != null){
+            ///Si hi havia item el finalitzem
             itemEspecial.finalitzarItem();
+            pintador.pintarItemPartida(null);
         }
         if(pacman.obtenirPunts() > enemic.obtenirPunts()){
-            System.out.println("GUANYA PACMAN");
+            ///Està guanyant en pacman.
+            log.afegirDebug("GUANYA PACMAN");
             pacman.assignarGuanya(true);
             enemic.assignarGuanya(false);
         }
         else {
-            System.out.println("GUANYA ENEMIC");
+            ///Està guanyant el fantasma.
+            log.afegirDebug("GUANYA ENEMIC");
             pacman.assignarGuanya(false);
             enemic.assignarGuanya(true);
         }
     }
    
+    /**
+     * @pre hi ha un item en la partida
+     * @post s'ha finalitzat l'item i em retornat que contenia sota seu.
+     */
     public EElement itemCapturat(){
         EElement elementTrapitgat = itemEspecial.obtenirElementTrapitgat();
         this.itemEspecial.finalitzarItem();
@@ -199,94 +217,145 @@ public class Partida {
         return elementTrapitgat;
     }
     
+    /**
+     * @pre --
+     * @post em assignat un nou item a la partida.
+     */
     public void assignarItemEspecial(Item item){
-        Audio.reprodueixAparicioItem();
         this.itemEspecial = item;
         this.pintador.pintarItemPartida(itemEspecial.imatgePerfil);
         Audio.reprodueixAparicioItem();
     }
     
+    /**
+     * @pre --
+     * @post diu si hi ha un item en la partida.
+     */
     public boolean hiHaItemEspecial(){
         return itemEspecial != null;
     }
     
+    /**
+     * @pre --
+     * @post em retornat l'imatge de en pacman.
+     */
     public ImageIcon obtenirImatgePacman(){
         return pacman.imatgePerfil;
     }
     
+    /**
+     * @pre --
+     * @post em retornat l'imatge del fantasma.
+     */
     public ImageIcon obtenirImatgeFantasma(){
         return enemic.imatgePerfil;
     }
     
-   public Laberint obtenirLaberint(){
-       return this.laberint;
-   }
+    /**
+     * @pre --
+     * @post em retornat el laberint.
+     */
+    public Laberint obtenirLaberint(){
+        return this.laberint;
+    }
    
-   public void assignarPuntsPacman(int punts){
-       pintador.pintarPuntsPacman(punts);
-   }
+    /**
+     * @pre --
+     * @post em pintat els punts que té en pacman.
+     */
+    public void assignarPuntsPacman(int punts){
+        pintador.pintarPuntsPacman(punts);
+    }
    
-   public void assignarPuntsEnemic(int punts){
-       pintador.pintarPuntsEnemic(punts);
-   }
+    /**
+     * @pre --
+     * @post em pintat els punts que té el fantasma.
+     * @param punts 
+     */
+    public void assignarPuntsEnemic(int punts){
+        pintador.pintarPuntsEnemic(punts);
+    }
    
-   public synchronized int reiniciarPuntsEnemic(){
+    /**
+     * @pre --
+     * @post em posat a 0 els punts del fantasma i n'hem retornat la quantitat
+     * que tenia
+     */
+    public synchronized int reiniciarPuntsEnemic(){
         synchronized(laberint){
             Audio.reprodueixSubstraccioPunts();
             pintador.pintarPuntsEnemic(0);
-            Audio.reprodueixSubstraccioPunts();
             return enemic.reiniciarPunts();
-           
         }
-   }
+    }
    
-   public int reiniciarPuntsPacman(){
+    /**
+     * @pre --
+     * @post em posat a 0 els punts den pacman i n'hem retornat la quantitat
+     * que tenia
+     */
+    public int reiniciarPuntsPacman(){
         synchronized(laberint){
             Audio.reprodueixSubstraccioPunts();
             pintador.pintarPuntsPacman(0);
             Audio.reprodueixSubstraccioPunts();
             return pacman.reiniciarPunts();
         }
-   }
+    }
    
-   public void assignarItemAPacman(EElement item){
-       pintador.pintarItemPacman(item.obtenirImatge());
-   }
+    /**
+     * @pre --
+     * @post em pintat el nou item que té en pacman.
+     */
+    public void assignarItemAPacman(EElement item){
+        pintador.pintarItemPacman(item.obtenirImatge());
+    }
    
-   public void assignarItemAEnemic(EElement item){
-       pintador.pintarItemEnemic(item.obtenirImatge());
-   }
+    /**
+     * @pre --
+     * @post em pintat el nou item que té l'enemic
+     */
+    public void assignarItemAEnemic(EElement item){
+        pintador.pintarItemEnemic(item.obtenirImatge());
+    }
    
-   public void treureItemPacman(){
-       pintador.pintarItemPacman(null);
-   }
-   
-   public void treureItemEnemic(){
-       pintador.pintarItemEnemic(null);
-   }
-   
-   public Punt obtenirPuntPacman(){
+    /**
+     * @pre --
+     * @post em retornat la posició den pacman dins del laberint.
+     */
+    public Punt obtenirPuntPacman(){
        return pacman.posicio;
-   }
-   
-   public Punt obtenirPuntEnemic(){
-       return enemic.posicio;
-   }  
-   
-   ///////////////////////////////////////////////////////////////////
-   public EEstatPersonatge obtenirEstatPacman(){
-       return pacman.obtenirEstatPersonatge();
-   }
-   
-   public Item obtenirItem(){
-       return itemEspecial;
-   }
-   
-   public int obtenirPuntuacioPacman(){
-       return pacman.obtenirPunts();
-   }
-   
-   public int obtenirPuntsPacman(){
-       return pacman.obtenirPunts();
-   }
+    }
+    
+    /**
+     * @pre --
+     * @post em retornat la posició del enemic dins del laberint.
+     */
+    public Punt obtenirPuntEnemic(){
+        return enemic.posicio;
+    }  
+    
+    /**
+     * @pre --
+     * @post em retornat l'estat en que es troba en pacman en aquest moment.
+     */
+    public EEstatPersonatge obtenirEstatPacman(){
+        return pacman.obtenirEstatPersonatge();
+    }
+    
+    /**
+     * @pre --
+     * @post em retornat l'item que hi ha a la partida (null si no n'hi ha cap)
+     */
+    public Item obtenirItem(){
+        return itemEspecial;
+    }
+    
+    /**
+     * @pre --
+     * @post em retornat el nombre de punts que porta en pacman.
+     */
+    public int obtenirPuntuacioPacman(){
+        return pacman.obtenirPunts();
+    }
 }

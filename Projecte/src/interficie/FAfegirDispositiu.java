@@ -5,6 +5,10 @@ import java.net.UnknownHostException;
 import javax.swing.ImageIcon;
 import logica.Utils.Constants;
 
+/*****************************************************************/
+/*                          COMPONENT EXTRA                      */
+/*****************************************************************/
+
 /**
  * @author oscar
  * @brief

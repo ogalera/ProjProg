@@ -16,7 +16,7 @@ import logica.log.Log;
  * @brief
  * Laberint amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és:
  * Posar en pacman al extrem esquerra superior "casella [0, 0]" i l'enemic especificat
- * en l'extrem inferior dret "casella [N, N].
+ * en l'extrem inferior dret "casella [N-1, N-1].
  * 
  * Llavors sortejar una casella dins del tauler, buscar la posició habilitada
  * més propera al punt sortejat i traçar un camí, en tot el camí es van posant
@@ -38,7 +38,8 @@ public class LaberintAleatori extends Laberint{
     public LaberintAleatori(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintAleatori.class);
-        if(costat < 5) throw new ELaberint("La mida minima del costat del laberint és 5");
+        if(costat < Utils.Constants.MINIM_COSTAT_LABERINT) throw new ELaberint("La mida minima del costat del laberint és "
+                                                                                +Utils.Constants.MINIM_COSTAT_LABERINT);
         if(!enemic.esEnemic()) throw new ELaberint("Hi ha de haver un enemic en el laberint");
         this.costat = costat;
         generarLaberint(enemic);
@@ -106,17 +107,23 @@ public class LaberintAleatori extends Laberint{
             }
         }while(!ValidadorLaberint.validarLaberint(tauler, costat));
         
+        String laberint = "\n";
         for(int i = 0; i < costat; i++){
-            System.out.println();
             for(int j = 0; j < costat; j++){
-                System.out.print(tauler[i][j].obtenirLletraRepresentacio()+" ");
+                laberint += tauler[i][j].obtenirLletraRepresentacio()+" ";
             }
+            laberint+="\n";
         }
-        System.out.println();
+        log.afegirDebug(laberint+"\n");
         long tempsFi = System.currentTimeMillis();
         log.afegirDebug("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms");
     }
     
+    /**
+     * @pre --
+     * @post em fet un cami (de monedes) de origen a desti passant per candidats
+     * i s'ha retornat el nombre de monedes afegides.
+     */
     private int ferCamiTauler(Punt origen, Punt desti, Punt[] candidats, int nCandidats){
         EDireccio movimentLateral = movimentLateral(origen.obtenirColumna(), desti.obtenirColumna());
         EDireccio movimentVertical = movimentVertical(origen.obtenirFila(), desti.obtenirFila());
@@ -140,18 +147,32 @@ public class LaberintAleatori extends Laberint{
         return nAfegides;
     }
     
-    private EDireccio movimentLateral(int origen, int desti){
-        if(origen > desti) return EDireccio.ESQUERRA;
-        else if(origen < desti) return EDireccio.DRETA;
+    /**
+     * @pre --
+     * @post em retornat si respecte columna origen i columna desti
+     * cal fer un moviment cap a l'esquerra o cap a la dreta.
+     */
+    private EDireccio movimentLateral(int columnaOrigen, int columnaDesti){
+        if(columnaOrigen > columnaDesti) return EDireccio.ESQUERRA;
+        else if(columnaOrigen < columnaDesti) return EDireccio.DRETA;
         return EDireccio.QUIET;
     }
     
-    private EDireccio movimentVertical(int origen, int desti){
-        if(origen > desti) return EDireccio.AMUNT;
-        else if(origen < desti) return EDireccio.AVALL;
+    /**
+     * @pre --
+     * @post em retornat si respecte fila origen i fila desti 
+     * cal fer un moviment cap amunt o cap avall.
+     */
+    private EDireccio movimentVertical(int filaOrigen, int filaDesti){
+        if(filaOrigen > filaDesti) return EDireccio.AMUNT;
+        else if(filaOrigen < filaDesti) return EDireccio.AVALL;
         return EDireccio.QUIET;
     }
     
+    /**
+     * @pre el nombre de destins > 0.
+     * @post em retornat el punt mes proper a origen de l'array destins.
+     */
     private Punt distanciaMinima(Punt origen, Punt[] destins, int nDestins){
         int index = 0;
         int distanciaMinima = origen.distancia(destins[0]);

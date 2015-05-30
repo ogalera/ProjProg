@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import java.awt.event.ActionEvent;
@@ -10,10 +5,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 /**
- *
  * @author oscar
+ * 
+ * @brief
+ * Frame amb un menuBar que conté un menuItem per obre la pantalla de log.
  */
 public abstract class FFrameAmbLog extends JFrame implements ActionListener{
+    /**
+     * @pre --;
+     * @post s'ha el frame amb log.
+     */
     public FFrameAmbLog() {
         initComponents();
         itmMostrarLog.addActionListener(this);

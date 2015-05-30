@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import dades.BD;
@@ -14,16 +9,44 @@ import logica.Utils;
 import logica.log.Log;
 
 /**
- *
  * @author oscar
+ * @brief
+ * Pantalla inicial de l'aplicacio, operacions que es poden fer:
+ *      -ENTRAR :
+ *          s'ha de entrar usuari i contrasenya, la contrasenya es xifra i es mira que dita
+ *          combinació existeixi en la B.D, en cas que sigui correcte llavors es carrega l'usuari 
+ *          (de forma estàtica ja que nomès podrà entrar un usuari alhora) i del contrari 
+ *          es mostra un missatge diguent "usuari o contrasenya incorrecte" 
+ * 
+ *      -ALTA :
+ *          permet donar d'alta a un nou usuari.
+ * 
+ *      -RANKING :
+ *          mostra tots els usuaris registrats per ordre de punts (on el primer
+ *          es el que ha fet mes punts)
+ * 
+ *      -SORTIR :
+ *          tanquem l'aplicacio.
+ *          
  */
 public class FLogin extends JFrame implements ActionListener{
-    private static Usuari usuari;
+    private static Usuari usuari; /**<Usuari que ha entrat a l'aplicacio, en un inici
+                                  * aquest atribut val null fins que es valida l'usuari
+                                  * i passa a tenir valor fins que es surt*/
+    
+    /**
+     * @pre --
+     * @post s'ha creat el dialeg per entrar.
+     */
     public FLogin() {
         initComponents();
         setLocationRelativeTo(null);
     }
 
+    /**
+     * @pre el dialeg no s'esta mostrant.
+     * @post em mostrat el dialeg.
+     */
     public void mostrarFrame(){
         btnEntrar.addActionListener(this);
         btnAlta.addActionListener(this);
@@ -142,11 +165,15 @@ public class FLogin extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ///Em pressionat un boto, que volem fer?
+        
         if (e.getSource()==btnRanking) {
+            ///Volem entrar a la pantalla de ranking
             setTitle("boto ranking");
             new FRanking().mostrarFrame();
         }
         else if (e.getSource()==btnEntrar) {
+            ///Volem entrar al menú (cal estar registrat)
             String usu = txtUsuari.getText();
             String password = new String(txtPassword.getPassword());
             if(usu.length() > 0 && password.length() > 0){
@@ -174,14 +201,21 @@ public class FLogin extends JFrame implements ActionListener{
             }
         }
         else if (e.getSource()==btnAlta) {
+            ///Volem donar d'alta a un nou usuari.
             new FAlta().mostrarFrame();
         } 
         else if (e.getSource() == btnSortir){
+            ///Adeu!
             dispose();
             System.exit(0);
         }
     }
     
+    /**
+     * @pre --
+     * @post si encara no s'ha entrat a la aplicació es retorna null
+     * altrament es retorna l'usuari.
+     */
     public static Usuari obtenirUsuari(){
         return usuari;
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import java.awt.event.ActionEvent;
@@ -10,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -21,16 +15,36 @@ import javax.swing.JOptionPane;
 import logica.log.Log;
 
 /**
- *
  * @author oscar
+ * 
+ * @brief
+ * Pantalla per mostrar el log de l'aplicació;
+ * 
+ * Aquesta pantalla permet:
+ *      - Mostrar tot el log.
+ *  
+ *      - Exportar el log en format text (.txt)
+ * 
+ *      - Filtrar els missatges del log de un tipus concret
+ *          - DEBUG.
+ *          - WARNING.
+ *          - ERROR.
+ * 
+ *      - Mostrar l'últim missatge afegit al log.
  */
 public class FLog extends JFrame implements ItemListener, ActionListener{
+    ///Flag que ens marca quin tipus de missatge està actiu.
     private boolean debugActiu = true;
     private boolean warningActiu = true;
     private boolean errorActiu = true;
     private boolean nomesUltimMissatge = false;
+    
     private final Log log;
     
+    /**
+     * @pre --
+     * @post em creat la pantalla de log.
+     */
     public FLog() {
         log = Log.getInstance(FLog.class);
         initComponents();
@@ -138,13 +152,19 @@ public class FLog extends JFrame implements ItemListener, ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @pre --
+     * @post em mostrar la pantalla de log.
+     */
     public void mostrarFrame(){
+        ///Afegim els events als diferents controls
         chbDebug.addItemListener(this);
         chbWarning.addItemListener(this);
         chbError.addItemListener(this);
         chbmNomesUltimMissatge.addItemListener(this);
         btnExportarLog.addActionListener(this);
         txtLog.setText(log.obtenirContingutCompletDelLogAmbColor());
+        ///fem visible la pantalla.
         this.setVisible(true);
     }
 
@@ -166,6 +186,7 @@ public class FLog extends JFrame implements ItemListener, ActionListener{
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+        ///Ens ha canviat algún checkBox dels filtres per el tipus de missatge.
         if(e.getSource() == chbDebug){
             debugActiu = !debugActiu;
         }
@@ -179,7 +200,18 @@ public class FLog extends JFrame implements ItemListener, ActionListener{
             nomesUltimMissatge = !nomesUltimMissatge;
         }
         
+        refrescarLog();
+    }
+
+    /**
+     * @pre --
+     * @post s'ha refrescat el contingut del log tenint en compte els filtres actius.
+     */
+    private void refrescarLog(){
+        ///Treiem el contingut del log.
         txtLog.setText(null);
+        
+        ///Mostrem el contingut del log de els filtres activats.
         if(debugActiu){
             if(nomesUltimMissatge) txtLog.append(log.obtenirUltimDebug());
             else txtLog.append(log.obtenirDebugsLog());
@@ -193,37 +225,58 @@ public class FLog extends JFrame implements ItemListener, ActionListener{
             else txtLog.append(log.obtenirErrorsLog());
         }
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnExportarLog){
-            this.exportarLog();
+            String desti = seleccionarCarpeta();
+            if(desti != null){
+                exportarLog(desti);
+            }
         }
     }
     
-    private void exportarLog(){
+    /**
+     * @pre --;
+     * @post em mostrat un dialeg per seleccionar un directori, si s'ha seleccionat
+     * de forma correct es retorna la seva ruta altrament es retorna null.
+     */
+    private String seleccionarCarpeta(){
+        String carpetaDesti = null;
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int resultat = fc.showDialog(FLog.this, "Exportar Log");
-        if(resultat == JFileChooser.APPROVE_OPTION){
-            File fitxer = fc.getCurrentDirectory();
-            SimpleDateFormat sdf = new SimpleDateFormat("_dd_MM_yyyy_kk_mm");
-            String marcaTemps = sdf.format(new Date());
-            String desti = fitxer.getPath()+"/"+fitxer.getName()+"/log"+marcaTemps+".txt";
-            boolean operacio = this.exportarFitxer(desti);
-            if(operacio){
-                JOptionPane.showMessageDialog(FLog.this,
-                                                "S'ha exportat el log correctament a "+desti,
-                                                "Log exportar correctament!",JOptionPane.INFORMATION_MESSAGE);
-            }
-            else{
-                JOptionPane.showMessageDialog(FLog.this,
-                                                "Hi ha hagut un error al exportar el log",
-                                                "Error al exportar el log",JOptionPane.ERROR_MESSAGE);
-            }
+        if(fc.showDialog(FLog.this, "Exportar Log") == JFileChooser.APPROVE_OPTION){
+            carpetaDesti = fc.getSelectedFile().getAbsolutePath();
+        }
+        return carpetaDesti;
+    }
+    
+    /**
+     * @pre desti és la ruta a un directori accessible per escriure.
+     * @post em exportat el log en format text (.txt) en la carpeta destí,
+     * el nom del fitxer és log_dia_mes_any_hora_minuts.txt.
+     */
+    private void exportarLog(String desti){
+        SimpleDateFormat sdf = new SimpleDateFormat("_dd_MM_yyyy_kk_mm");
+        String marcaTemps = sdf.format(new Date());
+        String nomFitxer = desti+"/log"+marcaTemps+".txt";
+        boolean operacio = this.exportarFitxer(nomFitxer);
+        if(operacio){
+            JOptionPane.showMessageDialog(FLog.this,
+                                            "S'ha exportat el log correctament a "+nomFitxer,
+                                            "Log exportar correctament!",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(FLog.this,
+                                            "Hi ha hagut un error al exportar el log",
+                                            "Error al exportar el log",JOptionPane.ERROR_MESSAGE);
         }
     }
     
+    /**
+     * @pre fitxer correspont a una ruta valida.
+     * @post em exportat el contingut del log sobre fitxer.
+     */
     public boolean exportarFitxer(String fitxer){
         boolean operacio = true;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fitxer))){

@@ -8,9 +8,26 @@ import logica.enumeracions.EDireccio;
 
 /**
  * @author oscar
+ * 
+ * @brief
+ * Eenemic úna mica més elaborat que Fantasma 1.
+ * 
+ * CARACTERISTIQUES DEL FANTASMA.
+ * La seva visibilitat només és en linia recta per tant per tant només valora
+ * les quatre direccions (fins a trobar paret) en las que pot anar i decideix 
+ * quina és la que més li interesa.
+ * 
+ * Es bo especialment quan hi ha moltes coses en el laberint.
  */
 public class Fantasma2 extends Personatge{
-    private boolean perHistoric;
+    private boolean perHistoric = false; /**<Indica si el moviment l'em tret de la pila
+                                            del historic, per així no tornar-lo a enpilar i entrar
+                                            en un bucle infinit*/
+    
+    /**
+     * @pre inici és un punt valid dins de laberint.
+     * @post em creat el fantasma 1 i està dins de laberint en la posició inici i jugant partida.
+     */
     public Fantasma2(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA2.obtenirImatge(), inici);
     }
@@ -18,6 +35,7 @@ public class Fantasma2 extends Personatge{
     @Override
     public EDireccio calcularMoviment() {
         perHistoric = false;
+        ///Obtenim l'interes que tenim en cada una de les direccions.
         int interesDreta = explorarDireccio(EDireccio.DRETA);
         int interesEsquerra = explorarDireccio(EDireccio.ESQUERRA);
         int interesAdalt = explorarDireccio(EDireccio.AMUNT);
@@ -98,13 +116,17 @@ public class Fantasma2 extends Personatge{
                 }
             }
         }
+        ///Retornem quina és la nostra desició de moviment per aquest torn.
         return moviment;
     }
     
     @Override
-    public EElement realitzarMoviment(){
+    public final EElement realitzarMoviment(){
+        ///Ens desplaçem per el tauler
         EElement elementObtingut = super.realitzarMoviment();
         if(elementObtingut != null && elementObtingut != EElement.FANTASMA2){
+            ///El nostre moviment ha sigut acceptat.
+            ///Que em trapitjat?
             if(perHistoric) historicMoviments.eliminarMoviment();
             switch(elementObtingut){
                 case MONEDA:{
@@ -140,6 +162,11 @@ public class Fantasma2 extends Personatge{
         return null;
     }
     
+    /**
+     * @pre --
+     * @post ens retorna l'interes que té el fantasma (per l'estat en el que es troba)
+     * de anar cap a la direcció
+     */
     private int explorarDireccio(EDireccio direccio){
         Punt p = posicio.generarPuntDesplasat(direccio);
         EElement element = laberint.obtenirElement(p);
@@ -157,7 +184,7 @@ public class Fantasma2 extends Personatge{
                 interes += Utils.Constants.VALOR_MONEDA_EXTRA/n;
             }
             else if(element == EElement.PACMAN && obtenirEstatPersonatge() == EEstatPersonatge.AMB_MONGETA){
-                if(partida.obtenirPuntsPacman() > 50) interes += Integer.MAX_VALUE;
+                if(partida.obtenirPuntuacioPacman()> 50) interes += Integer.MAX_VALUE;
             }
             else if(element == EElement.PATINS || element == EElement.MONGETA || element == EElement.MONEDES_X2){
                 interes += Integer.MAX_VALUE;
@@ -168,11 +195,15 @@ public class Fantasma2 extends Personatge{
                 interes = Integer.MAX_VALUE;
             }
             n++;
+            ///Anem mirant en la direcció mentre no trobem paret.
         }while(element != EElement.PARET);
         return (int)interes;
     }
 
-    
+    /**
+     * @pre --
+     * @post em retornat el valor màxim de valors.
+     */
     private int obtenirMaxim(int ... valors){
         int maxim = valors[0];
         for(int i = 0; i < valors.length; i++){
@@ -189,6 +220,7 @@ public class Fantasma2 extends Personatge{
 
     @Override
     protected void assignarImatges() {
+        ///Carreguem el conjunt de imatges per aquest fantasma
         int llargada = laberint.obtenirMidaImatge().height;
         this.imatges[0][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic2D0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
         this.imatges[0][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic2D1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
@@ -202,6 +234,7 @@ public class Fantasma2 extends Personatge{
     
     @Override
     protected void notificarPerduaEstat() {
+        ///Anunciem a la partida que ja no tenim super poders.
         partida.assignarItemAEnemic(EElement.RES);
     }
 }

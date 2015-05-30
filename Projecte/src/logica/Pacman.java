@@ -11,12 +11,20 @@ import logica.enumeracions.EElement;
 
 /**
  * @author oscar
+ * @brief
+ * personatge principal controlat per l'usuari a traves d'un dispositiu físic.
  */
 public class Pacman extends Personatge{
     
+    /**
+     * @pre inici és una posició valida dins de laberint
+     * @post em creat en pacman que juga la partida dins de laberint (en la posició inici) i controlat
+     * per controlador.
+     */
     public Pacman(Partida partida, Laberint laberint, IControlador controlador, Punt inici) {
         super(partida, laberint, EElement.PACMAN.obtenirImatge(), inici);
         controlador.assignarPacman(this);
+        ///Si el controlador és un teclat cal asociar l'event de teclat.
         if(controlador instanceof ControladorTeclat){
             ControladorTeclat controladorTeclatGrafic = (ControladorTeclat) controlador;
             KeyListener keyListener = (KeyListener) controladorTeclatGrafic;
@@ -26,8 +34,11 @@ public class Pacman extends Personatge{
 
     @Override
     public EElement realitzarMoviment(){
+        ///Ens desplaçem per el tauler
         EElement element = super.realitzarMoviment();
         if(element != null && element != EElement.PACMAN){
+            ///El nostre moviment ha sigut acceptat.
+            ///Que em trapitjat?
             switch(element){
                 case MONEDA:{
                     Audio.reprodueixMenjaMoneda();
@@ -69,6 +80,8 @@ public class Pacman extends Personatge{
 
     @Override
     public  EDireccio calcularMoviment() { 
+        ///Com al presionar una tecla aquesta es queda fixe per el seguent
+        ///moviment cal mirar que no sortim del laberint.
         Punt desti = posicio.generarPuntDesplasat(seguentMoviment);
         if(laberint.obtenirElement(desti) == EElement.PARET) seguentMoviment = EDireccio.QUIET;
         return seguentMoviment;
@@ -79,11 +92,12 @@ public class Pacman extends Personatge{
         return "Pacman";
     }
     
-    public void nouMoviment(EDireccio teclaPremuda){
-        if(teclaPremuda != null){
-            Punt desti = posicio.generarPuntDesplasat(teclaPremuda);
+    public void nouMoviment(EDireccio direccioAMoure){
+        ///Em rebut un missatge per mourens cap a direccioAMoure.
+        if(direccioAMoure != null){
+            Punt desti = posicio.generarPuntDesplasat(direccioAMoure);
             if (laberint.obtenirElement(desti) != EElement.PARET){
-                seguentMoviment = teclaPremuda;
+                seguentMoviment = direccioAMoure;
             }
         }
     }

@@ -13,53 +13,60 @@ import org.apache.commons.codec.binary.Base64;
 
 /**
  * @author oscar
- * Classe de utilitats per tot el projecte;
+ * @brief
+ * Modul funcional amb un conjunt d'operacions que s'utilitzen
+ * a nivell de tota l'aplicació
  */
 public class Utils{
     public static class Constants{
-        public static final float LLINDAR_MONEDES = 0.7f;
-        public static final int TAN_X_CENT_MONEDES_ITEM = 10;
-        public static final int TAN_X_CENT_MONEDES_EXTRA = 10;
-        public static final int VALOR_MONEDA_NORMAL = 10;
-        public static final int VALOR_MONEDA_EXTRA = 30;
-        public static final int MIDA_IMATGE = 100;
-        public static final String PATH_IMATGES = "res/imatges/";
-        public static final String PATH_BD = "res/raw/";
-        public static final String PATH_SONS = "res/sons";
-        public static final String rutaImatgeDefecteUsuari = "res/imatges/imatge_perfil.png";
-        public static final int PORT = 9988;
-//        public static final int FREQUENCIA_ITEM = 400;
-        public static final int FREQUENCIA_ITEM = 400;
-        public static final int FREQUENCIA_PERSONATGE = 250;
-        public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000;
-        public static final int MINIM_COSTAT_LABERINT = 5;
+        public static final float LLINDAR_MONEDES = 0.7f; /**<TAN_PER_U de monedes que ha de tenir un laberint autogenerat*/
+        public static final int TAN_X_CENT_MONEDES_ITEM = 10; /**< % de monedes que has de obtenir per que aparegui un item a la partida*/
+        public static final int TAN_X_CENT_MONEDES_EXTRA = 10; /**< % de monedes simples que hi ha de haver per cada moneda doble*/
+        public static final int VALOR_MONEDA_NORMAL = 10; /**<quantitat de punts que aporta una moneda simple*/
+        public static final int VALOR_MONEDA_EXTRA = 30; /**<quantitat de punts que aporta una moneda extra*/
+        public static final int MIDA_IMATGE = 100; /**<Mida de l'imatge de perfil*/
+        public static final String PATH_IMATGES = "res/imatges/"; /**<Ruta on es guarden les imatges de l'aplicació*/
+        public static final String PATH_BD = "res/raw/"; /**<Ruta del fitxer de la B.D.*/
+        public static final String PATH_SONS = "res/sons"; /**<Ruta dels fitxers de so*/
+        public static final String rutaImatgeDefecteUsuari = "res/imatges/imatge_perfil.png"; /**<Ruta de l'imatge per defecte del usuari*/
+        public static final int PORT = 9988; /**<Port d'escolta per connectar dispositius móbils NO ACABAT!*/
+        public static final int FREQUENCIA_ITEM = 400; /**<Cada quants milisegons es mou l'item*/
+        public static final int FREQUENCIA_PERSONATGE = 250; /**<Cada quants milisegons es mou el personatge*/
+        public static final int TEMPS_EFECTES_ITEM_MILISEGONS = 15_000; /**<Quants milisegons duran els efectes de un item*/
+        public static final int MINIM_COSTAT_LABERINT = 5; /**<Mida mínima que ha de fer el costat de un laberint*/
+        public static final int TOP_N_DEL_RANKING = 10; /**<Nombre de usuaris que formen el ranking de punts*/
     }
     
-    private static final Random random = new Random(System.currentTimeMillis());
+    private static final Random random = new Random(System.currentTimeMillis()); /**<Llavor per generar valors aleatoris 
+                                                                                    a nivell de tota l'aplicació*/
     
+    /**
+     * @pre max > 0
+     * @post es retorna un valor pseudoaleatori dins del rang [0, max)
+     */
     public static int obtenirValorAleatori(int max){
         return random.nextInt(max);
     }
     
     /**
-     * @pre: cadena no és null;
-     * @post: em retornat la cadena codificada;
+     * @pre cadena no és null;
+     * @post em retornat la cadena codificada;
      */
     public static String codificarCadena(String cadena){
         return Base64.encodeBase64String(cadena.getBytes());
     }
     
     /**
-     * @pre: --;
-     * @post: em retornat la hora del sistema en format HH:MI:ss
+     * @pre --;
+     * @post em retornat l'hora del sistema en format HH:MI:ss
      */
     public static String obtenirHoraSistema(){
         return Utils.obtenirMomentEnFormatHoraMinutsSegons(System.currentTimeMillis());
     }
     
     /**
-     * @pre: --;
-     * @post: em retornat moment en format HH:MI:ss
+     * @pre --;
+     * @post em retornat moment en format HH:MI:ss
      */
     public static String obtenirMomentEnFormatHoraMinutsSegons(final long moment){
         String resultat = "";
@@ -74,11 +81,22 @@ public class Utils{
         return resultat;
     }
     
+    /**
+     * @pre px > 0;
+     * @post em retornat l'imatge redimensionada a px x px
+     */
     public static Image redimensionarImatge(ImageIcon imatge, int px){
         return imatge.getImage().getScaledInstance(px, px, Image.SCALE_DEFAULT);
     }
     
-    public static BufferedImage redimensionarImatge(BufferedImage originalImage, int tipus, int amplada, int altura) {
+    /**
+     * @pre originalImage és un buffer de una imatge valida.
+     * @post em retornat un buffer amb l'imatge redimensionada.
+     */
+    public static BufferedImage redimensionarImatge(BufferedImage originalImage,
+                                                        int tipus, 
+                                                        int amplada, 
+                                                        int altura) {
         BufferedImage resizedImage = new BufferedImage(amplada, altura, tipus);
         Graphics2D g = resizedImage.createGraphics();
         g.drawImage(originalImage, 0, 0, amplada, altura, null);
@@ -96,8 +114,8 @@ public class Utils{
         private final String extensio;/**<extensió a filtrar*/
         
         /**
-         * @pre --;
-         * @post s'ha creat un nou filtre per extensió;
+         * @pre --
+         * @post s'ha creat un nou filtre per extensió.
          */
         public FiltreExtensio(String extensio){
             this.extensio = extensio;
@@ -105,6 +123,7 @@ public class Utils{
 
         @Override
         public boolean accept(File f) {
+            ///El fitxer serà acceptable si acaba amb extensió.
             return f.getName().endsWith(extensio);
         }
 
@@ -112,9 +131,5 @@ public class Utils{
         public String getDescription() {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
-    }
-    
-    public static String obtenirPathRecurs(String recurs){
-        return Utils.class.getResource("res/"+recurs).toString();
     }
 }

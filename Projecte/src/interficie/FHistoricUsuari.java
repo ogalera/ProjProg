@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interficie;
 
 import java.awt.event.MouseEvent;
@@ -12,11 +7,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
- *
  * @author oscar
+ * 
+ * @brief
+ * pantalla que utilitzem per mostrar l'historic d'un usuari
+ * que està format per els nivells que ha superat i de cada un d'aquests
+ * el nombre de punts que ha fet.
  */
 public class FHistoricUsuari extends JFrame implements MouseListener{
-    private int punts[];
+    
+    private final int punts[];/**<vector de longitud nombre de nivells superats
+                                 i on la posició del vector indica el nivell i 
+                                 el contingut de la posició el nombre de punts 
+                                 que s'han fet en aquest nivell*/
+    
+    /**
+     * @pre puntuacions conté les puntuacions de cada nivell on puntuacions[1] 
+     * conté el nombre de punts que s'han fet en aquest nivell.
+     * @post em creat la pantalla de historic.
+     */
     public FHistoricUsuari(String nomUsuari, Icon imatge, int []puntuacions) {
         initComponents();
         carregarImatges(puntuacions.length-1);
@@ -26,9 +35,14 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
         setLocationRelativeTo(null);
     }
 
+    /**
+     * @pre --
+     * @post em carregat les imatges per els nivells segons si s'ha superat o no
+     */
     private void carregarImatges(int nivell){
         ImageIcon imgEstrellaOff = obtenirImatge("res/imatges/star_off.png");
         ImageIcon imgEstrellaNivell;
+        ///S'ha superat el nivell 1?
         if(nivell > 0 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell1.png")) != null){
             lblStart1Gran.setIcon(imgEstrellaNivell);
             lblStart1Gran.setToolTipText("Nivell 1 superat");
@@ -38,6 +52,8 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart1Gran.setIcon(imgEstrellaOff);
             lblStart1Gran.setToolTipText("Nivell 1 no superat");
         }
+        
+        ///S'ha superat el nivell 2?
         if(nivell > 1 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell2.png")) != null){
             lblStart2Gran.setIcon(imgEstrellaNivell);
             lblStart2Gran.setToolTipText("Nivell 2 superat");
@@ -47,6 +63,8 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart2Gran.setIcon(imgEstrellaOff);
             lblStart2Gran.setToolTipText("Nivell 2 no superat");
         }
+        
+        ///S'ha superat el nivell 3?
         if(nivell > 2 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell3.png")) != null){
             lblStart3Gran.setIcon(imgEstrellaNivell);
             lblStart3Gran.setToolTipText("Nivell 3 superat");
@@ -56,6 +74,8 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart3Gran.setIcon(imgEstrellaOff);
             lblStart3Gran.setToolTipText("Nivell 3 no superat");
         }
+        
+        ///S'ha superat el nivell 4?
         if(nivell > 3 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell4.png")) != null){
             lblStart4Gran.setIcon(imgEstrellaNivell);
             lblStart4Gran.setToolTipText("Nivell 4 superat");
@@ -65,6 +85,8 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
             lblStart4Gran.setIcon(imgEstrellaOff);
             lblStart4Gran.setToolTipText("Nivell 4 no superat");
         }
+        
+        ///S'ha superat el nivell 5?
         if(nivell > 4 && (imgEstrellaNivell = obtenirImatge("res/imatges/star_nivell5.png")) != null){
             lblStart5Gran.setIcon(imgEstrellaNivell);
             lblStart5Gran.setToolTipText("Nivell 5 superat");
@@ -76,6 +98,10 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
         }
     }
     
+    /**
+     * @pre ruta és valida.
+     * @post s'ha retornat l'imatge de la ruta especificada.
+     */
     private ImageIcon obtenirImatge(String ruta){
         return new ImageIcon(ClassLoader.getSystemResource(ruta));
     }
@@ -196,6 +222,10 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @pre el dialeg no s'ha mostrat.
+     * @post em mostrat el dialeg.
+     */
     public void mostrarFrame(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
@@ -220,6 +250,8 @@ public class FHistoricUsuari extends JFrame implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        ///S'ha seleccionat algún nivell, per tant, mostrem el nombre 
+        ///de punts d'aquest nivell en el marcador.
         if(e.getButton() == MouseEvent.BUTTON1){
             if(e.getSource() == lblStart1Gran){
                 lblNivell.setText("Nivell 1");

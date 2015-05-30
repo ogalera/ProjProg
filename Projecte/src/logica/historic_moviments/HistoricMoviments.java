@@ -6,11 +6,13 @@ import logica.excepcions.EHistoricBuit;
 /**
  * @author oscar
  * @brief
- * Historic de moviments de caràcter FIFO
+ * Historic de moviments de caràcter FILO
  */
 public class HistoricMoviments {
-    private final Pila<EDireccio> pila;
-    private int nElement;
+    private final Pila<EDireccio> pila; /**<Estructura de dades de caràcter filo
+                                            * on es van afegint els moviments que 
+                                            * ha realitzat un personatge*/
+    private int nElement; /**<Nombre d'elements que conté la pila */
     
     /**
      * @pre --;
