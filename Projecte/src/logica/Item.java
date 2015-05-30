@@ -17,7 +17,7 @@ public class Item extends ItemMovible {
     private final GestorCamins gestorCami;
     private HistoricMoviments ruta;
     private final Log log;
-    private static final int DISTANCIA_PERILLOSA = 7;
+    private static final int DISTANCIA_PERILLOSA = 10;
     private boolean esticFugint;
     
     public Item(Partida partida, EElement tipusElement, EElement elementTrapitjat, Laberint laberint, Punt inici){
@@ -87,7 +87,14 @@ public class Item extends ItemMovible {
         return res;
     }
     
-
+    /**
+     * @brief Càlcul aleatori d'una posicio valida.
+     * @details Si ningu persegueix a Item, aquest anira pasejant per el Laberint. Si
+     * no te cap ruta, buscarà una punt aleatori del laberint i anira fins allà.
+     * S'enten com a vàlid un punt que no sigui paret, que existeixi dins de Laberint i
+     * que no sigui el punt on es troba actualment Item.
+     * @return Punt com a desti vàlid dins de Laberint.
+     */
     private Punt obtenirPosicioAleatoria(){
         boolean valid = false;
         Punt p = null;
@@ -97,13 +104,21 @@ public class Item extends ItemMovible {
         }
         return p;
     }
+    
+    /**
+     * @brief Diu si un desti p es vàlid.
+     * @return Retorna cert si desti p no correspont a un EElement.PARET && p != posicioActual
+     */
     private boolean destiValid(Punt p){
         boolean valid = false;
         EElement element = laberint.obtenirElement(p);
         if (element != EElement.PARET && p != posicio)valid = true;
         return valid;
     }
-
+    /**
+     * @brief Diu si un moviment es vàlid.
+     * @return Retorna cert si el punt calculat amb posicio + mov != EElement.PARET
+     */
     private boolean movimentValid(EDireccio mov){
         EElement e = laberint.obtenirElement(posicio.generarPuntDesplasat(mov));
         return e != EElement.PARET;

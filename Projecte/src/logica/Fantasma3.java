@@ -139,6 +139,10 @@ public class Fantasma3 extends Personatge{
         return "Fantasma3";
     }
     
+    /**
+     * @brief Valoració de la situacio abans de calcular un moviment.
+     * @post 
+     */
     private void valorarSituacio(){
         Punt posicioPacman = partida.obtenirPuntPacman();
         int distanciaPacman = gestorCami.trobarCamiMinim(posicio, posicioPacman).obtenirMida();

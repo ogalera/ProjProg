@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 /**
  * @author Moises
  * @Class Crono
- * @brief Mostra per pantalla un cronometre iniciat a 00:00:000 minuts:segons:milesimes
+ * @brief Representacio gràfica d'un cronometre amb 00:00:000 minuts:segons:milesimes
  */
 public class Crono extends JPanel implements Runnable {
     JLabel temps;

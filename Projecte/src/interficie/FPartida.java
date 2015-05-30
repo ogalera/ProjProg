@@ -22,11 +22,6 @@ import logica.Usuari;
  */
 public class FPartida extends JFrame implements IPintadorPartida{
     
-    private JPanel partEsquerra;
-    private JPanel partDreta;
-    private JPanel partInferior;
-    private JPanel partCentral;
-    private JPanel partSuperior;
     private JLabel lblItem;
     private JLabel itemPacman;
     private JLabel itemEnemic;
@@ -136,7 +131,6 @@ public class FPartida extends JFrame implements IPintadorPartida{
 
     @Override
     public void pintarItemPacman(ImageIcon imatge) {
-        //itemPacman.setIcon(imatge);
         if (imatge != null) itemPacman.setIcon(new ImageIcon(imatge.getImage().getScaledInstance(50,50,Image.SCALE_AREA_AVERAGING)));
         else itemPacman.setIcon(imatge);
     }
