@@ -38,7 +38,7 @@ public class ValidadorLaberint {
         while(valid && i < costat){
             int j = 0;
             while(valid && j < costat){
-                if(laberint[i][j] != -1){
+                if(laberint[i][j] != idParet){
                     if(laberint[i][j] == EElement.PACMAN.obtenirId()){
                         //Em trobat un pacman
                         if(casellaPacman != idParet){
@@ -233,8 +233,8 @@ public class ValidadorLaberint {
     
     /**
      * @author Oscar.Galera
-     * DECLARACIÓ D'INTENCIONS DE LA CLASSE
-     * Aquesta classe l'utilitzarem amb la finalitat de validar un laberint,
+     * @breif
+     * Aquesta classe l'utilitzarem amb la finalitat de validar que el laberint sigui connex,
      * el seu funcionament és bàsicament el de una partició
      */
     private static class Particio{

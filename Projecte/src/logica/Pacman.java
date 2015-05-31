@@ -92,6 +92,11 @@ public class Pacman extends Personatge{
         return "Pacman";
     }
     
+    /**
+     * @pre --
+     * @post si direccioAMoure no surt del tauler llavors serà el proxim moviment
+     * que intentarà fer en pacman.
+     */
     public void nouMoviment(EDireccio direccioAMoure){
         ///Em rebut un missatge per mourens cap a direccioAMoure.
         if(direccioAMoure != null){

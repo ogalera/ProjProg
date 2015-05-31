@@ -78,7 +78,9 @@ public class LaberintAleatori extends Laberint{
         int llindar = (int) (costat*costat*Utils.Constants.LLINDAR_MONEDES);
 
         Random r = new Random(System.currentTimeMillis());
+        int nIntents = 0;
         do{
+            nIntents++;
             int nCandidats = 2;
             //Omplim el tauler de parets;
             for(int i = 0; i < costat; i++){
@@ -117,6 +119,7 @@ public class LaberintAleatori extends Laberint{
         log.afegirDebug(laberint+"\n");
         long tempsFi = System.currentTimeMillis();
         log.afegirDebug("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms");
+        System.out.println("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms intents "+nIntents);
     }
     
     /**
