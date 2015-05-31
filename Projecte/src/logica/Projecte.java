@@ -3,17 +3,18 @@ package logica;
 
 import interficie.FLogin;
 import java.io.IOException;
-import java.net.InetAddress;
 
 
 /**
- *
  * @author oscar
+ * @brief
+ * main del projecte, des de aquí es mostra la pantalla de login.
  */
 public class Projecte {
 
     /**
-     * @param args the command line arguments
+     * @pre --
+     * @post em mostrat la pantalla de login.
      */
     public static void main(String[] args) throws IOException{
         new FLogin().mostrarFrame();

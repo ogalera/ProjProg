@@ -34,10 +34,10 @@ import logica.log.Log;
  */
 public class FLog extends JFrame implements ItemListener, ActionListener{
     ///Flag que ens marca quin tipus de missatge està actiu.
-    private boolean debugActiu = true;
-    private boolean warningActiu = true;
-    private boolean errorActiu = true;
-    private boolean nomesUltimMissatge = false;
+    private boolean debugActiu = true; /**<missatges de debug actius*/
+    private boolean warningActiu = true; /**<missatges de warning actius*/
+    private boolean errorActiu = true; /**<missatges d'error actius*/
+    private boolean nomesUltimMissatge = false; /**<només mostrar últim missatge actiu*/
     
     private final Log log;
     

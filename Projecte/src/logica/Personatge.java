@@ -14,6 +14,10 @@ import logica.historic_moviments.HistoricMoviments;
  * Representació de tot item que juga una partida dins d'un laberint, i que lluita per 
  * obtenir el maxim de punts, que pot anar canviant d'estat i que es comporta de forma diferent
  * segons el seu estat.
+ * 
+ * @invariant
+ * punts >= 0, 0 <= indexDireccioAnterior <= 4 i imatges és una matriu de 4 files
+ * i 2 columnes.
  */
 public abstract class Personatge extends ItemMovible{
     /**

@@ -10,6 +10,9 @@ import logica.enumeracions.EDireccio;
  * 
  * @brief
  * Controlador per dirigir en pacman amb les fletxes del teclat
+ * 
+ * @invariant
+ * en pacman ha de deixar de ser null just abans de començar a controlar-lo.
  */
 public class ControladorTeclat implements IControlador, KeyListener{
     private Pacman pacman; /**<pacman, el necessitem per enviar-li la direcció que s'ha presionat*/

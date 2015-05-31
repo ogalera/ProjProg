@@ -8,6 +8,9 @@ package logica.historic_moviments;
  * cim té cost O(1)
  * desenpilar té cost O(1)
  * esBuida té cost O(1)
+ * 
+ * @invariant
+ * mentre la pila estigui buida cim ha de ser null altrament no pot ser null.
  */
 public class Pila<T> {
     private Node cim=null; /**<cim de la pila*/

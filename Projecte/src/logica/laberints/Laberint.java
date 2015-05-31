@@ -26,7 +26,12 @@ import logica.Utils;
  * El laberint s'ha de poder comunicar amb la partida per noficiar quan no queden
  * monedes o quan s'ha obtingut un item (mongeta, patins o monedes x 2).
  * 
- * També caldrà que pugui enviar missatges a un pintador per així poder representar-se de forma gràfica
+ * També caldrà que pugui enviar missatges a un pintador per així poder representar-se de forma gràfica.
+ * 
+ * @invariant
+ * nMonedes conté en tot moment el nombre de monedes que hi ha en el laberint,
+ * costat >= Utils.Constants.MINIM_COSTAT_LABERINT, tauler és una matriu cuadrada de costat x costat,
+ * pintador no pot ser null i nMonedesPerItem > 0
  */
 public class Laberint {
     protected EElement tauler[][]; /**<matriu de representacions per els elements que hi ha en el laberint**/

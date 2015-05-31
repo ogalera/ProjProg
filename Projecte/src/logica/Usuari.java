@@ -15,6 +15,9 @@ import logica.enumeracions.EElement;
  *      - nivell -> en quin nivell es troba de l'aventura.
  *      - dificultat -> dins del nivell per quina dificultat va.
  *      - punts -> cumul de punts del usuari per el nivell en que està.
+ * 
+ * @invariant
+ * id != null, nomUsuari != null, imatgePerfil != null, punts >= 0
  */
 public class Usuari {
     private final int id; /**<identificador de la B.D*/

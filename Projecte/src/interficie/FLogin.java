@@ -27,7 +27,9 @@ import logica.log.Log;
  * 
  *      -SORTIR :
  *          tanquem l'aplicacio.
- *          
+ * 
+ * @invarinat
+ * usuari valdrà null fins que s'accedeixi al menú.
  */
 public class FLogin extends JFrame implements ActionListener{
     private static Usuari usuari; /**<Usuari que ha entrat a l'aplicacio, en un inici

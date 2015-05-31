@@ -7,6 +7,9 @@ import logica.excepcions.EHistoricBuit;
  * @author oscar
  * @brief
  * Historic de moviments de caràcter FILO
+ * 
+ * @invariant
+ * nElements >= 0
  */
 public class HistoricMoviments {
     private final Pila<EDireccio> pila; /**<Estructura de dades de caràcter filo

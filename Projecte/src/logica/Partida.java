@@ -25,6 +25,9 @@ import logica.laberints.LaberintLinealVertical;
  * ple de monedes amb l'objectiu de aconseguir-ne el maxim nombre possible.
  * 
  * la partida finalitza quan no queden monedes.
+ * 
+ * @invariant
+ * laberint != null, pacman != null, enemic != null i pintadorPartida != null
  */
 public class Partida {
     private final Laberint laberint; /**<laberint on es desenvolupa el joc*/
