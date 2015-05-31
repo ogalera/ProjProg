@@ -186,13 +186,15 @@ public class FAlta extends JFrame implements ActionListener{
                 new File("imatges_usuaris").mkdir();
             }
             String rutaImatge = "imatges_usuaris/"+usuari+"_"+data+".png";
-            if(imatgeRedimensionada == null){
-                redimensionarImatge(ClassLoader.getSystemResource(Constants.PATH_IMATGES+"imatge_perfil.png").toString());
+            if(imatgeRedimensionada != null){
+                guardarImatgeSeleccionada(rutaImatge);
+                if(BD.afegirUsuari(usuari, password, rutaImatge)){
+                    guardatOk = true;
+                    log.afegirDebug("S'ha afegit un nou usuari "+usuari);
+                }
             }
-            guardarImatgeSeleccionada(rutaImatge);
-            if(BD.afegirUsuari(usuari, password, rutaImatge)){
-                guardatOk = true;
-                log.afegirDebug("S'ha afegit un nou usuari "+usuari);
+            else {
+                JOptionPane.showMessageDialog(FAlta.this, "Si us pla seleccioni una imatge en format png de perfil", "AVÍS",JOptionPane.ERROR_MESSAGE);
             }
         }
         catch(IOException ioe){

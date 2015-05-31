@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 /**
  * @author Oscar.Galera
- * DECLARACIÓ D'INTENCIONS DE LA CLASSE
+ * @brief
  * Sistema de log per veure que està passant en tot moment en el sistema;
  */
 public class Log {
@@ -41,8 +41,6 @@ public class Log {
          * @pre: --;
          * @post: s'ha creat una niva parellaPrioritatMissatge amb els parametres
          * especificats
-         * @param missatge
-         * @param prioritat 
          */
         public ParellaPrioritatMissatge(String missatge, Prioritat prioritat){
             this.missatge = missatge;
@@ -52,7 +50,6 @@ public class Log {
         /**
          * @pre:--;
          * @post: retornem el missatge;
-         * @return 
          */
         public String getMissatge(){
             return missatge;
@@ -61,7 +58,6 @@ public class Log {
         /**
          * @pre:--;
          * @post: retornem la prioritat del missatge;
-         * @return 
          */
         public Prioritat getPrioritat(){
             return prioritat;
@@ -70,7 +66,7 @@ public class Log {
     
     /**
      * @author Oscar.Glaera
-     * DECLARACIÓ DE INTENCIONS DE L'ENUMERACIÓ
+     * @brief
      * Utilitzem aquesta enumeració per mantenir diferents nivells de prioritat
      * en els missatges de el log, tenim les prioritats:
      *      -ERROR -> Màxima prioritat del missatge;
@@ -95,8 +91,6 @@ public class Log {
     /**
      * @pre: clase no és null;
      * @post: em obtingut LA instancia del log; 
-     * @param clase que ens indicarà qui està afegint registres al log;
-     * @return Log per afegir registres;
      */
     public static Log getInstance(Class clase){
         if(clase == null) throw new NullPointerException("Has de obtenir el log a partir de una classe");
@@ -110,7 +104,6 @@ public class Log {
     /**
      * @pre: --;
      * @post: em afegit el registre a la estructura log amb prioritat ERROR;
-     * @param registre a afegir;
      */
     public void afegirError(String registre){
         this.afegirRegistre(Prioritat.ERROR, registre);
@@ -119,7 +112,6 @@ public class Log {
     /**
      * @pre: --;
      * @post: em afegit el registre a la estructura log amb prioritat WARNING;
-     * @param registre a afegir;
      */
     public void afegirWarning(String registre){
         this.afegirRegistre(Prioritat.WARNING, registre);
@@ -128,7 +120,6 @@ public class Log {
     /**
      * @pre: --;
      * @post: em afegit el registre a la estructura log amb prioritat DEBUG;
-     * @param registre a afegir;
      */
     public void afegirDebug(String registre){
         this.afegirRegistre(Prioritat.DEBUG, registre);
@@ -137,8 +128,6 @@ public class Log {
     /**
      * @pre: --;
      * @post: em afegit el registre a la estructura log amb prioritat especificada;
-     * @param prioritat per classificar el missatge;
-     * @param registre que ens representa el missatge del log;
      */
     private void afegirRegistre(Prioritat prioritat, String registre){
         //FORMAT EN QUE ES GUARDA UN REGISTRE EN EL LOG:
@@ -152,7 +141,6 @@ public class Log {
     /**
      * @pre: --;
      * @post: Em retornat el contingut complet del registre en format String;
-     * @return: Contingut del log en mode String
      */
     public String obtenirContingutCompletDelLogAmbColor(){
         //FORMAT EN QUE ES RETORNA CADA UN DELS REGISTRES DEL LOG
@@ -177,7 +165,6 @@ public class Log {
     /**
      * @pre: --;
      * @post: Em retornat el contingut complet del registre en format String;
-     * @return: Contingut del log en mode String
      */
     public String obtenirContingutCompletDelLog(){
         //FORMAT EN QUE ES RETORNA CADA UN DELS REGISTRES DEL LOG
@@ -202,7 +189,6 @@ public class Log {
     /**
      * @pre:--;
      * @post: retornem tots els registres del log amb prioritat ERROR;
-     * @return conjunt de registres amb prioritat ERROR;
      */
     public String obtenirErrorsLog(){
         return obtenirRegistreDeUnaPrioritat(Prioritat.ERROR);
@@ -211,7 +197,6 @@ public class Log {
     /**
      * @pre:--;
      * @post: retornem tots els registres del log amb prioritat WARNING;
-     * @return conjunt de registres amb prioritat WARNING;
      */
     public String obtenirWarningsLog(){
         return obtenirRegistreDeUnaPrioritat(Prioritat.WARNING);
@@ -220,24 +205,39 @@ public class Log {
     /**
      * @pre:--;
      * @post: retornem tots els registres del log amb prioritat DEBUG;
-     * @return conjunt de registres amb prioritat DEBUG;
      */
     public String obtenirDebugsLog(){
         return obtenirRegistreDeUnaPrioritat(Prioritat.DEBUG);
     }
-    
+
+    /**
+     * @pre:--;
+     * @post: retornem l'últim missatge d'error registrat.
+     */
     public String obtenirUltimError(){
         return this.getUltimRegistreDeUnTipus(Prioritat.ERROR);
     }
     
+    /**
+     * @pre:--;
+     * @post: retornem l'últim missatge de warning registrat.
+     */
     public String obtenirUltimWarning(){
         return this.getUltimRegistreDeUnTipus(Prioritat.WARNING);
     }
     
+    /**
+     * @pre:--;
+     * @post: retornem l'últim missatge de debug registrat.
+     */
     public String obtenirUltimDebug(){
         return this.getUltimRegistreDeUnTipus(Prioritat.DEBUG);
     }
-    
+
+    /**
+     * @pre:--;
+     * @post: retornem l'últim missatge de prioritat registrat.
+     */
     private String getUltimRegistreDeUnTipus(Prioritat prioritat){
         Iterator<ParellaPrioritatMissatge> i = registres.descendingIterator();
         boolean trobat = false;
@@ -272,6 +272,10 @@ public class Log {
         return resultat;
     }
     
+    /**
+     * @pre fitxer és una ruta a un fitxer valida
+     * @post s'ha exportat el log al fitxer.
+     */
     public void exportarLogAFitxer(String fitxer){
         File f = new File(fitxer);
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(f))){

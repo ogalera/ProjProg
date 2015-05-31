@@ -277,7 +277,7 @@ public class FLog extends JFrame implements ItemListener, ActionListener{
      * @pre fitxer correspont a una ruta valida.
      * @post em exportat el contingut del log sobre fitxer.
      */
-    public boolean exportarFitxer(String fitxer){
+    private boolean exportarFitxer(String fitxer){
         boolean operacio = true;
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fitxer))){
             String contingutLog = txtLog.getText();

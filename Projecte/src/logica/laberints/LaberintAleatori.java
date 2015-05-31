@@ -119,7 +119,6 @@ public class LaberintAleatori extends Laberint{
         log.afegirDebug(laberint+"\n");
         long tempsFi = System.currentTimeMillis();
         log.afegirDebug("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms");
-        System.out.println("Temps per generar el laberint: "+(tempsFi-tempsInici)+"ms intents "+nIntents);
     }
     
     /**
