@@ -19,12 +19,13 @@ import logica.Usuari;
 /**
  *
  * @author Moises
+ * @brief Encarregada de mostrar per pantalla el desenvolupament de una partida.
  */
 public class FPartida extends JFrame implements IPintadorPartida{
     
-    private JLabel lblItem;
-    private JLabel itemPacman;
-    private JLabel itemEnemic;
+    private JLabel lblItem;/*!< Conte la imatge que representa al Item que actualment es troba dins de Laberint */
+    private JLabel itemPacman;/*!< Conte la imatge que representa a Pacman */
+    private JLabel itemEnemic;/*!< Conte la imatge que representa al enemic */
     private Marcador marcadorPacman;
     private Marcador marcadorEnemic;
     private final Crono cronometre;

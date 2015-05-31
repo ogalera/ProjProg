@@ -27,12 +27,23 @@ import java.util.Stack;
  */
 public class PLaberint extends JPanel implements IPintadorLaberint{
     private final Log log;
-    private JLabel[][] laberintGrafic;
-    private static final int MIDA_PREFERIDA = 800;
-    private static final int MIDA_MINIMA = 500;
-    private static final int MIDA_MAXIMA = 900;
-    private Dimension midaLabels;
-    private Stack<Punt> parets;
+    private JLabel[][] laberintGrafic;/*!< Matriu bidimensional on cada posicio conté la representacio grafica corresponent al EElement que conte Laberint en dita posicio*/
+    
+    
+    /**
+     *@details Al treballar amb layouts, aquest estableixen les mides de les areas depenent de la mida de la pantalla, el propi layout
+     *fa els calculs del tamany dels components tinguent en compte el tamany de 
+     *la pantalla i els valors de les variables preferred_size, minimum_size, i maximum_size per a establir el area.
+     */
+    private static final int MIDA_PREFERIDA = 800;/*!< Mida preferida en pixels*/
+    private static final int MIDA_MINIMA = 500;/*!< Mida Minima en pixels*/
+    private static final int MIDA_MAXIMA = 900;/*!< Mida Maxima en pixels*/
+    
+    
+    private Dimension midaLabels;/*!< Mida que han de tenir les imatges per mostrarse correctament*/
+    
+    //Les parets tenen una redimensio diferent a la resta de elements.
+    private Stack<Punt> parets;/*!< Punts on corresponen a Parets del Laberint*/
     
     
     

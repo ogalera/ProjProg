@@ -39,7 +39,7 @@ public class BuscadorCamiMaxim {
             long tempsInici = System.currentTimeMillis();
             buscarCamiBackTrack(personatge);
             long tempsFi = System.currentTimeMillis();
-            log.afegirDebug("Temps a trobar el cami mes llarg: "+(tempsFi-tempsInici)+"ms");
+            log.afegirDebug("Temps a trobar el cami mes llarg utilitzant Backtracking: "+(tempsFi-tempsInici)+"ms");
         }
         return opt.generaRuta();
     }

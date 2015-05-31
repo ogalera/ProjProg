@@ -52,9 +52,19 @@ public interface IPintadorPartida{
     /**
      * @brief Mostra per pantalla el resultat de la partida al jugador.
      * @param guanyat Diu si jugador ha guanyat o no la partida
-     * @post Es mostra un dialeg per comunicar al jugador si ha guanyat o no.
+     * @post 
+     * Es mostra un dialeg per comunicar al jugador si ha guanyat o no.
+     * Partida deixa de ser visible.
      */
     public void pintarFinalPartida(boolean guanyat);
+    
+    /**
+     * @brief Inicialitza els components de una partida
+     */
     public void pintarIniciPartida();
+    
+    /**
+     * @brief Comunicacio unidireccional d'events de IPintadorPartida cap a partida.
+     */
     public void assignarPartida(Partida partida);
 }

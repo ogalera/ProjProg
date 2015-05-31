@@ -56,7 +56,7 @@ public class Item extends ItemMovible {
         int distanciaEnemic = gestorCami.trobarCamiMinim(posicio, posicioEnemic).obtenirMida();
         distanciaAFugir = distanciaEnemic;
         long tempsFinal = System.currentTimeMillis();
-        log.afegirDebug("Temps que triga l'algorisme AStar a trobar els enemics: " + (tempsFinal - tempsInici) + " ms");
+        log.afegirDebug("Temps que triga l'algorisme AStar a calcular la distancia minima entre Item repsecte Pacman i Item respecte Fantasma: " + (tempsFinal - tempsInici) + " ms");
         
         
         if (distanciaPacman < distanciaEnemic) {
@@ -67,22 +67,32 @@ public class Item extends ItemMovible {
         if (distanciaAFugir <= DISTANCIA_PERILLOSA) {
             if (!esticFugint) {
                 esticFugint = true;
+                long ini = System.currentTimeMillis();
                 ruta = gestorCami.trobarCamiMaximitzarDist(posicio, puntAFugir);
+                long fi = System.currentTimeMillis();
+                log.afegirDebug("Temps que triga Item a trobar un cami de fugida amb Backtracking: " + (fi - ini) + " ms.");
+                
             } 
             else{
                 if (ruta == null || ruta.esBuida()) {
+                    long ini = System.currentTimeMillis();
                     ruta = gestorCami.trobarCamiMaximitzarDist(posicio, puntAFugir);
+                    long fi = System.currentTimeMillis();
+                    log.afegirDebug("Temps que triga Item a trobar un cami de fugida amb Backtracking: " + (fi - ini) + " ms.");
                 } 
             }
         } else {
             esticFugint = false;
             if (ruta == null || ruta.esBuida()) {
                 Punt p = obtenirPosicioAleatoria();
+                long ini = System.currentTimeMillis();
                 ruta = gestorCami.trobarCamiMinim(posicio, p);
+                long fi = System.currentTimeMillis();
+                log.afegirDebug("Temps que triga Item a trobar una ruta per fer: " + (fi - ini) + " ms.");
             }
         }
         tempsFinal = System.currentTimeMillis();
-        log.afegirDebug("Temps total que triga el Item a recalcular una ruta amb AStar: " + (tempsFinal - tempsInici) + " ms \n");
+        log.afegirDebug("Temps trigat per Item per calcular el Proxim moviment: " + (tempsFinal - tempsInici) + " ms \n");
         EDireccio res;
         if(ruta.esBuida()){
             EElement e;
