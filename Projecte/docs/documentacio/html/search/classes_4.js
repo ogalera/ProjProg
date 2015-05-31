@@ -8,6 +8,7 @@ var searchData=
   ['feditorlaberint',['FEditorLaberint',['../classinterficie_1_1_f_editor_laberint.html',1,'interficie']]],
   ['fframeamblog',['FFrameAmbLog',['../classinterficie_1_1_f_frame_amb_log.html',1,'interficie']]],
   ['fhistoricusuari',['FHistoricUsuari',['../classinterficie_1_1_f_historic_usuari.html',1,'interficie']]],
+  ['filtreextensio',['FiltreExtensio',['../classlogica_1_1_utils_1_1_filtre_extensio.html',1,'logica::Utils']]],
   ['flog',['FLog',['../classinterficie_1_1_f_log.html',1,'interficie']]],
   ['flogin',['FLogin',['../classinterficie_1_1_f_login.html',1,'interficie']]],
   ['fmenu',['FMenu',['../classinterficie_1_1_f_menu.html',1,'interficie']]],

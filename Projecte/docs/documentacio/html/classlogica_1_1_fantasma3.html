@@ -91,6 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Mètodes públics</a> &#124;
 <a href="#pro-methods">Mètodes Protegits</a> &#124;
+<a href="#pri-methods">Mètodes Privats</a> &#124;
+<a href="#pri-attribs">Atributs Privats</a> &#124;
+<a href="#pri-static-attribs">Atributs Privats Estàtics</a> &#124;
 <a href="classlogica_1_1_fantasma3-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe logica.Fantasma3</div>  </div>
@@ -111,9 +114,18 @@ Diagrama de col·laboració per a logica.Fantasma3:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1_fantasma3__coll__graph.png" border="0" usemap="#logica_8_fantasma3_coll__map" alt="Collaboration graph"/></div>
 <map name="logica_8_fantasma3_coll__map" id="logica_8_fantasma3_coll__map">
-<area shape="rect" id="node2" href="classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="1141,349,1268,376"/><area shape="rect" id="node3" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="829,208,959,235"/><area shape="rect" id="node4" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="469,120,627,147"/><area shape="rect" id="node5" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="145,5,348,32"/><area shape="rect" id="node6" href="classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="195,56,298,83"/><area shape="rect" id="node7" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="160,107,333,133"/><area shape="rect" id="node9" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="196,173,297,200"/><area shape="rect" id="node10" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="505,252,591,279"/><area shape="rect" id="node12" href="enumlogica_1_1enumeracions_1_1_e_direccio.html" title="Enumeracio de les diferents direccions que pot prendre un ItemMobile &#160;per desplaçar&#45;se per el Laberin..." alt="" coords="447,69,649,96"/><area shape="rect" id="node13" href="enumlogica_1_1_personatge_1_1_e_estat_personatge.html" title="conjunt d&#39;estats en que es pot trobar un personatge, el canvi d&#39;estat sempre va llgiat a la captura d..." alt="" coords="809,377,979,418"/><area shape="rect" id="node14" href="classlogica_1_1historic__moviments_1_1_historic_moviments.html" title="Historic de moviments de caràcter FILO. " alt="" coords="805,442,983,483"/></map>
+<area shape="rect" id="node2" href="classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="362,191,489,218"/><area shape="rect" id="node11" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="659,339,760,366"/><area shape="rect" id="node3" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="1320,284,1451,311"/><area shape="rect" id="node13" href="classlogica_1_1_item.html" title="Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA). " alt="" coords="2715,520,2802,547"/><area shape="rect" id="node4" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="931,466,1090,492"/><area shape="rect" id="node16" href="classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim.html" title="Classe que implementa l&#39;algorisme AStar per a determinar un cami minim entre dos punts en un objecte ..." alt="" coords="1293,678,1477,720"/><area shape="rect" id="node23" href="classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html" title="Classe encarregada de guardar els valors de la solució composta per a l&#39;algorisme de Backtracking..." alt="" coords="1649,829,1860,870"/><area shape="rect" id="node5" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="608,570,811,596"/><area shape="rect" id="node31" href="classlogica_1_1_fantasma3_1_1_objectiu.html" title="s&#39;eneten per objectiu un Punt que conte un EElement " alt="" coords="922,715,1099,742"/><area shape="rect" id="node7" href="classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="374,795,477,822"/><area shape="rect" id="node22" href="classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim.html" title="Classe que implementa l&#39;algorisme de Backtracking per a trobar un camí que maximitzi la distancia des..." alt="" coords="2025,829,2236,870"/><area shape="rect" id="node9" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="623,423,796,450"/><area shape="rect" id="node12" href="interfaceinterficie_1_1_i_pintador_partida.html" title="Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d&#39;una parti..." alt="" coords="341,327,509,354"/><area shape="rect" id="node14" href="classlogica_1_1historic__moviments_1_1_historic_moviments.html" title="Historic de moviments de caràcter FILO. " alt="" coords="5,1126,183,1168"/><area shape="rect" id="node15" href="classlogica_1_1algoritmica_1_1_gestor_camins.html" title="Encarregada de gestionar les cerques de camins sobre un objecte de tipus Laberint. " alt="" coords="2407,710,2574,752"/><area shape="rect" id="node17" href="classlogica_1_1algoritmica_1_1_casella.html" title="Conté la informació heuristica necessaria per a poder implementar els algoritmes de backTracking i AS..." alt="" coords="925,867,1096,894"/><area shape="rect" id="node19" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="666,804,753,831"/><area shape="rect" id="node20" href="classlogica_1_1algoritmica_1_1_llista_ordenada_candidats.html" title="Estructura ordenada de Caselles (candidats) per a als algoritmes de Backtracking i AStar..." alt="" coords="931,649,1090,690"/><area shape="rect" id="node25" href="classlogica_1_1_item_movible_1_1_tasca_aplicar_moviment.html" title="Tasca a executar a cada cicle de freqüència. " alt="" coords="925,72,1096,113"/><area shape="rect" id="node27" href="enumlogica_1_1enumeracions_1_1_e_direccio.html" title="Enumeracio de les diferents direccions que pot prendre un ItemMobile &#160;per desplaçar&#45;se per el Laberin..." alt="" coords="909,239,1112,266"/><area shape="rect" id="node29" href="enumlogica_1_1_personatge_1_1_e_estat_personatge.html" title="conjunt d&#39;estats en que es pot trobar un personatge, el canvi d&#39;estat sempre va llgiat a la captura d..." alt="" coords="9,73,179,114"/><area shape="rect" id="node30" href="enumlogica_1_1_fantasma3_1_1_e_mode.html" title="Diferents Modes que adopta Fantasma 3 durant una partida. " alt="" coords="2405,1136,2576,1163"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html">EMode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diferents Modes que adopta Fantasma 3 durant una partida.  <a href="enumlogica_1_1_fantasma3_1_1_e_mode.html#details">Més...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3_1_1_objectiu.html">Objectiu</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">s'eneten per objectiu un <a class="el" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. ">Punt</a> que conte un EElement  <a href="classlogica_1_1_fantasma3_1_1_objectiu.html#details">Més...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Mètodes públics</h2></td></tr>
 <tr class="memitem:a282c4af4b988e9d0b43bc23f454ff72e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a282c4af4b988e9d0b43bc23f454ff72e">Fantasma3</a> (<a class="el" href="classlogica_1_1_partida.html">Partida</a> <a class="el" href="classlogica_1_1_item_movible.html#ace55b4918a7f671f89ed3109c91359e4">partida</a>, <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a> <a class="el" href="classlogica_1_1_item_movible.html#a97036130b7376d77776427ca126f6fb5">laberint</a>, <a class="el" href="classlogica_1_1_punt.html">Punt</a> inici)</td></tr>
@@ -145,7 +157,7 @@ String&#160;</td><td class="memItemRight" valign="bottom"><b>nomItemMovible</b> 
 <tr class="separator:a5f171d79a5a8ca6d0184a250456c44d1 inherit pub_methods_classlogica_1_1_personatge"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classlogica_1_1_item_movible"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlogica_1_1_item_movible')"><img src="closed.png" alt="-"/>&#160;Mètodes públics inherited from <a class="el" href="classlogica_1_1_item_movible.html">logica.ItemMovible</a></td></tr>
 <tr class="memitem:a0463ef4d0a9e8e652be4a19b8dfba67c inherit pub_methods_classlogica_1_1_item_movible"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0463ef4d0a9e8e652be4a19b8dfba67c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ItemMovible</b> (<a class="el" href="classlogica_1_1_partida.html">Partida</a> <a class="el" href="classlogica_1_1_item_movible.html#ace55b4918a7f671f89ed3109c91359e4">partida</a>, ImageIcon imatge, <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a> <a class="el" href="classlogica_1_1_item_movible.html#a97036130b7376d77776427ca126f6fb5">laberint</a>, <a class="el" href="classlogica_1_1_punt.html">Punt</a> inici, long frequencia)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ItemMovible</b> (<a class="el" href="classlogica_1_1_partida.html">Partida</a> <a class="el" href="classlogica_1_1_item_movible.html#ace55b4918a7f671f89ed3109c91359e4">partida</a>, ImageIcon imatge, <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a> <a class="el" href="classlogica_1_1_item_movible.html#a97036130b7376d77776427ca126f6fb5">laberint</a>, <a class="el" href="classlogica_1_1_punt.html">Punt</a> inici, long <a class="el" href="classlogica_1_1_item_movible.html#a1b3a9d9e664cfe044d60cbe083dc7919">frequencia</a>)</td></tr>
 <tr class="separator:a0463ef4d0a9e8e652be4a19b8dfba67c inherit pub_methods_classlogica_1_1_item_movible"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a43835d32363d837ad38635e48483ba inherit pub_methods_classlogica_1_1_item_movible"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a9a43835d32363d837ad38635e48483ba">iniciarItemMovible</a> ()</td></tr>
 <tr class="memdesc:a9a43835d32363d837ad38635e48483ba inherit pub_methods_classlogica_1_1_item_movible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialitzacio de un <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>.  <a href="#a9a43835d32363d837ad38635e48483ba">Més...</a><br /></td></tr>
@@ -189,6 +201,78 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignarImatges</b> (
 <tr class="memitem:a817da6d1c2d5fce6a874edf3b708f147 inherit pro_methods_classlogica_1_1_item_movible"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a817da6d1c2d5fce6a874edf3b708f147">canviarFrequenciaMoviment</a> (long _frequencia)</td></tr>
 <tr class="memdesc:a817da6d1c2d5fce6a874edf3b708f147 inherit pro_methods_classlogica_1_1_item_movible"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica la frequencia de <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>.  <a href="#a817da6d1c2d5fce6a874edf3b708f147">Més...</a><br /></td></tr>
 <tr class="separator:a817da6d1c2d5fce6a874edf3b708f147 inherit pro_methods_classlogica_1_1_item_movible"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Mètodes Privats</h2></td></tr>
+<tr class="memitem:a69e326a7ea8fd47d3d8e4e3f8fd70412"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a69e326a7ea8fd47d3d8e4e3f8fd70412">valorarSituacio</a> ()</td></tr>
+<tr class="memdesc:a69e326a7ea8fd47d3d8e4e3f8fd70412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementacio de la logica de <a class="el" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. ">Fantasma3</a> a la hora de valorar una situacio.  <a href="#a69e326a7ea8fd47d3d8e4e3f8fd70412">Més...</a><br /></td></tr>
+<tr class="separator:a69e326a7ea8fd47d3d8e4e3f8fd70412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc23af337e2803cf4a93a72a01d3686a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#adc23af337e2803cf4a93a72a01d3686a">modeFugir</a> ()</td></tr>
+<tr class="memdesc:adc23af337e2803cf4a93a72a01d3686a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestio de la ruta en cas que mode = <a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html#aacfca5adc0f5fa09c1776bc53234f341">EMode.FUGIR</a>.  <a href="#adc23af337e2803cf4a93a72a01d3686a">Més...</a><br /></td></tr>
+<tr class="separator:adc23af337e2803cf4a93a72a01d3686a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80230e04c68deb1a2f59b6d255846178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a80230e04c68deb1a2f59b6d255846178">modeNavegacio</a> ()</td></tr>
+<tr class="memdesc:a80230e04c68deb1a2f59b6d255846178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestio de la ruta en cas que mode = EMode.NAVEGACIO.  <a href="#a80230e04c68deb1a2f59b6d255846178">Més...</a><br /></td></tr>
+<tr class="separator:a80230e04c68deb1a2f59b6d255846178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f73d5761fb98ad7b353846e97ec2cb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a8f73d5761fb98ad7b353846e97ec2cb7">modeSeguiment</a> ()</td></tr>
+<tr class="memdesc:a8f73d5761fb98ad7b353846e97ec2cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestio de la ruta en cas que mode = <a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html#a96323a795182c39b55457ff5b990bc32">EMode.SEGUIMENT</a>.  <a href="#a8f73d5761fb98ad7b353846e97ec2cb7">Més...</a><br /></td></tr>
+<tr class="separator:a8f73d5761fb98ad7b353846e97ec2cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6c40d16b8b8c48954c5394d97b9a5be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#aa6c40d16b8b8c48954c5394d97b9a5be">exitLaberint</a> ()</td></tr>
+<tr class="memdesc:aa6c40d16b8b8c48954c5394d97b9a5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigna la sortida com a objectiu.  <a href="#aa6c40d16b8b8c48954c5394d97b9a5be">Més...</a><br /></td></tr>
+<tr class="separator:aa6c40d16b8b8c48954c5394d97b9a5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab980aa309510eb888965a424743f38a7"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#ab980aa309510eb888965a424743f38a7">movimentValid</a> (<a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a> mov)</td></tr>
+<tr class="memdesc:ab980aa309510eb888965a424743f38a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si un moviment es vàlid.  <a href="#ab980aa309510eb888965a424743f38a7">Més...</a><br /></td></tr>
+<tr class="separator:ab980aa309510eb888965a424743f38a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112aa6d0c3a8536490a09724bd9daeab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a112aa6d0c3a8536490a09724bd9daeab">buscaMoneda</a> ()</td></tr>
+<tr class="memdesc:a112aa6d0c3a8536490a09724bd9daeab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigna un objectiu del tipus Moneda al objecte actual.  <a href="#a112aa6d0c3a8536490a09724bd9daeab">Més...</a><br /></td></tr>
+<tr class="separator:a112aa6d0c3a8536490a09724bd9daeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a447bfe80d247a3a653b9f1ce9d920cd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogica_1_1_punt.html">Punt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a447bfe80d247a3a653b9f1ce9d920cd9">buscaMonedaMesProxima</a> ()</td></tr>
+<tr class="memdesc:a447bfe80d247a3a653b9f1ce9d920cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Troba una moneda més próxima.  <a href="#a447bfe80d247a3a653b9f1ce9d920cd9">Més...</a><br /></td></tr>
+<tr class="separator:a447bfe80d247a3a653b9f1ce9d920cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90fb356d375f93ecf845e4c804de0e60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogica_1_1_punt.html">Punt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a90fb356d375f93ecf845e4c804de0e60">buscaElement</a> (<a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a> _element)</td></tr>
+<tr class="memdesc:a90fb356d375f93ecf845e4c804de0e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca _element dintre de Laberint.  <a href="#a90fb356d375f93ecf845e4c804de0e60">Més...</a><br /></td></tr>
+<tr class="separator:a90fb356d375f93ecf845e4c804de0e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233382b72cb5b1293e1517f0b13c15f4"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a233382b72cb5b1293e1517f0b13c15f4">hiHaItemEspecialAProp</a> ()</td></tr>
+<tr class="memdesc:a233382b72cb5b1293e1517f0b13c15f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si hi ha algun item a prop.  <a href="#a233382b72cb5b1293e1517f0b13c15f4">Més...</a><br /></td></tr>
+<tr class="separator:a233382b72cb5b1293e1517f0b13c15f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9156a1b97e0265824cb2b8c9e235af58"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a9156a1b97e0265824cb2b8c9e235af58">vullAtraparEnPacman</a> ()</td></tr>
+<tr class="memdesc:a9156a1b97e0265824cb2b8c9e235af58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conté part de la logica a seguir a la hora de decidir si Fantasma 3 vol perseguir a en PACMAN.  <a href="#a9156a1b97e0265824cb2b8c9e235af58">Més...</a><br /></td></tr>
+<tr class="separator:a9156a1b97e0265824cb2b8c9e235af58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b6b9f133f2d018f292939e5ecb27c0e"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a0b6b9f133f2d018f292939e5ecb27c0e">elementEsItem</a> (<a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a> element)</td></tr>
+<tr class="memdesc:a0b6b9f133f2d018f292939e5ecb27c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si element es un item.  <a href="#a0b6b9f133f2d018f292939e5ecb27c0e">Més...</a><br /></td></tr>
+<tr class="separator:a0b6b9f133f2d018f292939e5ecb27c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad393ed909cc000b7b2aa10a5873f3700"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#ad393ed909cc000b7b2aa10a5873f3700">elementEsMoneda</a> (<a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a> element)</td></tr>
+<tr class="memdesc:ad393ed909cc000b7b2aa10a5873f3700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si un element es del tipus Moneda.  <a href="#ad393ed909cc000b7b2aa10a5873f3700">Més...</a><br /></td></tr>
+<tr class="separator:ad393ed909cc000b7b2aa10a5873f3700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81e9a65277b97748b05fbf683e6c71c"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#ac81e9a65277b97748b05fbf683e6c71c">pacmanEsPerillos</a> (int distanciaPacman)</td></tr>
+<tr class="memdesc:ac81e9a65277b97748b05fbf683e6c71c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conté la logica que defineix si fantasma3 considera perillos a en PACMAN.  <a href="#ac81e9a65277b97748b05fbf683e6c71c">Més...</a><br /></td></tr>
+<tr class="separator:ac81e9a65277b97748b05fbf683e6c71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a975dd968c3874e23ca8956d3490ae055"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a975dd968c3874e23ca8956d3490ae055">quedenMonedes</a> ()</td></tr>
+<tr class="memdesc:a975dd968c3874e23ca8956d3490ae055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si queden monedes dins del Laberint.  <a href="#a975dd968c3874e23ca8956d3490ae055">Més...</a><br /></td></tr>
+<tr class="separator:a975dd968c3874e23ca8956d3490ae055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5602880e6a68d98e6a720a094a609538"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a5602880e6a68d98e6a720a094a609538">objectiuVerificat</a> ()</td></tr>
+<tr class="memdesc:a5602880e6a68d98e6a720a094a609538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si objectiu actual de FANTASMA3 encara segueix en la mateixa posicio.  <a href="#a5602880e6a68d98e6a720a094a609538">Més...</a><br /></td></tr>
+<tr class="separator:a5602880e6a68d98e6a720a094a609538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributs Privats</h2></td></tr>
+<tr class="memitem:a57dabe0804fa3f0ed00b28f3cab4d6b6"><td class="memItemLeft" align="right" valign="top">final <a class="el" href="classlogica_1_1algoritmica_1_1_gestor_camins.html">GestorCamins</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a57dabe0804fa3f0ed00b28f3cab4d6b6">gestorCami</a></td></tr>
+<tr class="separator:a57dabe0804fa3f0ed00b28f3cab4d6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e89583eb5f6a4fb3f41595833a9b79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogica_1_1_fantasma3_1_1_objectiu.html">Objectiu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a13e89583eb5f6a4fb3f41595833a9b79">objectiu</a></td></tr>
+<tr class="separator:a13e89583eb5f6a4fb3f41595833a9b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270da1ca223914034c125b12479973b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogica_1_1historic__moviments_1_1_historic_moviments.html">HistoricMoviments</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a270da1ca223914034c125b12479973b1">ruta</a></td></tr>
+<tr class="separator:a270da1ca223914034c125b12479973b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb3b4197723193eb20b7e84f6a74bbe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfb3b4197723193eb20b7e84f6a74bbe"></a>
+final <a class="el" href="classlogica_1_1log_1_1_log.html">Log</a>&#160;</td><td class="memItemRight" valign="bottom"><b>log</b></td></tr>
+<tr class="separator:acfb3b4197723193eb20b7e84f6a74bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c7e17e87979122ed5c19aa4b2286f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html">EMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a42c7e17e87979122ed5c19aa4b2286f8">mode</a></td></tr>
+<tr class="separator:a42c7e17e87979122ed5c19aa4b2286f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Atributs Privats Estàtics</h2></td></tr>
+<tr class="memitem:a66b467ba2716d3116b05a06e75282b5e"><td class="memItemLeft" align="right" valign="top">static final int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a66b467ba2716d3116b05a06e75282b5e">DISTANCIA_PERILLOSA</a> = 15</td></tr>
+<tr class="separator:a66b467ba2716d3116b05a06e75282b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188d9336f751a28078fc220ee3e61c97"><td class="memItemLeft" align="right" valign="top">static final int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_fantasma3.html#a188d9336f751a28078fc220ee3e61c97">DISTANCIA_CONSIDERABLE</a> = 8</td></tr>
+<tr class="separator:a188d9336f751a28078fc220ee3e61c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -273,13 +357,574 @@ ImageIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 
 </div>
 </div>
+<h2 class="groupheader">Documentació de les Funcions Membre</h2>
+<a class="anchor" id="a90fb356d375f93ecf845e4c804de0e60"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlogica_1_1_punt.html">Punt</a> logica.Fantasma3.buscaElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>&#160;</td>
+          <td class="paramname"><em>_element</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Busca _element dintre de Laberint. </p>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. ">Punt</a> on es troba el _element. Si element no existeix retorna null. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a112aa6d0c3a8536490a09724bd9daeab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.Fantasma3.buscaMoneda </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigna un objectiu del tipus Moneda al objecte actual. </p>
+<dl class="section pre"><dt>Precondició</dt><dd>Queden Monedes. </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>Objecte actual te com a objectiu EElement.MONEDA o EElement.MONEDA_DOBLE i ruta conte el cami mes curt cap a aquest objectiu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a447bfe80d247a3a653b9f1ce9d920cd9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlogica_1_1_punt.html">Punt</a> logica.Fantasma3.buscaMonedaMesProxima </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Troba una moneda més próxima. </p>
+<dl class="section pre"><dt>Precondició</dt><dd>Quede monedes en el Laberint </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna el <a class="el" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. ">Punt</a> on es troba la moneda més próxima. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0b6b9f133f2d018f292939e5ecb27c0e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.elementEsItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>&#160;</td>
+          <td class="paramname"><em>element</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diu si element es un item. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si element es un item (Mongeta, Monedes_x2 o Patins). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad393ed909cc000b7b2aa10a5873f3700"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.elementEsMoneda </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>&#160;</td>
+          <td class="paramname"><em>element</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diu si un element es del tipus Moneda. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si element es EElement.MONEDA o EElement.MONEDA_EXTRA </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa6c40d16b8b8c48954c5394d97b9a5be"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.Fantasma3.exitLaberint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigna la sortida com a objectiu. </p>
+<dl class="section pre"><dt>Precondició</dt><dd>La sortida ha estat assignada en el objecte laberint. </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>Objecte actual te com a objectiu EElement.SORTIDA i ruta conte el cami mes curt cap a aquest objectiu. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a233382b72cb5b1293e1517f0b13c15f4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.hiHaItemEspecialAProp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diu si hi ha algun item a prop. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si existeix algun item especial dintre del Laberint a una distancia &lt; DISTANCIA_CONSIDERABLE </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adc23af337e2803cf4a93a72a01d3686a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.Fantasma3.modeFugir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gestio de la ruta en cas que mode = <a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html#aacfca5adc0f5fa09c1776bc53234f341">EMode.FUGIR</a>. </p>
+<dl class="section post"><dt>Postcondició</dt><dd>ruta != null </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a80230e04c68deb1a2f59b6d255846178"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.Fantasma3.modeNavegacio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gestio de la ruta en cas que mode = EMode.NAVEGACIO. </p>
+<dl class="section post"><dt>Postcondició</dt><dd>ruta != null </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f73d5761fb98ad7b353846e97ec2cb7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.Fantasma3.modeSeguiment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gestio de la ruta en cas que mode = <a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html#a96323a795182c39b55457ff5b990bc32">EMode.SEGUIMENT</a>. </p>
+<dl class="section post"><dt>Postcondició</dt><dd>ruta != null </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab980aa309510eb888965a424743f38a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.movimentValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a>&#160;</td>
+          <td class="paramname"><em>mov</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diu si un moviment es vàlid. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si la posicio a la que accedirem efectuant el moviment mov, es diferent de EElement.PARET </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5602880e6a68d98e6a720a094a609538"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.objectiuVerificat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diu si objectiu actual de FANTASMA3 encara segueix en la mateixa posicio. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si objectiu actual de FANTASMA3 segueix en la mateixa posicio dintre del Laberint. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac81e9a65277b97748b05fbf683e6c71c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.pacmanEsPerillos </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>distanciaPacman</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conté la logica que defineix si fantasma3 considera perillos a en PACMAN. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si PACMAN te mongeta i PACMAN esta a una distancia &lt; DISTANCIA_PERILLOSA </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a975dd968c3874e23ca8956d3490ae055"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.quedenMonedes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Diu si queden monedes dins del Laberint. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si queden monedes dins del Laberint. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a69e326a7ea8fd47d3d8e4e3f8fd70412"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.Fantasma3.valorarSituacio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementacio de la logica de <a class="el" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. ">Fantasma3</a> a la hora de valorar una situacio. </p>
+<dl class="section post"><dt>Postcondició</dt><dd>mode canvia de valor si la logica de fantasma3 considera que la situacio actual ho requereix. Si es produeix canvi de mode, llavors objectiu = null.</dd></dl>
+<p>Entenem per situacio:</p><ul>
+<li>els EElements que conte laberint i les seves posicions dintre d'aquest.</li>
+<li>EEstatPersonatge de <a class="el" href="classlogica_1_1_pacman.html" title="personatge principal controlat per l&#39;usuari a traves d&#39;un dispositiu físic. ">Pacman</a> I EEstatPersonatge de <a class="el" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. ">Fantasma3</a></li>
+<li>Numero de monedes restants en el Laberint </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="a9156a1b97e0265824cb2b8c9e235af58"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.Fantasma3.vullAtraparEnPacman </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conté part de la logica a seguir a la hora de decidir si Fantasma 3 vol perseguir a en PACMAN. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna cert si es compleixen les seguents condicions:<ul>
+<li><a class="el" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. ">Fantasma3</a> te EElement.MONGETA i en PACMAN te el 30 % de la puntuacio que el Fantasma 3</li>
+<li>No queden monedes i <a class="el" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. ">Fantasma3</a> esta perdent. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentació de les Dades Membre</h2>
+<a class="anchor" id="a188d9336f751a28078fc220ee3e61c97"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final int logica.Fantasma3.DISTANCIA_CONSIDERABLE = 8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Distancia a paritr de la qual Fantasma 3 considera canviar a mode seguiment. ex: Si distancia a <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> &lt; DISTANCIA_CONSIDERABLE, llavors anirem a per ell. </p>
+
+</div>
+</div>
+<a class="anchor" id="a66b467ba2716d3116b05a06e75282b5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final int logica.Fantasma3.DISTANCIA_PERILLOSA = 15</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Distancia a partir de la qual Fantasma 3 considera els perills. si distancia &lt; DISTANCIA_PERILLOSA es considera perill </p>
+
+</div>
+</div>
+<a class="anchor" id="a57dabe0804fa3f0ed00b28f3cab4d6b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final <a class="el" href="classlogica_1_1algoritmica_1_1_gestor_camins.html">GestorCamins</a> logica.Fantasma3.gestorCami</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calcula els camins necessaris per moure's per el Laberint </p>
+
+</div>
+</div>
+<a class="anchor" id="a42c7e17e87979122ed5c19aa4b2286f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html">EMode</a> logica.Fantasma3.mode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="enumlogica_1_1_fantasma3_1_1_e_mode.html" title="Diferents Modes que adopta Fantasma 3 durant una partida. ">EMode</a> en un instant en concret de FANTASMA3 en una partida </p>
+
+</div>
+</div>
+<a class="anchor" id="a13e89583eb5f6a4fb3f41595833a9b79"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlogica_1_1_fantasma3_1_1_objectiu.html">Objectiu</a> logica.Fantasma3.objectiu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classlogica_1_1_fantasma3_1_1_objectiu.html" title="s&#39;eneten per objectiu un Punt que conte un EElement ">Objectiu</a> en un instant en concret de FANTASMA3 en una partida </p>
+
+</div>
+</div>
+<a class="anchor" id="a270da1ca223914034c125b12479973b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlogica_1_1historic__moviments_1_1_historic_moviments.html">HistoricMoviments</a> logica.Fantasma3.ruta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Guarda els camins que retorna gestorCami </p>
+
+</div>
+</div>
 <hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
 <li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/logica/Fantasma3.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dg Mai 31 2015 18:59:53 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 23:25:06 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

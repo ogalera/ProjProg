@@ -1,2 +1,7 @@
 <map id="interficie.FLogin" name="interficie.FLogin">
+<area shape="rect" id="node4" href="$classlogica_1_1_usuari.html" title="usuari registrat a l&#39;aplicació que consta de " alt="" coords="227,288,325,315"/>
+<area shape="rect" id="node7" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="175,102,377,129"/>
+<area shape="rect" id="node6" href="$enumlogica_1_1_usuari_1_1_e_dificultat.html" title="dificultat del laberint dins del nivell " alt="" coords="195,199,357,225"/>
+<area shape="rect" id="node8" href="$enumlogica_1_1enumeracions_1_1_e_laberints_predefinits.html" title="laberints que tenim predefinits en l&#39;aplicació. " alt="" coords="402,95,609,136"/>
+<area shape="rect" id="node9" href="$enumlogica_1_1_usuari_1_1_e_nivells.html" title="diferents nivells en el mode aventura. " alt="" coords="382,199,533,225"/>
 </map>

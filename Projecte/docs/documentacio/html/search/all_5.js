@@ -12,10 +12,14 @@ var searchData=
   ['fantasma3',['Fantasma3',['../classlogica_1_1_fantasma3.html',1,'logica']]],
   ['feditorlaberint',['FEditorLaberint',['../classinterficie_1_1_f_editor_laberint.html#a1a43698ec96d8c97972115436bdfecea',1,'interficie::FEditorLaberint']]],
   ['feditorlaberint',['FEditorLaberint',['../classinterficie_1_1_f_editor_laberint.html',1,'interficie']]],
+  ['fercamitauler',['ferCamiTauler',['../classlogica_1_1laberints_1_1_laberint_aleatori.html#a47db90910ec4b5e0f0b2343944233c28',1,'logica::laberints::LaberintAleatori']]],
   ['fframeamblog',['FFrameAmbLog',['../classinterficie_1_1_f_frame_amb_log.html#aa939f89f061621a1368f7076aa14f8df',1,'interficie::FFrameAmbLog']]],
   ['fframeamblog',['FFrameAmbLog',['../classinterficie_1_1_f_frame_amb_log.html',1,'interficie']]],
   ['fhistoricusuari',['FHistoricUsuari',['../classinterficie_1_1_f_historic_usuari.html',1,'interficie']]],
   ['fhistoricusuari',['FHistoricUsuari',['../classinterficie_1_1_f_historic_usuari.html#a7dae2cb499c3aeade25895dcbfd42c24',1,'interficie::FHistoricUsuari']]],
+  ['fila',['fila',['../classlogica_1_1_punt.html#a34834a8a3fba60abcf1f24875adada16',1,'logica::Punt']]],
+  ['filtreextensio',['FiltreExtensio',['../classlogica_1_1_utils_1_1_filtre_extensio.html',1,'logica::Utils']]],
+  ['filtreextensio',['FiltreExtensio',['../classlogica_1_1_utils_1_1_filtre_extensio.html#aa3b372da75e8aef5cbace16c7fbf6e6f',1,'logica::Utils::FiltreExtensio']]],
   ['finalitzarpartida',['finalitzarPartida',['../classlogica_1_1_partida.html#a44c3c25575052f971e90728f15f9c5a2',1,'logica::Partida']]],
   ['flog',['FLog',['../classinterficie_1_1_f_log.html',1,'interficie']]],
   ['flog',['FLog',['../classinterficie_1_1_f_log.html#ae5adf477dd1e9a2711f855e7505902b2',1,'interficie::FLog']]],
@@ -25,5 +29,9 @@ var searchData=
   ['fmenu',['FMenu',['../classinterficie_1_1_f_menu.html',1,'interficie']]],
   ['fpartida',['FPartida',['../classinterficie_1_1_f_partida.html',1,'interficie']]],
   ['franking',['FRanking',['../classinterficie_1_1_f_ranking.html',1,'interficie']]],
-  ['franking',['FRanking',['../classinterficie_1_1_f_ranking.html#a3b8b7cb7f1745c2ebbffe033df573c57',1,'interficie::FRanking']]]
+  ['franking',['FRanking',['../classinterficie_1_1_f_ranking.html#a3b8b7cb7f1745c2ebbffe033df573c57',1,'interficie::FRanking']]],
+  ['frequencia',['frequencia',['../classlogica_1_1_item_movible.html#a1b3a9d9e664cfe044d60cbe083dc7919',1,'logica::ItemMovible']]],
+  ['frequencia_5fitem',['FREQUENCIA_ITEM',['../classlogica_1_1_utils_1_1_constants.html#ad2b8757e8f32d324463b06fdc5795f39',1,'logica::Utils::Constants']]],
+  ['frequencia_5fpersonatge',['FREQUENCIA_PERSONATGE',['../classlogica_1_1_utils_1_1_constants.html#ab1b0f9897e96ea902dcd99db6fc47cc2',1,'logica::Utils::Constants']]],
+  ['fugir',['FUGIR',['../enumlogica_1_1_fantasma3_1_1_e_mode.html#aacfca5adc0f5fa09c1776bc53234f341',1,'logica::Fantasma3::EMode']]]
 ];

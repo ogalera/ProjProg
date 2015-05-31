@@ -30,6 +30,11 @@ static final String \hyperlink{classdades_1_1_b_d_a0244ade6a6066ad9f59f8f8e9b2e0
 \begin{DoxyCompactList}\small\item\em ruta relativa de la B.\+D. \end{DoxyCompactList}\item 
 static final String \hyperlink{classdades_1_1_b_d_abc83c541acdcd0be2ae8a33daa753077}{U\+R\+L\+\_\+\+B\+D} = \char`\"{}jdbc\+:sqlite\+:\char`\"{}+N\+O\+M\+\_\+\+B\+D
 \begin{DoxyCompactList}\small\item\em path del driver per connectar-\/nos a la B.\+D. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+static boolean \hyperlink{classdades_1_1_b_d_a7049b625a7b791b7fcf4859487eba09f}{crear\+Taules} ()
+\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -55,6 +60,19 @@ oscar
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
 s'ha registrat un nou usuari a la B.\+D. i retorna si l'operació s'ha realitzat correctament; 
+\end{DoxyPostcond}
+\hypertarget{classdades_1_1_b_d_a7049b625a7b791b7fcf4859487eba09f}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!crear\+Taules@{crear\+Taules}}
+\index{crear\+Taules@{crear\+Taules}!dades\+::\+B\+D@{dades\+::\+B\+D}}
+\subsubsection[{crear\+Taules}]{\setlength{\rightskip}{0pt plus 5cm}static boolean dades.\+B\+D.\+crear\+Taules (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classdades_1_1_b_d_a7049b625a7b791b7fcf4859487eba09f}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'han creat les taules d'Usuaris (usu\+\_\+id, usu\+\_\+nom, usu\+\_\+pass, usu\+\_\+ruta\+\_\+imatge) i Punts(pnt\+\_\+nivell, pnt\+\_\+usu\+\_\+id, pnt\+\_\+punts); 
 \end{DoxyPostcond}
 \hypertarget{classdades_1_1_b_d_a60b00af9b05e556fd66b8dbf69e012cd}{\index{dades\+::\+B\+D@{dades\+::\+B\+D}!existeix\+Base\+De\+Dades@{existeix\+Base\+De\+Dades}}
 \index{existeix\+Base\+De\+Dades@{existeix\+Base\+De\+Dades}!dades\+::\+B\+D@{dades\+::\+B\+D}}

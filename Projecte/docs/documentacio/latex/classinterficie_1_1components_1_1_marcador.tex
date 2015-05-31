@@ -8,7 +8,8 @@ Encarregada de mostrar la imatge i la puntuacio de un Personatge durant una part
 
 
 
-Diagrama d'Herència per a interficie.\+components.\+Marcador\+:\nopagebreak
+Diagrama d'Herència per a interficie.\+components.\+Marcador\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,7 +18,8 @@ Diagrama d'Herència per a interficie.\+components.\+Marcador\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a interficie.\+components.\+Marcador\+:\nopagebreak
+Diagrama de col·laboració per a interficie.\+components.\+Marcador\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,6 +35,15 @@ void \hyperlink{classinterficie_1_1components_1_1_marcador_a6245a05c281278ed2f1c
 \begin{DoxyCompactList}\small\item\em Modifica el marcador de punts de Personatge. \end{DoxyCompactList}\item 
 void \hyperlink{classinterficie_1_1components_1_1_marcador_a69146e4f9b355cfd411a0e7de3c57114}{canviar\+Puntuacio} (int p)
 \begin{DoxyCompactList}\small\item\em Mostra per pantalla la puntuacio p. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classinterficie_1_1components_1_1_marcador_af68b294caf644dd8d684990098801d31}{inicialitza\+Components} (Image\+Icon img)
+\begin{DoxyCompactList}\small\item\em Inicialitza els components de \hyperlink{classinterficie_1_1components_1_1_marcador}{Marcador}. \end{DoxyCompactList}\item 
+void \hyperlink{classinterficie_1_1components_1_1_marcador_a1f7ef632d7bc455a756bcecfe61a9560}{crea\+Imatge} (Image\+Icon img)
+\begin{DoxyCompactList}\small\item\em Construccio de la imatge que representa al personatge. \end{DoxyCompactList}\item 
+void \hyperlink{classinterficie_1_1components_1_1_marcador_a56c3f7d8a42f4032d040448fd4c079cf}{crea\+Puntuacio} ()
+\begin{DoxyCompactList}\small\item\em Construccio del marcador que mostrara la puntuacio del personatge. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -41,6 +52,9 @@ Encarregada de mostrar la imatge i la puntuacio de un Personatge durant una part
 \begin{DoxyAuthor}{Autor}
 Moises  \hyperlink{classinterficie_1_1components_1_1_marcador}{Marcador} 
 \end{DoxyAuthor}
+\begin{DoxyInvariant}{Invariant}
+\+: imatge != null 
+\end{DoxyInvariant}
 
 
 \subsection{Documentació del Constructor i el Destructor}
@@ -55,9 +69,6 @@ Moises  \hyperlink{classinterficie_1_1components_1_1_marcador}{Marcador}
 
 Constructor de \hyperlink{classinterficie_1_1components_1_1_marcador}{Marcador}. 
 
-\begin{DoxyInvariant}{Invariant}
-\+: imatge != null
-\end{DoxyInvariant}
 \begin{DoxyPostcond}{Postcondició}
 \hyperlink{classinterficie_1_1components_1_1_marcador}{Marcador} preparat per mostrar per pantalla amb imatge img i puntuacio 0000 
 \end{DoxyPostcond}
@@ -77,6 +88,58 @@ Mostra per pantalla la puntuacio p.
 
 \begin{DoxyPostcond}{Postcondició}
 p es mostrat per pantalla. 
+\end{DoxyPostcond}
+\hypertarget{classinterficie_1_1components_1_1_marcador_a1f7ef632d7bc455a756bcecfe61a9560}{\index{interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}!crea\+Imatge@{crea\+Imatge}}
+\index{crea\+Imatge@{crea\+Imatge}!interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}}
+\subsubsection[{crea\+Imatge}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+components.\+Marcador.\+crea\+Imatge (
+\begin{DoxyParamCaption}
+\item[{Image\+Icon}]{img}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1components_1_1_marcador_a1f7ef632d7bc455a756bcecfe61a9560}
+
+
+Construccio de la imatge que representa al personatge. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em img} & Imatge que representa al personatge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondició}
+img es mostrat per pantalla, 
+\end{DoxyPostcond}
+\hypertarget{classinterficie_1_1components_1_1_marcador_a56c3f7d8a42f4032d040448fd4c079cf}{\index{interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}!crea\+Puntuacio@{crea\+Puntuacio}}
+\index{crea\+Puntuacio@{crea\+Puntuacio}!interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}}
+\subsubsection[{crea\+Puntuacio}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+components.\+Marcador.\+crea\+Puntuacio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1components_1_1_marcador_a56c3f7d8a42f4032d040448fd4c079cf}
+
+
+Construccio del marcador que mostrara la puntuacio del personatge. 
+
+\begin{DoxyPostcond}{Postcondició}
+puntuacio es mostrara per pantalla amb 0000 
+\end{DoxyPostcond}
+\hypertarget{classinterficie_1_1components_1_1_marcador_af68b294caf644dd8d684990098801d31}{\index{interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}!inicialitza\+Components@{inicialitza\+Components}}
+\index{inicialitza\+Components@{inicialitza\+Components}!interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}}
+\subsubsection[{inicialitza\+Components}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+components.\+Marcador.\+inicialitza\+Components (
+\begin{DoxyParamCaption}
+\item[{Image\+Icon}]{img}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1components_1_1_marcador_af68b294caf644dd8d684990098801d31}
+
+
+Inicialitza els components de \hyperlink{classinterficie_1_1components_1_1_marcador}{Marcador}. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em img} & Imatge que representa al personatge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondició}
+Es mostra per pantalla la imatge del personatge i la seva puntuacio 
 \end{DoxyPostcond}
 \hypertarget{classinterficie_1_1components_1_1_marcador_a6245a05c281278ed2f1c6d95af57dd59}{\index{interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}!modifica\+Puntuacio@{modifica\+Puntuacio}}
 \index{modifica\+Puntuacio@{modifica\+Puntuacio}!interficie\+::components\+::\+Marcador@{interficie\+::components\+::\+Marcador}}

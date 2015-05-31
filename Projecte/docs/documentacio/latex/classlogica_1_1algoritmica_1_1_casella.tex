@@ -8,7 +8,8 @@ Conté la informació heuristica necessaria per a poder implementar els algoritm
 
 
 
-Diagrama d'Herència per a logica.\+algoritmica.\+Casella\+:\nopagebreak
+Diagrama d'Herència per a logica.\+algoritmica.\+Casella\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,11 +18,12 @@ Diagrama d'Herència per a logica.\+algoritmica.\+Casella\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+algoritmica.\+Casella\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+algoritmica.\+Casella\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=208pt]{classlogica_1_1algoritmica_1_1_casella__coll__graph}
+\includegraphics[width=299pt]{classlogica_1_1algoritmica_1_1_casella__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Mètodes públics}
@@ -59,6 +61,19 @@ int \hyperlink{classlogica_1_1algoritmica_1_1_casella_aae2b9f535fd0da3a750f6a604
 \begin{DoxyCompactList}\small\item\em Diu si objecte actual es mes petit que o. \end{DoxyCompactList}\item 
 boolean \hyperlink{classlogica_1_1algoritmica_1_1_casella_ab47747886e465a9fdda726b0cdb987da}{equals} (Object o)
 \begin{DoxyCompactList}\small\item\em Diu si objecte actual es igual al objecte o. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+final \hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1algoritmica_1_1_casella_ad26c2e494cfa1a9362cf001a061ea375}{posicio}
+\item 
+\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} \hyperlink{classlogica_1_1algoritmica_1_1_casella_a2b3a9ec985ee8925d1b11ef42e1b3b80}{pare}
+\item 
+int \hyperlink{classlogica_1_1algoritmica_1_1_casella_ad412db755fc91149053db6100870bf70}{distancia\+Al\+Objectiu}
+\item 
+int \hyperlink{classlogica_1_1algoritmica_1_1_casella_aa1e2c28f03ba466a988117daab70ce57}{profunditat}
+\item 
+boolean \hyperlink{classlogica_1_1algoritmica_1_1_casella_aa4c76bca181afa4cfa68b7150365305d}{processat}
+\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -174,6 +189,24 @@ Es reinicien els valors heuristics.
 Els valors heurisitics reiniciats als valors inicials. 
 \end{DoxyPostcond}
 
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classlogica_1_1algoritmica_1_1_casella_ad412db755fc91149053db6100870bf70}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!distancia\+Al\+Objectiu@{distancia\+Al\+Objectiu}}
+\index{distancia\+Al\+Objectiu@{distancia\+Al\+Objectiu}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{distancia\+Al\+Objectiu}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+algoritmica.\+Casella.\+distancia\+Al\+Objectiu\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_casella_ad412db755fc91149053db6100870bf70}
+Distancia Manhattan entre dos punts dintre de un Laberint format per cel·les. \hypertarget{classlogica_1_1algoritmica_1_1_casella_a2b3a9ec985ee8925d1b11ef42e1b3b80}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!pare@{pare}}
+\index{pare@{pare}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{pare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Casella} logica.\+algoritmica.\+Casella.\+pare\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_casella_a2b3a9ec985ee8925d1b11ef42e1b3b80}
+En el algorisme de A\+Star s'utilitza per referenciar al predecessor d'una casella en la cerca del cami minim. \hypertarget{classlogica_1_1algoritmica_1_1_casella_ad26c2e494cfa1a9362cf001a061ea375}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!posicio@{posicio}}
+\index{posicio@{posicio}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{posicio}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Punt} logica.\+algoritmica.\+Casella.\+posicio\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_casella_ad26c2e494cfa1a9362cf001a061ea375}
+Guarda les coordenades que corresponen a una posicio en la taula de E\+Elements de un Objecte tipus Laberint \hypertarget{classlogica_1_1algoritmica_1_1_casella_aa4c76bca181afa4cfa68b7150365305d}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!processat@{processat}}
+\index{processat@{processat}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{processat}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+algoritmica.\+Casella.\+processat\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_casella_aa4c76bca181afa4cfa68b7150365305d}
+Guarda l'estat si la casella ha estat processada o no. \hypertarget{classlogica_1_1algoritmica_1_1_casella_aa1e2c28f03ba466a988117daab70ce57}{\index{logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}!profunditat@{profunditat}}
+\index{profunditat@{profunditat}!logica\+::algoritmica\+::\+Casella@{logica\+::algoritmica\+::\+Casella}}
+\subsubsection[{profunditat}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+algoritmica.\+Casella.\+profunditat\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_casella_aa1e2c28f03ba466a988117daab70ce57}
+En el algorisme de A\+Star s'utilitza per guardar en cuants pasos hem arrivat a la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} actual. 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

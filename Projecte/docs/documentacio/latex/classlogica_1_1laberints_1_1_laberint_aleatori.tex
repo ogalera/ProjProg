@@ -8,7 +8,8 @@
 
 
 
-Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Aleatori\+:\nopagebreak
+Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Aleatori\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,7 +18,8 @@ Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Aleatori\+:\nopagebrea
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Aleatori\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Aleatori\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,6 +30,19 @@ Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Aleatori\+:\nop
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_aafae50e4b6d51475d8e53d7fee61785b}{Laberint\+Aleatori} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_a8a24d71239fade75e2d70df929d84953}{generar\+Laberint} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic)
+\item 
+int \hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_a47db90910ec4b5e0f0b2343944233c28}{fer\+Cami\+Tauler} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{classlogica_1_1_punt}{Punt} desti, \hyperlink{classlogica_1_1_punt}{Punt}\mbox{[}$\,$\mbox{]} candidats, int n\+Candidats)
+\item 
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} \hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_ada4e1006d2705e3cc6c1a243ec1869e4}{moviment\+Lateral} (int columna\+Origen, int columna\+Desti)
+\item 
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} \hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_a3a7a461bad967c5e2870594da8a4c913}{moviment\+Vertical} (int fila\+Origen, int fila\+Desti)
+\item 
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1laberints_1_1_laberint_aleatori_adea89761d3eeba42d9e833ffc707d234}{distancia\+Minima} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{classlogica_1_1_punt}{Punt}\mbox{[}$\,$\mbox{]} destins, int n\+Destins)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -60,6 +75,81 @@ costat $>$ 5 i enemic és \hyperlink{classlogica_1_1_fantasma1}{Fantasma1}, \hyp
 em cret un labrint aleatori (costat x costat) que forma part de partida, es pintarà a traves de pintador\+Laberint i on l'extrem superior esquerra \mbox{[}0, 0\mbox{]} hi ha en pacman i en l'extrem inferior dret hi ha l'enemic; 
 \end{DoxyPostcond}
 Un cop generat el laberint sortejem les monedes extra; 
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_adea89761d3eeba42d9e833ffc707d234}{\index{logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}!distancia\+Minima@{distancia\+Minima}}
+\index{distancia\+Minima@{distancia\+Minima}!logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}}
+\subsubsection[{distancia\+Minima}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+laberints.\+Laberint\+Aleatori.\+distancia\+Minima (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{origen, }
+\item[{{\bf Punt}\mbox{[}$\,$\mbox{]}}]{destins, }
+\item[{int}]{n\+Destins}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_aleatori_adea89761d3eeba42d9e833ffc707d234}
+\begin{DoxyPrecond}{Precondició}
+el nombre de destins $>$ 0. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el punt mes proper a origen de l'array destins. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_a47db90910ec4b5e0f0b2343944233c28}{\index{logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}!fer\+Cami\+Tauler@{fer\+Cami\+Tauler}}
+\index{fer\+Cami\+Tauler@{fer\+Cami\+Tauler}!logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}}
+\subsubsection[{fer\+Cami\+Tauler}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+laberints.\+Laberint\+Aleatori.\+fer\+Cami\+Tauler (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{origen, }
+\item[{{\bf Punt}}]{desti, }
+\item[{{\bf Punt}\mbox{[}$\,$\mbox{]}}]{candidats, }
+\item[{int}]{n\+Candidats}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_aleatori_a47db90910ec4b5e0f0b2343944233c28}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em fet un cami (de monedes) de origen a desti passant per candidats i s'ha retornat el nombre de monedes afegides. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_a8a24d71239fade75e2d70df929d84953}{\index{logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}!generar\+Laberint@{generar\+Laberint}}
+\index{generar\+Laberint@{generar\+Laberint}!logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}}
+\subsubsection[{generar\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+laberints.\+Laberint\+Aleatori.\+generar\+Laberint (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{enemic}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_aleatori_a8a24d71239fade75e2d70df929d84953}
+\begin{DoxyPrecond}{Precondició}
+enemic és \hyperlink{classlogica_1_1_fantasma1}{Fantasma1}, \hyperlink{classlogica_1_1_fantasma2}{Fantasma2} o \hyperlink{classlogica_1_1_fantasma3}{Fantasma3} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'ha generat el laberint aleatori; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_ada4e1006d2705e3cc6c1a243ec1869e4}{\index{logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}!moviment\+Lateral@{moviment\+Lateral}}
+\index{moviment\+Lateral@{moviment\+Lateral}!logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}}
+\subsubsection[{moviment\+Lateral}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Direccio} logica.\+laberints.\+Laberint\+Aleatori.\+moviment\+Lateral (
+\begin{DoxyParamCaption}
+\item[{int}]{columna\+Origen, }
+\item[{int}]{columna\+Desti}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_aleatori_ada4e1006d2705e3cc6c1a243ec1869e4}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat si respecte columna origen i columna desti cal fer un moviment cap a l'esquerra o cap a la dreta. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_aleatori_a3a7a461bad967c5e2870594da8a4c913}{\index{logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}!moviment\+Vertical@{moviment\+Vertical}}
+\index{moviment\+Vertical@{moviment\+Vertical}!logica\+::laberints\+::\+Laberint\+Aleatori@{logica\+::laberints\+::\+Laberint\+Aleatori}}
+\subsubsection[{moviment\+Vertical}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Direccio} logica.\+laberints.\+Laberint\+Aleatori.\+moviment\+Vertical (
+\begin{DoxyParamCaption}
+\item[{int}]{fila\+Origen, }
+\item[{int}]{fila\+Desti}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_aleatori_a3a7a461bad967c5e2870594da8a4c913}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat si respecte fila origen i fila desti cal fer un moviment cap amunt o cap avall. 
+\end{DoxyPostcond}
+
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

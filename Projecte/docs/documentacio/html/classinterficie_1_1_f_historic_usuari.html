@@ -89,6 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Mètodes públics</a> &#124;
+<a href="#pri-methods">Mètodes Privats</a> &#124;
+<a href="#pri-attribs">Atributs Privats</a> &#124;
 <a href="classinterficie_1_1_f_historic_usuari-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe interficie.FHistoricUsuari</div>  </div>
@@ -101,17 +103,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 Diagrama d'Herència per a interficie.FHistoricUsuari:</div>
 <div class="dyncontent">
 <div class="center"><img src="classinterficie_1_1_f_historic_usuari__inherit__graph.png" border="0" usemap="#interficie_8_f_historic_usuari_inherit__map" alt="Inheritance graph"/></div>
+<map name="interficie_8_f_historic_usuari_inherit__map" id="interficie_8_f_historic_usuari_inherit__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <div class="dynheader">
 Diagrama de col·laboració per a interficie.FHistoricUsuari:</div>
 <div class="dyncontent">
 <div class="center"><img src="classinterficie_1_1_f_historic_usuari__coll__graph.png" border="0" usemap="#interficie_8_f_historic_usuari_coll__map" alt="Collaboration graph"/></div>
+<map name="interficie_8_f_historic_usuari_coll__map" id="interficie_8_f_historic_usuari_coll__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Mètodes públics</h2></td></tr>
 <tr class="memitem:a7dae2cb499c3aeade25895dcbfd42c24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterficie_1_1_f_historic_usuari.html#a7dae2cb499c3aeade25895dcbfd42c24">FHistoricUsuari</a> (String nomUsuari, Icon imatge, int[]puntuacions)</td></tr>
 <tr class="separator:a7dae2cb499c3aeade25895dcbfd42c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Mètodes Privats</h2></td></tr>
+<tr class="memitem:a3e73a03f41c8150660a7451df269cb7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterficie_1_1_f_historic_usuari.html#a3e73a03f41c8150660a7451df269cb7e">carregarImatges</a> (int nivell)</td></tr>
+<tr class="separator:a3e73a03f41c8150660a7451df269cb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058499e3b80b85be73abf48df14e0838"><td class="memItemLeft" align="right" valign="top">ImageIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterficie_1_1_f_historic_usuari.html#a058499e3b80b85be73abf48df14e0838">obtenirImatge</a> (String ruta)</td></tr>
+<tr class="separator:a058499e3b80b85be73abf48df14e0838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributs Privats</h2></td></tr>
+<tr class="memitem:a827d72eacf4ede6d801532681f2a507c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a827d72eacf4ede6d801532681f2a507c"></a>
+final int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterficie_1_1_f_historic_usuari.html#a827d72eacf4ede6d801532681f2a507c">punts</a> []</td></tr>
+<tr class="memdesc:a827d72eacf4ede6d801532681f2a507c"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector de longitud nombre de nivells superats i on la posició del vector indica el nivell i el contingut de la posició el nombre de punts que s'han fet en aquest nivell <br /></td></tr>
+<tr class="separator:a827d72eacf4ede6d801532681f2a507c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>pantalla que utilitzem per mostrar l'historic d'un usuari que està format per els nivells que ha superat i de cada un d'aquests el nombre de punts que ha fet. </p>
@@ -151,13 +171,71 @@ Mètodes públics</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Documentació de les Funcions Membre</h2>
+<a class="anchor" id="a3e73a03f41c8150660a7451df269cb7e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void interficie.FHistoricUsuari.carregarImatges </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nivell</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>&ndash; </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>em carregat les imatges per els nivells segons si s'ha superat o no </dd></dl>
+<p>S'ha superat el nivell 1?</p>
+<p>S'ha superat el nivell 2?</p>
+<p>S'ha superat el nivell 3?</p>
+<p>S'ha superat el nivell 4?</p>
+<p>S'ha superat el nivell 5? </p>
+
+</div>
+</div>
+<a class="anchor" id="a058499e3b80b85be73abf48df14e0838"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImageIcon interficie.FHistoricUsuari.obtenirImatge </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ruta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>ruta és valida. </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'ha retornat l'imatge de la ruta especificada. </dd></dl>
+
+</div>
+</div>
 <hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
 <li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/interficie/FHistoricUsuari.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dg Mai 31 2015 18:59:53 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 23:25:06 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

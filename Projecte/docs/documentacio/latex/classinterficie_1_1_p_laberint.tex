@@ -8,7 +8,8 @@ Encarregada de mostrar per pantalla objectes del tipus Laberint.
 
 
 
-Diagrama d'Herència per a interficie.\+P\+Laberint\+:\nopagebreak
+Diagrama d'Herència per a interficie.\+P\+Laberint\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,11 +18,12 @@ Diagrama d'Herència per a interficie.\+P\+Laberint\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a interficie.\+P\+Laberint\+:\nopagebreak
+Diagrama de col·laboració per a interficie.\+P\+Laberint\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=276pt]{classinterficie_1_1_p_laberint__coll__graph}
+\includegraphics[width=350pt]{classinterficie_1_1_p_laberint__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Mètodes públics}
@@ -52,6 +54,33 @@ void \hyperlink{classinterficie_1_1_p_laberint_adc6caa1f1d91892ea56077d2facac8ec
 \begin{DoxyCompactList}\small\item\em Mostra la representacio de E\+Element.\+S\+O\+R\+T\+I\+D\+A en les coordenades corresponents a p\+Sortida. \end{DoxyCompactList}\item 
 \hypertarget{classinterficie_1_1_p_laberint_af8eb42e37de9874c0810fae1d6595ba4}{void {\bfseries paint} (Graphics g)}\label{classinterficie_1_1_p_laberint_af8eb42e37de9874c0810fae1d6595ba4}
 
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classinterficie_1_1_p_laberint_a5b062601f1e923d8c927f4175143ded5}{void {\bfseries redimensiona\+Parets} ()}\label{classinterficie_1_1_p_laberint_a5b062601f1e923d8c927f4175143ded5}
+
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classinterficie_1_1_p_laberint_aad412744c351b24fce61ff54c3d39e7c}{final \hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log}}\label{classinterficie_1_1_p_laberint_aad412744c351b24fce61ff54c3d39e7c}
+
+\item 
+J\+Label\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classinterficie_1_1_p_laberint_a7c0d3cba083c83e635532b8808affa94}{laberint\+Grafic}
+\item 
+Dimension \hyperlink{classinterficie_1_1_p_laberint_a9e8ee2e2a3fbf095be55f50f9d430e15}{mida\+Labels}
+\item 
+Stack$<$ \hyperlink{classlogica_1_1_punt}{Punt} $>$ \hyperlink{classinterficie_1_1_p_laberint_a45a890d19dc7c46a3437444e48cede0d}{parets}
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classinterficie_1_1_p_laberint_a786f8eccff9163e74309c502243d4230}{M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A} = 800
+\item 
+static final int \hyperlink{classinterficie_1_1_p_laberint_a3ae71ef7717557a52efdbb965038dc90}{M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A} = 500
+\item 
+static final int \hyperlink{classinterficie_1_1_p_laberint_aae7e324b14c009ac1e2408956adbdcc0}{M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A} = 900
 \end{DoxyCompactItemize}
 
 
@@ -231,6 +260,27 @@ Representació de E\+Element.\+S\+O\+R\+T\+I\+D\+A es veu per pantalla.
 Implementa \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_ae8e250a2c2a2f745e6700bf65be9fe9a}{interficie.\+I\+Pintador\+Laberint}.
 
 
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classinterficie_1_1_p_laberint_a7c0d3cba083c83e635532b8808affa94}{\index{interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}!laberint\+Grafic@{laberint\+Grafic}}
+\index{laberint\+Grafic@{laberint\+Grafic}!interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}}
+\subsubsection[{laberint\+Grafic}]{\setlength{\rightskip}{0pt plus 5cm}J\+Label \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} interficie.\+P\+Laberint.\+laberint\+Grafic\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_p_laberint_a7c0d3cba083c83e635532b8808affa94}
+Matriu bidimensional on cada posicio conté la representacio grafica corresponent al E\+Element que conte Laberint en dita posicio \hypertarget{classinterficie_1_1_p_laberint_aae7e324b14c009ac1e2408956adbdcc0}{\index{interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}!M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A@{M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A}}
+\index{M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A@{M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A}!interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}}
+\subsubsection[{M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A}]{\setlength{\rightskip}{0pt plus 5cm}final int interficie.\+P\+Laberint.\+M\+I\+D\+A\+\_\+\+M\+A\+X\+I\+M\+A = 900\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classinterficie_1_1_p_laberint_aae7e324b14c009ac1e2408956adbdcc0}
+Mida Maxima en pixels \hypertarget{classinterficie_1_1_p_laberint_a3ae71ef7717557a52efdbb965038dc90}{\index{interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}!M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A@{M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A}}
+\index{M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A@{M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A}!interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}}
+\subsubsection[{M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A}]{\setlength{\rightskip}{0pt plus 5cm}final int interficie.\+P\+Laberint.\+M\+I\+D\+A\+\_\+\+M\+I\+N\+I\+M\+A = 500\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classinterficie_1_1_p_laberint_a3ae71ef7717557a52efdbb965038dc90}
+Mida Minima en pixels \hypertarget{classinterficie_1_1_p_laberint_a786f8eccff9163e74309c502243d4230}{\index{interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}!M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A@{M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A}}
+\index{M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A@{M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A}!interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}}
+\subsubsection[{M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A}]{\setlength{\rightskip}{0pt plus 5cm}final int interficie.\+P\+Laberint.\+M\+I\+D\+A\+\_\+\+P\+R\+E\+F\+E\+R\+I\+D\+A = 800\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classinterficie_1_1_p_laberint_a786f8eccff9163e74309c502243d4230}
+Al treballar amb layouts, aquest estableixen les mides de les areas depenent de la mida de la pantalla, el propi layout fa els calculs del tamany dels components tinguent en compte el tamany de la pantalla i els valors de les variables preferred\+\_\+size, minimum\+\_\+size, i maximum\+\_\+size per a establir el area.\+Mida preferida en pixels \hypertarget{classinterficie_1_1_p_laberint_a9e8ee2e2a3fbf095be55f50f9d430e15}{\index{interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}!mida\+Labels@{mida\+Labels}}
+\index{mida\+Labels@{mida\+Labels}!interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}}
+\subsubsection[{mida\+Labels}]{\setlength{\rightskip}{0pt plus 5cm}Dimension interficie.\+P\+Laberint.\+mida\+Labels\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_p_laberint_a9e8ee2e2a3fbf095be55f50f9d430e15}
+Mida que han de tenir les imatges per mostrarse correctament \hypertarget{classinterficie_1_1_p_laberint_a45a890d19dc7c46a3437444e48cede0d}{\index{interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}!parets@{parets}}
+\index{parets@{parets}!interficie\+::\+P\+Laberint@{interficie\+::\+P\+Laberint}}
+\subsubsection[{parets}]{\setlength{\rightskip}{0pt plus 5cm}Stack$<${\bf Punt}$>$ interficie.\+P\+Laberint.\+parets\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_p_laberint_a45a890d19dc7c46a3437444e48cede0d}
+Punts on corresponen a Parets del Laberint 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

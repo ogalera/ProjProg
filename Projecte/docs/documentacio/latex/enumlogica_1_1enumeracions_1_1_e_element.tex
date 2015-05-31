@@ -6,6 +6,16 @@
 Enumeracio dels diferents elements que conte un objecte del tipus Laberint.  
 
 
+
+
+Diagrama de col·laboració per a logica.\+enumeracions.\+E\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{enumlogica_1_1enumeracions_1_1_e_element__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,7 +36,7 @@ boolean \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_abac9b105a574e82ffaa
 \item 
 static void \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a463fe7d8bef930e62019d223bc2f0ed6}{redimensionar\+Imatges} (int px)
 \begin{DoxyCompactList}\small\item\em Redimensiona la imatge que te associada cada \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element}. \end{DoxyCompactList}\item 
-static \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a5bd957c7a226b8127a5ef222f7d5a869}{buscar\+Element\+Per\+Id} (int id)
+static \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a5bd957c7a226b8127a5ef222f7d5a869}{buscar\+Element\+Per\+Id} (int \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a276fc494132bca06ef0e2e8490888a01}{id})
 \begin{DoxyCompactList}\small\item\em Retorna el \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} amb identificador = id. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributs Públics}
 \begin{DoxyCompactItemize}
@@ -70,6 +80,25 @@ static \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperli
 \hypertarget{enumlogica_1_1enumeracions_1_1_e_element_ae8aea2c8afbe63876761224cc6db55be}{{\bfseries S\+O\+R\+T\+I\+D\+A} =(15, false, \char`\"{}res/imatges/sortida.\+png\char`\"{}, 'S')}\label{enumlogica_1_1enumeracions_1_1_e_element_ae8aea2c8afbe63876761224cc6db55be}
 
 \end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{enumlogica_1_1enumeracions_1_1_e_element_a7f82884a5d1f6722079c7ea099dd14ac}{{\bfseries E\+Element} (int \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a276fc494132bca06ef0e2e8490888a01}{id}, boolean \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_acd29ca18716c824e7921d94725497671}{es\+Enemic}, String recurs, char \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_ada6d33c50cdcf99a08d6bf74c114151d}{lletra\+Representacio})}\label{enumlogica_1_1enumeracions_1_1_e_element_a7f82884a5d1f6722079c7ea099dd14ac}
+
+\item 
+void \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_afc1ffbd8df4bac762f581cb1dc2eb314}{establir\+Imatge} (Image img)
+\begin{DoxyCompactList}\small\item\em Estableix una imatge a \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+final int \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a276fc494132bca06ef0e2e8490888a01}{id}
+\item 
+Image\+Icon \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_a88d2ec584346f09066becb195b96d8a9}{imatge}
+\item 
+boolean \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_acd29ca18716c824e7921d94725497671}{es\+Enemic}
+\item 
+char \hyperlink{enumlogica_1_1enumeracions_1_1_e_element_ada6d33c50cdcf99a08d6bf74c114151d}{lletra\+Representacio}
+\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -109,6 +138,20 @@ Diu si Objecte actual es un Fantasma.
 \begin{DoxyReturn}{Retorna}
 Cert si Objecte actual es del tipus F\+A\+N\+T\+A\+S\+M\+A1, F\+A\+N\+T\+A\+S\+M\+A2, o F\+A\+N\+T\+A\+S\+M\+A3 
 \end{DoxyReturn}
+\hypertarget{enumlogica_1_1enumeracions_1_1_e_element_afc1ffbd8df4bac762f581cb1dc2eb314}{\index{logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}!establir\+Imatge@{establir\+Imatge}}
+\index{establir\+Imatge@{establir\+Imatge}!logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}}
+\subsubsection[{establir\+Imatge}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+enumeracions.\+E\+Element.\+establir\+Imatge (
+\begin{DoxyParamCaption}
+\item[{Image}]{img}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{enumlogica_1_1enumeracions_1_1_e_element_afc1ffbd8df4bac762f581cb1dc2eb314}
+
+
+Estableix una imatge a \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} actual. 
+
+\begin{DoxyPostcond}{Postcondició}
+La representació grafica de \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} actual és img. 
+\end{DoxyPostcond}
 \hypertarget{enumlogica_1_1enumeracions_1_1_e_element_ace3c605008e8ec150845687493323df2}{\index{logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}!obtenir\+Id@{obtenir\+Id}}
 \index{obtenir\+Id@{obtenir\+Id}!logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}}
 \subsubsection[{obtenir\+Id}]{\setlength{\rightskip}{0pt plus 5cm}final int logica.\+enumeracions.\+E\+Element.\+obtenir\+Id (
@@ -152,6 +195,21 @@ px $>$ 0.
 imatges de E\+Elements redimensionades a mida (px x px). 
 \end{DoxyPostcond}
 
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{enumlogica_1_1enumeracions_1_1_e_element_acd29ca18716c824e7921d94725497671}{\index{logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}!es\+Enemic@{es\+Enemic}}
+\index{es\+Enemic@{es\+Enemic}!logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}}
+\subsubsection[{es\+Enemic}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+enumeracions.\+E\+Element.\+es\+Enemic\hspace{0.3cm}{\ttfamily [private]}}}\label{enumlogica_1_1enumeracions_1_1_e_element_acd29ca18716c824e7921d94725497671}
+Diu si E\+E\+Lement es un F\+A\+N\+T\+A\+S\+M\+A \hypertarget{enumlogica_1_1enumeracions_1_1_e_element_a276fc494132bca06ef0e2e8490888a01}{\index{logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}!id@{id}}
+\index{id@{id}!logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}final int logica.\+enumeracions.\+E\+Element.\+id\hspace{0.3cm}{\ttfamily [private]}}}\label{enumlogica_1_1enumeracions_1_1_e_element_a276fc494132bca06ef0e2e8490888a01}
+identificador numeric de \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element}. \hypertarget{enumlogica_1_1enumeracions_1_1_e_element_a88d2ec584346f09066becb195b96d8a9}{\index{logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}!imatge@{imatge}}
+\index{imatge@{imatge}!logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}}
+\subsubsection[{imatge}]{\setlength{\rightskip}{0pt plus 5cm}Image\+Icon logica.\+enumeracions.\+E\+Element.\+imatge\hspace{0.3cm}{\ttfamily [private]}}}\label{enumlogica_1_1enumeracions_1_1_e_element_a88d2ec584346f09066becb195b96d8a9}
+Imatge que identifica a \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element}. \hypertarget{enumlogica_1_1enumeracions_1_1_e_element_ada6d33c50cdcf99a08d6bf74c114151d}{\index{logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}!lletra\+Representacio@{lletra\+Representacio}}
+\index{lletra\+Representacio@{lletra\+Representacio}!logica\+::enumeracions\+::\+E\+Element@{logica\+::enumeracions\+::\+E\+Element}}
+\subsubsection[{lletra\+Representacio}]{\setlength{\rightskip}{0pt plus 5cm}char logica.\+enumeracions.\+E\+Element.\+lletra\+Representacio\hspace{0.3cm}{\ttfamily [private]}}}\label{enumlogica_1_1enumeracions_1_1_e_element_ada6d33c50cdcf99a08d6bf74c114151d}
+Lletra que representa a \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element}. 
 
 The documentation for this enum was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

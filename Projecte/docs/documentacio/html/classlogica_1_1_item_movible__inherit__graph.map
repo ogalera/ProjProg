@@ -1,7 +1,7 @@
 <map id="logica.ItemMovible" name="logica.ItemMovible">
 <area shape="rect" id="node2" href="$classlogica_1_1_item.html" title="Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA). " alt="" coords="118,80,205,107"/>
 <area shape="rect" id="node3" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="229,80,355,107"/>
-<area shape="rect" id="node4" href="$classlogica_1_1_fantasma1.html" title="Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida. " alt="" coords="5,155,131,181"/>
+<area shape="rect" id="node4" href="$classlogica_1_1_fantasma1.html" title="Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida. &#160;CARACTERISTIQUES DEL F..." alt="" coords="5,155,131,181"/>
 <area shape="rect" id="node5" href="$classlogica_1_1_fantasma2.html" title="Eenemic úna mica més elaborat que Fantasma 1. &#160;CARACTERISTIQUES DEL FANTASMA. La seva visibilitat nom..." alt="" coords="155,155,280,181"/>
 <area shape="rect" id="node6" href="$classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. " alt="" coords="304,155,429,181"/>
 <area shape="rect" id="node7" href="$classlogica_1_1_pacman.html" title="personatge principal controlat per l&#39;usuari a traves d&#39;un dispositiu físic. " alt="" coords="454,155,562,181"/>

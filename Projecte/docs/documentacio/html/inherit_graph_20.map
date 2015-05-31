@@ -1,3 +1,9 @@
 <map id="Jerarquia Gràfica de la Classe" name="Jerarquia Gràfica de la Classe">
-<area shape="rect" id="node1" href="$classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node1" href="$classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="5,56,136,83"/>
+<area shape="rect" id="node2" href="$classlogica_1_1_item.html" title="Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA). " alt="" coords="204,31,291,57"/>
+<area shape="rect" id="node3" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="184,81,311,108"/>
+<area shape="rect" id="node4" href="$classlogica_1_1_fantasma1.html" title="Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida. &#160;CARACTERISTIQUES DEL F..." alt="" coords="359,5,484,32"/>
+<area shape="rect" id="node5" href="$classlogica_1_1_fantasma2.html" title="Eenemic úna mica més elaborat que Fantasma 1. &#160;CARACTERISTIQUES DEL FANTASMA. La seva visibilitat nom..." alt="" coords="359,56,484,83"/>
+<area shape="rect" id="node6" href="$classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. " alt="" coords="359,107,484,133"/>
+<area shape="rect" id="node7" href="$classlogica_1_1_pacman.html" title="personatge principal controlat per l&#39;usuari a traves d&#39;un dispositiu físic. " alt="" coords="367,157,475,184"/>
 </map>

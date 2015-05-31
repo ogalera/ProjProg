@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['validadorlaberint',['ValidadorLaberint',['../classlogica_1_1_validador_laberint.html',1,'logica']]]
+  ['solucio',['Solucio',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html',1,'logica::algoritmica::BackTracking']]]
 ];

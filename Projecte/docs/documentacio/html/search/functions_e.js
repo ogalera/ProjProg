@@ -1,8 +1,12 @@
 var searchData=
 [
   ['pacman',['Pacman',['../classlogica_1_1_pacman.html#a4c8cd3d9c43aba9d2a944af0afe74ac2',1,'logica::Pacman']]],
+  ['pacmanesperillos',['pacmanEsPerillos',['../classlogica_1_1_fantasma3.html#ac81e9a65277b97748b05fbf683e6c71c',1,'logica::Fantasma3']]],
   ['pantallasuperada',['pantallaSuperada',['../classlogica_1_1_usuari.html#a3d2c12a1138df467863c3ff43827bed1',1,'logica::Usuari']]],
   ['pararcrono',['pararCrono',['../classinterficie_1_1components_1_1_crono.html#a0d8681481d3795a79da8a6c47dac8811',1,'interficie::components::Crono']]],
+  ['parellaprioritatmissatge',['ParellaPrioritatMissatge',['../classlogica_1_1log_1_1_log_1_1_parella_prioritat_missatge.html#adf8c6ad8f5e8c58c17f791abf39303b4',1,'logica::log::Log::ParellaPrioritatMissatge']]],
+  ['parselinialaberint',['parseLiniaLaberint',['../classlogica_1_1laberints_1_1_laberint.html#a169bd589975b1327331e7a1eae4572fe',1,'logica::laberints::Laberint']]],
+  ['particio',['Particio',['../classlogica_1_1_validador_laberint_1_1_particio.html#a14003efe8fde18b0fc1e11b6e7d11ccc',1,'logica::ValidadorLaberint::Particio']]],
   ['partida',['Partida',['../classlogica_1_1_partida.html#ab85633f290087fe7699fe41008b2e93a',1,'logica.Partida.Partida(String fitxer, IPintadorPartida pintadorPartida, IPintadorLaberint pintadorLaberint, IControlador controlador)'],['../classlogica_1_1_partida.html#a89b9872f1db2660c1c0587d48ccef48c',1,'logica.Partida.Partida(ELaberintsPredefinits laberint, int costat, EElement enemic, IPintadorPartida pintadorPartida, IPintadorLaberint pintadorLaberint, IControlador controlador)']]],
   ['personatge',['Personatge',['../classlogica_1_1_personatge.html#af207e20f6a0494a46e710d8c9f33ccff',1,'logica::Personatge']]],
   ['pintarfinalpartida',['pintarFinalPartida',['../classinterficie_1_1_f_partida.html#a3dc12aac71794744a5de495501af6281',1,'interficie.FPartida.pintarFinalPartida()'],['../interfaceinterficie_1_1_i_pintador_partida.html#ab1897fb15335043e4d9be27e578e1338',1,'interficie.IPintadorPartida.pintarFinalPartida()']]],

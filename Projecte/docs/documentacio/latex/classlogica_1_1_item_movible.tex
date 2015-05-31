@@ -8,7 +8,8 @@ Objecte amb la capacitat de moures per les diferents poscions d'un Laberint dura
 
 
 
-Diagrama d'Herència per a logica.\+Item\+Movible\+:\nopagebreak
+Diagrama d'Herència per a logica.\+Item\+Movible\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,10 +26,15 @@ Diagrama de col·laboració per a logica.\+Item\+Movible\+:
 \includegraphics[width=350pt]{classlogica_1_1_item_movible__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classlogica_1_1_item_movible_1_1_tasca_aplicar_moviment}{Tasca\+Aplicar\+Moviment}
+\begin{DoxyCompactList}\small\item\em Tasca a executar a cada cicle de freqüència. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}{{\bfseries Item\+Movible} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, Image\+Icon imatge, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{classlogica_1_1_punt}{Punt} inici, long frequencia)}\label{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}
+\hypertarget{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}{{\bfseries Item\+Movible} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, Image\+Icon imatge, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{classlogica_1_1_punt}{Punt} inici, long \hyperlink{classlogica_1_1_item_movible_a1b3a9d9e664cfe044d60cbe083dc7919}{frequencia})}\label{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}
 
 \item 
 void \hyperlink{classlogica_1_1_item_movible_a9a43835d32363d837ad38635e48483ba}{iniciar\+Item\+Movible} ()
@@ -64,6 +70,22 @@ final \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{cla
 \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} \hyperlink{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}{seguent\+Moviment}
 \item 
 final \hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_item_movible_a1818356021a0bc1927e44587484528ce}{Timer {\bfseries temporitzador}}\label{classlogica_1_1_item_movible_a1818356021a0bc1927e44587484528ce}
+
+\item 
+\hypertarget{classlogica_1_1_item_movible_a1d3192eb8b3451aebce9eb76fb38866d}{\hyperlink{classlogica_1_1_item_movible_1_1_tasca_aplicar_moviment}{Tasca\+Aplicar\+Moviment} {\bfseries tasca\+Aplicar\+Moviment}}\label{classlogica_1_1_item_movible_a1d3192eb8b3451aebce9eb76fb38866d}
+
+\item 
+long \hyperlink{classlogica_1_1_item_movible_a1b3a9d9e664cfe044d60cbe083dc7919}{frequencia}
+\item 
+\hypertarget{classlogica_1_1_item_movible_aea59ac3ebc4c975710d17162d3f27455}{boolean {\bfseries iniciat} = false}\label{classlogica_1_1_item_movible_aea59ac3ebc4c975710d17162d3f27455}
+
+\item 
+long \hyperlink{classlogica_1_1_item_movible_acc514a1b03e6f87bd157f334837ea7c0}{temps\+Total\+Calcul} = 0
 \end{DoxyCompactItemize}
 
 
@@ -168,7 +190,10 @@ E\+E\+Lement que contenia la posicio on s'ha desplaçat \hyperlink{classlogica_1
 
 
 \subsection{Documentació de les Dades Membre}
-\hypertarget{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!imatge\+Perfil@{imatge\+Perfil}}
+\hypertarget{classlogica_1_1_item_movible_a1b3a9d9e664cfe044d60cbe083dc7919}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!frequencia@{frequencia}}
+\index{frequencia@{frequencia}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{frequencia}]{\setlength{\rightskip}{0pt plus 5cm}long logica.\+Item\+Movible.\+frequencia\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_movible_a1b3a9d9e664cfe044d60cbe083dc7919}
+Freqüencia amb la que \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} efectua un moviment \hypertarget{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!imatge\+Perfil@{imatge\+Perfil}}
 \index{imatge\+Perfil@{imatge\+Perfil}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
 \subsubsection[{imatge\+Perfil}]{\setlength{\rightskip}{0pt plus 5cm}final Image\+Icon logica.\+Item\+Movible.\+imatge\+Perfil}}\label{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}
 Imatge que representa a un \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} \hypertarget{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!laberint@{laberint}}
@@ -183,7 +208,10 @@ partida en joc \hypertarget{classlogica_1_1_item_movible_a9380636109f2180b48ee96
 Representacio de les coordenades (Fila,Columna) en un instant determinat de la partida \hypertarget{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!seguent\+Moviment@{seguent\+Moviment}}
 \index{seguent\+Moviment@{seguent\+Moviment}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
 \subsubsection[{seguent\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Direccio} logica.\+Item\+Movible.\+seguent\+Moviment\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}
-Moviment calculat en un instant determinat de la partida 
+Moviment calculat en un instant determinat de la partida \hypertarget{classlogica_1_1_item_movible_acc514a1b03e6f87bd157f334837ea7c0}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!temps\+Total\+Calcul@{temps\+Total\+Calcul}}
+\index{temps\+Total\+Calcul@{temps\+Total\+Calcul}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{temps\+Total\+Calcul}]{\setlength{\rightskip}{0pt plus 5cm}long logica.\+Item\+Movible.\+temps\+Total\+Calcul = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_movible_acc514a1b03e6f87bd157f334837ea7c0}
+Temps total dedicat al càlcul de moviments durant una partida en milisegons 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

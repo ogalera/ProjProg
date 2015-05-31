@@ -6,6 +6,16 @@
 Classe encarregada de guardar els valors de la solució composta per a l'algorisme de Backtracking.  
 
 
+
+
+Diagrama de col·laboració per a logica.\+algoritmica.\+Back\+Tracking.\+Solucio\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,6 +46,39 @@ boolean \hyperlink{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a0ff
 \begin{DoxyCompactList}\small\item\em Retorna els n Moviments corresponents al cami calculat per l'algorisme de Backtracking. \end{DoxyCompactList}\item 
 void \hyperlink{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ac695cbcd0dc5a3d5e9da492244718681}{reset} ()
 \begin{DoxyCompactList}\small\item\em Deixa al objecte actual preperat per a tornar a fer l'algorisme de Backtracking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_af58725b92b2197de9f2bf4852885c9b8}{final \hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_af58725b92b2197de9f2bf4852885c9b8}
+
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a978c78c185cc1937c869fbbf64dbca66}{final \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a978c78c185cc1937c869fbbf64dbca66}{laberint}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a978c78c185cc1937c869fbbf64dbca66}
+
+\begin{DoxyCompactList}\small\item\em Laberint sobre el cual es faran les cerques del camí maxim. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_abb4b1b2f358a83b83f378793cc3dae5e}{final \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_abb4b1b2f358a83b83f378793cc3dae5e}{tauler}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_abb4b1b2f358a83b83f378793cc3dae5e}
+
+\begin{DoxyCompactList}\small\item\em Cada posicio de tauler correspon a una posicio del laberint i contindra la informació necessaria per a realitzar la cerca del camí maxim. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ae2b0d11413ef996f1776dc95d5a6062c}{final Linked\+List$<$ \hyperlink{classlogica_1_1_punt}{Punt} $>$ {\bfseries cami}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ae2b0d11413ef996f1776dc95d5a6062c}
+
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a8c60ae3118875b492fbc0bd9774b77ed}{final \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim}{Buscador\+Cami\+Minim} {\bfseries buscador\+Cami\+Minim}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a8c60ae3118875b492fbc0bd9774b77ed}
+
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ab961383343361fb5a85ec93d8e227960}{int {\bfseries nivell}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ab961383343361fb5a85ec93d8e227960}
+
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ad041f270ecc5624cf3cf11cc9687975c}{\hyperlink{classlogica_1_1_punt}{Punt} {\bfseries enemic}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_ad041f270ecc5624cf3cf11cc9687975c}
+
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a50c012f2ed6e23bd4292b398c8b5cb51}{int {\bfseries distancia}}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_a50c012f2ed6e23bd4292b398c8b5cb51}
+
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_acde1b053bf1a568f0b8830a86b6cc095}{static final int \hyperlink{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_acde1b053bf1a568f0b8830a86b6cc095}{P\+R\+O\+F\+U\+N\+D\+I\+T\+A\+T} = 7}\label{classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio_acde1b053bf1a568f0b8830a86b6cc095}
+
+\begin{DoxyCompactList}\small\item\em Nivell de Profunditat al que volem arrivar en el algorisme de Backtracking. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}

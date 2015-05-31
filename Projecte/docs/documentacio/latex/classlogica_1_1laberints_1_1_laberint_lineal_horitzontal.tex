@@ -8,7 +8,8 @@
 
 
 
-Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Horitzontal\+:\nopagebreak
+Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Horitzontal\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,7 +18,8 @@ Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Horitzontal\+:
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Horitzontal\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Horitzontal\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,6 +30,11 @@ Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Horitzo
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}{Laberint\+Lineal\+Horitzontal} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a6f3432d9ea0def617be88ac62c55c787}{generar\+Laberint} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat})
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -52,12 +59,33 @@ Aquest algorisme genera sempre un laberint valid.
 \end{DoxyParamCaption}
 )}}\label{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}
 \begin{DoxyPrecond}{Precondició}
-costat $>$= Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T i enemic és un dels fantasmes. 
+costat $>$= \hyperlink{classlogica_1_1_utils_1_1_constants_af0255617e604b0757200f05de64fa934}{Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T} i enemic és un dels fantasmes. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
 em creat un laberint de caràcter lineal i horitzontal amb partida, costat enemic i un pintador per representar el laberint gràficament. 
 \end{DoxyPostcond}
 
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a6f3432d9ea0def617be88ac62c55c787}{\index{logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal@{logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal}!generar\+Laberint@{generar\+Laberint}}
+\index{generar\+Laberint@{generar\+Laberint}!logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal@{logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal}}
+\subsubsection[{generar\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} logica.\+laberints.\+Laberint\+Lineal\+Horitzontal.\+generar\+Laberint (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{enemic, }
+\item[{int}]{costat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a6f3432d9ea0def617be88ac62c55c787}
+\begin{DoxyPrecond}{Precondició}
+costat $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat i retornat el laberint lineal horitzontal amb l'enemic en la posició \mbox{[}N-\/1, N-\/1\mbox{]} i en pacman en la posició \mbox{[}0, 0\mbox{]} 
+\end{DoxyPostcond}
+En la primera posició i posem en pacman.
+
+En l'última posició i posem el fantasma.
+
+A cada fila si és imparell i van pared i si és parell i van monedes. 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

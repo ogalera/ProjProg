@@ -8,7 +8,8 @@ Implementació del comportament dels items (P\+A\+T\+I\+N\+S, M\+O\+N\+E\+D\+E\+
 
 
 
-Diagrama d'Herència per a logica.\+Item\+:\nopagebreak
+Diagrama d'Herència per a logica.\+Item\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,7 +29,7 @@ Diagrama de col·laboració per a logica.\+Item\+:
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}{Item} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} tipus\+Element, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element\+Trapitjat, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{classlogica_1_1_punt}{Punt} inici)
+\hyperlink{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}{Item} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_item_a8f4061141a64a72969be035b8d689fb9}{tipus\+Element}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_item_a526b80840c8330393362f26926c33f07}{element\+Trapitjat}, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{classlogica_1_1_punt}{Punt} inici)
 \begin{DoxyCompactList}\small\item\em Constructor de \hyperlink{classlogica_1_1_item}{Item}. \end{DoxyCompactList}\item 
 \hypertarget{classlogica_1_1_item_a0b85057e526c921f66a586e334b94685}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries calcular\+Moviment} ()}\label{classlogica_1_1_item_a0b85057e526c921f66a586e334b94685}
 
@@ -40,6 +41,35 @@ Diagrama de col·laboració per a logica.\+Item\+:
 \begin{DoxyCompactList}\small\item\em Retorna el element el qual esta a la mateixa cel·la que item. \end{DoxyCompactList}\item 
 \hypertarget{classlogica_1_1_item_a9990d70a8ad35319d2bb9d10b294b17a}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries realitzar\+Moviment} ()}\label{classlogica_1_1_item_a9990d70a8ad35319d2bb9d10b294b17a}
 
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1_item_a0a58b893195f2a56a11ce14deac89b14}{obtenir\+Posicio\+Aleatoria} ()
+\begin{DoxyCompactList}\small\item\em Càlcul aleatori d'una posicio valida. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_item_ab86860a660ef6b665576245110578878}{desti\+Valid} (\hyperlink{classlogica_1_1_punt}{Punt} p)
+\begin{DoxyCompactList}\small\item\em Diu si un desti p es vàlid. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_item_affda0b78da85d18bc43b71992762df42}{moviment\+Valid} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} mov)
+\begin{DoxyCompactList}\small\item\em Diu si un moviment es vàlid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+final \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_item_a8f4061141a64a72969be035b8d689fb9}{tipus\+Element}
+\item 
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_item_a526b80840c8330393362f26926c33f07}{element\+Trapitjat}
+\item 
+final \hyperlink{classlogica_1_1algoritmica_1_1_gestor_camins}{Gestor\+Camins} \hyperlink{classlogica_1_1_item_a493a6d454882564c734d0f625ae7998b}{gestor\+Cami}
+\item 
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1_item_aad60c443c720c3c976474593dec685cc}{ruta}
+\item 
+final \hyperlink{classlogica_1_1log_1_1_log}{Log} \hyperlink{classlogica_1_1_item_a4da66ecee5634f9dba9015ed82f1ded5}{log}
+\item 
+boolean \hyperlink{classlogica_1_1_item_af8d84d49ac5ab305f8ddaf457f498740}{estic\+Fugint}
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classlogica_1_1_item_aeb47370bb9dfdc7d690d546d74ea0854}{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A} = 10
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -87,6 +117,34 @@ Objecte actual ja interectua amb E\+Elements de Laberint.
 
 
 \subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_item_ab86860a660ef6b665576245110578878}{\index{logica\+::\+Item@{logica\+::\+Item}!desti\+Valid@{desti\+Valid}}
+\index{desti\+Valid@{desti\+Valid}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{desti\+Valid}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Item.\+desti\+Valid (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_ab86860a660ef6b665576245110578878}
+
+
+Diu si un desti p es vàlid. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si desti p no correspont a un E\+Element.\+P\+A\+R\+E\+T \&\& p != posicio\+Actual 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_item_affda0b78da85d18bc43b71992762df42}{\index{logica\+::\+Item@{logica\+::\+Item}!moviment\+Valid@{moviment\+Valid}}
+\index{moviment\+Valid@{moviment\+Valid}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{moviment\+Valid}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Item.\+moviment\+Valid (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Direccio}}]{mov}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_affda0b78da85d18bc43b71992762df42}
+
+
+Diu si un moviment es vàlid. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si el punt calculat amb posicio + mov != E\+Element.\+P\+A\+R\+E\+T 
+\end{DoxyReturn}
 \hypertarget{classlogica_1_1_item_a81cb8508f21f320f54ca5d279fa24625}{\index{logica\+::\+Item@{logica\+::\+Item}!obtenir\+Element\+Trapitgat@{obtenir\+Element\+Trapitgat}}
 \index{obtenir\+Element\+Trapitgat@{obtenir\+Element\+Trapitgat}!logica\+::\+Item@{logica\+::\+Item}}
 \subsubsection[{obtenir\+Element\+Trapitgat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} logica.\+Item.\+obtenir\+Element\+Trapitgat (
@@ -101,7 +159,45 @@ Retorna el element el qual esta a la mateixa cel·la que item.
 Laberint conté un E\+Elements per cel·la. Quan item es mou es necessita guardar el E\+Element que contenia la cel·la actual on es troba el item. \begin{DoxyReturn}{Retorna}
 Element que hi ha a la mateixa cel·la que item. 
 \end{DoxyReturn}
+\hypertarget{classlogica_1_1_item_a0a58b893195f2a56a11ce14deac89b14}{\index{logica\+::\+Item@{logica\+::\+Item}!obtenir\+Posicio\+Aleatoria@{obtenir\+Posicio\+Aleatoria}}
+\index{obtenir\+Posicio\+Aleatoria@{obtenir\+Posicio\+Aleatoria}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{obtenir\+Posicio\+Aleatoria}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+Item.\+obtenir\+Posicio\+Aleatoria (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_a0a58b893195f2a56a11ce14deac89b14}
 
+
+Càlcul aleatori d'una posicio valida. 
+
+Si ningu persegueix a \hyperlink{classlogica_1_1_item}{Item}, aquest anira pasejant per el Laberint. Si no te cap ruta, buscarà una punt aleatori del laberint i anira fins allà. S'enten com a vàlid un punt que no sigui paret, que existeixi dins de Laberint i que no sigui el punt on es troba actualment \hyperlink{classlogica_1_1_item}{Item}. \begin{DoxyReturn}{Retorna}
+\hyperlink{classlogica_1_1_punt}{Punt} com a desti vàlid dins de Laberint. 
+\end{DoxyReturn}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classlogica_1_1_item_aeb47370bb9dfdc7d690d546d74ea0854}{\index{logica\+::\+Item@{logica\+::\+Item}!D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A@{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A}}
+\index{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A@{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A}]{\setlength{\rightskip}{0pt plus 5cm}final int logica.\+Item.\+D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A = 10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classlogica_1_1_item_aeb47370bb9dfdc7d690d546d74ea0854}
+Distancia que es considera perillos a l'hora de decidir fugir. (distancia de enemic $<$ D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A --$>$ fugir) \hypertarget{classlogica_1_1_item_a526b80840c8330393362f26926c33f07}{\index{logica\+::\+Item@{logica\+::\+Item}!element\+Trapitjat@{element\+Trapitjat}}
+\index{element\+Trapitjat@{element\+Trapitjat}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{element\+Trapitjat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} logica.\+Item.\+element\+Trapitjat\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_a526b80840c8330393362f26926c33f07}
+E\+Element que comparteix cel·la amb \hyperlink{classlogica_1_1_item}{Item} \hypertarget{classlogica_1_1_item_af8d84d49ac5ab305f8ddaf457f498740}{\index{logica\+::\+Item@{logica\+::\+Item}!estic\+Fugint@{estic\+Fugint}}
+\index{estic\+Fugint@{estic\+Fugint}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{estic\+Fugint}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Item.\+estic\+Fugint\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_af8d84d49ac5ab305f8ddaf457f498740}
+Indica l'estat del \hyperlink{classlogica_1_1_item}{Item} (Fugir/\+No Fugir) \hypertarget{classlogica_1_1_item_a493a6d454882564c734d0f625ae7998b}{\index{logica\+::\+Item@{logica\+::\+Item}!gestor\+Cami@{gestor\+Cami}}
+\index{gestor\+Cami@{gestor\+Cami}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{gestor\+Cami}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Gestor\+Camins} logica.\+Item.\+gestor\+Cami\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_a493a6d454882564c734d0f625ae7998b}
+Calcula els camins necessaris per moure's per el Laberint \hypertarget{classlogica_1_1_item_a4da66ecee5634f9dba9015ed82f1ded5}{\index{logica\+::\+Item@{logica\+::\+Item}!log@{log}}
+\index{log@{log}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Log} logica.\+Item.\+log\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_a4da66ecee5634f9dba9015ed82f1ded5}
+Log per registrar comportament \hyperlink{classlogica_1_1_item}{Item} \hypertarget{classlogica_1_1_item_aad60c443c720c3c976474593dec685cc}{\index{logica\+::\+Item@{logica\+::\+Item}!ruta@{ruta}}
+\index{ruta@{ruta}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{ruta}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+Item.\+ruta\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_aad60c443c720c3c976474593dec685cc}
+Guarda els camins que retorna gestor\+Cami \hypertarget{classlogica_1_1_item_a8f4061141a64a72969be035b8d689fb9}{\index{logica\+::\+Item@{logica\+::\+Item}!tipus\+Element@{tipus\+Element}}
+\index{tipus\+Element@{tipus\+Element}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{tipus\+Element}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf E\+Element} logica.\+Item.\+tipus\+Element\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_item_a8f4061141a64a72969be035b8d689fb9}
+Tipus de E\+Element de objecte actual 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

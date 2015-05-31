@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['pacman',['pacman',['../classlogica_1_1controladors__pacman_1_1_controlador_teclat.html#addc6e4cafcb7e27900fc09948574bfd5',1,'logica.controladors_pacman.ControladorTeclat.pacman()'],['../classlogica_1_1_partida.html#a7a8e6c8daf205b7d6dcefd6ca58eb967',1,'logica.Partida.pacman()']]],
+  ['pare',['pare',['../classlogica_1_1algoritmica_1_1_casella.html#a2b3a9ec985ee8925d1b11ef42e1b3b80',1,'logica::algoritmica::Casella']]],
+  ['parets',['parets',['../classinterficie_1_1_p_laberint.html#a45a890d19dc7c46a3437444e48cede0d',1,'interficie::PLaberint']]],
+  ['particio',['particio',['../classlogica_1_1_validador_laberint_1_1_particio.html#a77542aa20574c416574f87ca688fd3f4',1,'logica::ValidadorLaberint::Particio']]],
+  ['partida',['partida',['../classlogica_1_1_item_movible.html#ace55b4918a7f671f89ed3109c91359e4',1,'logica.ItemMovible.partida()'],['../classlogica_1_1laberints_1_1_laberint.html#a7183ce070714f73e078bb36e8c21b575',1,'logica.laberints.Laberint.partida()']]],
+  ['path_5fbd',['PATH_BD',['../classlogica_1_1_utils_1_1_constants.html#a93e52fcb78172fbc1fb7b9b03ac68140',1,'logica::Utils::Constants']]],
+  ['path_5fimatges',['PATH_IMATGES',['../classlogica_1_1_utils_1_1_constants.html#a442521d8c78352f361b4b8c35916c0cb',1,'logica::Utils::Constants']]],
+  ['path_5fsons',['PATH_SONS',['../classlogica_1_1_utils_1_1_constants.html#a8b0ba18b306c985bcb23441ba0b36dc1',1,'logica::Utils::Constants']]],
+  ['perhistoric',['perHistoric',['../classlogica_1_1_fantasma2.html#a0f90b4ae2868d1cc3ca055d12014537f',1,'logica::Fantasma2']]],
+  ['pila',['pila',['../classlogica_1_1historic__moviments_1_1_historic_moviments.html#a1c12c94d61ee9f5fd8965048412c6595',1,'logica::historic_moviments::HistoricMoviments']]],
+  ['pintador',['pintador',['../classlogica_1_1laberints_1_1_laberint.html#a4073632c1d1ab02ede9cddc2bbb6da2f',1,'logica.laberints.Laberint.pintador()'],['../classlogica_1_1_partida.html#a8896d14d62683416b4ec20a3257a9031',1,'logica.Partida.pintador()']]],
+  ['port',['PORT',['../classlogica_1_1_utils_1_1_constants.html#a4d90a65d9ab5934effaaa3c64a554570',1,'logica::Utils::Constants']]],
+  ['posicio',['posicio',['../classlogica_1_1algoritmica_1_1_casella.html#ad26c2e494cfa1a9362cf001a061ea375',1,'logica.algoritmica.Casella.posicio()'],['../classlogica_1_1_item_movible.html#a9380636109f2180b48ee96e64de319a4',1,'logica.ItemMovible.posicio()']]],
+  ['processat',['processat',['../classlogica_1_1algoritmica_1_1_casella.html#aa4c76bca181afa4cfa68b7150365305d',1,'logica::algoritmica::Casella']]],
+  ['profunditat',['profunditat',['../classlogica_1_1algoritmica_1_1_casella.html#aa1e2c28f03ba466a988117daab70ce57',1,'logica.algoritmica.Casella.profunditat()'],['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html#acde1b053bf1a568f0b8830a86b6cc095',1,'logica.algoritmica.BackTracking.Solucio.PROFUNDITAT()']]],
+  ['punts',['punts',['../classinterficie_1_1_f_historic_usuari.html#a827d72eacf4ede6d801532681f2a507c',1,'interficie.FHistoricUsuari.punts()'],['../classlogica_1_1_personatge.html#a2a46aceef25eeae45072cf2e6ece1506',1,'logica.Personatge.punts()'],['../classlogica_1_1_usuari.html#a63fadb8d875628e5d9b8652c4245490b',1,'logica.Usuari.punts()']]]
+];

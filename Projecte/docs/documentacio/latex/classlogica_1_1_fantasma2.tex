@@ -14,7 +14,8 @@ Es bo especialment quan hi ha moltes coses en el laberint.
 
 
 
-Diagrama d'Herència per a logica.\+Fantasma2\+:\nopagebreak
+Diagrama d'Herència per a logica.\+Fantasma2\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -50,6 +51,19 @@ void \hyperlink{classlogica_1_1_fantasma2_a5ba4c0f99f09122c393203c474fe5562}{ass
 \item 
 void \hyperlink{classlogica_1_1_fantasma2_a7a334328a30cc606d6b995904fffb3c7}{notificar\+Perdua\+Estat} ()
 \end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classlogica_1_1_fantasma2_af2469a459af82e7a2beddd1cd52a10e6}{explorar\+Direccio} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio)
+\item 
+int \hyperlink{classlogica_1_1_fantasma2_a42e8ef51ddf6036914e26e20d2cb216e}{obtenir\+Maxim} (int...\+valors)
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_fantasma2_a0f90b4ae2868d1cc3ca055d12014537f}{boolean \hyperlink{classlogica_1_1_fantasma2_a0f90b4ae2868d1cc3ca055d12014537f}{per\+Historic} = false}\label{classlogica_1_1_fantasma2_a0f90b4ae2868d1cc3ca055d12014537f}
+
+\begin{DoxyCompactList}\small\item\em Indica si el moviment l'em tret de la pila del historic, per així no tornar-\/lo a enpilar i entrar en un bucle infinit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -102,14 +116,40 @@ Carreguem el conjunt de imatges per aquest fantasma \hypertarget{classlogica_1_1
 )}}\label{classlogica_1_1_fantasma2_a0ea5a98c11778bc3b09f66ea5c7a1db1}
 Obtenim l'interes que tenim en cada una de les direccions.
 
-Retornem quina és la nostra desició de moviment per aquest torn. \hypertarget{classlogica_1_1_fantasma2_a7a334328a30cc606d6b995904fffb3c7}{\index{logica\+::\+Fantasma2@{logica\+::\+Fantasma2}!notificar\+Perdua\+Estat@{notificar\+Perdua\+Estat}}
+Retornem quina és la nostra desició de moviment per aquest torn. \hypertarget{classlogica_1_1_fantasma2_af2469a459af82e7a2beddd1cd52a10e6}{\index{logica\+::\+Fantasma2@{logica\+::\+Fantasma2}!explorar\+Direccio@{explorar\+Direccio}}
+\index{explorar\+Direccio@{explorar\+Direccio}!logica\+::\+Fantasma2@{logica\+::\+Fantasma2}}
+\subsubsection[{explorar\+Direccio}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Fantasma2.\+explorar\+Direccio (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Direccio}}]{direccio}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma2_af2469a459af82e7a2beddd1cd52a10e6}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+ens retorna l'interes que té el fantasma (per l'estat en el que es troba) de anar cap a la direcció 
+\end{DoxyPostcond}
+Anem mirant en la direcció mentre no trobem paret. \hypertarget{classlogica_1_1_fantasma2_a7a334328a30cc606d6b995904fffb3c7}{\index{logica\+::\+Fantasma2@{logica\+::\+Fantasma2}!notificar\+Perdua\+Estat@{notificar\+Perdua\+Estat}}
 \index{notificar\+Perdua\+Estat@{notificar\+Perdua\+Estat}!logica\+::\+Fantasma2@{logica\+::\+Fantasma2}}
 \subsubsection[{notificar\+Perdua\+Estat}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma2.\+notificar\+Perdua\+Estat (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_fantasma2_a7a334328a30cc606d6b995904fffb3c7}
-Anunciem a la partida que ja no tenim super poders. \hypertarget{classlogica_1_1_fantasma2_a68af5e9cfac40d91de9bf24fc8042ce1}{\index{logica\+::\+Fantasma2@{logica\+::\+Fantasma2}!realitzar\+Moviment@{realitzar\+Moviment}}
+Anunciem a la partida que ja no tenim super poders. \hypertarget{classlogica_1_1_fantasma2_a42e8ef51ddf6036914e26e20d2cb216e}{\index{logica\+::\+Fantasma2@{logica\+::\+Fantasma2}!obtenir\+Maxim@{obtenir\+Maxim}}
+\index{obtenir\+Maxim@{obtenir\+Maxim}!logica\+::\+Fantasma2@{logica\+::\+Fantasma2}}
+\subsubsection[{obtenir\+Maxim}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Fantasma2.\+obtenir\+Maxim (
+\begin{DoxyParamCaption}
+\item[{int...}]{valors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma2_a42e8ef51ddf6036914e26e20d2cb216e}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el valor màxim de valors. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_fantasma2_a68af5e9cfac40d91de9bf24fc8042ce1}{\index{logica\+::\+Fantasma2@{logica\+::\+Fantasma2}!realitzar\+Moviment@{realitzar\+Moviment}}
 \index{realitzar\+Moviment@{realitzar\+Moviment}!logica\+::\+Fantasma2@{logica\+::\+Fantasma2}}
 \subsubsection[{realitzar\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf E\+Element} logica.\+Fantasma2.\+realitzar\+Moviment (
 \begin{DoxyParamCaption}

@@ -8,7 +8,8 @@ Implementació del comportament de \hyperlink{classlogica_1_1_fantasma3}{Fantasm
 
 
 
-Diagrama d'Herència per a logica.\+Fantasma3\+:\nopagebreak
+Diagrama d'Herència per a logica.\+Fantasma3\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,6 +26,13 @@ Diagrama de col·laboració per a logica.\+Fantasma3\+:
 \includegraphics[width=350pt]{classlogica_1_1_fantasma3__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode}{E\+Mode}
+\begin{DoxyCompactList}\small\item\em Diferents Modes que adopta Fantasma 3 durant una partida. \end{DoxyCompactList}\item 
+class \hyperlink{classlogica_1_1_fantasma3_1_1_objectiu}{Objectiu}
+\begin{DoxyCompactList}\small\item\em s'eneten per objectiu un \hyperlink{classlogica_1_1_punt}{Punt} que conte un E\+Element \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,6 +55,62 @@ Diagrama de col·laboració per a logica.\+Fantasma3\+:
 \item 
 \hypertarget{classlogica_1_1_fantasma3_aef966f328672a3faffa43a66d0520e6f}{void {\bfseries assignar\+Imatges} ()}\label{classlogica_1_1_fantasma3_aef966f328672a3faffa43a66d0520e6f}
 
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classlogica_1_1_fantasma3_a69e326a7ea8fd47d3d8e4e3f8fd70412}{valorar\+Situacio} ()
+\begin{DoxyCompactList}\small\item\em Implementacio de la logica de \hyperlink{classlogica_1_1_fantasma3}{Fantasma3} a la hora de valorar una situacio. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1_fantasma3_adc23af337e2803cf4a93a72a01d3686a}{mode\+Fugir} ()
+\begin{DoxyCompactList}\small\item\em Gestio de la ruta en cas que mode = \hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode_aacfca5adc0f5fa09c1776bc53234f341}{E\+Mode.\+F\+U\+G\+I\+R}. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1_fantasma3_a80230e04c68deb1a2f59b6d255846178}{mode\+Navegacio} ()
+\begin{DoxyCompactList}\small\item\em Gestio de la ruta en cas que mode = E\+Mode.\+N\+A\+V\+E\+G\+A\+C\+I\+O. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1_fantasma3_a8f73d5761fb98ad7b353846e97ec2cb7}{mode\+Seguiment} ()
+\begin{DoxyCompactList}\small\item\em Gestio de la ruta en cas que mode = \hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode_a96323a795182c39b55457ff5b990bc32}{E\+Mode.\+S\+E\+G\+U\+I\+M\+E\+N\+T}. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1_fantasma3_aa6c40d16b8b8c48954c5394d97b9a5be}{exit\+Laberint} ()
+\begin{DoxyCompactList}\small\item\em Assigna la sortida com a objectiu. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_ab980aa309510eb888965a424743f38a7}{moviment\+Valid} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} mov)
+\begin{DoxyCompactList}\small\item\em Diu si un moviment es vàlid. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1_fantasma3_a112aa6d0c3a8536490a09724bd9daeab}{busca\+Moneda} ()
+\begin{DoxyCompactList}\small\item\em Assigna un objectiu del tipus Moneda al objecte actual. \end{DoxyCompactList}\item 
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1_fantasma3_a447bfe80d247a3a653b9f1ce9d920cd9}{busca\+Moneda\+Mes\+Proxima} ()
+\begin{DoxyCompactList}\small\item\em Troba una moneda més próxima. \end{DoxyCompactList}\item 
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1_fantasma3_a90fb356d375f93ecf845e4c804de0e60}{busca\+Element} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \+\_\+element)
+\begin{DoxyCompactList}\small\item\em Busca \+\_\+element dintre de Laberint. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_a233382b72cb5b1293e1517f0b13c15f4}{hi\+Ha\+Item\+Especial\+A\+Prop} ()
+\begin{DoxyCompactList}\small\item\em Diu si hi ha algun item a prop. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_a9156a1b97e0265824cb2b8c9e235af58}{vull\+Atrapar\+En\+Pacman} ()
+\begin{DoxyCompactList}\small\item\em Conté part de la logica a seguir a la hora de decidir si Fantasma 3 vol perseguir a en P\+A\+C\+M\+A\+N. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_a0b6b9f133f2d018f292939e5ecb27c0e}{element\+Es\+Item} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element)
+\begin{DoxyCompactList}\small\item\em Diu si element es un item. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_ad393ed909cc000b7b2aa10a5873f3700}{element\+Es\+Moneda} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element)
+\begin{DoxyCompactList}\small\item\em Diu si un element es del tipus Moneda. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_ac81e9a65277b97748b05fbf683e6c71c}{pacman\+Es\+Perillos} (int distancia\+Pacman)
+\begin{DoxyCompactList}\small\item\em Conté la logica que defineix si fantasma3 considera perillos a en P\+A\+C\+M\+A\+N. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_a975dd968c3874e23ca8956d3490ae055}{queden\+Monedes} ()
+\begin{DoxyCompactList}\small\item\em Diu si queden monedes dins del Laberint. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1_fantasma3_a5602880e6a68d98e6a720a094a609538}{objectiu\+Verificat} ()
+\begin{DoxyCompactList}\small\item\em Diu si objectiu actual de F\+A\+N\+T\+A\+S\+M\+A3 encara segueix en la mateixa posicio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+final \hyperlink{classlogica_1_1algoritmica_1_1_gestor_camins}{Gestor\+Camins} \hyperlink{classlogica_1_1_fantasma3_a57dabe0804fa3f0ed00b28f3cab4d6b6}{gestor\+Cami}
+\item 
+\hyperlink{classlogica_1_1_fantasma3_1_1_objectiu}{Objectiu} \hyperlink{classlogica_1_1_fantasma3_a13e89583eb5f6a4fb3f41595833a9b79}{objectiu}
+\item 
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1_fantasma3_a270da1ca223914034c125b12479973b1}{ruta}
+\item 
+\hypertarget{classlogica_1_1_fantasma3_acfb3b4197723193eb20b7e84f6a74bbe}{final \hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log}}\label{classlogica_1_1_fantasma3_acfb3b4197723193eb20b7e84f6a74bbe}
+
+\item 
+\hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode}{E\+Mode} \hyperlink{classlogica_1_1_fantasma3_a42c7e17e87979122ed5c19aa4b2286f8}{mode}
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats Estàtics}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classlogica_1_1_fantasma3_a66b467ba2716d3116b05a06e75282b5e}{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A} = 15
+\item 
+static final int \hyperlink{classlogica_1_1_fantasma3_a188d9336f751a28078fc220ee3e61c97}{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E} = 8
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -86,6 +150,272 @@ Constructor de \hyperlink{classlogica_1_1_fantasma3}{Fantasma3}.
 Objecte actual ja interectua amb E\+Elements de Laberint. 
 \end{DoxyPostcond}
 
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_fantasma3_a90fb356d375f93ecf845e4c804de0e60}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!busca\+Element@{busca\+Element}}
+\index{busca\+Element@{busca\+Element}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{busca\+Element}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+Fantasma3.\+busca\+Element (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{\+\_\+element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a90fb356d375f93ecf845e4c804de0e60}
+
+
+Busca \+\_\+element dintre de Laberint. 
+
+\begin{DoxyReturn}{Retorna}
+\hyperlink{classlogica_1_1_punt}{Punt} on es troba el \+\_\+element. Si element no existeix retorna null. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_a112aa6d0c3a8536490a09724bd9daeab}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!busca\+Moneda@{busca\+Moneda}}
+\index{busca\+Moneda@{busca\+Moneda}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{busca\+Moneda}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma3.\+busca\+Moneda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a112aa6d0c3a8536490a09724bd9daeab}
+
+
+Assigna un objectiu del tipus Moneda al objecte actual. 
+
+\begin{DoxyPrecond}{Precondició}
+Queden Monedes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Objecte actual te com a objectiu E\+Element.\+M\+O\+N\+E\+D\+A o E\+Element.\+M\+O\+N\+E\+D\+A\+\_\+\+D\+O\+B\+L\+E i ruta conte el cami mes curt cap a aquest objectiu. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_fantasma3_a447bfe80d247a3a653b9f1ce9d920cd9}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!busca\+Moneda\+Mes\+Proxima@{busca\+Moneda\+Mes\+Proxima}}
+\index{busca\+Moneda\+Mes\+Proxima@{busca\+Moneda\+Mes\+Proxima}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{busca\+Moneda\+Mes\+Proxima}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+Fantasma3.\+busca\+Moneda\+Mes\+Proxima (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a447bfe80d247a3a653b9f1ce9d920cd9}
+
+
+Troba una moneda més próxima. 
+
+\begin{DoxyPrecond}{Precondició}
+Quede monedes en el Laberint 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+Retorna el \hyperlink{classlogica_1_1_punt}{Punt} on es troba la moneda més próxima. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_a0b6b9f133f2d018f292939e5ecb27c0e}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!element\+Es\+Item@{element\+Es\+Item}}
+\index{element\+Es\+Item@{element\+Es\+Item}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{element\+Es\+Item}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+element\+Es\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a0b6b9f133f2d018f292939e5ecb27c0e}
+
+
+Diu si element es un item. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si element es un item (Mongeta, Monedes\+\_\+x2 o Patins). 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_ad393ed909cc000b7b2aa10a5873f3700}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!element\+Es\+Moneda@{element\+Es\+Moneda}}
+\index{element\+Es\+Moneda@{element\+Es\+Moneda}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{element\+Es\+Moneda}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+element\+Es\+Moneda (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_ad393ed909cc000b7b2aa10a5873f3700}
+
+
+Diu si un element es del tipus Moneda. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si element es E\+Element.\+M\+O\+N\+E\+D\+A o E\+Element.\+M\+O\+N\+E\+D\+A\+\_\+\+E\+X\+T\+R\+A 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_aa6c40d16b8b8c48954c5394d97b9a5be}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!exit\+Laberint@{exit\+Laberint}}
+\index{exit\+Laberint@{exit\+Laberint}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{exit\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma3.\+exit\+Laberint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_aa6c40d16b8b8c48954c5394d97b9a5be}
+
+
+Assigna la sortida com a objectiu. 
+
+\begin{DoxyPrecond}{Precondició}
+La sortida ha estat assignada en el objecte laberint. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Objecte actual te com a objectiu E\+Element.\+S\+O\+R\+T\+I\+D\+A i ruta conte el cami mes curt cap a aquest objectiu. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_fantasma3_a233382b72cb5b1293e1517f0b13c15f4}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!hi\+Ha\+Item\+Especial\+A\+Prop@{hi\+Ha\+Item\+Especial\+A\+Prop}}
+\index{hi\+Ha\+Item\+Especial\+A\+Prop@{hi\+Ha\+Item\+Especial\+A\+Prop}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{hi\+Ha\+Item\+Especial\+A\+Prop}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+hi\+Ha\+Item\+Especial\+A\+Prop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a233382b72cb5b1293e1517f0b13c15f4}
+
+
+Diu si hi ha algun item a prop. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si existeix algun item especial dintre del Laberint a una distancia $<$ D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_adc23af337e2803cf4a93a72a01d3686a}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!mode\+Fugir@{mode\+Fugir}}
+\index{mode\+Fugir@{mode\+Fugir}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{mode\+Fugir}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma3.\+mode\+Fugir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_adc23af337e2803cf4a93a72a01d3686a}
+
+
+Gestio de la ruta en cas que mode = \hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode_aacfca5adc0f5fa09c1776bc53234f341}{E\+Mode.\+F\+U\+G\+I\+R}. 
+
+\begin{DoxyPostcond}{Postcondició}
+ruta != null 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_fantasma3_a80230e04c68deb1a2f59b6d255846178}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!mode\+Navegacio@{mode\+Navegacio}}
+\index{mode\+Navegacio@{mode\+Navegacio}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{mode\+Navegacio}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma3.\+mode\+Navegacio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a80230e04c68deb1a2f59b6d255846178}
+
+
+Gestio de la ruta en cas que mode = E\+Mode.\+N\+A\+V\+E\+G\+A\+C\+I\+O. 
+
+\begin{DoxyPostcond}{Postcondició}
+ruta != null 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_fantasma3_a8f73d5761fb98ad7b353846e97ec2cb7}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!mode\+Seguiment@{mode\+Seguiment}}
+\index{mode\+Seguiment@{mode\+Seguiment}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{mode\+Seguiment}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma3.\+mode\+Seguiment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a8f73d5761fb98ad7b353846e97ec2cb7}
+
+
+Gestio de la ruta en cas que mode = \hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode_a96323a795182c39b55457ff5b990bc32}{E\+Mode.\+S\+E\+G\+U\+I\+M\+E\+N\+T}. 
+
+\begin{DoxyPostcond}{Postcondició}
+ruta != null 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_fantasma3_ab980aa309510eb888965a424743f38a7}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!moviment\+Valid@{moviment\+Valid}}
+\index{moviment\+Valid@{moviment\+Valid}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{moviment\+Valid}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+moviment\+Valid (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Direccio}}]{mov}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_ab980aa309510eb888965a424743f38a7}
+
+
+Diu si un moviment es vàlid. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si la posicio a la que accedirem efectuant el moviment mov, es diferent de E\+Element.\+P\+A\+R\+E\+T 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_a5602880e6a68d98e6a720a094a609538}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!objectiu\+Verificat@{objectiu\+Verificat}}
+\index{objectiu\+Verificat@{objectiu\+Verificat}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{objectiu\+Verificat}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+objectiu\+Verificat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a5602880e6a68d98e6a720a094a609538}
+
+
+Diu si objectiu actual de F\+A\+N\+T\+A\+S\+M\+A3 encara segueix en la mateixa posicio. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si objectiu actual de F\+A\+N\+T\+A\+S\+M\+A3 segueix en la mateixa posicio dintre del Laberint. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_ac81e9a65277b97748b05fbf683e6c71c}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!pacman\+Es\+Perillos@{pacman\+Es\+Perillos}}
+\index{pacman\+Es\+Perillos@{pacman\+Es\+Perillos}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{pacman\+Es\+Perillos}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+pacman\+Es\+Perillos (
+\begin{DoxyParamCaption}
+\item[{int}]{distancia\+Pacman}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_ac81e9a65277b97748b05fbf683e6c71c}
+
+
+Conté la logica que defineix si fantasma3 considera perillos a en P\+A\+C\+M\+A\+N. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si P\+A\+C\+M\+A\+N te mongeta i P\+A\+C\+M\+A\+N esta a una distancia $<$ D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_a975dd968c3874e23ca8956d3490ae055}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!queden\+Monedes@{queden\+Monedes}}
+\index{queden\+Monedes@{queden\+Monedes}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{queden\+Monedes}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+queden\+Monedes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a975dd968c3874e23ca8956d3490ae055}
+
+
+Diu si queden monedes dins del Laberint. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si queden monedes dins del Laberint. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_fantasma3_a69e326a7ea8fd47d3d8e4e3f8fd70412}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!valorar\+Situacio@{valorar\+Situacio}}
+\index{valorar\+Situacio@{valorar\+Situacio}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{valorar\+Situacio}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Fantasma3.\+valorar\+Situacio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a69e326a7ea8fd47d3d8e4e3f8fd70412}
+
+
+Implementacio de la logica de \hyperlink{classlogica_1_1_fantasma3}{Fantasma3} a la hora de valorar una situacio. 
+
+\begin{DoxyPostcond}{Postcondició}
+mode canvia de valor si la logica de fantasma3 considera que la situacio actual ho requereix. Si es produeix canvi de mode, llavors objectiu = null.
+\end{DoxyPostcond}
+Entenem per situacio\+:
+\begin{DoxyItemize}
+\item els E\+Elements que conte laberint i les seves posicions dintre d'aquest.
+\item E\+Estat\+Personatge de \hyperlink{classlogica_1_1_pacman}{Pacman} I E\+Estat\+Personatge de \hyperlink{classlogica_1_1_fantasma3}{Fantasma3}
+\item Numero de monedes restants en el Laberint 
+\end{DoxyItemize}\hypertarget{classlogica_1_1_fantasma3_a9156a1b97e0265824cb2b8c9e235af58}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!vull\+Atrapar\+En\+Pacman@{vull\+Atrapar\+En\+Pacman}}
+\index{vull\+Atrapar\+En\+Pacman@{vull\+Atrapar\+En\+Pacman}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{vull\+Atrapar\+En\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+Fantasma3.\+vull\+Atrapar\+En\+Pacman (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a9156a1b97e0265824cb2b8c9e235af58}
+
+
+Conté part de la logica a seguir a la hora de decidir si Fantasma 3 vol perseguir a en P\+A\+C\+M\+A\+N. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si es compleixen les seguents condicions\+:
+\begin{DoxyItemize}
+\item \hyperlink{classlogica_1_1_fantasma3}{Fantasma3} te E\+Element.\+M\+O\+N\+G\+E\+T\+A i en P\+A\+C\+M\+A\+N te el 30 \% de la puntuacio que el Fantasma 3
+\item No queden monedes i \hyperlink{classlogica_1_1_fantasma3}{Fantasma3} esta perdent. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classlogica_1_1_fantasma3_a188d9336f751a28078fc220ee3e61c97}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E@{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E}}
+\index{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E@{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}final int logica.\+Fantasma3.\+D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E = 8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a188d9336f751a28078fc220ee3e61c97}
+Distancia a paritr de la qual Fantasma 3 considera canviar a mode seguiment. ex\+: Si distancia a \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} $<$ D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+C\+O\+N\+S\+I\+D\+E\+R\+A\+B\+L\+E, llavors anirem a per ell. \hypertarget{classlogica_1_1_fantasma3_a66b467ba2716d3116b05a06e75282b5e}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A@{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A}}
+\index{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A@{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A}]{\setlength{\rightskip}{0pt plus 5cm}final int logica.\+Fantasma3.\+D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A = 15\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a66b467ba2716d3116b05a06e75282b5e}
+Distancia a partir de la qual Fantasma 3 considera els perills. si distancia $<$ D\+I\+S\+T\+A\+N\+C\+I\+A\+\_\+\+P\+E\+R\+I\+L\+L\+O\+S\+A es considera perill \hypertarget{classlogica_1_1_fantasma3_a57dabe0804fa3f0ed00b28f3cab4d6b6}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!gestor\+Cami@{gestor\+Cami}}
+\index{gestor\+Cami@{gestor\+Cami}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{gestor\+Cami}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Gestor\+Camins} logica.\+Fantasma3.\+gestor\+Cami\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a57dabe0804fa3f0ed00b28f3cab4d6b6}
+Calcula els camins necessaris per moure's per el Laberint \hypertarget{classlogica_1_1_fantasma3_a42c7e17e87979122ed5c19aa4b2286f8}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!mode@{mode}}
+\index{mode@{mode}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Mode} logica.\+Fantasma3.\+mode\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a42c7e17e87979122ed5c19aa4b2286f8}
+\hyperlink{enumlogica_1_1_fantasma3_1_1_e_mode}{E\+Mode} en un instant en concret de F\+A\+N\+T\+A\+S\+M\+A3 en una partida \hypertarget{classlogica_1_1_fantasma3_a13e89583eb5f6a4fb3f41595833a9b79}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!objectiu@{objectiu}}
+\index{objectiu@{objectiu}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{objectiu}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Objectiu} logica.\+Fantasma3.\+objectiu\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a13e89583eb5f6a4fb3f41595833a9b79}
+\hyperlink{classlogica_1_1_fantasma3_1_1_objectiu}{Objectiu} en un instant en concret de F\+A\+N\+T\+A\+S\+M\+A3 en una partida \hypertarget{classlogica_1_1_fantasma3_a270da1ca223914034c125b12479973b1}{\index{logica\+::\+Fantasma3@{logica\+::\+Fantasma3}!ruta@{ruta}}
+\index{ruta@{ruta}!logica\+::\+Fantasma3@{logica\+::\+Fantasma3}}
+\subsubsection[{ruta}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+Fantasma3.\+ruta\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_fantasma3_a270da1ca223914034c125b12479973b1}
+Guarda els camins que retorna gestor\+Cami 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['validadorlaberint',['ValidadorLaberint',['../classlogica_1_1_validador_laberint.html',1,'logica']]]
+  ['tascaaplicarmoviment',['TascaAplicarMoviment',['../classlogica_1_1_item_movible_1_1_tasca_aplicar_moviment.html',1,'logica::ItemMovible']]]
 ];

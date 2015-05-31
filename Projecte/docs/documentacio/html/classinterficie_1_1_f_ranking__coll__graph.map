@@ -1,3 +1,8 @@
 <map id="interficie.FRanking" name="interficie.FRanking">
-<area shape="rect" id="node2" href="$classinterficie_1_1_f_frame_amb_log.html" title="Frame amb un menuBar que conté un menuItem per obre la pantalla de log. " alt="" coords="5,80,173,107"/>
+<area shape="rect" id="node2" href="$classinterficie_1_1_f_frame_amb_log.html" title="Frame amb un menuBar que conté un menuItem per obre la pantalla de log. " alt="" coords="5,288,173,315"/>
+<area shape="rect" id="node6" href="$classlogica_1_1_usuari.html" title="usuari registrat a l&#39;aplicació que consta de " alt="" coords="416,288,515,315"/>
+<area shape="rect" id="node9" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="364,102,567,129"/>
+<area shape="rect" id="node8" href="$enumlogica_1_1_usuari_1_1_e_dificultat.html" title="dificultat del laberint dins del nivell " alt="" coords="384,199,547,225"/>
+<area shape="rect" id="node10" href="$enumlogica_1_1enumeracions_1_1_e_laberints_predefinits.html" title="laberints que tenim predefinits en l&#39;aplicació. " alt="" coords="591,95,798,136"/>
+<area shape="rect" id="node11" href="$enumlogica_1_1_usuari_1_1_e_nivells.html" title="diferents nivells en el mode aventura. " alt="" coords="571,199,722,225"/>
 </map>

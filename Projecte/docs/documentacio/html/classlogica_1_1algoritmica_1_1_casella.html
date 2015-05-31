@@ -89,6 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Mètodes públics</a> &#124;
+<a href="#pri-attribs">Atributs Privats</a> &#124;
 <a href="classlogica_1_1algoritmica_1_1_casella-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe logica.algoritmica.Casella</div>  </div>
@@ -101,11 +102,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 Diagrama d'Herència per a logica.algoritmica.Casella:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1algoritmica_1_1_casella__inherit__graph.png" border="0" usemap="#logica_8algoritmica_8_casella_inherit__map" alt="Inheritance graph"/></div>
+<map name="logica_8algoritmica_8_casella_inherit__map" id="logica_8algoritmica_8_casella_inherit__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <div class="dynheader">
 Diagrama de col·laboració per a logica.algoritmica.Casella:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1algoritmica_1_1_casella__coll__graph.png" border="0" usemap="#logica_8algoritmica_8_casella_coll__map" alt="Collaboration graph"/></div>
+<map name="logica_8algoritmica_8_casella_coll__map" id="logica_8algoritmica_8_casella_coll__map">
+<area shape="rect" id="node3" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="190,5,277,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -154,6 +159,19 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:ab47747886e465a9fdda726b0cdb987da"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html#ab47747886e465a9fdda726b0cdb987da">equals</a> (Object o)</td></tr>
 <tr class="memdesc:ab47747886e465a9fdda726b0cdb987da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diu si objecte actual es igual al objecte o.  <a href="#ab47747886e465a9fdda726b0cdb987da">Més...</a><br /></td></tr>
 <tr class="separator:ab47747886e465a9fdda726b0cdb987da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributs Privats</h2></td></tr>
+<tr class="memitem:ad26c2e494cfa1a9362cf001a061ea375"><td class="memItemLeft" align="right" valign="top">final <a class="el" href="classlogica_1_1_punt.html">Punt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html#ad26c2e494cfa1a9362cf001a061ea375">posicio</a></td></tr>
+<tr class="separator:ad26c2e494cfa1a9362cf001a061ea375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b3a9ec985ee8925d1b11ef42e1b3b80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html">Casella</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html#a2b3a9ec985ee8925d1b11ef42e1b3b80">pare</a></td></tr>
+<tr class="separator:a2b3a9ec985ee8925d1b11ef42e1b3b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad412db755fc91149053db6100870bf70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html#ad412db755fc91149053db6100870bf70">distanciaAlObjectiu</a></td></tr>
+<tr class="separator:ad412db755fc91149053db6100870bf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1e2c28f03ba466a988117daab70ce57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html#aa1e2c28f03ba466a988117daab70ce57">profunditat</a></td></tr>
+<tr class="separator:aa1e2c28f03ba466a988117daab70ce57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c76bca181afa4cfa68b7150365305d"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html#aa4c76bca181afa4cfa68b7150365305d">processat</a></td></tr>
+<tr class="separator:aa4c76bca181afa4cfa68b7150365305d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Conté la informació heuristica necessaria per a poder implementar els algoritmes de backTracking i AStar. La Heuristica utilitzada en el algorisme de AStar es: F = profunditat + distanciaAlObjectiu (on distanciaAlObjectiu, es la distancia Manhattan entre dos punts dintre de un Laberint format per cel·les) </p>
@@ -290,13 +308,119 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
+<h2 class="groupheader">Documentació de les Dades Membre</h2>
+<a class="anchor" id="ad412db755fc91149053db6100870bf70"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int logica.algoritmica.Casella.distanciaAlObjectiu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Distancia Manhattan entre dos punts dintre de un Laberint format per cel·les. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2b3a9ec985ee8925d1b11ef42e1b3b80"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlogica_1_1algoritmica_1_1_casella.html">Casella</a> logica.algoritmica.Casella.pare</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>En el algorisme de AStar s'utilitza per referenciar al predecessor d'una casella en la cerca del cami minim. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad26c2e494cfa1a9362cf001a061ea375"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final <a class="el" href="classlogica_1_1_punt.html">Punt</a> logica.algoritmica.Casella.posicio</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Guarda les coordenades que corresponen a una posicio en la taula de EElements de un Objecte tipus Laberint </p>
+
+</div>
+</div>
+<a class="anchor" id="aa4c76bca181afa4cfa68b7150365305d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean logica.algoritmica.Casella.processat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Guarda l'estat si la casella ha estat processada o no. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa1e2c28f03ba466a988117daab70ce57"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int logica.algoritmica.Casella.profunditat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>En el algorisme de AStar s'utilitza per guardar en cuants pasos hem arrivat a la <a class="el" href="classlogica_1_1algoritmica_1_1_casella.html" title="Conté la informació heuristica necessaria per a poder implementar els algoritmes de backTracking i AS...">Casella</a> actual. </p>
+
+</div>
+</div>
 <hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
 <li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/logica/algoritmica/Casella.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dg Mai 31 2015 18:59:53 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 23:25:06 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

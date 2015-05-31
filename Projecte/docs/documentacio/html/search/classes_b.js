@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solucio',['Solucio',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html',1,'logica::algoritmica::BackTracking']]]
+  ['objectiu',['Objectiu',['../classlogica_1_1_fantasma3_1_1_objectiu.html',1,'logica::Fantasma3']]]
 ];

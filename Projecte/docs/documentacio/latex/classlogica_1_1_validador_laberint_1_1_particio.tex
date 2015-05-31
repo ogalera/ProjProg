@@ -1,0 +1,96 @@
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio}{\section{Referència de la Classe logica.\+Validador\+Laberint.\+Particio}
+\label{classlogica_1_1_validador_laberint_1_1_particio}\index{logica.\+Validador\+Laberint.\+Particio@{logica.\+Validador\+Laberint.\+Particio}}
+}
+\subsection*{Mètodes públics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlogica_1_1_validador_laberint_1_1_particio_a14003efe8fde18b0fc1e11b6e7d11ccc}{Particio} (int \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_aea17b1b87c85801a9ee677412b702e83}{costat})
+\item 
+int \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_ab9eaf05a1e8c7bbe02dfc5a31a347132}{obtenir\+Id} (int pos)
+\item 
+void \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_a63aab2c88d6c1562d0140fde66c2e877}{afegir\+A\+La\+Particio} (int pare, int pos)
+\item 
+int \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_a17d7870068d9eb5a9b62b568708faba6}{get\+N\+Particions} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_a77542aa20574c416574f87ca688fd3f4}{final int\mbox{[}$\,$\mbox{]} \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_a77542aa20574c416574f87ca688fd3f4}{particio}}\label{classlogica_1_1_validador_laberint_1_1_particio_a77542aa20574c416574f87ca688fd3f4}
+
+\begin{DoxyCompactList}\small\item\em Vector per guardar tots els elements de la partició \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_aea17b1b87c85801a9ee677412b702e83}{final int \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_aea17b1b87c85801a9ee677412b702e83}{costat}}\label{classlogica_1_1_validador_laberint_1_1_particio_aea17b1b87c85801a9ee677412b702e83}
+
+\begin{DoxyCompactList}\small\item\em Determina la mida de la partició, la qual serà costat X costat. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_a89a4308fa4580773cf760520740aa6ef}{int \hyperlink{classlogica_1_1_validador_laberint_1_1_particio_a89a4308fa4580773cf760520740aa6ef}{n\+Particions}}\label{classlogica_1_1_validador_laberint_1_1_particio_a89a4308fa4580773cf760520740aa6ef}
+
+\begin{DoxyCompactList}\small\item\em Contador que ens indica el nombre de \char`\"{}sub\+Particions\char`\"{} que tenim en cada moment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripció Detallada}
+\begin{DoxyAuthor}{Autor}
+Oscar.\+Galera  Aquesta classe l'utilitzarem amb la finalitat de validar que el laberint sigui connex, el seu funcionament és bàsicament el de una partició 
+\end{DoxyAuthor}
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_a14003efe8fde18b0fc1e11b6e7d11ccc}{\index{logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}!Particio@{Particio}}
+\index{Particio@{Particio}!logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}}
+\subsubsection[{Particio}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+Validador\+Laberint.\+Particio.\+Particio (
+\begin{DoxyParamCaption}
+\item[{int}]{costat}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_validador_laberint_1_1_particio_a14003efe8fde18b0fc1e11b6e7d11ccc}
+\begin{DoxyPrecond}{Precondició}
+costat $>$= 0; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Em creat una partició de costat X costat on tots els seus elements són -\/1 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_a63aab2c88d6c1562d0140fde66c2e877}{\index{logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}!afegir\+A\+La\+Particio@{afegir\+A\+La\+Particio}}
+\index{afegir\+A\+La\+Particio@{afegir\+A\+La\+Particio}!logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}}
+\subsubsection[{afegir\+A\+La\+Particio}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Validador\+Laberint.\+Particio.\+afegir\+A\+La\+Particio (
+\begin{DoxyParamCaption}
+\item[{int}]{pare, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_validador_laberint_1_1_particio_a63aab2c88d6c1562d0140fde66c2e877}
+\begin{DoxyPrecond}{Precondició}
+pare i pos són $>$= 0 i $<$= costat x costat 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+si pare i pos són iguals es crea una subpartició nova altrament l'enter de la posició pos apunta a pare; 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_a17d7870068d9eb5a9b62b568708faba6}{\index{logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}!get\+N\+Particions@{get\+N\+Particions}}
+\index{get\+N\+Particions@{get\+N\+Particions}!logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}}
+\subsubsection[{get\+N\+Particions}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Validador\+Laberint.\+Particio.\+get\+N\+Particions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_validador_laberint_1_1_particio_a17d7870068d9eb5a9b62b568708faba6}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+retornem el nombre de subparticions que té la partició. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_validador_laberint_1_1_particio_ab9eaf05a1e8c7bbe02dfc5a31a347132}{\index{logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}!obtenir\+Id@{obtenir\+Id}}
+\index{obtenir\+Id@{obtenir\+Id}!logica\+::\+Validador\+Laberint\+::\+Particio@{logica\+::\+Validador\+Laberint\+::\+Particio}}
+\subsubsection[{obtenir\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Validador\+Laberint.\+Particio.\+obtenir\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_validador_laberint_1_1_particio_ab9eaf05a1e8c7bbe02dfc5a31a347132}
+\begin{DoxyPrecond}{Precondició}
+pos $>$= 0 \&\& pos $<$ costat X costat 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+retornem l'id de la posició especificada; 
+\end{DoxyPostcond}
+
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
+\item 
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/Validador\+Laberint.\+java\end{DoxyCompactItemize}

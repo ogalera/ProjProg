@@ -6,12 +6,22 @@
 pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l'objectiu de aconseguir-\/ne el maxim nombre possible.  
 
 
+
+
+Diagrama de col·laboració per a logica.\+Partida\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogica_1_1_partida__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classlogica_1_1_partida_ab85633f290087fe7699fe41008b2e93a}{Partida} (String fitxer, \hyperlink{interfaceinterficie_1_1_i_pintador_partida}{I\+Pintador\+Partida} pintador\+Partida, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint, \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador}{I\+Controlador} controlador)  throws E\+Format\+Laberint
 \item 
-\hyperlink{classlogica_1_1_partida_a89b9872f1db2660c1c0587d48ccef48c}{Partida} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_laberints_predefinits}{E\+Laberints\+Predefinits} laberint, int costat, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_partida}{I\+Pintador\+Partida} pintador\+Partida, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint, \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador}{I\+Controlador} controlador)
+\hyperlink{classlogica_1_1_partida_a89b9872f1db2660c1c0587d48ccef48c}{Partida} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_laberints_predefinits}{E\+Laberints\+Predefinits} \hyperlink{classlogica_1_1_partida_a12062f14298f0ee05a92aedf4b14e301}{laberint}, int costat, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_partida_ae634faef1c00ccb1658cd1aa4dde990f}{enemic}, \hyperlink{interfaceinterficie_1_1_i_pintador_partida}{I\+Pintador\+Partida} pintador\+Partida, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint, \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador}{I\+Controlador} controlador)
 \item 
 void \hyperlink{classlogica_1_1_partida_aa23f62dbeea7c44240304843e2ea699d}{iniciar\+Partida} ()
 \item 
@@ -54,6 +64,39 @@ void \hyperlink{classlogica_1_1_partida_a5b3670c7515defc5102dfadb00bcf3ef}{assig
 \hyperlink{classlogica_1_1_item}{Item} \hyperlink{classlogica_1_1_partida_a59160392ea2e5a2b5482f3deb29af5aa}{obtenir\+Item} ()
 \item 
 int \hyperlink{classlogica_1_1_partida_adc8512f949534ba5aee17a23d9a04c1b}{obtenir\+Puntuacio\+Pacman} ()
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classlogica_1_1_partida_aca02d96c8f54d70a8bfa12927e75ba49}{crear\+Enemic} ()
+\item 
+void \hyperlink{classlogica_1_1_partida_aff3942c516b8a711b3d13e09453f5c67}{crear\+Pacman} (\hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador}{I\+Controlador} controlador)
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_partida_a12062f14298f0ee05a92aedf4b14e301}{final \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_partida_a12062f14298f0ee05a92aedf4b14e301}{laberint}}\label{classlogica_1_1_partida_a12062f14298f0ee05a92aedf4b14e301}
+
+\begin{DoxyCompactList}\small\item\em laberint on es desenvolupa el joc \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_partida_a7a8e6c8daf205b7d6dcefd6ca58eb967}{\hyperlink{classlogica_1_1_personatge}{Personatge} \hyperlink{classlogica_1_1_partida_a7a8e6c8daf205b7d6dcefd6ca58eb967}{pacman}}\label{classlogica_1_1_partida_a7a8e6c8daf205b7d6dcefd6ca58eb967}
+
+\begin{DoxyCompactList}\small\item\em personatge principal \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_partida_ae634faef1c00ccb1658cd1aa4dde990f}{\hyperlink{classlogica_1_1_personatge}{Personatge} \hyperlink{classlogica_1_1_partida_ae634faef1c00ccb1658cd1aa4dde990f}{enemic}}\label{classlogica_1_1_partida_ae634faef1c00ccb1658cd1aa4dde990f}
+
+\begin{DoxyCompactList}\small\item\em Enemic controlat per la màquina. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_partida_a2dcb6e6acb80d2c285796cf4a61635a2}{\hyperlink{classlogica_1_1_item}{Item} \hyperlink{classlogica_1_1_partida_a2dcb6e6acb80d2c285796cf4a61635a2}{item\+Especial} = null}\label{classlogica_1_1_partida_a2dcb6e6acb80d2c285796cf4a61635a2}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classlogica_1_1_item}{Item} especial que corre pel laberint, aquest item apareix i desapareix quan algú l'agafa, per tant, nosaltres entenem qui hi ha un item a la partida si el seu valor no és null. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_partida_a8896d14d62683416b4ec20a3257a9031}{\hyperlink{interfaceinterficie_1_1_i_pintador_partida}{I\+Pintador\+Partida} \hyperlink{classlogica_1_1_partida_a8896d14d62683416b4ec20a3257a9031}{pintador}}\label{classlogica_1_1_partida_a8896d14d62683416b4ec20a3257a9031}
+
+\begin{DoxyCompactList}\small\item\em Frame per visualitzar de forma gràfica la partida. \end{DoxyCompactList}\item 
+long \hyperlink{classlogica_1_1_partida_ae355797722d1ae3a44d644b818b068f5}{moment\+Inici} = -\/1
+\begin{DoxyCompactList}\small\item\em Instants de temps en que inicia i finalitza la partida (respectivament) aquest atributs els tenim per tal de generar informació del cicle de vida de la partida;. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_partida_a7ed4304ae56d5752bce1f576f790e565}{long \hyperlink{classlogica_1_1_partida_a7ed4304ae56d5752bce1f576f790e565}{moment\+Fi} = -\/1}\label{classlogica_1_1_partida_a7ed4304ae56d5752bce1f576f790e565}
+
+\begin{DoxyCompactList}\small\item\em Instant de temps en que finalitza la partida. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_partida_a1dd08cde4519f5208599915deb63e52e}{final \hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log}}\label{classlogica_1_1_partida_a1dd08cde4519f5208599915deb63e52e}
+
 \end{DoxyCompactItemize}
 
 
@@ -98,7 +141,7 @@ laberint != null, pacman != null, enemic != null i pintador\+Partida != null
 \end{DoxyParamCaption}
 )}}\label{classlogica_1_1_partida_a89b9872f1db2660c1c0587d48ccef48c}
 \begin{DoxyPrecond}{Precondició}
-Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T $<$= costat i enemic és realment un enemic. 
+\hyperlink{classlogica_1_1_utils_1_1_constants_af0255617e604b0757200f05de64fa934}{Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T} $<$= costat i enemic és realment un enemic. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
 em creat una partida amb un laberint concret de mida costat amb en pacman a la posició \mbox{[}0, 0\mbox{]} un enemic en la posicio \mbox{[}costat-\/1, costat-\/1\mbox{]}, amb un pintador per la partida i per el laberint i un controlador per moure an pacman. 
@@ -192,6 +235,32 @@ em pintat els punts que té el fantasma.
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
 em pintat els punts que té en pacman. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_partida_aca02d96c8f54d70a8bfa12927e75ba49}{\index{logica\+::\+Partida@{logica\+::\+Partida}!crear\+Enemic@{crear\+Enemic}}
+\index{crear\+Enemic@{crear\+Enemic}!logica\+::\+Partida@{logica\+::\+Partida}}
+\subsubsection[{crear\+Enemic}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Partida.\+crear\+Enemic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_partida_aca02d96c8f54d70a8bfa12927e75ba49}
+\begin{DoxyPrecond}{Precondició}
+el laberint és valid. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat l'enemic que juga la partida. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_partida_aff3942c516b8a711b3d13e09453f5c67}{\index{logica\+::\+Partida@{logica\+::\+Partida}!crear\+Pacman@{crear\+Pacman}}
+\index{crear\+Pacman@{crear\+Pacman}!logica\+::\+Partida@{logica\+::\+Partida}}
+\subsubsection[{crear\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Partida.\+crear\+Pacman (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Controlador}}]{controlador}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_partida_aff3942c516b8a711b3d13e09453f5c67}
+\begin{DoxyPrecond}{Precondició}
+el laberint és valid. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat en pacman que juga la partida. 
 \end{DoxyPostcond}
 \hypertarget{classlogica_1_1_partida_a44c3c25575052f971e90728f15f9c5a2}{\index{logica\+::\+Partida@{logica\+::\+Partida}!finalitzar\+Partida@{finalitzar\+Partida}}
 \index{finalitzar\+Partida@{finalitzar\+Partida}!logica\+::\+Partida@{logica\+::\+Partida}}
@@ -389,6 +458,16 @@ la partida no ha sigut finalitzada
 em tancat la partida matant al enemic, an pacman i al item (si ni havia en aquest moment). 
 \end{DoxyPostcond}
 
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classlogica_1_1_partida_ae355797722d1ae3a44d644b818b068f5}{\index{logica\+::\+Partida@{logica\+::\+Partida}!moment\+Inici@{moment\+Inici}}
+\index{moment\+Inici@{moment\+Inici}!logica\+::\+Partida@{logica\+::\+Partida}}
+\subsubsection[{moment\+Inici}]{\setlength{\rightskip}{0pt plus 5cm}long logica.\+Partida.\+moment\+Inici = -\/1\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_partida_ae355797722d1ae3a44d644b818b068f5}
+
+
+Instants de temps en que inicia i finalitza la partida (respectivament) aquest atributs els tenim per tal de generar informació del cicle de vida de la partida;. 
+
+Instant de temps en que s'inicia la partida 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

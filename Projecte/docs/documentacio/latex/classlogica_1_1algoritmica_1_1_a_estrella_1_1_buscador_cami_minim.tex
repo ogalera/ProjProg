@@ -6,6 +6,16 @@
 Classe que implementa l'algorisme A\+Star per a determinar un cami minim entre dos punts en un objecte de tipus Laberint.  
 
 
+
+
+Diagrama de col·laboració per a logica.\+algoritmica.\+A\+Estrella.\+Buscador\+Cami\+Minim\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,6 +24,27 @@ Classe que implementa l'algorisme A\+Star per a determinar un cami minim entre d
 \item 
 \hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a31bce579bd1b302c4eaa16f981655454}{troba\+Cami\+Mes\+Curt} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{classlogica_1_1_punt}{Punt} desti)
 \begin{DoxyCompactList}\small\item\em Retorna un camí curt entre origen i desti. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a678eaf8cc032feaea8ea8975cd381a10}{busca\+Cami\+Mes\+Curt} (\hyperlink{classlogica_1_1_punt}{Punt} origen, \hyperlink{classlogica_1_1_punt}{Punt} desti)
+\begin{DoxyCompactList}\small\item\em Troba un camí curt desde origen fins desti utilitzant l'algorisme A\+Star. \end{DoxyCompactList}\item 
+\hyperlink{classlogica_1_1historic__moviments_1_1_historic_moviments}{Historic\+Moviments} \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a99382c4518dfe3adff49fb8cbef27705}{genera\+Ruta} (\hyperlink{classlogica_1_1_punt}{Punt} desti)
+\begin{DoxyCompactList}\small\item\em Fa un recorregut de \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} fill a \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} pare desde la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} amb coordenades desti fins al cim de l'arbre (inici). \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a78037be2355dc5a782185a0d1662ce5c}{reset} ()
+\begin{DoxyCompactList}\small\item\em Esborra tota la informació heuristica de tauler calculada durant el procés de cerca del cami mes curt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a9d72cbd300ff4207b845ebfc37c72e8c}{final \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a9d72cbd300ff4207b845ebfc37c72e8c}{llista\+Oberta}}\label{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a9d72cbd300ff4207b845ebfc37c72e8c}
+
+\begin{DoxyCompactList}\small\item\em Conté les caselles que encara hem de processar. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a381ef30c585f82399a983b48ff67efda}{final \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a381ef30c585f82399a983b48ff67efda}{laberint}}\label{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a381ef30c585f82399a983b48ff67efda}
+
+\begin{DoxyCompactList}\small\item\em Laberint sobre el cual es faran les cerques del camí mínim. \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a2ed56315845fb53a3709fe045f3dfe2e}{final \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a2ed56315845fb53a3709fe045f3dfe2e}{tauler}}\label{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a2ed56315845fb53a3709fe045f3dfe2e}
+
+\begin{DoxyCompactList}\small\item\em Cada posicio de tauler correspon a una posicio del laberint i contindra la informació heuristica necessaria per a realitzar la cerca del camí mínim. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -25,6 +56,62 @@ Moises
 
 
 \subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a678eaf8cc032feaea8ea8975cd381a10}{\index{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}!busca\+Cami\+Mes\+Curt@{busca\+Cami\+Mes\+Curt}}
+\index{busca\+Cami\+Mes\+Curt@{busca\+Cami\+Mes\+Curt}!logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}}
+\subsubsection[{busca\+Cami\+Mes\+Curt}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+A\+Estrella.\+Buscador\+Cami\+Minim.\+busca\+Cami\+Mes\+Curt (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{origen, }
+\item[{{\bf Punt}}]{desti}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a678eaf8cc032feaea8ea8975cd381a10}
+
+
+Troba un camí curt desde origen fins desti utilitzant l'algorisme A\+Star. 
+
+\begin{DoxyPrecond}{Precondició}
+origen != null i desti != null. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Les Caselles que forman part del cami curt, tenen com a \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} pare la casella predecessora en el trajecte del cami curt. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Excepcions}
+{\em E\+Buscador\+Camins} & origen o desti corresponen a un E\+Element P\+A\+R\+E\+T \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a99382c4518dfe3adff49fb8cbef27705}{\index{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}!genera\+Ruta@{genera\+Ruta}}
+\index{genera\+Ruta@{genera\+Ruta}!logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}}
+\subsubsection[{genera\+Ruta}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+algoritmica.\+A\+Estrella.\+Buscador\+Cami\+Minim.\+genera\+Ruta (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{desti}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a99382c4518dfe3adff49fb8cbef27705}
+
+
+Fa un recorregut de \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} fill a \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} pare desde la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} amb coordenades desti fins al cim de l'arbre (inici). 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em desti} & La \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} amb coordenades desti es l'ultim node de l'arbre obtingut al fer la cerca del camí mínim. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna els moviments necessaris per fer el camí obtingut desde origen a desti. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a78037be2355dc5a782185a0d1662ce5c}{\index{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}!reset@{reset}}
+\index{reset@{reset}!logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+A\+Estrella.\+Buscador\+Cami\+Minim.\+reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a78037be2355dc5a782185a0d1662ce5c}
+
+
+Esborra tota la informació heuristica de tauler calculada durant el procés de cerca del cami mes curt. 
+
+\begin{DoxyPostcond}{Postcondició}
+Els Objectes \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de tauler no contenen informació heuristica. 
+\end{DoxyPostcond}
 \hypertarget{classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim_a31bce579bd1b302c4eaa16f981655454}{\index{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}!troba\+Cami\+Mes\+Curt@{troba\+Cami\+Mes\+Curt}}
 \index{troba\+Cami\+Mes\+Curt@{troba\+Cami\+Mes\+Curt}!logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim@{logica\+::algoritmica\+::\+A\+Estrella\+::\+Buscador\+Cami\+Minim}}
 \subsubsection[{troba\+Cami\+Mes\+Curt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historic\+Moviments} logica.\+algoritmica.\+A\+Estrella.\+Buscador\+Cami\+Minim.\+troba\+Cami\+Mes\+Curt (

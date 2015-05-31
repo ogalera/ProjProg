@@ -1,16 +1,26 @@
 var searchData=
 [
   ['icontrolador',['IControlador',['../interfacelogica_1_1controladors__pacman_1_1_i_controlador.html',1,'logica::controladors_pacman']]],
-  ['imatgeperfil',['imatgePerfil',['../classlogica_1_1_item_movible.html#a156a60365745803d0d3298b83aeacb73',1,'logica::ItemMovible']]],
+  ['id',['id',['../enumlogica_1_1enumeracions_1_1_e_element.html#a276fc494132bca06ef0e2e8490888a01',1,'logica.enumeracions.EElement.id()'],['../classlogica_1_1_usuari.html#a03e97d4f96974eabebd5b15c95267cdf',1,'logica.Usuari.id()']]],
+  ['imatge',['imatge',['../enumlogica_1_1enumeracions_1_1_e_element.html#a88d2ec584346f09066becb195b96d8a9',1,'logica::enumeracions::EElement']]],
+  ['imatgeperfil',['imatgePerfil',['../classlogica_1_1_item_movible.html#a156a60365745803d0d3298b83aeacb73',1,'logica.ItemMovible.imatgePerfil()'],['../classlogica_1_1_usuari.html#a1ff0cdb0042dc250575386b841111ec1',1,'logica.Usuari.imatgePerfil()']]],
+  ['imatgeredimensionada',['imatgeRedimensionada',['../classinterficie_1_1_f_alta.html#ad489c239315b7f8b5206017f668b383c',1,'interficie::FAlta']]],
   ['imatges',['imatges',['../classlogica_1_1_personatge.html#a066a8096f86141bc7a7400cca4c18a7b',1,'logica::Personatge']]],
   ['incrementarpunts',['incrementarPunts',['../classlogica_1_1_personatge.html#a72434a1f940bd10caa6e2d80b129adda',1,'logica::Personatge']]],
+  ['incrementcolumna',['incrementColumna',['../enumlogica_1_1enumeracions_1_1_e_direccio.html#a55188904e0a2d50611f032d0fed63fac',1,'logica::enumeracions::EDireccio']]],
+  ['incrementfila',['incrementFila',['../enumlogica_1_1enumeracions_1_1_e_direccio.html#a7f54d2a6315924892ed78da3635a6358',1,'logica::enumeracions::EDireccio']]],
+  ['indexdireccioanterior',['indexDireccioAnterior',['../classlogica_1_1_personatge.html#a9ee15210d2e76e1be387aad61b8d3698',1,'logica::Personatge']]],
+  ['inicialitzacomponents',['inicialitzaComponents',['../classinterficie_1_1components_1_1_marcador.html#af68b294caf644dd8d684990098801d31',1,'interficie::components::Marcador']]],
   ['iniciarcrono',['iniciarCrono',['../classinterficie_1_1components_1_1_crono.html#aa890cf3bea27a9c0822bf6066de35929',1,'interficie::components::Crono']]],
   ['iniciaritemmovible',['iniciarItemMovible',['../classlogica_1_1_item_movible.html#a9a43835d32363d837ad38635e48483ba',1,'logica.ItemMovible.iniciarItemMovible()'],['../classlogica_1_1_personatge.html#a5f171d79a5a8ca6d0184a250456c44d1',1,'logica.Personatge.iniciarItemMovible()']]],
   ['iniciarpartida',['iniciarPartida',['../classlogica_1_1_partida.html#aa23f62dbeea7c44240304843e2ea699d',1,'logica::Partida']]],
   ['ipintadorlaberint',['IPintadorLaberint',['../interfaceinterficie_1_1_i_pintador_laberint.html',1,'interficie']]],
   ['ipintadorpartida',['IPintadorPartida',['../interfaceinterficie_1_1_i_pintador_partida.html',1,'interficie']]],
-  ['item',['Item',['../classlogica_1_1_item.html',1,'logica']]],
   ['item',['Item',['../classlogica_1_1_item.html#ac19a70f15ff1f377848f1df34a6e1137',1,'logica::Item']]],
+  ['item',['Item',['../classlogica_1_1_item.html',1,'logica']]],
   ['itemcapturat',['itemCapturat',['../classlogica_1_1_partida.html#a4f899f5e8cd1e5acc95321331aace206',1,'logica::Partida']]],
-  ['itemmovible',['ItemMovible',['../classlogica_1_1_item_movible.html',1,'logica']]]
+  ['itemenemic',['itemEnemic',['../classinterficie_1_1_f_partida.html#abe23e279e0547f67d0e228cc8bdf4c21',1,'interficie::FPartida']]],
+  ['itemespecial',['itemEspecial',['../classlogica_1_1_partida.html#a2dcb6e6acb80d2c285796cf4a61635a2',1,'logica::Partida']]],
+  ['itemmovible',['ItemMovible',['../classlogica_1_1_item_movible.html',1,'logica']]],
+  ['itempacman',['itemPacman',['../classinterficie_1_1_f_partida.html#af864c7289d6462d5c8b4742047f32b57',1,'interficie::FPartida']]]
 ];

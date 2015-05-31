@@ -1,3 +1,5 @@
 <map id="interficie.FPartida" name="interficie.FPartida">
-<area shape="rect" id="node3" href="$interfaceinterficie_1_1_i_pintador_partida.html" title="Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d&#39;una parti..." alt="" coords="96,5,264,32"/>
+<area shape="rect" id="node3" href="$interfaceinterficie_1_1_i_pintador_partida.html" title="Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d&#39;una parti..." alt="" coords="206,56,374,83"/>
+<area shape="rect" id="node4" href="$classinterficie_1_1components_1_1_crono.html" title="Cronometre amb representacio gràfica amb 00:00:000 minuts:segons:milesimes. " alt="" coords="197,107,383,133"/>
+<area shape="rect" id="node8" href="$classinterficie_1_1components_1_1_marcador.html" title="Encarregada de mostrar la imatge i la puntuacio de un Personatge durant una partida. " alt="" coords="188,160,392,187"/>
 </map>

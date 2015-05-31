@@ -1,0 +1,98 @@
+\hypertarget{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint}{\section{Referència de la Classe interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint}
+\label{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint}\index{interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint@{interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint}}
+}
+
+
+controla els events sobre el boto de validar el laberint  
+
+
+
+
+Diagrama d'Herència per a interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de col·laboració per a interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Mètodes públics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a91bc69391e983aeb130a92de2e9b98ab}{void {\bfseries action\+Performed} (Action\+Event e)}\label{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a91bc69391e983aeb130a92de2e9b98ab}
+
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a8202d42d8f9cda5a1543fda054afcdb7}{seleccionar\+Carpeta} ()
+\item 
+void \hyperlink{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a99559123f9ab20e8d62b2f979412731e}{exportar\+Laberint} (String desti)
+\item 
+boolean \hyperlink{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a3ba49c2e5869d88028a37381a123d045}{exportar\+Fitxer} (String fitxer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripció Detallada}
+controla els events sobre el boto de validar el laberint 
+
+\begin{DoxyAuthor}{Autor}
+Oscar.\+Galera 
+\end{DoxyAuthor}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a3ba49c2e5869d88028a37381a123d045}{\index{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint@{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint}!exportar\+Fitxer@{exportar\+Fitxer}}
+\index{exportar\+Fitxer@{exportar\+Fitxer}!interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint@{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint}}
+\subsubsection[{exportar\+Fitxer}]{\setlength{\rightskip}{0pt plus 5cm}boolean interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint.\+exportar\+Fitxer (
+\begin{DoxyParamCaption}
+\item[{String}]{fitxer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a3ba49c2e5869d88028a37381a123d045}
+\begin{DoxyPrecond}{Precondició}
+fitxer és el nom d'un fitxer de destí valid; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em exportat el laberint en format text sobre el fitxer; 
+\end{DoxyPostcond}
+\hypertarget{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a99559123f9ab20e8d62b2f979412731e}{\index{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint@{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint}!exportar\+Laberint@{exportar\+Laberint}}
+\index{exportar\+Laberint@{exportar\+Laberint}!interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint@{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint}}
+\subsubsection[{exportar\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint.\+exportar\+Laberint (
+\begin{DoxyParamCaption}
+\item[{String}]{desti}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a99559123f9ab20e8d62b2f979412731e}
+\begin{DoxyPrecond}{Precondició}
+desti és la ruta a un directori accessible per escriure. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em exportat el el laberint en format text (.txt) en la carpeta destí, el nom del fitxer és laberint\+\_\+dia\+\_\+mes\+\_\+any\+\_\+hora\+\_\+minuts.\+txt. 
+\end{DoxyPostcond}
+\hypertarget{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a8202d42d8f9cda5a1543fda054afcdb7}{\index{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint@{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint}!seleccionar\+Carpeta@{seleccionar\+Carpeta}}
+\index{seleccionar\+Carpeta@{seleccionar\+Carpeta}!interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint@{interficie\+::\+F\+Editor\+Laberint\+::\+Action\+Validar\+Laberint}}
+\subsubsection[{seleccionar\+Carpeta}]{\setlength{\rightskip}{0pt plus 5cm}String interficie.\+F\+Editor\+Laberint.\+Action\+Validar\+Laberint.\+seleccionar\+Carpeta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint_a8202d42d8f9cda5a1543fda054afcdb7}
+\begin{DoxyPrecond}{Precondició}
+--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em mostrat un dialeg per seleccionar un directori, si s'ha seleccionat de forma correct es retorna la seva ruta altrament es retorna null. 
+\end{DoxyPostcond}
+
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
+\item 
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/interficie/F\+Editor\+Laberint.\+java\end{DoxyCompactItemize}

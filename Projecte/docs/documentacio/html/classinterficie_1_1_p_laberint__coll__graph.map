@@ -1,3 +1,4 @@
 <map id="interficie.PLaberint" name="interficie.PLaberint">
-<area shape="rect" id="node3" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="93,80,266,107"/>
+<area shape="rect" id="node3" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="285,56,459,83"/>
+<area shape="rect" id="node6" href="$classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="321,196,423,223"/>
 </map>

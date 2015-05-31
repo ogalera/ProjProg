@@ -1,8 +1,24 @@
 var searchData=
 [
   ['bd',['BD',['../classdades_1_1_b_d.html',1,'dades']]],
+  ['bocaoberta',['bocaOberta',['../classlogica_1_1_personatge.html#ae31501dcb29ace9d4bcfee0fd2e4b8c1',1,'logica::Personatge']]],
+  ['btncasella',['btnCasella',['../classinterficie_1_1_f_editor_laberint_1_1btn_casella.html',1,'interficie::FEditorLaberint']]],
+  ['btncasella',['btnCasella',['../classinterficie_1_1_f_editor_laberint_1_1btn_casella.html#ae67550e93349a5e598889aa7827c2bdd',1,'interficie::FEditorLaberint::btnCasella']]],
+  ['btnfantasma1',['btnFantasma1',['../classinterficie_1_1_f_editor_laberint.html#a392a7b50832bbeffb3256d559009ec47',1,'interficie::FEditorLaberint']]],
+  ['btnfantasma2',['btnFantasma2',['../classinterficie_1_1_f_editor_laberint.html#acda5e508a01033c95ab99ed1e323e4a7',1,'interficie::FEditorLaberint']]],
+  ['btnfantasma3',['btnFantasma3',['../classinterficie_1_1_f_editor_laberint.html#a0d4159dadab06a9819462d830e94accf',1,'interficie::FEditorLaberint']]],
+  ['btnitemseleccionat',['btnItemSeleccionat',['../classinterficie_1_1_f_editor_laberint.html#a224a51b6c96af0adda2975f5f0a3d3fd',1,'interficie::FEditorLaberint']]],
+  ['btnmoneda',['btnMoneda',['../classinterficie_1_1_f_editor_laberint.html#a0743e614f6c7e1ae5a37ecab5308407a',1,'interficie::FEditorLaberint']]],
+  ['btnpacman',['btnPacman',['../classinterficie_1_1_f_editor_laberint.html#a1aafb9975649a5ce63b28472b5e8b2c6',1,'interficie::FEditorLaberint']]],
+  ['btnparet',['btnParet',['../classinterficie_1_1_f_editor_laberint.html#aef3584e6601f6d5ce0d6dceeb9cb5102',1,'interficie::FEditorLaberint']]],
+  ['btnvalidar',['btnValidar',['../classinterficie_1_1_f_editor_laberint.html#aacb445c35fb6eeecea3298e8b8198e29',1,'interficie::FEditorLaberint']]],
   ['buscacamimaxim',['buscaCamiMaxim',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim.html#afbd9364d6bdb5233798dde0d34090eec',1,'logica::algoritmica::BackTracking::BuscadorCamiMaxim']]],
+  ['buscacamimescurt',['buscaCamiMesCurt',['../classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim.html#a678eaf8cc032feaea8ea8975cd381a10',1,'logica::algoritmica::AEstrella::BuscadorCamiMinim']]],
   ['buscadorcamimaxim',['BuscadorCamiMaxim',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim.html',1,'logica::algoritmica::BackTracking']]],
   ['buscadorcamiminim',['BuscadorCamiMinim',['../classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim.html',1,'logica::algoritmica::AEstrella']]],
+  ['buscaelement',['buscaElement',['../classlogica_1_1_fantasma3.html#a90fb356d375f93ecf845e4c804de0e60',1,'logica::Fantasma3']]],
+  ['buscamoneda',['buscaMoneda',['../classlogica_1_1_fantasma3.html#a112aa6d0c3a8536490a09724bd9daeab',1,'logica::Fantasma3']]],
+  ['buscamonedamesproxima',['buscaMonedaMesProxima',['../classlogica_1_1_fantasma3.html#a447bfe80d247a3a653b9f1ce9d920cd9',1,'logica::Fantasma3']]],
+  ['buscarcamibacktrack',['buscarCamiBackTrack',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim.html#a407a2f222dbe4121fda40f5817f2f995',1,'logica::algoritmica::BackTracking::BuscadorCamiMaxim']]],
   ['buscarelementperid',['buscarElementPerId',['../enumlogica_1_1enumeracions_1_1_e_element.html#a5bd957c7a226b8127a5ef222f7d5a869',1,'logica::enumeracions::EElement']]]
 ];

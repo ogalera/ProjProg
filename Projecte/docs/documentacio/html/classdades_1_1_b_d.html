@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
   <div class="summary">
 <a href="#pub-static-methods">Mètodes Públics Estàtics</a> &#124;
 <a href="#pub-static-attribs">Atributs Públics Estàtics</a> &#124;
+<a href="#pri-static-methods">Mètodes Privats Estàtics</a> &#124;
 <a href="classdades_1_1_b_d-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe dades.BD<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -124,6 +125,11 @@ Atributs Públics Estàtics</h2></td></tr>
 <tr class="memitem:abc83c541acdcd0be2ae8a33daa753077"><td class="memItemLeft" align="right" valign="top">static final String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdades_1_1_b_d.html#abc83c541acdcd0be2ae8a33daa753077">URL_BD</a> = &quot;jdbc:sqlite:&quot;+NOM_BD</td></tr>
 <tr class="memdesc:abc83c541acdcd0be2ae8a33daa753077"><td class="mdescLeft">&#160;</td><td class="mdescRight">path del driver per connectar-nos a la B.D.  <a href="#abc83c541acdcd0be2ae8a33daa753077">Més...</a><br /></td></tr>
 <tr class="separator:abc83c541acdcd0be2ae8a33daa753077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Mètodes Privats Estàtics</h2></td></tr>
+<tr class="memitem:a7049b625a7b791b7fcf4859487eba09f"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdades_1_1_b_d.html#a7049b625a7b791b7fcf4859487eba09f">crearTaules</a> ()</td></tr>
+<tr class="separator:a7049b625a7b791b7fcf4859487eba09f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>modul funcional amb les operacions per treballar sobre la B.D. "sqlite" utilitzada en el projecte; </p>
@@ -168,6 +174,31 @@ Atributs Públics Estàtics</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondició</dt><dd>&ndash;; </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>s'ha registrat un nou usuari a la B.D. i retorna si l'operació s'ha realitzat correctament; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7049b625a7b791b7fcf4859487eba09f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static boolean dades.BD.crearTaules </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>&ndash;; </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'han creat les taules d'Usuaris (usu_id, usu_nom, usu_pass, usu_ruta_imatge) i Punts(pnt_nivell, pnt_usu_id, pnt_punts); </dd></dl>
 
 </div>
 </div>
@@ -405,7 +436,7 @@ Atributs Públics Estàtics</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dg Mai 31 2015 18:59:53 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 23:25:06 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

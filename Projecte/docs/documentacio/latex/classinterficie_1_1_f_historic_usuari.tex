@@ -8,7 +8,8 @@ pantalla que utilitzem per mostrar l'historic d'un usuari que està format per e
 
 
 
-Diagrama d'Herència per a interficie.\+F\+Historic\+Usuari\+:\nopagebreak
+Diagrama d'Herència per a interficie.\+F\+Historic\+Usuari\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,7 +18,8 @@ Diagrama d'Herència per a interficie.\+F\+Historic\+Usuari\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a interficie.\+F\+Historic\+Usuari\+:\nopagebreak
+Diagrama de col·laboració per a interficie.\+F\+Historic\+Usuari\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,6 +31,19 @@ Diagrama de col·laboració per a interficie.\+F\+Historic\+Usuari\+:\nopagebrea
 \item 
 \hyperlink{classinterficie_1_1_f_historic_usuari_a7dae2cb499c3aeade25895dcbfd42c24}{F\+Historic\+Usuari} (String nom\+Usuari, Icon imatge, int\mbox{[}$\,$\mbox{]}puntuacions)
 \end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classinterficie_1_1_f_historic_usuari_a3e73a03f41c8150660a7451df269cb7e}{carregar\+Imatges} (int nivell)
+\item 
+Image\+Icon \hyperlink{classinterficie_1_1_f_historic_usuari_a058499e3b80b85be73abf48df14e0838}{obtenir\+Imatge} (String ruta)
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classinterficie_1_1_f_historic_usuari_a827d72eacf4ede6d801532681f2a507c}{final int \hyperlink{classinterficie_1_1_f_historic_usuari_a827d72eacf4ede6d801532681f2a507c}{punts} \mbox{[}$\,$\mbox{]}}\label{classinterficie_1_1_f_historic_usuari_a827d72eacf4ede6d801532681f2a507c}
+
+\begin{DoxyCompactList}\small\item\em vector de longitud nombre de nivells superats i on la posició del vector indica el nivell i el contingut de la posició el nombre de punts que s'han fet en aquest nivell \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -54,6 +69,43 @@ puntuacions conté les puntuacions de cada nivell on puntuacions\mbox{[}1\mbox{]
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
 em creat la pantalla de historic. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classinterficie_1_1_f_historic_usuari_a3e73a03f41c8150660a7451df269cb7e}{\index{interficie\+::\+F\+Historic\+Usuari@{interficie\+::\+F\+Historic\+Usuari}!carregar\+Imatges@{carregar\+Imatges}}
+\index{carregar\+Imatges@{carregar\+Imatges}!interficie\+::\+F\+Historic\+Usuari@{interficie\+::\+F\+Historic\+Usuari}}
+\subsubsection[{carregar\+Imatges}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+F\+Historic\+Usuari.\+carregar\+Imatges (
+\begin{DoxyParamCaption}
+\item[{int}]{nivell}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_historic_usuari_a3e73a03f41c8150660a7451df269cb7e}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em carregat les imatges per els nivells segons si s'ha superat o no 
+\end{DoxyPostcond}
+S'ha superat el nivell 1?
+
+S'ha superat el nivell 2?
+
+S'ha superat el nivell 3?
+
+S'ha superat el nivell 4?
+
+S'ha superat el nivell 5? \hypertarget{classinterficie_1_1_f_historic_usuari_a058499e3b80b85be73abf48df14e0838}{\index{interficie\+::\+F\+Historic\+Usuari@{interficie\+::\+F\+Historic\+Usuari}!obtenir\+Imatge@{obtenir\+Imatge}}
+\index{obtenir\+Imatge@{obtenir\+Imatge}!interficie\+::\+F\+Historic\+Usuari@{interficie\+::\+F\+Historic\+Usuari}}
+\subsubsection[{obtenir\+Imatge}]{\setlength{\rightskip}{0pt plus 5cm}Image\+Icon interficie.\+F\+Historic\+Usuari.\+obtenir\+Imatge (
+\begin{DoxyParamCaption}
+\item[{String}]{ruta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_historic_usuari_a058499e3b80b85be73abf48df14e0838}
+\begin{DoxyPrecond}{Precondició}
+ruta és valida. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'ha retornat l'imatge de la ruta especificada. 
 \end{DoxyPostcond}
 
 

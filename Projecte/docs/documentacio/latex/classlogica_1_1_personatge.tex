@@ -3,7 +3,8 @@
 }
 
 
-Diagrama d'Herència per a logica.\+Personatge\+:\nopagebreak
+Diagrama d'Herència per a logica.\+Personatge\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -73,6 +74,20 @@ abstract void \hyperlink{classlogica_1_1_personatge_ae7f9cdfd1b01d6c7eaee1675dec
 \hypertarget{classlogica_1_1_personatge_a066a8096f86141bc7a7400cca4c18a7b}{Image\+Icon \hyperlink{classlogica_1_1_personatge_a066a8096f86141bc7a7400cca4c18a7b}{imatges} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}\label{classlogica_1_1_personatge_a066a8096f86141bc7a7400cca4c18a7b}
 
 \begin{DoxyCompactList}\small\item\em Matriu de imatges per el personatge Tot personatge tindrà les imatges de cada una de les direccions amb la boca oberta i tencada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classlogica_1_1_personatge_a40404c4af8ad3277f37c78fbef95a926}{activar\+Timer\+Estat} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_personatge_ae31501dcb29ace9d4bcfee0fd2e4b8c1}{boolean \hyperlink{classlogica_1_1_personatge_ae31501dcb29ace9d4bcfee0fd2e4b8c1}{boca\+Oberta} = false}\label{classlogica_1_1_personatge_ae31501dcb29ace9d4bcfee0fd2e4b8c1}
+
+\begin{DoxyCompactList}\small\item\em flag per indicar si el seguent moviment del personatge toca una imatge \char`\"{}amb la boca oberta\char`\"{} \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_personatge_a9ee15210d2e76e1be387aad61b8d3698}{int \hyperlink{classlogica_1_1_personatge_a9ee15210d2e76e1be387aad61b8d3698}{index\+Direccio\+Anterior} = 0}\label{classlogica_1_1_personatge_a9ee15210d2e76e1be387aad61b8d3698}
+
+\begin{DoxyCompactList}\small\item\em index per accedir a la matriu d'imatges segons la direcció en que s'ha mogut el personatge en el moviment anterior \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
@@ -105,6 +120,19 @@ personatge que es juga una partida dins de un laberint en la posició inici i qu
 
 
 \subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_personatge_a40404c4af8ad3277f37c78fbef95a926}{\index{logica\+::\+Personatge@{logica\+::\+Personatge}!activar\+Timer\+Estat@{activar\+Timer\+Estat}}
+\index{activar\+Timer\+Estat@{activar\+Timer\+Estat}!logica\+::\+Personatge@{logica\+::\+Personatge}}
+\subsubsection[{activar\+Timer\+Estat}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Personatge.\+activar\+Timer\+Estat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1_personatge_a40404c4af8ad3277f37c78fbef95a926}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em posat un timer per treure els efectes al cap de \hyperlink{classlogica_1_1_utils_1_1_constants_ab30ed70143525f71ad7d7d6e21cff608}{Utils.\+Constants.\+T\+E\+M\+P\+S\+\_\+\+E\+F\+E\+C\+T\+E\+S\+\_\+\+I\+T\+E\+M\+\_\+\+M\+I\+L\+I\+S\+E\+G\+O\+N\+S} 
+\end{DoxyPostcond}
 \hypertarget{classlogica_1_1_personatge_a8b39023213405003380501bff8fdee6b}{\index{logica\+::\+Personatge@{logica\+::\+Personatge}!assignar\+Estat\+Personatge@{assignar\+Estat\+Personatge}}
 \index{assignar\+Estat\+Personatge@{assignar\+Estat\+Personatge}!logica\+::\+Personatge@{logica\+::\+Personatge}}
 \subsubsection[{assignar\+Estat\+Personatge}]{\setlength{\rightskip}{0pt plus 5cm}final void logica.\+Personatge.\+assignar\+Estat\+Personatge (

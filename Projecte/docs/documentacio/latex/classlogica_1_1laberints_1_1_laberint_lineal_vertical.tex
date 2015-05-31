@@ -8,7 +8,8 @@
 
 
 
-Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Vertical\+:\nopagebreak
+Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Vertical\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,7 +18,8 @@ Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Vertical\+:\no
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Vertical\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Vertical\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,8 +29,12 @@ Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Vertica
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a98a5be8e42c30d6f6ad03e5c1e635c4b}{{\bfseries Laberint\+Lineal\+Vertical} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)}\label{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a98a5be8e42c30d6f6ad03e5c1e635c4b}
-
+\hyperlink{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a98a5be8e42c30d6f6ad03e5c1e635c4b}{Laberint\+Lineal\+Vertical} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a866046523691d72367ba28ec8bb83bbc}{generar\+Laberint} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat})
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -42,6 +48,44 @@ oscar llavors situar en pacman en la posició \mbox{[}0, 0\mbox{]} i fer posar t
 L'únic requisit per aquest tipus de laberint és que el seu costat ha de ser imparell per fer quadrar les columnes de paret.
 
 Aquest algorisme genera sempre un laberint valid. 
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a98a5be8e42c30d6f6ad03e5c1e635c4b}{\index{logica\+::laberints\+::\+Laberint\+Lineal\+Vertical@{logica\+::laberints\+::\+Laberint\+Lineal\+Vertical}!Laberint\+Lineal\+Vertical@{Laberint\+Lineal\+Vertical}}
+\index{Laberint\+Lineal\+Vertical@{Laberint\+Lineal\+Vertical}!logica\+::laberints\+::\+Laberint\+Lineal\+Vertical@{logica\+::laberints\+::\+Laberint\+Lineal\+Vertical}}
+\subsubsection[{Laberint\+Lineal\+Vertical}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+laberints.\+Laberint\+Lineal\+Vertical.\+Laberint\+Lineal\+Vertical (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida, }
+\item[{int}]{costat, }
+\item[{{\bf E\+Element}}]{enemic, }
+\item[{{\bf I\+Pintador\+Laberint}}]{pintador\+Laberint}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a98a5be8e42c30d6f6ad03e5c1e635c4b}
+\begin{DoxyPrecond}{Precondició}
+costat $>$= \hyperlink{classlogica_1_1_utils_1_1_constants_af0255617e604b0757200f05de64fa934}{Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T} i enemic és un dels fantasmes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat un laberint de caràcter lineal i vertical amb partida, costat enemic i un pintador per representar el laberint gràficament. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a866046523691d72367ba28ec8bb83bbc}{\index{logica\+::laberints\+::\+Laberint\+Lineal\+Vertical@{logica\+::laberints\+::\+Laberint\+Lineal\+Vertical}!generar\+Laberint@{generar\+Laberint}}
+\index{generar\+Laberint@{generar\+Laberint}!logica\+::laberints\+::\+Laberint\+Lineal\+Vertical@{logica\+::laberints\+::\+Laberint\+Lineal\+Vertical}}
+\subsubsection[{generar\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} logica.\+laberints.\+Laberint\+Lineal\+Vertical.\+generar\+Laberint (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Element}}]{enemic, }
+\item[{int}]{costat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classlogica_1_1laberints_1_1_laberint_lineal_vertical_a866046523691d72367ba28ec8bb83bbc}
+\begin{DoxyPrecond}{Precondició}
+costat $>$ 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat i retornat el laberint lineal vertical amb l'enemic en la posició \mbox{[}N-\/1, N-\/1\mbox{]} i en pacman en la posició \mbox{[}0, 0\mbox{]} 
+\end{DoxyPostcond}
+En la primera posició i posem en pacman.
+
+En l'última posició i posem el fantasma. 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 

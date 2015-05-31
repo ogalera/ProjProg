@@ -91,6 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Mètodes públics</a> &#124;
 <a href="#pub-static-methods">Mètodes Públics Estàtics</a> &#124;
+<a href="#pri-methods">Mètodes Privats</a> &#124;
+<a href="#pri-attribs">Atributs Privats</a> &#124;
+<a href="#pri-static-attribs">Atributs Privats Estàtics</a> &#124;
 <a href="classlogica_1_1log_1_1_log-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe logica.log.Log</div>  </div>
@@ -99,7 +102,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 
 <p>Sistema de log per veure que està passant en tot moment en el sistema;.  
  <a href="classlogica_1_1log_1_1_log.html#details">Més...</a></p>
+<div class="dynheader">
+Diagrama de col·laboració per a logica.log.Log:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlogica_1_1log_1_1_log__coll__graph.png" border="0" usemap="#logica_8log_8_log_coll__map" alt="Collaboration graph"/></div>
+<map name="logica_8log_8_log_coll__map" id="logica_8log_8_log_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log_1_1_parella_prioritat_missatge.html">ParellaPrioritatMissatge</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilitzem aquesta enumeració per mantenir diferents nivells de prioritat en els missatges de el log, tenim les prioritats: -ERROR -&gt; Màxima prioritat del missatge; -WARNING -&gt; <a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html" title="Utilitzem aquesta enumeració per mantenir diferents nivells de prioritat en els missatges de el log...">Prioritat</a> mitja; -DEBUG -&gt; Missatge sense gaire importancia útil per depurar;.  <a href="enumlogica_1_1log_1_1_log_1_1_prioritat.html#details">Més...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Mètodes públics</h2></td></tr>
 <tr class="memitem:abdcf225ffc06e746b5d224c060b01f98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#abdcf225ffc06e746b5d224c060b01f98">afegirError</a> (String registre)</td></tr>
@@ -129,13 +147,69 @@ Mètodes públics</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Mètodes Públics Estàtics</h2></td></tr>
-<tr class="memitem:ab38bea9cfc1ad368b40a2773f93d14b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlogica_1_1log_1_1_log.html">Log</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#ab38bea9cfc1ad368b40a2773f93d14b8">getInstance</a> (Class clase)</td></tr>
+<tr class="memitem:ab38bea9cfc1ad368b40a2773f93d14b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classlogica_1_1log_1_1_log.html">Log</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#ab38bea9cfc1ad368b40a2773f93d14b8">getInstance</a> (Class <a class="el" href="classlogica_1_1log_1_1_log.html#af7d3b68ff7c0d75c4bfda5364b37b2ad">clase</a>)</td></tr>
 <tr class="separator:ab38bea9cfc1ad368b40a2773f93d14b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Mètodes Privats</h2></td></tr>
+<tr class="memitem:adc9a45a8ec3ac28cf225a470febef462"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#adc9a45a8ec3ac28cf225a470febef462">Log</a> ()</td></tr>
+<tr class="separator:adc9a45a8ec3ac28cf225a470febef462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd4f6a2a166181957954fd0dbcb516e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#a0fd4f6a2a166181957954fd0dbcb516e">afegirRegistre</a> (<a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a> prioritat, String registre)</td></tr>
+<tr class="separator:a0fd4f6a2a166181957954fd0dbcb516e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbdafd1efe82a9210251544c7fce63a"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#a9cbdafd1efe82a9210251544c7fce63a">getUltimRegistreDeUnTipus</a> (<a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a> prioritat)</td></tr>
+<tr class="separator:a9cbdafd1efe82a9210251544c7fce63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79bf08fdc7ff52a24d979d14bb082b0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#aa79bf08fdc7ff52a24d979d14bb082b0">obtenirRegistreDeUnaPrioritat</a> (<a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a> prioritat)</td></tr>
+<tr class="separator:aa79bf08fdc7ff52a24d979d14bb082b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributs Privats</h2></td></tr>
+<tr class="memitem:a075fe817fdb417775e67909399d8437c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a075fe817fdb417775e67909399d8437c"></a>
+final LinkedList<br class="typebreak" />
+&lt; <a class="el" href="classlogica_1_1log_1_1_log_1_1_parella_prioritat_missatge.html">ParellaPrioritatMissatge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#a075fe817fdb417775e67909399d8437c">registres</a></td></tr>
+<tr class="memdesc:a075fe817fdb417775e67909399d8437c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que enmagatzema els registres del log;. <br /></td></tr>
+<tr class="separator:a075fe817fdb417775e67909399d8437c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d3b68ff7c0d75c4bfda5364b37b2ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7d3b68ff7c0d75c4bfda5364b37b2ad"></a>
+Class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#af7d3b68ff7c0d75c4bfda5364b37b2ad">clase</a></td></tr>
+<tr class="memdesc:af7d3b68ff7c0d75c4bfda5364b37b2ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe activa que té el log. <br /></td></tr>
+<tr class="separator:af7d3b68ff7c0d75c4bfda5364b37b2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Atributs Privats Estàtics</h2></td></tr>
+<tr class="memitem:a5a6cbdcb796e869f007cf7bfd4180f86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a6cbdcb796e869f007cf7bfd4180f86"></a>
+static <a class="el" href="classlogica_1_1log_1_1_log.html">Log</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1log_1_1_log.html#a5a6cbdcb796e869f007cf7bfd4180f86">log</a></td></tr>
+<tr class="memdesc:a5a6cbdcb796e869f007cf7bfd4180f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia única del log SINGLETON PATTERN DESIGN;. <br /></td></tr>
+<tr class="separator:a5a6cbdcb796e869f007cf7bfd4180f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Sistema de log per veure que està passant en tot moment en el sistema;. </p>
 <dl class="section author"><dt>Autor</dt><dd>Oscar.Galera </dd></dl>
-</div><h2 class="groupheader">Documentació de les Funcions Membre</h2>
+</div><h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
+<a class="anchor" id="adc9a45a8ec3ac28cf225a470febef462"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logica.log.Log.Log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>: &ndash;; </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>: tenim una instancia del log; </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentació de les Funcions Membre</h2>
 <a class="anchor" id="a22b7784b896630f85cd9791d02d13d70"></a>
 <div class="memitem">
 <div class="memproto">
@@ -169,6 +243,42 @@ Mètodes Públics Estàtics</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondició</dt><dd>: &ndash;; </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>: em afegit el registre a la estructura log amb prioritat ERROR; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0fd4f6a2a166181957954fd0dbcb516e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.log.Log.afegirRegistre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a>&#160;</td>
+          <td class="paramname"><em>prioritat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>registre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>: &ndash;; </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>: em afegit el registre a la estructura log amb prioritat especificada; </dd></dl>
 
 </div>
 </div>
@@ -231,6 +341,32 @@ Mètodes Públics Estàtics</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondició</dt><dd>: clase no és null; </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>: em obtingut LA instancia del log; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9cbdafd1efe82a9210251544c7fce63a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String logica.log.Log.getUltimRegistreDeUnTipus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a>&#160;</td>
+          <td class="paramname"><em>prioritat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>:&ndash;; </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>: retornem l'últim missatge de prioritat registrat. </dd></dl>
 
 </div>
 </div>
@@ -299,6 +435,39 @@ Mètodes Públics Estàtics</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondició</dt><dd>:&ndash;; </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>: retornem tots els registres del log amb prioritat ERROR; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa79bf08fdc7ff52a24d979d14bb082b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String logica.log.Log.obtenirRegistreDeUnaPrioritat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumlogica_1_1log_1_1_log_1_1_prioritat.html">Prioritat</a>&#160;</td>
+          <td class="paramname"><em>prioritat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>: prioritat != null; </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>: retornem un string amb la representació de tots els registres que tinguin la prioritat especificada; </dd></dl>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prioritat</td><td>que especifica els registres a seleccionar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>String que representa el conjunt de registres amb prioritat especificada; </dd></dl>
 
 </div>
 </div>
@@ -376,7 +545,7 @@ Mètodes Públics Estàtics</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dg Mai 31 2015 18:59:54 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 23:25:06 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

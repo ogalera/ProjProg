@@ -1,7 +1,22 @@
 <map id="logica.laberints.LaberintLinealHoritzontal" name="logica.laberints.LaberintLinealHoritzontal">
-<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="447,80,605,107"/>
-<area shape="rect" id="node3" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="145,5,348,32"/>
-<area shape="rect" id="node4" href="$classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="195,56,298,83"/>
-<area shape="rect" id="node5" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="160,107,333,133"/>
-<area shape="rect" id="node7" href="$classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="196,157,297,184"/>
+<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="593,380,751,407"/>
+<area shape="rect" id="node9" href="$classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="927,173,1028,200"/>
+<area shape="rect" id="node12" href="$classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="1300,329,1431,356"/>
+<area shape="rect" id="node20" href="$classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim.html" title="Classe que implementa l&#39;algorisme AStar per a determinar un cami minim entre dos punts en un objecte ..." alt="" coords="885,963,1069,1005"/>
+<area shape="rect" id="node26" href="$classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html" title="Classe encarregada de guardar els valors de la solució composta per a l&#39;algorisme de Backtracking..." alt="" coords="1260,791,1471,833"/>
+<area shape="rect" id="node3" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="285,111,488,137"/>
+<area shape="rect" id="node11" href="$classlogica_1_1_item.html" title="Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA). " alt="" coords="2303,405,2389,432"/>
+<area shape="rect" id="node28" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="1678,268,1805,295"/>
+<area shape="rect" id="node5" href="$classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="335,636,438,663"/>
+<area shape="rect" id="node25" href="$classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim.html" title="Classe que implementa l&#39;algorisme de Backtracking per a trobar un camí que maximitzi la distancia des..." alt="" coords="1636,710,1847,751"/>
+<area shape="rect" id="node7" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="300,380,473,407"/>
+<area shape="rect" id="node10" href="$interfaceinterficie_1_1_i_pintador_partida.html" title="Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d&#39;una parti..." alt="" coords="588,153,756,180"/>
+<area shape="rect" id="node13" href="$classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="343,833,430,860"/>
+<area shape="rect" id="node21" href="$classlogica_1_1algoritmica_1_1_casella.html" title="Conté la informació heuristica necessaria per a poder implementar els algoritmes de backTracking i AS..." alt="" coords="587,973,757,1000"/>
+<area shape="rect" id="node14" href="$classlogica_1_1_item_movible_1_1_tasca_aplicar_moviment.html" title="Tasca a executar a cada cicle de freqüència. " alt="" coords="892,569,1063,610"/>
+<area shape="rect" id="node16" href="$enumlogica_1_1enumeracions_1_1_e_direccio.html" title="Enumeracio de les diferents direccions que pot prendre un ItemMobile &#160;per desplaçar&#45;se per el Laberin..." alt="" coords="876,455,1079,481"/>
+<area shape="rect" id="node18" href="$classlogica_1_1historic__moviments_1_1_historic_moviments.html" title="Historic de moviments de caràcter FILO. " alt="" coords="1277,402,1454,443"/>
+<area shape="rect" id="node19" href="$classlogica_1_1algoritmica_1_1_gestor_camins.html" title="Encarregada de gestionar les cerques de camins sobre un objecte de tipus Laberint. " alt="" coords="2016,710,2183,751"/>
+<area shape="rect" id="node23" href="$classlogica_1_1algoritmica_1_1_llista_ordenada_candidats.html" title="Estructura ordenada de Caselles (candidats) per a als algoritmes de Backtracking i AStar..." alt="" coords="593,1042,751,1083"/>
+<area shape="rect" id="node29" href="$enumlogica_1_1_personatge_1_1_e_estat_personatge.html" title="conjunt d&#39;estats en que es pot trobar un personatge, el canvi d&#39;estat sempre va llgiat a la captura d..." alt="" coords="1280,186,1451,227"/>
 </map>

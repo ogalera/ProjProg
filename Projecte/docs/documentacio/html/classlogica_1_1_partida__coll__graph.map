@@ -1,0 +1,21 @@
+<map id="logica.Partida" name="logica.Partida">
+<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="898,593,1057,620"/>
+<area shape="rect" id="node11" href="$classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="1287,252,1417,279"/>
+<area shape="rect" id="node19" href="$classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim.html" title="Classe que implementa l&#39;algorisme AStar per a determinar un cami minim entre dos punts en un objecte ..." alt="" coords="1260,1007,1444,1049"/>
+<area shape="rect" id="node25" href="$classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html" title="Classe encarregada de guardar els valors de la solució composta per a l&#39;algorisme de Backtracking..." alt="" coords="1616,886,1827,927"/>
+<area shape="rect" id="node3" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="552,124,755,151"/>
+<area shape="rect" id="node10" href="$classlogica_1_1_item.html" title="Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA). " alt="" coords="2659,461,2745,488"/>
+<area shape="rect" id="node27" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="1658,311,1785,337"/>
+<area shape="rect" id="node5" href="$classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="318,725,421,752"/>
+<area shape="rect" id="node24" href="$classlogica_1_1algoritmica_1_1_back_tracking_1_1_buscador_cami_maxim.html" title="Classe que implementa l&#39;algorisme de Backtracking per a trobar un camí que maximitzi la distancia des..." alt="" coords="1992,939,2203,981"/>
+<area shape="rect" id="node7" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="567,599,740,625"/>
+<area shape="rect" id="node9" href="$interfaceinterficie_1_1_i_pintador_partida.html" title="Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d&#39;una parti..." alt="" coords="285,489,453,516"/>
+<area shape="rect" id="node12" href="$classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="610,776,697,803"/>
+<area shape="rect" id="node20" href="$classlogica_1_1algoritmica_1_1_casella.html" title="Conté la informació heuristica necessaria per a poder implementar els algoritmes de backTracking i AS..." alt="" coords="892,945,1063,972"/>
+<area shape="rect" id="node13" href="$classlogica_1_1_item_movible_1_1_tasca_aplicar_moviment.html" title="Tasca a executar a cada cicle de freqüència. " alt="" coords="892,135,1063,177"/>
+<area shape="rect" id="node15" href="$enumlogica_1_1enumeracions_1_1_e_direccio.html" title="Enumeracio de les diferents direccions que pot prendre un ItemMobile &#160;per desplaçar&#45;se per el Laberin..." alt="" coords="876,303,1079,329"/>
+<area shape="rect" id="node17" href="$classlogica_1_1historic__moviments_1_1_historic_moviments.html" title="Historic de moviments de caràcter FILO. " alt="" coords="1263,369,1441,410"/>
+<area shape="rect" id="node18" href="$classlogica_1_1algoritmica_1_1_gestor_camins.html" title="Encarregada de gestionar les cerques de camins sobre un objecte de tipus Laberint. " alt="" coords="2372,939,2539,981"/>
+<area shape="rect" id="node22" href="$classlogica_1_1algoritmica_1_1_llista_ordenada_candidats.html" title="Estructura ordenada de Caselles (candidats) per a als algoritmes de Backtracking i AStar..." alt="" coords="898,1007,1057,1049"/>
+<area shape="rect" id="node28" href="$enumlogica_1_1_personatge_1_1_e_estat_personatge.html" title="conjunt d&#39;estats en que es pot trobar un personatge, el canvi d&#39;estat sempre va llgiat a la captura d..." alt="" coords="1267,303,1437,345"/>
+</map>

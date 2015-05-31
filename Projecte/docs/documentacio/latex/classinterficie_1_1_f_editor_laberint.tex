@@ -8,7 +8,8 @@ Pantalla que ens permet crear i dissenyar nous mapes.
 
 
 
-Diagrama d'Herència per a interficie.\+F\+Editor\+Laberint\+:\nopagebreak
+Diagrama d'Herència per a interficie.\+F\+Editor\+Laberint\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,20 +18,76 @@ Diagrama d'Herència per a interficie.\+F\+Editor\+Laberint\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a interficie.\+F\+Editor\+Laberint\+:\nopagebreak
+Diagrama de col·laboració per a interficie.\+F\+Editor\+Laberint\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=202pt]{classinterficie_1_1_f_editor_laberint__coll__graph}
+\includegraphics[width=350pt]{classinterficie_1_1_f_editor_laberint__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classinterficie_1_1_f_editor_laberint_1_1_action_canviar_element_seleccionat}{Action\+Canviar\+Element\+Seleccionat}
+\begin{DoxyCompactList}\small\item\em controla els events de clik sobre els botons -\/btn\+Pacman -\/btn\+Fantasma -\/btn\+Paret -\/btn\+Moneda \end{DoxyCompactList}\item 
+class \hyperlink{classinterficie_1_1_f_editor_laberint_1_1_action_validar_laberint}{Action\+Validar\+Laberint}
+\begin{DoxyCompactList}\small\item\em controla els events sobre el boto de validar el laberint \end{DoxyCompactList}\item 
+class \hyperlink{classinterficie_1_1_f_editor_laberint_1_1btn_casella}{btn\+Casella}
+\begin{DoxyCompactList}\small\item\em Defineix un botó amb dos coordenades, quan es realitzi click sobre el botó aquest obtindrà l'imatge que està seleccionada i també assignara el id del element seleccionat a la casella del laberint. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}{F\+Editor\+Laberint} (int costat)
+\hyperlink{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}{F\+Editor\+Laberint} (int \hyperlink{classinterficie_1_1_f_editor_laberint_a8715aa165dbd6c01e0f4470a4b11fca6}{costat})
 \item 
 void \hyperlink{classinterficie_1_1_f_editor_laberint_a086984e576ea2a896cd286d6b5a0b2b7}{mostrar\+Frame} ()
 \end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+J\+Panel \hyperlink{classinterficie_1_1_f_editor_laberint_a4cf31868202875a1b711982c7c8ecc8f}{crear\+Matriu} (int \hyperlink{classinterficie_1_1_f_editor_laberint_a8715aa165dbd6c01e0f4470a4b11fca6}{costat})
+\item 
+J\+Panel \hyperlink{classinterficie_1_1_f_editor_laberint_a90b765b7d6bedccdfc6573ab74f34019}{crear\+Menu} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a1aafb9975649a5ce63b28472b5e8b2c6}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_a1aafb9975649a5ce63b28472b5e8b2c6}{btn\+Pacman}}\label{classinterficie_1_1_f_editor_laberint_a1aafb9975649a5ce63b28472b5e8b2c6}
+
+\begin{DoxyCompactList}\small\item\em botó per seleccionar en pacman \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a392a7b50832bbeffb3256d559009ec47}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_a392a7b50832bbeffb3256d559009ec47}{btn\+Fantasma1}}\label{classinterficie_1_1_f_editor_laberint_a392a7b50832bbeffb3256d559009ec47}
+
+\begin{DoxyCompactList}\small\item\em botó per seleccionar un fantasma1 \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_acda5e508a01033c95ab99ed1e323e4a7}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_acda5e508a01033c95ab99ed1e323e4a7}{btn\+Fantasma2}}\label{classinterficie_1_1_f_editor_laberint_acda5e508a01033c95ab99ed1e323e4a7}
+
+\begin{DoxyCompactList}\small\item\em botó per seleccionar un fantasma2 \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a0d4159dadab06a9819462d830e94accf}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_a0d4159dadab06a9819462d830e94accf}{btn\+Fantasma3}}\label{classinterficie_1_1_f_editor_laberint_a0d4159dadab06a9819462d830e94accf}
+
+\begin{DoxyCompactList}\small\item\em botó per seleccionar un fantasma3 \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_aef3584e6601f6d5ce0d6dceeb9cb5102}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_aef3584e6601f6d5ce0d6dceeb9cb5102}{btn\+Paret}}\label{classinterficie_1_1_f_editor_laberint_aef3584e6601f6d5ce0d6dceeb9cb5102}
+
+\begin{DoxyCompactList}\small\item\em botó per seleccionar una paret \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a0743e614f6c7e1ae5a37ecab5308407a}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_a0743e614f6c7e1ae5a37ecab5308407a}{btn\+Moneda}}\label{classinterficie_1_1_f_editor_laberint_a0743e614f6c7e1ae5a37ecab5308407a}
+
+\begin{DoxyCompactList}\small\item\em botó per seleccionar una moneda \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a224a51b6c96af0adda2975f5f0a3d3fd}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_a224a51b6c96af0adda2975f5f0a3d3fd}{btn\+Item\+Seleccionat}}\label{classinterficie_1_1_f_editor_laberint_a224a51b6c96af0adda2975f5f0a3d3fd}
+
+\begin{DoxyCompactList}\small\item\em botó que indica l'element seleccionat \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_aacb445c35fb6eeecea3298e8b8198e29}{J\+Button \hyperlink{classinterficie_1_1_f_editor_laberint_aacb445c35fb6eeecea3298e8b8198e29}{btn\+Validar}}\label{classinterficie_1_1_f_editor_laberint_aacb445c35fb6eeecea3298e8b8198e29}
+
+\begin{DoxyCompactList}\small\item\em botó per validar el laberint \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a1b206b3f72b97d52432673e3d1e895e4}{final int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classinterficie_1_1_f_editor_laberint_a1b206b3f72b97d52432673e3d1e895e4}{laberint}}\label{classinterficie_1_1_f_editor_laberint_a1b206b3f72b97d52432673e3d1e895e4}
+
+\begin{DoxyCompactList}\small\item\em matriu {\bfseries }(costat x costat) que conté els identificadors dels elements que s'han afegit al nou mapa \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_aa4f4f0cab3ff32016e2b5b7d8082e6a1}{final \hyperlink{classlogica_1_1log_1_1_log}{Log} {\bfseries log}}\label{classinterficie_1_1_f_editor_laberint_aa4f4f0cab3ff32016e2b5b7d8082e6a1}
+
+\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a14f74353d741135f938b73fd5a32b7ef}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classinterficie_1_1_f_editor_laberint_a14f74353d741135f938b73fd5a32b7ef}{element\+Seleccionat} = E\+Element.\+R\+E\+S}\label{classinterficie_1_1_f_editor_laberint_a14f74353d741135f938b73fd5a32b7ef}
+
+\begin{DoxyCompactList}\small\item\em Element seleccionat en cada instant obiament al principi no en tenim cap. \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1_f_editor_laberint_a8715aa165dbd6c01e0f4470a4b11fca6}{int \hyperlink{classinterficie_1_1_f_editor_laberint_a8715aa165dbd6c01e0f4470a4b11fca6}{costat}}\label{classinterficie_1_1_f_editor_laberint_a8715aa165dbd6c01e0f4470a4b11fca6}
+
+\begin{DoxyCompactList}\small\item\em mida del costat del laberint \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -40,7 +97,7 @@ Pantalla que ens permet crear i dissenyar nous mapes.
 oscar En la part esquerra hi ha el conjunt de elemnts que es poden afegir al laberint i nomes cal seleccionar l'element i fer click en la posicio on es vol afegir Un cop creada la pantalla aquesta es validada i exportada en format .txt.)
 \end{DoxyAuthor}
 \begin{DoxyInvariant}{Invariant}
-laberint != null, el costat sempre ha de ser $>$ Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T i la matriu ha de ser cuadrada de costat x costat 
+laberint != null, el costat sempre ha de ser $>$ \hyperlink{classlogica_1_1_utils_1_1_constants_af0255617e604b0757200f05de64fa934}{Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T} i la matriu ha de ser cuadrada de costat x costat 
 \end{DoxyInvariant}
 
 
@@ -53,7 +110,7 @@ laberint != null, el costat sempre ha de ser $>$ Utils.\+Constants.\+M\+I\+N\+I\
 \end{DoxyParamCaption}
 )}}\label{classinterficie_1_1_f_editor_laberint_a1a43698ec96d8c97972115436bdfecea}
 \begin{DoxyPrecond}{Precondició}
-costat $>$ Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T; 
+costat $>$ \hyperlink{classlogica_1_1_utils_1_1_constants_af0255617e604b0757200f05de64fa934}{Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T}; 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
 em creat l'editor de laberints per un laberint de mida costat 
@@ -61,6 +118,32 @@ em creat l'editor de laberints per un laberint de mida costat
 
 
 \subsection{Documentació de les Funcions Membre}
+\hypertarget{classinterficie_1_1_f_editor_laberint_a4cf31868202875a1b711982c7c8ecc8f}{\index{interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}!crear\+Matriu@{crear\+Matriu}}
+\index{crear\+Matriu@{crear\+Matriu}!interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}}
+\subsubsection[{crear\+Matriu}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel interficie.\+F\+Editor\+Laberint.\+crear\+Matriu (
+\begin{DoxyParamCaption}
+\item[{int}]{costat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_editor_laberint_a4cf31868202875a1b711982c7c8ecc8f}
+\begin{DoxyPrecond}{Precondició}
+costat $>$ \hyperlink{classlogica_1_1_utils_1_1_constants_af0255617e604b0757200f05de64fa934}{Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+retornem un panell que conté una matriu (de mida costat x costata) de botons i el boto de validar en la part inferior. 
+\end{DoxyPostcond}
+llargada i amplada per cada un dels botons que formen la matriu. \hypertarget{classinterficie_1_1_f_editor_laberint_a90b765b7d6bedccdfc6573ab74f34019}{\index{interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}!crear\+Menu@{crear\+Menu}}
+\index{crear\+Menu@{crear\+Menu}!interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}}
+\subsubsection[{crear\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel interficie.\+F\+Editor\+Laberint.\+crear\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classinterficie_1_1_f_editor_laberint_a90b765b7d6bedccdfc6573ab74f34019}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+retornem un panell que conté els items que es poden posar en el tauler; 
+\end{DoxyPostcond}
 \hypertarget{classinterficie_1_1_f_editor_laberint_a086984e576ea2a896cd286d6b5a0b2b7}{\index{interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}!mostrar\+Frame@{mostrar\+Frame}}
 \index{mostrar\+Frame@{mostrar\+Frame}!interficie\+::\+F\+Editor\+Laberint@{interficie\+::\+F\+Editor\+Laberint}}
 \subsubsection[{mostrar\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+F\+Editor\+Laberint.\+mostrar\+Frame (

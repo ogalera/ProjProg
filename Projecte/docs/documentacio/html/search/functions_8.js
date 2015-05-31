@@ -1,6 +1,7 @@
 var searchData=
 [
   ['incrementarpunts',['incrementarPunts',['../classlogica_1_1_personatge.html#a72434a1f940bd10caa6e2d80b129adda',1,'logica::Personatge']]],
+  ['inicialitzacomponents',['inicialitzaComponents',['../classinterficie_1_1components_1_1_marcador.html#af68b294caf644dd8d684990098801d31',1,'interficie::components::Marcador']]],
   ['iniciarcrono',['iniciarCrono',['../classinterficie_1_1components_1_1_crono.html#aa890cf3bea27a9c0822bf6066de35929',1,'interficie::components::Crono']]],
   ['iniciaritemmovible',['iniciarItemMovible',['../classlogica_1_1_item_movible.html#a9a43835d32363d837ad38635e48483ba',1,'logica.ItemMovible.iniciarItemMovible()'],['../classlogica_1_1_personatge.html#a5f171d79a5a8ca6d0184a250456c44d1',1,'logica.Personatge.iniciarItemMovible()']]],
   ['iniciarpartida',['iniciarPartida',['../classlogica_1_1_partida.html#aa23f62dbeea7c44240304843e2ea699d',1,'logica::Partida']]],

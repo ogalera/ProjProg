@@ -1,2 +1,4 @@
 <map id="interficie.FEditorLaberint" name="interficie.FEditorLaberint">
+<area shape="rect" id="node4" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="187,109,389,136"/>
+<area shape="rect" id="node6" href="$classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="414,109,517,136"/>
 </map>

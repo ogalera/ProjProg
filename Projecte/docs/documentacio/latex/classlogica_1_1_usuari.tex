@@ -6,30 +6,61 @@
 usuari registrat a l'aplicació que consta de  
 
 
+
+
+Diagrama de col·laboració per a logica.\+Usuari\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogica_1_1_usuari__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries E\+Dificultat}
+enum \hyperlink{enumlogica_1_1_usuari_1_1_e_dificultat}{E\+Dificultat}
 \begin{DoxyCompactList}\small\item\em dificultat del laberint dins del nivell \end{DoxyCompactList}\item 
-enum {\bfseries E\+Nivells}
+enum \hyperlink{enumlogica_1_1_usuari_1_1_e_nivells}{E\+Nivells}
 \begin{DoxyCompactList}\small\item\em diferents nivells en el mode aventura. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}{Usuari} (int id, String nom\+Usuari, int nivell, String url\+Imatge)
+\hyperlink{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}{Usuari} (int \hyperlink{classlogica_1_1_usuari_a03e97d4f96974eabebd5b15c95267cdf}{id}, String \hyperlink{classlogica_1_1_usuari_a786e8efb6a09a1cc3678d4103606319a}{nom\+Usuari}, int \hyperlink{classlogica_1_1_usuari_af876e9fe1520077525154738abadc8ef}{nivell}, String url\+Imatge)
 \item 
-E\+Dificultat \hyperlink{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}{obtenir\+Dificultat} ()
+\hyperlink{enumlogica_1_1_usuari_1_1_e_dificultat}{E\+Dificultat} \hyperlink{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}{obtenir\+Dificultat} ()
 \item 
 int \hyperlink{classlogica_1_1_usuari_a47de68f8f3a0a5c45352b0f93cb0d156}{obtenir\+Id} ()
 \item 
 String \hyperlink{classlogica_1_1_usuari_a642304fd209679e1cd3f312eaa06ed9c}{obtenir\+Nom\+Usuari} ()
 \item 
-E\+Nivells \hyperlink{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}{obtenir\+Nivell} ()
+\hyperlink{enumlogica_1_1_usuari_1_1_e_nivells}{E\+Nivells} \hyperlink{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}{obtenir\+Nivell} ()
 \item 
 Icon \hyperlink{classlogica_1_1_usuari_aa1f96063a4d6a068e2088e6f7339a4fa}{obtenir\+Imatge} ()
 \item 
 void \hyperlink{classlogica_1_1_usuari_a3d2c12a1138df467863c3ff43827bed1}{pantalla\+Superada} (int pnt)
 \end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlogica_1_1_usuari_a03e97d4f96974eabebd5b15c95267cdf}{final int \hyperlink{classlogica_1_1_usuari_a03e97d4f96974eabebd5b15c95267cdf}{id}}\label{classlogica_1_1_usuari_a03e97d4f96974eabebd5b15c95267cdf}
+
+\begin{DoxyCompactList}\small\item\em identificador de la B.\+D \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_usuari_a786e8efb6a09a1cc3678d4103606319a}{final String \hyperlink{classlogica_1_1_usuari_a786e8efb6a09a1cc3678d4103606319a}{nom\+Usuari}}\label{classlogica_1_1_usuari_a786e8efb6a09a1cc3678d4103606319a}
+
+\begin{DoxyCompactList}\small\item\em el nom del usuari \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_usuari_a1ff0cdb0042dc250575386b841111ec1}{final Image\+Icon \hyperlink{classlogica_1_1_usuari_a1ff0cdb0042dc250575386b841111ec1}{imatge\+Perfil}}\label{classlogica_1_1_usuari_a1ff0cdb0042dc250575386b841111ec1}
+
+\begin{DoxyCompactList}\small\item\em imatge de perfil asociada al usuari \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_usuari_af876e9fe1520077525154738abadc8ef}{\hyperlink{enumlogica_1_1_usuari_1_1_e_nivells}{E\+Nivells} \hyperlink{classlogica_1_1_usuari_af876e9fe1520077525154738abadc8ef}{nivell}}\label{classlogica_1_1_usuari_af876e9fe1520077525154738abadc8ef}
+
+\begin{DoxyCompactList}\small\item\em en quin nivell es troba de l'aventura \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_usuari_aa8de7af3235926444f7b27c28a6263b2}{\hyperlink{enumlogica_1_1_usuari_1_1_e_dificultat}{E\+Dificultat} \hyperlink{classlogica_1_1_usuari_aa8de7af3235926444f7b27c28a6263b2}{dificultat}}\label{classlogica_1_1_usuari_aa8de7af3235926444f7b27c28a6263b2}
+
+\begin{DoxyCompactList}\small\item\em dins del nivell per quina dificultat va \end{DoxyCompactList}\item 
+\hypertarget{classlogica_1_1_usuari_a63fadb8d875628e5d9b8652c4245490b}{int \hyperlink{classlogica_1_1_usuari_a63fadb8d875628e5d9b8652c4245490b}{punts}}\label{classlogica_1_1_usuari_a63fadb8d875628e5d9b8652c4245490b}
+
+\begin{DoxyCompactList}\small\item\em cumul de punts del usuari per el nivell en que està \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -73,7 +104,7 @@ em creat un usuari amb id, nom\+Usuari, nivell i ruta de l'imatge de perfil.
 \subsection{Documentació de les Funcions Membre}
 \hypertarget{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Dificultat@{obtenir\+Dificultat}}
 \index{obtenir\+Dificultat@{obtenir\+Dificultat}!logica\+::\+Usuari@{logica\+::\+Usuari}}
-\subsubsection[{obtenir\+Dificultat}]{\setlength{\rightskip}{0pt plus 5cm}E\+Dificultat logica.\+Usuari.\+obtenir\+Dificultat (
+\subsubsection[{obtenir\+Dificultat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Dificultat} logica.\+Usuari.\+obtenir\+Dificultat (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -112,7 +143,7 @@ em retornat l'id de l'usuari.
 \end{DoxyReturn}
 \hypertarget{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Nivell@{obtenir\+Nivell}}
 \index{obtenir\+Nivell@{obtenir\+Nivell}!logica\+::\+Usuari@{logica\+::\+Usuari}}
-\subsubsection[{obtenir\+Nivell}]{\setlength{\rightskip}{0pt plus 5cm}E\+Nivells logica.\+Usuari.\+obtenir\+Nivell (
+\subsubsection[{obtenir\+Nivell}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Nivells} logica.\+Usuari.\+obtenir\+Nivell (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}

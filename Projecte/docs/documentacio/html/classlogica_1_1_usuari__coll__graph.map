@@ -1,0 +1,6 @@
+<map id="logica.Usuari" name="logica.Usuari">
+<area shape="rect" id="node4" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="39,102,241,129"/>
+<area shape="rect" id="node3" href="$enumlogica_1_1_usuari_1_1_e_dificultat.html" title="dificultat del laberint dins del nivell " alt="" coords="59,199,221,225"/>
+<area shape="rect" id="node5" href="$enumlogica_1_1enumeracions_1_1_e_laberints_predefinits.html" title="laberints que tenim predefinits en l&#39;aplicació. " alt="" coords="266,95,473,136"/>
+<area shape="rect" id="node6" href="$enumlogica_1_1_usuari_1_1_e_nivells.html" title="diferents nivells en el mode aventura. " alt="" coords="246,199,397,225"/>
+</map>
