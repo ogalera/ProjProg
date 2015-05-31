@@ -8,8 +8,8 @@ import logica.excepcions.ExceptionPunt;
  * @brief Enumeracio de les diferents direccions que pot prendre un ItemMobile 
  * per desplaçar-se per el Laberint.
  * @details Laberint es representat per cel·les, on cada cel·la te unes
- * coordenades que son representades per el objecte 
- * Punt.
+ * coordenades que son representades per el objecte Punt.
+ * 
  *                             COLUMNES
  *     ---------------------------------------------------------------------
  *  F  |  Punt(0,0)  |  Punt (0,1)  |  Punt (0,2) | .........| Punt (0,n-1)|
@@ -37,10 +37,10 @@ public enum EDireccio {
     AMUNT(-1, 0), AVALL(1, 0), ESQUERRA(0, -1), DRETA(0, 1), QUIET(0,0);
     
     private final int incrementColumna;/*!<increment que s'ha d'aplicar a la coordenada
-     * columna de un Punt per efectuar un moviemnt en una direccio EDireccio
+     * columna de un Punt per efectuar un moviemnt en la direccio EDireccio
      * actual, dins de Laberint . */
     private final int incrementFila;/*!< increment que s'ha d'aplicar a la coordenada
-     * fila de un Punt per efectuar un moviemnt en una direccio EDireccio
+     * fila de un Punt per efectuar un moviemnt en la direccio EDireccio
      * actual, dins de Laberint .*/
     
     private EDireccio(int incrementFila, int incrementColumna){
@@ -94,12 +94,12 @@ public enum EDireccio {
     }
     
     /**
-     * @brief Donada una EDireccio retorna la resta de EDireccions possibles menys EDireccio.QUIET.
-     * @return Vector amb la resta de EDireccions possibles menys EDireccio.QUIET.
+     * @brief Donada una EDireccio retorna totes les EDireccions possibles menys EDireccio.QUIET i _direccio.
+     * @return Vector que conté totes les EDireccions possibles menys EDireccio.QUIET i _direccio.
      */
-    public static EDireccio[] obtenirRestaDireccions(EDireccio direccio){
+    public static EDireccio[] obtenirRestaDireccions(EDireccio _direccio){
         EDireccio [] direccions = null;
-        switch(direccio){
+        switch(_direccio){
             case DRETA:{
                 direccions = new EDireccio[3];
                 direccions[0] = DRETA;

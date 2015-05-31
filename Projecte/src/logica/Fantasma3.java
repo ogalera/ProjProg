@@ -7,6 +7,7 @@ import logica.enumeracions.EDireccio;
 import logica.enumeracions.EElement;
 import logica.algoritmica.GestorCamins;
 import logica.historic_moviments.HistoricMoviments;
+import logica.log.Log;
 
 
 /**
@@ -18,6 +19,7 @@ public class Fantasma3 extends Personatge{
     private final GestorCamins gestorCami;/*!< Calcula els camins necessaris per moure's per el Laberint */
     private Objectiu objectiu;/*!< Objectiu en un instant en concret de FANTASMA3 en una partida */
     private HistoricMoviments ruta;/*!< Guarda els camins que retorna gestorCami */
+    private final Log log;
     private EMode mode;/*!< EMode en un instant en concret de FANTASMA3 en una partida */
     private static final int DISTANCIA_PERILLOSA = 15; /*!< Distancia a partir de la qual Fantasma 3 considera els perills. si distancia < DISTANCIA_PERILLOSA es considera perill*/ 
     private static final int DISTANCIA_CONSIDERABLE = 8;/*!< Distancia a paritr de la qual Fantasma 3 considera canviar a mode seguiment. ex: Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell.*/
@@ -32,6 +34,7 @@ public class Fantasma3 extends Personatge{
      */
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
+        log = Log.getInstance(Fantasma3.class);
         gestorCami = new GestorCamins(laberint);
         objectiu = null;
         ruta = null;
@@ -51,9 +54,7 @@ public class Fantasma3 extends Personatge{
    
     @Override
     public EDireccio calcularMoviment(){
-//        System.out.println("CALCULAR MOVIMENT FANTASMA 3");
         EDireccio res;
-
         valorarSituacio();
         
         switch (mode){
@@ -67,13 +68,6 @@ public class Fantasma3 extends Personatge{
                 break;
         }
         
-        
-        
-//        System.out.println("Conclusio de la situacio:");
-//        System.out.println("Posicio: " + posicio);
-//        System.out.println("Estat: " + donamNomMode(mode));
-//        if (objectiu != null)System.out.println("Objectiu: " + donamNomElement(objectiu.element));
-//        else System.out.println("Objectiu: null");
         if(ruta.esBuida()){
             EElement e;
             do{
@@ -149,7 +143,6 @@ public class Fantasma3 extends Personatge{
         Punt posicioPacman = partida.obtenirPuntPacman();
         int distanciaPacman = gestorCami.trobarCamiMinim(posicio, posicioPacman).obtenirMida();
         if (mode == EMode.NAVEGACIO){
-//            System.out.println("ESTIC EN MODE NAVEGACIO I VAIG A VALORAR LA SITUACIO:");
             //Haure de canviar de mode si:   - S'han acabat les monedes i estic perdent -> MODE_SEGUIMENT ( Misio: atrapar en Pacman abans de que surti del laberint)
             //                               - S'han acabat les monedes i estic guanyant --> MODE_NAVEGACIO (Haig d'anar cap a la sortida
             //                               - En Pacman te una mongeta i esta a una DISTANCIA_PERILLOSA -> MODE_FUGIDA
@@ -159,67 +152,52 @@ public class Fantasma3 extends Personatge{
                 if (guanya)mode = EMode.NAVEGACIO;
                 else{
                     mode = EMode.SEGUIMENT;
-//                    System.out.println("No queden monedes i estic perdent, canvio a mode Seguiment:");
                 }
                 objectiu = null;
             }
             else if (pacmanEsPerillos(distanciaPacman)){
-//                 System.out.println("En Pacman es perillos, canvio a mode fugir:");
                 mode = EMode.FUGIR;
                 objectiu = null;
                 ruta = null;
             }
             else if (hiHaItemEspecialAProp()){
-//                 System.out.println("Hi ha algun Item a prop, canvio a mode Seguiment:");
                 mode = EMode.SEGUIMENT;
                 objectiu = null;
             }
             else if (estatPersonatge == EEstatPersonatge.AMB_MONGETA && vullAtraparEnPacman()){
-//                 System.out.println("Tinc mongeta i vull atrapar a en Pacman, canvio a mode Seguiment:");
                 mode = EMode.SEGUIMENT;
                 objectiu = null;
             }
-//            else System.out.println(" CONCLUSIO: No canvio d'estat ");
         }
         else if (mode == EMode.FUGIR){
-//            System.out.println("ESTIC EN MODE FUGIR I VAIG A VALORAR LA SITUACIO:");
             //Haure de canviar de mode si: - En Pacman NO representa un perill per a FANTASMA3
             if (!pacmanEsPerillos(distanciaPacman)){
-//                 System.out.println("En Pacman ha deixat de ser perillos, canvio a mode Navegacio:");
                 mode = EMode.NAVEGACIO;
                 objectiu = null;
             }   
-//            else System.out.println(" CONCLUSIO: No canvio d'estat ");
         }
         else if (mode == EMode.SEGUIMENT){
-//            System.out.println("ESTIC EN MODE SEGUIMENT I VAIG A VALORAR LA SITUACIO:");
             //Haure de canviar de mode si: - En Pacman te una mongeta i esta a una distancia < DISTANCIA_PERILLOSA  
             //                             - Estic perseguint el Item i (o be l'ha agafat en Pacman o be l'ha agafat el fantasma3(objecte actual))
             //                             - Estic perseguint a en Pacman i ja l'he atrapat
             //                             - Estic perseguint a en Pacman i se m'han acabat els efectes de la mongeta 
             if (pacmanEsPerillos(distanciaPacman)){//Si en Pacman te mongeta i esta a una distancia < DISTANCIA_PERILLOSA
-//                System.out.println("Em fico en estat de fugir perque en pacman es perillos:");
                 mode = EMode.FUGIR;
                 objectiu = null;
                 ruta = null;
             }
             else if (objectiu != null){//Si tinc objectiu
                 if (objectiu.element == EElement.PACMAN && !vullAtraparEnPacman()){
-//                    System.out.println("Ja no m'interesa atrapar a en Pacman, canvio a mode Navegacio:");
                     objectiu = null;
                     mode = EMode.NAVEGACIO;
                 }
                 else if (elementEsItem(objectiu.element)){
-//                    System.out.println("Estava perseguint un item i ja no esta, canvio a mode Navegacio:");
                     if (partida.obtenirItem() == null){//El Item ja no es troba en el Laberint
                         objectiu = null;
                         mode = EMode.NAVEGACIO;
                     }
                 }
-               
-            }
-//            else System.out.println(" CONCLUSIO: No canvio d'estat ");
-            
+            } 
         }
     }
     
@@ -230,13 +208,13 @@ public class Fantasma3 extends Personatge{
     private void modeFugir(){
         //Si estic fugint es perque en Pacman m'esta perseguint, si encara tinc un ruta de maximitzar distancia llavors segueixo
         //altrament torno a calcular una altre ruta d'escapament.
-         
         if (ruta == null || ruta.esBuida()){
-//            System.out.println("Estic en mode fugida i m'he quedat sense ruta, torno a calcular una altre ");
             Punt puntPacman = partida.obtenirPuntPacman();
+            long tempsInici = System.currentTimeMillis();
             ruta = gestorCami.trobarCamiMaximitzarDist(posicio, puntPacman);
+            long tempsFi = System.currentTimeMillis();
+            log.afegirDebug("Temps de Fantasma 3 a buscar un cami de fugida utilitzant Backtracking: " + (tempsFi-tempsInici) + "ms.");
         }
-//      else System.out.println("Estic en mode fugida i tinc encara:" + ruta.obtenirMida()+ " moviments per fer");
     }
     
     
@@ -253,14 +231,8 @@ public class Fantasma3 extends Personatge{
         //                                         
         //reCalcularDistanciesMonedes();
         if (objectiu == null){//No tinc objetiu
-            if (quedenMonedes()){
-//                System.out.println("Estic en mode navegacio, no tinc objectiu i queden monedes, per tant buscu una moneda ");
-                buscaMoneda();
-            }
-            else{
-//                System.out.println("Estic en mode navegacio, no tinc objectiu i NO queden monedes, per tant buscu la sortida ");
-                exitLaberint();
-            }
+            if (quedenMonedes())buscaMoneda();
+            else exitLaberint();
         }
         else{//Si tinc objectiu
             //Haure de canviar de objectiu si: - He arrivat al meu objectiu o el meu objectiu ja no es troba en la mateixa posicio.
@@ -283,21 +255,18 @@ public class Fantasma3 extends Personatge{
         //                                   
         if (objectiu == null){//Si no tinc Objectiu
             if (!quedenMonedes() && !guanya){
-//                System.out.println("Estic en mode seguiment, no tinc objectiu, no tinc objectiu, no queden monedes i no estic guanyant, per tant el meu objectiu:PACMAN ");
                 Punt p = partida.obtenirPuntPacman();
                 EElement e = EElement.PACMAN;
                 objectiu = new Objectiu(p,e);
                 ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
             }
             else if (estatPersonatge == EEstatPersonatge.AMB_MONGETA && vullAtraparEnPacman()){
-//                System.out.println("Estic en mode seguiment, no tinc objectiu i tinc mongeta, vaig a per en PACMAN ");
                 Punt p = partida.obtenirPuntPacman();
                 EElement e = EElement.PACMAN;
                 objectiu = new Objectiu(p,e);
                 ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
             }
             else if (hiHaItemEspecialAProp()){
-//                System.out.println("Estic en mode seguiment, no tinc objectiu i hi ha un Item pirulant, vaig a per el Item ");
                 Punt p = partida.obtenirItem().posicio;
                 EElement e = EElement.MONGETA;  //Fantasma 3 no diferencia entre els items, utilitzarem mongeta com a per defecte per a identificar un item
                 objectiu = new Objectiu(p,e);
@@ -315,7 +284,6 @@ public class Fantasma3 extends Personatge{
                 case PACMAN: objectiu.posicio = partida.obtenirPuntPacman();
                     break;      
             }
-//            System.out.println("Estic en mode seguiment, SI tinc objectiu i vaig cap a ell ");
             ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
         }
             
@@ -330,8 +298,6 @@ public class Fantasma3 extends Personatge{
     private void exitLaberint(){
         EElement element = EElement.SORTIDA;
         Punt p = buscaElement(EElement.SORTIDA);
-//        if ( p == null)System.out.println("IIEEEPP!! no queden monedes... he buscat la sortida i no la he trobat..... falla alguna cosa.");
-//        else System.out.println("He trobat la sortida, vaig cap a ella");
         objectiu = new Objectiu(p,element);
         ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
     }
@@ -371,6 +337,7 @@ public class Fantasma3 extends Personatge{
         int monedesContades =0;
         int distanciaMinima = Integer.MAX_VALUE;
         Punt monedaMesProxima = null;
+        long tempsInici = System.currentTimeMillis();
         synchronized(laberint){
             int totalMonedes = laberint.obtenirMonedes();
             for (int i = mida-1; i>= 0 && monedesContades < totalMonedes && distanciaMinima != 1; i--){//Mentres i < mida del tauler && no hagi calculat totes les monedes && no hagi trobat alguna moneda a distancia 1
@@ -386,6 +353,8 @@ public class Fantasma3 extends Personatge{
                     }  
                 }
             }
+            long tempsFi = System.currentTimeMillis();
+            log.afegirDebug("Temps de Fantasma3 a trobar la moneda més proxima utilitzant algorisme AStar:"+ (tempsFi - tempsInici) + " ms");
         }
         return monedaMesProxima;
     }
@@ -504,7 +473,7 @@ public class Fantasma3 extends Personatge{
     
     
     /**
-     * @brief 
+     * @brief s'eneten per objectiu un Punt que conte un EElement
      */
     private class Objectiu{
         public Punt posicio;
@@ -515,59 +484,4 @@ public class Fantasma3 extends Personatge{
             element = _element;
         }
     }
-//        private String donamNomMov(EDireccio dir){
-//        String res = "";
-//        switch (dir){
-//            case AVALL: res = "Avall";
-//                break;
-//            case AMUNT : res = "Amunt";
-//                break;
-//            case DRETA: res = "Dreta";
-//                break;
-//            case ESQUERRA: res = "ESQUERRA";
-//                break;
-//            default: res = "Quiet";
-//                break;
-//        }
-//        return res;
-//    }
-//    private String donamNomMode(EMode _mode){
-//        String res="";
-//        switch(mode){
-//            case FUGIR: res = "Fugir";
-//                break;
-//            case NAVEGACIO: res = "Navegacio";
-//                break;
-//            case SEGUIMENT: res = "Seguiment";
-//                break;
-//            default: res = "Falla algo";
-//                break;
-//        }
-//        return res;
-//    }
-//    
-//    private String donamNomElement(EElement element){
-//        String res = "";
-//        switch(element){
-//            case MONEDA: res = "moneda normal";
-//                break;
-//            case MONEDA_EXTRA: res = "moneda doble";
-//                break;
-//            case MONEDES_X2:
-//            case MONGETA:
-//            case PATINS: res = "Item especial";
-//                break;
-//            case PARET: res = "Paret";
-//                break;
-//            case PACMAN: res = "Pacman";
-//                break;
-//            case SORTIDA: res = "Sortida";
-//                break;
-//            case RES: res = "RES";
-//                break;
-//            default: res = "estic Fugint i no tinc cap objectiu en concret";
-//                break;
-//        }
-//        return res;
-//    }
 }

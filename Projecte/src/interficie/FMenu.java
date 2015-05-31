@@ -12,6 +12,7 @@ import logica.Usuari.EDificultat;
 import logica.Usuari.ENivells;
 import logica.controladors_pacman.ControladorTeclat;
 import logica.controladors_pacman.IControlador;
+import logica.enumeracions.EElement;
 import logica.enumeracions.ELaberintsPredefinits;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
