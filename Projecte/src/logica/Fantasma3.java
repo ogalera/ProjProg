@@ -11,17 +11,25 @@ import logica.historic_moviments.HistoricMoviments;
 
 /**
  *
- * @author oscar
+ * @author Moises
+ * @brief Implementació del comportament de Fantasma3
  */
 public class Fantasma3 extends Personatge{
-    private final GestorCamins gestorCami;
-    private Objectiu objectiu;
-    private HistoricMoviments ruta;
-    private EMode mode;
-    private static final int DISTANCIA_PERILLOSA = 15; //distancia < DISTANCIA_PERILLOSA es considera perill 
-    private static final int DISTANCIA_CONSIDERABLE = 8;//Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell
+    private final GestorCamins gestorCami;/*!< Calcula els camins necessaris per moure's per el Laberint */
+    private Objectiu objectiu;/*!< Objectiu en un instant en concret de FANTASMA3 en una partida */
+    private HistoricMoviments ruta;/*!< Guarda els camins que retorna gestorCami */
+    private EMode mode;/*!< EMode en un instant en concret de FANTASMA3 en una partida */
+    private static final int DISTANCIA_PERILLOSA = 15; /*!< Distancia a partir de la qual Fantasma 3 considera els perills. si distancia < DISTANCIA_PERILLOSA es considera perill*/ 
+    private static final int DISTANCIA_CONSIDERABLE = 8;/*!< Distancia a paritr de la qual Fantasma 3 considera canviar a mode seguiment. ex: Si distancia a ItemMovible < DISTANCIA_CONSIDERABLE, llavors anirem a per ell.*/
 
     
+    /**
+     * @brief Constructor de Fantasma3
+     * @param partida Partida actual.
+     * @param laberint Laberint actual.
+     * @param inici Punt on apareixera Item.
+     * @post Objecte actual ja interectua amb EElements de Laberint.
+     */
     public Fantasma3(Partida partida, Laberint laberint, Punt inici) {
         super(partida, laberint, EElement.FANTASMA3.obtenirImatge(), inici);
         gestorCami = new GestorCamins(laberint);
@@ -30,27 +38,14 @@ public class Fantasma3 extends Personatge{
         mode = EMode.NAVEGACIO;
         buscaMoneda();
     }
-
-    @Override
-    protected void assignarImatges() {
-        int llargada = laberint.obtenirMidaImatge().height;
-        this.imatges[0][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3D0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
-        this.imatges[0][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3D1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[1][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3E0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[1][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3E1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[2][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3A0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[2][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3A1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[3][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3B0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-        this.imatges[3][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3B1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
-    }
     
     /**
      * @brief Diferents Modes que adopta Fantasma 3 durant una partida
      */
     private enum EMode{
-        FUGIR, //En aquest mode es calcula un cami de n posicions que maximitza la distancia amb el perseguidor, on n es la profunditat del BackTracking
-        SEGUIMENT, //Es persegueix un objectiu movible. Es calcula el cami minim a cada moviment i nomes es porta a terme el primer pas d'aquest cami calculat.
-        NAVEGACIO;// Es persegueix un objectiu estatic. Es calcula una sola vegada el cami minim i es segueixen els passos fins a aquest objectiu.
+        FUGIR, /*!<En aquest mode es calcula un cami de n posicions que maximitza la distancia amb el perseguidor, on n es la profunditat del BackTracking*/
+        SEGUIMENT, /*!<Es persegueix un objectiu movible. Es calcula el cami minim a cada moviment i nomes es porta a terme el primer pas d'aquest cami calculat.*/
+        NAVEGACIO;/*!< Es persegueix un objectiu estatic. Es calcula una sola vegada el cami minim i es segueixen els passos fins a aquest objectiu.*/
     }
     
    
@@ -140,8 +135,15 @@ public class Fantasma3 extends Personatge{
     }
     
     /**
-     * @brief Valoració de la situacio abans de calcular un moviment.
-     * @post 
+     * @brief Implementacio de la logica de Fantasma3 a la hora de 
+     * valorar una situacio.
+     * @post mode canvia de valor si la logica de fantasma3 considera 
+     * que la situacio actual ho requereix.
+     * Si es produeix canvi de mode, llavors objectiu = null.
+     * @details Entenem per situacio:
+     *  - els EElements que conte laberint i les seves posicions dintre d'aquest.
+     *  - EEstatPersonatge de Pacman I EEstatPersonatge de Fantasma3
+     *  - Numero de monedes restants en el Laberint
      */
     private void valorarSituacio(){
         Punt posicioPacman = partida.obtenirPuntPacman();
@@ -221,7 +223,11 @@ public class Fantasma3 extends Personatge{
         }
     }
     
-     private void modeFugir(){
+    /**
+    * @brief Gestio de la ruta en cas que mode = EMode.FUGIR
+    * @post ruta != null
+    */
+    private void modeFugir(){
         //Si estic fugint es perque en Pacman m'esta perseguint, si encara tinc un ruta de maximitzar distancia llavors segueixo
         //altrament torno a calcular una altre ruta d'escapament.
          
@@ -233,6 +239,11 @@ public class Fantasma3 extends Personatge{
 //      else System.out.println("Estic en mode fugida i tinc encara:" + ruta.obtenirMida()+ " moviments per fer");
     }
     
+    
+    /**
+    * @brief Gestio de la ruta en cas que mode = EMode.NAVEGACIO
+    * @post ruta != null
+    */
     private void modeNavegacio(){
         //Es Poden donar les seguents situacions:  - Acabo de sortir de un altre mode i no tinc objectiu --> Buscu monedes o vaig a la sortida.
         //                                         - Estic navegant i encara no he arribat al meu objectiu --> comprovar que en el punt del meu objectiu 
@@ -259,6 +270,11 @@ public class Fantasma3 extends Personatge{
             }
         }
     }
+    
+     /**
+    * @brief Gestio de la ruta en cas que mode = EMode.SEGUIMENT
+    * @post ruta != null
+    */
     private void modeSeguiment(){
         //Si no tinc objectiu vol dir que acabo de entrar en aquest mode. Els casos en els que 
         //s'adopta el mode seguiment son: - S'han acabat les monedes, estic perdent i haig d'anar a per en Pacman.   
@@ -304,6 +320,8 @@ public class Fantasma3 extends Personatge{
         }
             
     }
+    
+    
      /**
      * @brief Assigna la sortida com a objectiu.
      * @pre La sortida ha estat assignada en el objecte laberint.
@@ -392,62 +410,7 @@ public class Fantasma3 extends Personatge{
         }
         return res;
     }
-    private String donamNomMov(EDireccio dir){
-        String res = "";
-        switch (dir){
-            case AVALL: res = "Avall";
-                break;
-            case AMUNT : res = "Amunt";
-                break;
-            case DRETA: res = "Dreta";
-                break;
-            case ESQUERRA: res = "ESQUERRA";
-                break;
-            default: res = "Quiet";
-                break;
-        }
-        return res;
-    }
-    private String donamNomMode(EMode _mode){
-        String res="";
-        switch(mode){
-            case FUGIR: res = "Fugir";
-                break;
-            case NAVEGACIO: res = "Navegacio";
-                break;
-            case SEGUIMENT: res = "Seguiment";
-                break;
-            default: res = "Falla algo";
-                break;
-        }
-        return res;
-    }
-    
-    private String donamNomElement(EElement element){
-        String res = "";
-        switch(element){
-            case MONEDA: res = "moneda normal";
-                break;
-            case MONEDA_EXTRA: res = "moneda doble";
-                break;
-            case MONEDES_X2:
-            case MONGETA:
-            case PATINS: res = "Item especial";
-                break;
-            case PARET: res = "Paret";
-                break;
-            case PACMAN: res = "Pacman";
-                break;
-            case SORTIDA: res = "Sortida";
-                break;
-            case RES: res = "RES";
-                break;
-            default: res = "estic Fugint i no tinc cap objectiu en concret";
-                break;
-        }
-        return res;
-    }
-
+//
 
     
     /**
@@ -525,7 +488,24 @@ public class Fantasma3 extends Personatge{
     protected void notificarPerduaEstat() {
         partida.assignarItemAEnemic(EElement.RES);
     }
-
+    
+    @Override
+    protected void assignarImatges() {
+        int llargada = laberint.obtenirMidaImatge().height;
+        this.imatges[0][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3D0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));//EElement.PACMAN.obtenirImatge();
+        this.imatges[0][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3D1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3E0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[1][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3E1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3A0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[2][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3A1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3B0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+        this.imatges[3][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3B1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
+    }
+    
+    
+    /**
+     * @brief 
+     */
     private class Objectiu{
         public Punt posicio;
         public EElement element;
@@ -535,5 +515,59 @@ public class Fantasma3 extends Personatge{
             element = _element;
         }
     }
-    
+//        private String donamNomMov(EDireccio dir){
+//        String res = "";
+//        switch (dir){
+//            case AVALL: res = "Avall";
+//                break;
+//            case AMUNT : res = "Amunt";
+//                break;
+//            case DRETA: res = "Dreta";
+//                break;
+//            case ESQUERRA: res = "ESQUERRA";
+//                break;
+//            default: res = "Quiet";
+//                break;
+//        }
+//        return res;
+//    }
+//    private String donamNomMode(EMode _mode){
+//        String res="";
+//        switch(mode){
+//            case FUGIR: res = "Fugir";
+//                break;
+//            case NAVEGACIO: res = "Navegacio";
+//                break;
+//            case SEGUIMENT: res = "Seguiment";
+//                break;
+//            default: res = "Falla algo";
+//                break;
+//        }
+//        return res;
+//    }
+//    
+//    private String donamNomElement(EElement element){
+//        String res = "";
+//        switch(element){
+//            case MONEDA: res = "moneda normal";
+//                break;
+//            case MONEDA_EXTRA: res = "moneda doble";
+//                break;
+//            case MONEDES_X2:
+//            case MONGETA:
+//            case PATINS: res = "Item especial";
+//                break;
+//            case PARET: res = "Paret";
+//                break;
+//            case PACMAN: res = "Pacman";
+//                break;
+//            case SORTIDA: res = "Sortida";
+//                break;
+//            case RES: res = "RES";
+//                break;
+//            default: res = "estic Fugint i no tinc cap objectiu en concret";
+//                break;
+//        }
+//        return res;
+//    }
 }

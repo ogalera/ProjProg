@@ -6,7 +6,7 @@ import logica.Partida;
 /**
  *
  * @author Moises
- * @brief Descriu els metodes necessaris per a que els objecte Partida pugui
+ * @brief Descriu els metodes necessaris per a que objecte Partida pugui
  * mostrar el desenvolupament d'una partida per pantalla.
  */
 public interface IPintadorPartida{
@@ -52,7 +52,7 @@ public interface IPintadorPartida{
     /**
      * @brief Mostra per pantalla el resultat de la partida al jugador.
      * @param guanyat Diu si jugador ha guanyat o no la partida
-     * @post 
+     * @post Es mostra un dialeg per comunicar al jugador si ha guanyat o no.
      */
     public void pintarFinalPartida(boolean guanyat);
     public void pintarIniciPartida();

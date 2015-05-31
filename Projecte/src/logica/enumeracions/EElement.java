@@ -7,6 +7,8 @@ import logica.Utils;
 /**
  *
  * @author oscar
+ * @brief Enumeracio dels diferents elements que conte un objecte del tipus
+ * Laberint.
  */
 public enum EElement {
     PACMAN(20, false, "res/imatges/pacmanD1.png", 'P'),
@@ -23,10 +25,10 @@ public enum EElement {
     INDEFINIT(-2 , false, "res/imatges/indefinit.png", 'I'),
     SORTIDA(15, false, "res/imatges/sortida.png", 'S');
     
-    private final int id;
-    private ImageIcon imatge;
-    private boolean esEnemic;
-    private char lletraRepresentacio;
+    private final int id;/*!<identificador numeric de EElement. */
+    private ImageIcon imatge;/*!<Imatge que identifica a EElement. */
+    private boolean esEnemic;/*!<Diu si EELement es un FANTASMA */
+    private char lletraRepresentacio;/*!<Lletra que representa a EElement. */
     
     private EElement(int id, boolean esEnemic, String recurs, char lletraRepresentacio){
         this.id = id;
@@ -41,22 +43,44 @@ public enum EElement {
         }
     }
     
+    /**
+     * @brief Retorna el caracter que representa a EElement
+     * @details S'utilitza per a mostrar el EElement en consola.
+     * @return Carater que representa a EElement.
+     */
     public char obtenirLletraRepresentacio(){
         return this.lletraRepresentacio;
     }
     
+    
+    /**
+     * @brief Retorna la imatge que representa a EElement.
+     */
     public ImageIcon obtenirImatge(){
         return this.imatge;
     }
-    
+    /**
+     * @brief Retorna el identificador de EElement.
+     * @details S'utilitza per identificar els EElements a l'hora de tractar
+     * fitxers.
+     */
     public final int obtenirId(){
         return this.id;
     }
     
+    /**
+     * @brief Diu si Objecte actual es un Fantasma.
+     * @return Cert si Objecte actual es del tipus FANTASMA1, FANTASMA2, o FANTASMA3
+     */
     public boolean esEnemic(){
         return this.esEnemic;
     }
     
+    /**
+     * @brief Redimensiona la imatge que te associada cada EElement
+     * @pre px > 0.
+     * @post imatges de EElements redimensionades a mida (px x px).
+     */
     public static void redimensionarImatges(int px){
         for (EElement e : EElement.values()){
             ImageIcon img = e.obtenirImatge();
@@ -64,10 +88,19 @@ public enum EElement {
         }
     }
     
+    /**
+     * @brief Estableix una imatge a EElement actual
+     * @post La representació grafica de EElement actual és img.
+     */
     private void establirImatge(Image img){
         this.imatge = new ImageIcon(img);
     }
     
+    
+    /**
+     * @brief Retorna el EElement amb identificador = id.
+     * @return EElement amb identificador = id.
+     */
     public static EElement buscarElementPerId(int id){
         EElement element;
         if(id == MONEDA.obtenirId()) element = MONEDA;

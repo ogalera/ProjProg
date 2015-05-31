@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logica.excepcions;
 
 /**
  *
  * @author Moises
+ * @brief Excepcio que es llença en les operacions amb objectes Punt
  */
 public class ExceptionPunt extends RuntimeException{
+     /**
+     * @brief Constructor de la excepcio
+     * @post Excepcio creada
+     */
     public ExceptionPunt(String missatge){
         super(missatge);
     }

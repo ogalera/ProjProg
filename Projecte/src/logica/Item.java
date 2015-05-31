@@ -40,7 +40,7 @@ public class Item extends ItemMovible {
         esticFugint = false;
         super.iniciarItemMovible();
     }
-
+    
     @Override
     public EDireccio calcularMoviment(){
         if (seguentMoviment == null || posicio == null) {
