@@ -3,6 +3,11 @@
 }
 
 
+Implementació del comportament dels items (P\+A\+T\+I\+N\+S, M\+O\+N\+E\+D\+E\+S\+\_\+\+X2, M\+O\+N\+G\+E\+T\+A).  
+
+
+
+
 Diagrama d'Herència per a logica.\+Item\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -12,7 +17,8 @@ Diagrama d'Herència per a logica.\+Item\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+Item\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+Item\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,18 +28,16 @@ Diagrama de col·laboració per a logica.\+Item\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}{{\bfseries Item} (\hyperlink{classlogica_1_1_partida}{Partida} partida, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} tipus\+Element, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element\+Trapitjat, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} laberint, \hyperlink{classlogica_1_1_punt}{Punt} inici)}\label{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}
-
-\item 
+\hyperlink{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}{Item} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} tipus\+Element, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} element\+Trapitjat, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{classlogica_1_1_punt}{Punt} inici)
+\begin{DoxyCompactList}\small\item\em Constructor de \hyperlink{classlogica_1_1_item}{Item}. \end{DoxyCompactList}\item 
 \hypertarget{classlogica_1_1_item_a0b85057e526c921f66a586e334b94685}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries calcular\+Moviment} ()}\label{classlogica_1_1_item_a0b85057e526c921f66a586e334b94685}
 
 \item 
-\hypertarget{classlogica_1_1_item_a729ac980199af2b84c3dc6ef14b57e43}{String {\bfseries nom\+Item\+Movible} ()}\label{classlogica_1_1_item_a729ac980199af2b84c3dc6ef14b57e43}
+\hypertarget{classlogica_1_1_item_a729ac980199af2b84c3dc6ef14b57e43}{String \hyperlink{classlogica_1_1_item_a729ac980199af2b84c3dc6ef14b57e43}{nom\+Item\+Movible} ()}\label{classlogica_1_1_item_a729ac980199af2b84c3dc6ef14b57e43}
 
-\item 
-\hypertarget{classlogica_1_1_item_a81cb8508f21f320f54ca5d279fa24625}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries obtenir\+Element\+Trapitgat} ()}\label{classlogica_1_1_item_a81cb8508f21f320f54ca5d279fa24625}
-
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna el tipus de E\+Element al que pertany objecte actual. \end{DoxyCompactList}\item 
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_item_a81cb8508f21f320f54ca5d279fa24625}{obtenir\+Element\+Trapitgat} ()
+\begin{DoxyCompactList}\small\item\em Retorna el element el qual esta a la mateixa cel·la que item. \end{DoxyCompactList}\item 
 \hypertarget{classlogica_1_1_item_a9990d70a8ad35319d2bb9d10b294b17a}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries realitzar\+Moviment} ()}\label{classlogica_1_1_item_a9990d70a8ad35319d2bb9d10b294b17a}
 
 \end{DoxyCompactItemize}
@@ -41,11 +45,64 @@ Diagrama de col·laboració per a logica.\+Item\+:\nopagebreak
 
 
 \subsection{Descripció Detallada}
+Implementació del comportament dels items (P\+A\+T\+I\+N\+S, M\+O\+N\+E\+D\+E\+S\+\_\+\+X2, M\+O\+N\+G\+E\+T\+A). 
+
 \begin{DoxyAuthor}{Autor}
-oscar 
+Moises 
 \end{DoxyAuthor}
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}{\index{logica\+::\+Item@{logica\+::\+Item}!Item@{Item}}
+\index{Item@{Item}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{Item}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+Item.\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida, }
+\item[{{\bf E\+Element}}]{tipus\+Element, }
+\item[{{\bf E\+Element}}]{element\+Trapitjat, }
+\item[{{\bf Laberint}}]{laberint, }
+\item[{{\bf Punt}}]{inici}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_item_ac19a70f15ff1f377848f1df34a6e1137}
+
+
+Constructor de \hyperlink{classlogica_1_1_item}{Item}. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em partida} & \hyperlink{classlogica_1_1_partida}{Partida} actual. \\
+\hline
+{\em tipus\+Element} & Tipus de E\+Element de objecte actual. \\
+\hline
+{\em element\+Trapitjat} & E\+Element contingut a la cel·la inici. \\
+\hline
+{\em laberint} & Laberint actual. \\
+\hline
+{\em inici} & \hyperlink{classlogica_1_1_punt}{Punt} on apareixera \hyperlink{classlogica_1_1_item}{Item}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondició}
+Objecte actual ja interectua amb E\+Elements de Laberint. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_item_a81cb8508f21f320f54ca5d279fa24625}{\index{logica\+::\+Item@{logica\+::\+Item}!obtenir\+Element\+Trapitgat@{obtenir\+Element\+Trapitgat}}
+\index{obtenir\+Element\+Trapitgat@{obtenir\+Element\+Trapitgat}!logica\+::\+Item@{logica\+::\+Item}}
+\subsubsection[{obtenir\+Element\+Trapitgat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} logica.\+Item.\+obtenir\+Element\+Trapitgat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_item_a81cb8508f21f320f54ca5d279fa24625}
+
+
+Retorna el element el qual esta a la mateixa cel·la que item. 
+
+Laberint conté un E\+Elements per cel·la. Quan item es mou es necessita guardar el E\+Element que contenia la cel·la actual on es troba el item. \begin{DoxyReturn}{Retorna}
+Element que hi ha a la mateixa cel·la que item. 
+\end{DoxyReturn}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Item.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/Item.\+java\end{DoxyCompactItemize}

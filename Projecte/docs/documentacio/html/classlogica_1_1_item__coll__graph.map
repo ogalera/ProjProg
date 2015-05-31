@@ -1,10 +1,10 @@
 <map id="logica.Item" name="logica.Item">
-<area shape="rect" id="node2" href="$classlogica_1_1_item_movible.html" title="logica.ItemMovible" alt="" coords="805,252,936,279"/>
+<area shape="rect" id="node2" href="$classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="805,252,936,279"/>
 <area shape="rect" id="node3" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="469,101,627,128"/>
-<area shape="rect" id="node4" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/>
-<area shape="rect" id="node5" href="$classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/>
-<area shape="rect" id="node6" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/>
-<area shape="rect" id="node8" href="$classlogica_1_1_partida.html" title="logica.Partida" alt="" coords="196,173,297,200"/>
-<area shape="rect" id="node9" href="$classlogica_1_1_punt.html" title="logica.Punt" alt="" coords="505,252,591,279"/>
-<area shape="rect" id="node11" href="$enumlogica_1_1enumeracions_1_1_e_direccio.html" title="logica.enumeracions.EDireccio" alt="" coords="447,353,649,380"/>
+<area shape="rect" id="node4" href="$enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="145,5,348,32"/>
+<area shape="rect" id="node5" href="$classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="195,56,298,83"/>
+<area shape="rect" id="node6" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="160,107,333,133"/>
+<area shape="rect" id="node8" href="$classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="196,173,297,200"/>
+<area shape="rect" id="node9" href="$classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="505,252,591,279"/>
+<area shape="rect" id="node11" href="$enumlogica_1_1enumeracions_1_1_e_direccio.html" title="Enumeracio de les diferents direccions que pot prendre un ItemMobile &#160;per desplaçar&#45;se per el Laberin..." alt="" coords="447,353,649,380"/>
 </map>

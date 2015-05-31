@@ -3,6 +3,11 @@
 }
 
 
+Objecte amb la capacitat de moures per les diferents poscions d'un Laberint durant una \hyperlink{classlogica_1_1_partida}{Partida}.  
+
+
+
+
 Diagrama d'Herència per a logica.\+Item\+Movible\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -12,7 +17,8 @@ Diagrama d'Herència per a logica.\+Item\+Movible\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+Item\+Movible\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+Item\+Movible\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,62 +28,163 @@ Diagrama de col·laboració per a logica.\+Item\+Movible\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}{{\bfseries Item\+Movible} (\hyperlink{classlogica_1_1_partida}{Partida} partida, Image\+Icon imatge, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} laberint, \hyperlink{classlogica_1_1_punt}{Punt} inici, long frequencia)}\label{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}
+\hypertarget{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}{{\bfseries Item\+Movible} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, Image\+Icon imatge, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{classlogica_1_1_punt}{Punt} inici, long frequencia)}\label{classlogica_1_1_item_movible_a0463ef4d0a9e8e652be4a19b8dfba67c}
 
 \item 
-\hypertarget{classlogica_1_1_item_movible_a9a43835d32363d837ad38635e48483ba}{void {\bfseries iniciar\+Item\+Movible} ()}\label{classlogica_1_1_item_movible_a9a43835d32363d837ad38635e48483ba}
-
-\item 
+void \hyperlink{classlogica_1_1_item_movible_a9a43835d32363d837ad38635e48483ba}{iniciar\+Item\+Movible} ()
+\begin{DoxyCompactList}\small\item\em Inicialitzacio de un \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. \end{DoxyCompactList}\item 
 \hypertarget{classlogica_1_1_item_movible_a3362abf376e2d3fcf4b0690954e8c933}{void {\bfseries finalitzar\+Item} ()}\label{classlogica_1_1_item_movible_a3362abf376e2d3fcf4b0690954e8c933}
 
 \item 
-\hypertarget{classlogica_1_1_item_movible_a1284fadbe7d3961544c7b6edfa69340c}{long {\bfseries obtenir\+Temps\+Total\+Calcul} ()}\label{classlogica_1_1_item_movible_a1284fadbe7d3961544c7b6edfa69340c}
-
-\item 
-\hypertarget{classlogica_1_1_item_movible_aa1d46015999f809171a3ad284e249670}{abstract \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries realitzar\+Moviment} ()}\label{classlogica_1_1_item_movible_aa1d46015999f809171a3ad284e249670}
-
-\item 
-\hypertarget{classlogica_1_1_item_movible_a7851f12b803fe2c87550658ce83c6853}{abstract \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries calcular\+Moviment} ()}\label{classlogica_1_1_item_movible_a7851f12b803fe2c87550658ce83c6853}
-
-\item 
-\hypertarget{classlogica_1_1_item_movible_a2b829b28d6b604e11b8135b78ce8f7eb}{abstract String {\bfseries nom\+Item\+Movible} ()}\label{classlogica_1_1_item_movible_a2b829b28d6b604e11b8135b78ce8f7eb}
-
-\end{DoxyCompactItemize}
+long \hyperlink{classlogica_1_1_item_movible_a1284fadbe7d3961544c7b6edfa69340c}{obtenir\+Temps\+Total\+Calcul} ()
+\begin{DoxyCompactList}\small\item\em Retorna el temps utilitzat nomes en calcul de moviments de un \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}, durant una partida. \end{DoxyCompactList}\item 
+abstract \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_item_movible_aa1d46015999f809171a3ad284e249670}{realitzar\+Moviment} ()
+\begin{DoxyCompactList}\small\item\em Descripció del metode que realitza un moviment dins de la estructura de Laberint. \end{DoxyCompactList}\item 
+abstract \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} \hyperlink{classlogica_1_1_item_movible_a7851f12b803fe2c87550658ce83c6853}{calcular\+Moviment} ()
+\begin{DoxyCompactList}\small\item\em Descripcio del metode on s'implementara les logiques de cada \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} per a calcular el seu proxim moviment. \end{DoxyCompactList}\item 
+abstract String \hyperlink{classlogica_1_1_item_movible_a2b829b28d6b604e11b8135b78ce8f7eb}{nom\+Item\+Movible} ()
+\begin{DoxyCompactList}\small\item\em Descripcio del metode per obtenir el nom que identifica al subtipus de \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributs Públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}{final Image\+Icon {\bfseries imatge\+Perfil}}\label{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}
-
+final Image\+Icon \hyperlink{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}{imatge\+Perfil}
 \end{DoxyCompactItemize}
 \subsection*{Mètodes Protegits}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_item_movible_aa2ac3969ef87a7ebdee67878fd3a9547}{void {\bfseries canviar\+Frequencia\+Moviment} (long frequencia)}\label{classlogica_1_1_item_movible_aa2ac3969ef87a7ebdee67878fd3a9547}
-
-\end{DoxyCompactItemize}
+void \hyperlink{classlogica_1_1_item_movible_a817da6d1c2d5fce6a874edf3b708f147}{canviar\+Frequencia\+Moviment} (long \+\_\+frequencia)
+\begin{DoxyCompactList}\small\item\em Modifica la frequencia de \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributs Protegits}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{final \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} {\bfseries laberint}}\label{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}
-
+final \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}
 \item 
-\hypertarget{classlogica_1_1_item_movible_a9380636109f2180b48ee96e64de319a4}{\hyperlink{classlogica_1_1_punt}{Punt} {\bfseries posicio}}\label{classlogica_1_1_item_movible_a9380636109f2180b48ee96e64de319a4}
-
+\hyperlink{classlogica_1_1_punt}{Punt} \hyperlink{classlogica_1_1_item_movible_a9380636109f2180b48ee96e64de319a4}{posicio}
 \item 
-\hypertarget{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries seguent\+Moviment}}\label{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}
-
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} \hyperlink{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}{seguent\+Moviment}
 \item 
-\hypertarget{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{final \hyperlink{classlogica_1_1_partida}{Partida} {\bfseries partida}}\label{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}
-
+final \hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}
 \end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Objecte amb la capacitat de moures per les diferents poscions d'un Laberint durant una \hyperlink{classlogica_1_1_partida}{Partida}. 
+
 \begin{DoxyAuthor}{Autor}
 oscar 
 \end{DoxyAuthor}
 
 
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_item_movible_a7851f12b803fe2c87550658ce83c6853}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!calcular\+Moviment@{calcular\+Moviment}}
+\index{calcular\+Moviment@{calcular\+Moviment}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{calcular\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf E\+Direccio} logica.\+Item\+Movible.\+calcular\+Moviment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classlogica_1_1_item_movible_a7851f12b803fe2c87550658ce83c6853}
+
+
+Descripcio del metode on s'implementara les logiques de cada \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} per a calcular el seu proxim moviment. 
+
+\begin{DoxyReturn}{Retorna}
+E\+Direccio Calculada. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_item_movible_a817da6d1c2d5fce6a874edf3b708f147}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!canviar\+Frequencia\+Moviment@{canviar\+Frequencia\+Moviment}}
+\index{canviar\+Frequencia\+Moviment@{canviar\+Frequencia\+Moviment}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{canviar\+Frequencia\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Item\+Movible.\+canviar\+Frequencia\+Moviment (
+\begin{DoxyParamCaption}
+\item[{long}]{\+\_\+frequencia}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_item_movible_a817da6d1c2d5fce6a874edf3b708f147}
+
+
+Modifica la frequencia de \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. 
+
+a cada cicle de freqüència \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} realitzara un moviment i calcularà el proxim. \begin{DoxyPostcond}{Postcondició}
+frequencia = \+\_\+frequencia 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_item_movible_a9a43835d32363d837ad38635e48483ba}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!iniciar\+Item\+Movible@{iniciar\+Item\+Movible}}
+\index{iniciar\+Item\+Movible@{iniciar\+Item\+Movible}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{iniciar\+Item\+Movible}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Item\+Movible.\+iniciar\+Item\+Movible (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_item_movible_a9a43835d32363d837ad38635e48483ba}
+
+
+Inicialitzacio de un \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. 
+
+\begin{DoxyPostcond}{Postcondició}
+temporitzador inicialitzat següent Moviment calculat iniciat = true 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Excepcions}
+{\em E\+Item\+Movible\+Iniciat} & si \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} ja estava incialitzat. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classlogica_1_1_item_movible_a2b829b28d6b604e11b8135b78ce8f7eb}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!nom\+Item\+Movible@{nom\+Item\+Movible}}
+\index{nom\+Item\+Movible@{nom\+Item\+Movible}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{nom\+Item\+Movible}]{\setlength{\rightskip}{0pt plus 5cm}abstract String logica.\+Item\+Movible.\+nom\+Item\+Movible (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classlogica_1_1_item_movible_a2b829b28d6b604e11b8135b78ce8f7eb}
+
+
+Descripcio del metode per obtenir el nom que identifica al subtipus de \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. 
+
+\begin{DoxyReturn}{Retorna}
+Nom que identifica al subtipus de \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_item_movible_a1284fadbe7d3961544c7b6edfa69340c}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!obtenir\+Temps\+Total\+Calcul@{obtenir\+Temps\+Total\+Calcul}}
+\index{obtenir\+Temps\+Total\+Calcul@{obtenir\+Temps\+Total\+Calcul}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{obtenir\+Temps\+Total\+Calcul}]{\setlength{\rightskip}{0pt plus 5cm}long logica.\+Item\+Movible.\+obtenir\+Temps\+Total\+Calcul (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_item_movible_a1284fadbe7d3961544c7b6edfa69340c}
+
+
+Retorna el temps utilitzat nomes en calcul de moviments de un \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}, durant una partida. 
+
+\begin{DoxyReturn}{Retorna}
+Temps total de càlcul de moviments. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_item_movible_aa1d46015999f809171a3ad284e249670}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!realitzar\+Moviment@{realitzar\+Moviment}}
+\index{realitzar\+Moviment@{realitzar\+Moviment}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{realitzar\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf E\+Element} logica.\+Item\+Movible.\+realitzar\+Moviment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classlogica_1_1_item_movible_aa1d46015999f809171a3ad284e249670}
+
+
+Descripció del metode que realitza un moviment dins de la estructura de Laberint. 
+
+\begin{DoxyReturn}{Retorna}
+E\+E\+Lement que contenia la posicio on s'ha desplaçat \hyperlink{classlogica_1_1_item_movible}{Item\+Movible}. 
+\end{DoxyReturn}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!imatge\+Perfil@{imatge\+Perfil}}
+\index{imatge\+Perfil@{imatge\+Perfil}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{imatge\+Perfil}]{\setlength{\rightskip}{0pt plus 5cm}final Image\+Icon logica.\+Item\+Movible.\+imatge\+Perfil}}\label{classlogica_1_1_item_movible_a156a60365745803d0d3298b83aeacb73}
+Imatge que representa a un \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} \hypertarget{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!laberint@{laberint}}
+\index{laberint@{laberint}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{laberint}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Laberint} logica.\+Item\+Movible.\+laberint\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}
+Laberint on es mou \hyperlink{classlogica_1_1_item_movible}{Item\+Movible} \hypertarget{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!partida@{partida}}
+\index{partida@{partida}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{partida}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Partida} logica.\+Item\+Movible.\+partida\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}
+partida en joc \hypertarget{classlogica_1_1_item_movible_a9380636109f2180b48ee96e64de319a4}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!posicio@{posicio}}
+\index{posicio@{posicio}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{posicio}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+Item\+Movible.\+posicio\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_item_movible_a9380636109f2180b48ee96e64de319a4}
+Representacio de les coordenades (Fila,Columna) en un instant determinat de la partida \hypertarget{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}{\index{logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}!seguent\+Moviment@{seguent\+Moviment}}
+\index{seguent\+Moviment@{seguent\+Moviment}!logica\+::\+Item\+Movible@{logica\+::\+Item\+Movible}}
+\subsubsection[{seguent\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Direccio} logica.\+Item\+Movible.\+seguent\+Moviment\hspace{0.3cm}{\ttfamily [protected]}}}\label{classlogica_1_1_item_movible_a6e7ab9e5b0e363972a753e6b1550e7fb}
+Moviment calculat en un instant determinat de la partida 
+
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Item\+Movible.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/Item\+Movible.\+java\end{DoxyCompactItemize}

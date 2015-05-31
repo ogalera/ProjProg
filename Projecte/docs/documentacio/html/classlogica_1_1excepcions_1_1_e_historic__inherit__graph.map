@@ -1,3 +1,3 @@
 <map id="logica.excepcions.EHistoric" name="logica.excepcions.EHistoric">
-<area shape="rect" id="node3" href="$classlogica_1_1excepcions_1_1_e_historic_buit.html" title="logica.excepcions.EHistoricBuit" alt="" coords="5,155,212,181"/>
+<area shape="rect" id="node3" href="$classlogica_1_1excepcions_1_1_e_historic_buit.html" title="Excepció que es llença quan es vol accedir al historic i aquest està buit. " alt="" coords="5,155,212,181"/>
 </map>

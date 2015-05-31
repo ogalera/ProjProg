@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu...">Laberint</a> amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és: Posar en pacman al extrem esquerra superior "casella [0, 0]" i l'enemic especificat en l'extrem inferior dret "casella [N, N].  
+<p><a class="el" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu...">Laberint</a> amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és: Posar en pacman al extrem esquerra superior "casella [0, 0]" i l'enemic especificat en l'extrem inferior dret "casella [N-1, N-1].  
  <a href="classlogica_1_1laberints_1_1_laberint_aleatori.html#details">Més...</a></p>
 <div class="dynheader">
 Diagrama d'Herència per a logica.laberints.LaberintAleatori:</div>
@@ -109,7 +109,7 @@ Diagrama de col·laboració per a logica.laberints.LaberintAleatori:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1laberints_1_1_laberint_aleatori__coll__graph.png" border="0" usemap="#logica_8laberints_8_laberint_aleatori_coll__map" alt="Collaboration graph"/></div>
 <map name="logica_8laberints_8_laberint_aleatori_coll__map" id="logica_8laberints_8_laberint_aleatori_coll__map">
-<area shape="rect" id="node2" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="447,80,605,107"/><area shape="rect" id="node3" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/><area shape="rect" id="node4" href="classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/><area shape="rect" id="node5" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/><area shape="rect" id="node7" href="classlogica_1_1_partida.html" title="logica.Partida" alt="" coords="196,157,297,184"/></map>
+<area shape="rect" id="node2" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="447,80,605,107"/><area shape="rect" id="node3" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="145,5,348,32"/><area shape="rect" id="node4" href="classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="195,56,298,83"/><area shape="rect" id="node5" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="160,107,333,133"/><area shape="rect" id="node7" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="196,157,297,184"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -184,7 +184,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="separator:a65b89b5e73ed4533df3a8c2296e492be inherit pro_attribs_classlogica_1_1laberints_1_1_laberint"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
-<div class="textblock"><p><a class="el" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu...">Laberint</a> amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és: Posar en pacman al extrem esquerra superior "casella [0, 0]" i l'enemic especificat en l'extrem inferior dret "casella [N, N]. </p>
+<div class="textblock"><p><a class="el" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu...">Laberint</a> amb camins aleatoris, l'estrategia per generar laberints d'aquest tipus és: Posar en pacman al extrem esquerra superior "casella [0, 0]" i l'enemic especificat en l'extrem inferior dret "casella [N-1, N-1]. </p>
 <dl class="section author"><dt>Autor</dt><dd>oscar Llavors sortejar una casella dins del tauler, buscar la posició habilitada més propera al punt sortejat i traçar un camí, en tot el camí es van posant monedes.</dd></dl>
 <p>Aquest procés s'ha de repetir fins arribar a un nombre de monedes proporcional a la mida del tauler i mentre el tauler no sigui valid.</p>
 <p>Per validar el tauler s'utilitza la classe ValidadorLaberint.java </p>
@@ -224,19 +224,19 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondició</dt><dd>costat &gt; 5 i enemic és <a class="el" href="classlogica_1_1_fantasma1.html">Fantasma1</a>, <a class="el" href="classlogica_1_1_fantasma2.html">Fantasma2</a> o <a class="el" href="classlogica_1_1_fantasma3.html">Fantasma3</a> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>costat &gt; 5 i enemic és <a class="el" href="classlogica_1_1_fantasma1.html" title="Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida. ">Fantasma1</a>, <a class="el" href="classlogica_1_1_fantasma2.html" title="Eenemic úna mica més elaborat que Fantasma 1.  CARACTERISTIQUES DEL FANTASMA. La seva visibilitat nom...">Fantasma2</a> o <a class="el" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. ">Fantasma3</a> </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>em cret un labrint aleatori (costat x costat) que forma part de partida, es pintarà a traves de pintadorLaberint i on l'extrem superior esquerra [0, 0] hi ha en pacman i en l'extrem inferior dret hi ha l'enemic; </dd></dl>
 <p>Un cop generat el laberint sortejem les monedes extra; </p>
 
 </div>
 </div>
 <hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
-<li>/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/LaberintAleatori.java</li>
+<li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/logica/laberints/LaberintAleatori.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dj Mai 28 2015 14:23:57 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 18:59:54 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

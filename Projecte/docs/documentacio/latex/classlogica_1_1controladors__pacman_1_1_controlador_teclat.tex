@@ -3,6 +3,11 @@
 }
 
 
+Controlador per dirigir en pacman amb les fletxes del teclat.  
+
+
+
+
 Diagrama d'Herència per a logica.\+controladors\+\_\+pacman.\+Controlador\+Teclat\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,14 +27,12 @@ Diagrama de col·laboració per a logica.\+controladors\+\_\+pacman.\+Controlado
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1controladors__pacman_1_1_controlador_teclat_aab737c00c32133c65fafe6222c1eeb96}{void {\bfseries assignar\+Pacman} (\hyperlink{classlogica_1_1_pacman}{Pacman} pacman)}\label{classlogica_1_1controladors__pacman_1_1_controlador_teclat_aab737c00c32133c65fafe6222c1eeb96}
-
+void \hyperlink{classlogica_1_1controladors__pacman_1_1_controlador_teclat_aab737c00c32133c65fafe6222c1eeb96}{assignar\+Pacman} (\hyperlink{classlogica_1_1_pacman}{Pacman} pacman)
 \item 
 \hypertarget{classlogica_1_1controladors__pacman_1_1_controlador_teclat_af77e9d281ff2d126ef0f9a0cc88b5ec6}{void {\bfseries key\+Typed} (Key\+Event e)}\label{classlogica_1_1controladors__pacman_1_1_controlador_teclat_af77e9d281ff2d126ef0f9a0cc88b5ec6}
 
 \item 
-\hypertarget{classlogica_1_1controladors__pacman_1_1_controlador_teclat_a0681f6a89077acfc27c9934ae5a446b7}{void {\bfseries key\+Pressed} (Key\+Event e)}\label{classlogica_1_1controladors__pacman_1_1_controlador_teclat_a0681f6a89077acfc27c9934ae5a446b7}
-
+void \hyperlink{classlogica_1_1controladors__pacman_1_1_controlador_teclat_a0681f6a89077acfc27c9934ae5a446b7}{key\+Pressed} (Key\+Event e)
 \item 
 \hypertarget{classlogica_1_1controladors__pacman_1_1_controlador_teclat_ac6f43e2b1c35c8878e4d22577cd9210d}{void {\bfseries key\+Released} (Key\+Event e)}\label{classlogica_1_1controladors__pacman_1_1_controlador_teclat_ac6f43e2b1c35c8878e4d22577cd9210d}
 
@@ -37,11 +40,46 @@ Diagrama de col·laboració per a logica.\+controladors\+\_\+pacman.\+Controlado
 
 
 \subsection{Descripció Detallada}
-\begin{DoxyAuthor}{Autor}
-oscar 
-\end{DoxyAuthor}
+Controlador per dirigir en pacman amb les fletxes del teclat. 
 
+\begin{DoxyAuthor}{Autor}
+oscar
+\end{DoxyAuthor}
+\begin{DoxyInvariant}{Invariant}
+en pacman ha de deixar de ser null just abans de començar a controlar-\/lo. 
+\end{DoxyInvariant}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1controladors__pacman_1_1_controlador_teclat_aab737c00c32133c65fafe6222c1eeb96}{\index{logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat@{logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat}!assignar\+Pacman@{assignar\+Pacman}}
+\index{assignar\+Pacman@{assignar\+Pacman}!logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat@{logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat}}
+\subsubsection[{assignar\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+controladors\+\_\+pacman.\+Controlador\+Teclat.\+assignar\+Pacman (
+\begin{DoxyParamCaption}
+\item[{{\bf Pacman}}]{pacman}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1controladors__pacman_1_1_controlador_teclat_aab737c00c32133c65fafe6222c1eeb96}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em assignat en pacman al controlador \char`\"{}això és necessari perquè el controlador
+cal que es comuniqui amb en pacman per dir-\/li la nova direcció que ha de pendre\char`\"{}. 
+\end{DoxyPostcond}
+
+
+Implementa \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador_ac765182730a4337c576a9764cdd521fa}{logica.\+controladors\+\_\+pacman.\+I\+Controlador}.
+
+\hypertarget{classlogica_1_1controladors__pacman_1_1_controlador_teclat_a0681f6a89077acfc27c9934ae5a446b7}{\index{logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat@{logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat}!key\+Pressed@{key\+Pressed}}
+\index{key\+Pressed@{key\+Pressed}!logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat@{logica\+::controladors\+\_\+pacman\+::\+Controlador\+Teclat}}
+\subsubsection[{key\+Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+controladors\+\_\+pacman.\+Controlador\+Teclat.\+key\+Pressed (
+\begin{DoxyParamCaption}
+\item[{Key\+Event}]{e}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1controladors__pacman_1_1_controlador_teclat_a0681f6a89077acfc27c9934ae5a446b7}
+S'ha presionat una telca, és una fletxa? i si és una fletxa quina direcció ens implica?
+
+Li enviem la nova direcció a en pacman. 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/controladors\+\_\+pacman/Controlador\+Teclat.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/controladors\+\_\+pacman/Controlador\+Teclat.\+java\end{DoxyCompactItemize}

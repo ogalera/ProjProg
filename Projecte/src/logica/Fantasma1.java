@@ -9,10 +9,9 @@ import logica.enumeracions.EElement;
 /**
  * @author oscar
  * @brief
- * Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida.
- * 
- * CARACTERISTIQUES DEL FANTASMA 
- * Els seus moviments són totalment aleatoris.
+ * Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida.\n\n
+ * CARACTERISTIQUES DEL FANTASMA \n
+ * Els seus moviments són totalment aleatoris.\n
  * Sempre serà igual de dolent (estigui com estigui el tauler)
  */
 public class Fantasma1 extends Personatge{

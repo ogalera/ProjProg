@@ -1,6 +1,11 @@
 \hypertarget{classlogica_1_1_punt}{\section{Referència de la Classe logica.\+Punt}
 \label{classlogica_1_1_punt}\index{logica.\+Punt@{logica.\+Punt}}
 }
+
+
+Representació de un punt 2\+D format per fila i columna;.  
+
+
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,8 +30,10 @@ int \hyperlink{classlogica_1_1_punt_a20bb4168bbedb81b73947bfeaf31512a}{distancia
 
 
 \subsection{Descripció Detallada}
+Representació de un punt 2\+D format per fila i columna;. 
+
 \begin{DoxyAuthor}{Autor}
-oscar D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L\+A C\+L\+A\+S\+S\+E Representació de un punt 2\+D; 
+oscar 
 \end{DoxyAuthor}
 
 
@@ -43,15 +50,8 @@ oscar D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L\+A C\+L\
 \+: --; 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-\+: definim un punt a traves de les coordenades x i y; 
+\+: definim un punt a traves de les coordenades fila i columna; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em fila} & valor del eix de les absices; \\
-\hline
-{\em columna} & valor del eix de les ordenades; \\
-\hline
-\end{DoxyParams}
 
 
 \subsection{Documentació de les Funcions Membre}
@@ -68,14 +68,6 @@ oscar D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L\+A C\+L\
 \begin{DoxyPostcond}{Postcondició}
 \+: em retornat el Q\+U\+A\+D\+R\+A\+T de la distancia amb desti; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em desti} & punt de referencia per calcular la distancia; \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-\+: la distancia al quadrat de contra destí; 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1_punt_a8198234b3d10d9f83e634b0390c84dcb}{\index{logica\+::\+Punt@{logica\+::\+Punt}!generar\+Punt\+Desplasat@{generar\+Punt\+Desplasat}}
 \index{generar\+Punt\+Desplasat@{generar\+Punt\+Desplasat}!logica\+::\+Punt@{logica\+::\+Punt}}
 \subsubsection[{generar\+Punt\+Desplasat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} logica.\+Punt.\+generar\+Punt\+Desplasat (
@@ -87,16 +79,8 @@ oscar D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L\+A C\+L\
 \+: --; 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-\+: retornem el punt obtingut de aplicar un moviment; 
+\+: retornem el punt obtingut de aplicar un moviment sobre el punt actual; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em moviment} & a aplicar; \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-punt desplaçat per moviment; 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1_punt_a111fa13504fb44338c3ebae2e4eb104b}{\index{logica\+::\+Punt@{logica\+::\+Punt}!obtenir\+Columna@{obtenir\+Columna}}
 \index{obtenir\+Columna@{obtenir\+Columna}!logica\+::\+Punt@{logica\+::\+Punt}}
 \subsubsection[{obtenir\+Columna}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Punt.\+obtenir\+Columna (
@@ -110,9 +94,6 @@ punt desplaçat per moviment;
 \begin{DoxyPostcond}{Postcondició}
 \+: em retornat el valor del eix de les absices; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-\+: valor del eix de les absices; 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1_punt_ac12261ec7534827c8cb7b4cba5bdd5db}{\index{logica\+::\+Punt@{logica\+::\+Punt}!obtenir\+Fila@{obtenir\+Fila}}
 \index{obtenir\+Fila@{obtenir\+Fila}!logica\+::\+Punt@{logica\+::\+Punt}}
 \subsubsection[{obtenir\+Fila}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Punt.\+obtenir\+Fila (
@@ -126,9 +107,6 @@ punt desplaçat per moviment;
 \begin{DoxyPostcond}{Postcondició}
 \+: em retornat el valor del eix de les ordenades; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-\+: valor del eix de les ordenades; 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1_punt_aae8b444d685a4fab660a51838fc42406}{\index{logica\+::\+Punt@{logica\+::\+Punt}!obtenir\+Posicions\+Del\+Voltant@{obtenir\+Posicions\+Del\+Voltant}}
 \index{obtenir\+Posicions\+Del\+Voltant@{obtenir\+Posicions\+Del\+Voltant}!logica\+::\+Punt@{logica\+::\+Punt}}
 \subsubsection[{obtenir\+Posicions\+Del\+Voltant}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Punt} \mbox{[}$\,$\mbox{]} logica.\+Punt.\+obtenir\+Posicions\+Del\+Voltant (
@@ -140,13 +118,10 @@ punt desplaçat per moviment;
 \+: --; 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-\+:em donat les 4 posicions del voltant; 
+\+:em donat les 4 posicions del voltant del punt; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-\+: les 4 posicions del voltant; 
-\end{DoxyReturn}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Punt.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/Punt.\+java\end{DoxyCompactItemize}

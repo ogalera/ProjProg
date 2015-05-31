@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tauler',['tauler',['../classlogica_1_1laberints_1_1_laberint.html#adf27aa8fa875b4a3f996756bc5cf9e69',1,'logica::laberints::Laberint']]]
+  ['laberint',['laberint',['../classlogica_1_1_item_movible.html#a97036130b7376d77776427ca126f6fb5',1,'logica::ItemMovible']]]
 ];

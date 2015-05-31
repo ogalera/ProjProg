@@ -1,6 +1,11 @@
 \hypertarget{classlogica_1_1log_1_1_log}{\section{Referència de la Classe logica.\+log.\+Log}
 \label{classlogica_1_1log_1_1_log}\index{logica.\+log.\+Log@{logica.\+log.\+Log}}
 }
+
+
+Sistema de log per veure que està passant en tot moment en el sistema;.  
+
+
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,17 +25,13 @@ String \hyperlink{classlogica_1_1log_1_1_log_ad7447bfb49c4ec37d1a740a3d5750c63}{
 \item 
 String \hyperlink{classlogica_1_1log_1_1_log_a8a577eb2906568f3501667482d80dfc0}{obtenir\+Debugs\+Log} ()
 \item 
-\hypertarget{classlogica_1_1log_1_1_log_a7d2d9d5951e933a735d4700d2d52c8ac}{String {\bfseries obtenir\+Ultim\+Error} ()}\label{classlogica_1_1log_1_1_log_a7d2d9d5951e933a735d4700d2d52c8ac}
-
+String \hyperlink{classlogica_1_1log_1_1_log_a7d2d9d5951e933a735d4700d2d52c8ac}{obtenir\+Ultim\+Error} ()
 \item 
-\hypertarget{classlogica_1_1log_1_1_log_a06dd49f9ab88537f9f0c7a66749c2f7c}{String {\bfseries obtenir\+Ultim\+Warning} ()}\label{classlogica_1_1log_1_1_log_a06dd49f9ab88537f9f0c7a66749c2f7c}
-
+String \hyperlink{classlogica_1_1log_1_1_log_a06dd49f9ab88537f9f0c7a66749c2f7c}{obtenir\+Ultim\+Warning} ()
 \item 
-\hypertarget{classlogica_1_1log_1_1_log_a19589f17f8be0527f89145d59ee64081}{String {\bfseries obtenir\+Ultim\+Debug} ()}\label{classlogica_1_1log_1_1_log_a19589f17f8be0527f89145d59ee64081}
-
+String \hyperlink{classlogica_1_1log_1_1_log_a19589f17f8be0527f89145d59ee64081}{obtenir\+Ultim\+Debug} ()
 \item 
-\hypertarget{classlogica_1_1log_1_1_log_a9f9c696aee364b77288dffc4d6d57e8b}{void {\bfseries exportar\+Log\+A\+Fitxer} (String fitxer)}\label{classlogica_1_1log_1_1_log_a9f9c696aee364b77288dffc4d6d57e8b}
-
+void \hyperlink{classlogica_1_1log_1_1_log_a9f9c696aee364b77288dffc4d6d57e8b}{exportar\+Log\+A\+Fitxer} (String fitxer)
 \end{DoxyCompactItemize}
 \subsection*{Mètodes Públics Estàtics}
 \begin{DoxyCompactItemize}
@@ -40,8 +41,10 @@ static \hyperlink{classlogica_1_1log_1_1_log}{Log} \hyperlink{classlogica_1_1log
 
 
 \subsection{Descripció Detallada}
+Sistema de log per veure que està passant en tot moment en el sistema;. 
+
 \begin{DoxyAuthor}{Autor}
-Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L\+A C\+L\+A\+S\+S\+E Sistema de log per veure que està passant en tot moment en el sistema; 
+Oscar.\+Galera 
 \end{DoxyAuthor}
 
 
@@ -59,11 +62,6 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: em afegit el registre a la estructura log amb prioritat D\+E\+B\+U\+G; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em registre} & a afegir; \\
-\hline
-\end{DoxyParams}
 \hypertarget{classlogica_1_1log_1_1_log_abdcf225ffc06e746b5d224c060b01f98}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!afegir\+Error@{afegir\+Error}}
 \index{afegir\+Error@{afegir\+Error}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{afegir\+Error}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+log.\+Log.\+afegir\+Error (
@@ -77,11 +75,6 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: em afegit el registre a la estructura log amb prioritat E\+R\+R\+O\+R; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em registre} & a afegir; \\
-\hline
-\end{DoxyParams}
 \hypertarget{classlogica_1_1log_1_1_log_af5a685966d6e6ef00d93c879b4f3154a}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!afegir\+Warning@{afegir\+Warning}}
 \index{afegir\+Warning@{afegir\+Warning}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{afegir\+Warning}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+log.\+Log.\+afegir\+Warning (
@@ -95,11 +88,19 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: em afegit el registre a la estructura log amb prioritat W\+A\+R\+N\+I\+N\+G; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em registre} & a afegir; \\
-\hline
-\end{DoxyParams}
+\hypertarget{classlogica_1_1log_1_1_log_a9f9c696aee364b77288dffc4d6d57e8b}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!exportar\+Log\+A\+Fitxer@{exportar\+Log\+A\+Fitxer}}
+\index{exportar\+Log\+A\+Fitxer@{exportar\+Log\+A\+Fitxer}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
+\subsubsection[{exportar\+Log\+A\+Fitxer}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+log.\+Log.\+exportar\+Log\+A\+Fitxer (
+\begin{DoxyParamCaption}
+\item[{String}]{fitxer}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1log_1_1_log_a9f9c696aee364b77288dffc4d6d57e8b}
+\begin{DoxyPrecond}{Precondició}
+fitxer és una ruta a un fitxer valida 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'ha exportat el log al fitxer. 
+\end{DoxyPostcond}
 \hypertarget{classlogica_1_1log_1_1_log_ab38bea9cfc1ad368b40a2773f93d14b8}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!get\+Instance@{get\+Instance}}
 \index{get\+Instance@{get\+Instance}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Log} logica.\+log.\+Log.\+get\+Instance (
@@ -113,14 +114,6 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: em obtingut L\+A instancia del log; 
 \end{DoxyPostcond}
-
-\begin{DoxyParams}{Paràmetres}
-{\em clase} & que ens indicarà qui està afegint registres al log; \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-\hyperlink{classlogica_1_1log_1_1_log}{Log} per afegir registres; 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1log_1_1_log_a1902dfacc9adf60b63a801c7d32c4dcf}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Contingut\+Complet\+Del\+Log@{obtenir\+Contingut\+Complet\+Del\+Log}}
 \index{obtenir\+Contingut\+Complet\+Del\+Log@{obtenir\+Contingut\+Complet\+Del\+Log}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{obtenir\+Contingut\+Complet\+Del\+Log}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Contingut\+Complet\+Del\+Log (
@@ -134,9 +127,6 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: Em retornat el contingut complet del registre en format String; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-\+: Contingut del log en mode String 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1log_1_1_log_a4f1a4853972d056a0da55189e4ebf4da}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Contingut\+Complet\+Del\+Log\+Amb\+Color@{obtenir\+Contingut\+Complet\+Del\+Log\+Amb\+Color}}
 \index{obtenir\+Contingut\+Complet\+Del\+Log\+Amb\+Color@{obtenir\+Contingut\+Complet\+Del\+Log\+Amb\+Color}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{obtenir\+Contingut\+Complet\+Del\+Log\+Amb\+Color}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Contingut\+Complet\+Del\+Log\+Amb\+Color (
@@ -150,9 +140,6 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: Em retornat el contingut complet del registre en format String; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-\+: Contingut del log en mode String 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1log_1_1_log_a8a577eb2906568f3501667482d80dfc0}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Debugs\+Log@{obtenir\+Debugs\+Log}}
 \index{obtenir\+Debugs\+Log@{obtenir\+Debugs\+Log}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{obtenir\+Debugs\+Log}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Debugs\+Log (
@@ -166,9 +153,6 @@ Oscar.\+Galera D\+E\+C\+L\+A\+R\+A\+C\+IÓ D'I\+N\+T\+E\+N\+C\+I\+O\+N\+S D\+E L
 \begin{DoxyPostcond}{Postcondició}
 \+: retornem tots els registres del log amb prioritat D\+E\+B\+U\+G; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-conjunt de registres amb prioritat D\+E\+B\+U\+G; 
-\end{DoxyReturn}
 \hypertarget{classlogica_1_1log_1_1_log_adbe0cf7e75ae815279d2e88cf110e29b}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Errors\+Log@{obtenir\+Errors\+Log}}
 \index{obtenir\+Errors\+Log@{obtenir\+Errors\+Log}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{obtenir\+Errors\+Log}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Errors\+Log (
@@ -182,9 +166,45 @@ conjunt de registres amb prioritat D\+E\+B\+U\+G;
 \begin{DoxyPostcond}{Postcondició}
 \+: retornem tots els registres del log amb prioritat E\+R\+R\+O\+R; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-conjunt de registres amb prioritat E\+R\+R\+O\+R; 
-\end{DoxyReturn}
+\hypertarget{classlogica_1_1log_1_1_log_a19589f17f8be0527f89145d59ee64081}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Ultim\+Debug@{obtenir\+Ultim\+Debug}}
+\index{obtenir\+Ultim\+Debug@{obtenir\+Ultim\+Debug}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
+\subsubsection[{obtenir\+Ultim\+Debug}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Ultim\+Debug (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1log_1_1_log_a19589f17f8be0527f89145d59ee64081}
+\begin{DoxyPrecond}{Precondició}
+\+:--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: retornem l'últim missatge de debug registrat. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1log_1_1_log_a7d2d9d5951e933a735d4700d2d52c8ac}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Ultim\+Error@{obtenir\+Ultim\+Error}}
+\index{obtenir\+Ultim\+Error@{obtenir\+Ultim\+Error}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
+\subsubsection[{obtenir\+Ultim\+Error}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Ultim\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1log_1_1_log_a7d2d9d5951e933a735d4700d2d52c8ac}
+\begin{DoxyPrecond}{Precondició}
+\+:--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: retornem l'últim missatge d'error registrat. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1log_1_1_log_a06dd49f9ab88537f9f0c7a66749c2f7c}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Ultim\+Warning@{obtenir\+Ultim\+Warning}}
+\index{obtenir\+Ultim\+Warning@{obtenir\+Ultim\+Warning}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
+\subsubsection[{obtenir\+Ultim\+Warning}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Ultim\+Warning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1log_1_1_log_a06dd49f9ab88537f9f0c7a66749c2f7c}
+\begin{DoxyPrecond}{Precondició}
+\+:--; 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+\+: retornem l'últim missatge de warning registrat. 
+\end{DoxyPostcond}
 \hypertarget{classlogica_1_1log_1_1_log_ad7447bfb49c4ec37d1a740a3d5750c63}{\index{logica\+::log\+::\+Log@{logica\+::log\+::\+Log}!obtenir\+Warnings\+Log@{obtenir\+Warnings\+Log}}
 \index{obtenir\+Warnings\+Log@{obtenir\+Warnings\+Log}!logica\+::log\+::\+Log@{logica\+::log\+::\+Log}}
 \subsubsection[{obtenir\+Warnings\+Log}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+log.\+Log.\+obtenir\+Warnings\+Log (
@@ -198,11 +218,8 @@ conjunt de registres amb prioritat E\+R\+R\+O\+R;
 \begin{DoxyPostcond}{Postcondició}
 \+: retornem tots els registres del log amb prioritat W\+A\+R\+N\+I\+N\+G; 
 \end{DoxyPostcond}
-\begin{DoxyReturn}{Retorna}
-conjunt de registres amb prioritat W\+A\+R\+N\+I\+N\+G; 
-\end{DoxyReturn}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/log/Log.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/log/Log.\+java\end{DoxyCompactItemize}

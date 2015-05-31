@@ -12,7 +12,6 @@ import logica.Usuari.EDificultat;
 import logica.Usuari.ENivells;
 import logica.controladors_pacman.ControladorTeclat;
 import logica.controladors_pacman.IControlador;
-import logica.enumeracions.EElement;
 import logica.enumeracions.ELaberintsPredefinits;
 import logica.excepcions.EFormatLaberint;
 import logica.log.Log;
@@ -207,7 +206,8 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             EDificultat dificultat = FLogin.obtenirUsuari().obtenirDificultat();
             ENivells nivell = FLogin.obtenirUsuari().obtenirNivell();
             System.out.println(nivell);
-            Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI,
+            ELaberintsPredefinits laberint = dificultat.obtenirTipusLaberint();
+            Partida partida = new Partida(laberint,
                                             nivell.obtenirMidaLaberint(), 
                                             dificultat.obtenirEnemicAssignatADificultat()/*dificultat.obtenirEnemicAssignatADificultat()*/, 
                                             fPartida,

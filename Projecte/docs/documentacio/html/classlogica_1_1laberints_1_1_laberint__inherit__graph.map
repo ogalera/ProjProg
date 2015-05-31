@@ -1,5 +1,5 @@
 <map id="logica.laberints.Laberint" name="logica.laberints.Laberint">
 <area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint_aleatori.html" title="Laberint amb camins aleatoris, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar en pacman ..." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classlogica_1_1laberints_1_1_laberint_lineal_horitzontal.html" title="logica.laberints.Laberint\lLinealHoritzontal" alt="" coords="212,71,371,112"/>
-<area shape="rect" id="node4" href="$classlogica_1_1laberints_1_1_laberint_lineal_vertical.html" title="logica.laberints.Laberint\lLinealVertical" alt="" coords="212,136,371,177"/>
+<area shape="rect" id="node3" href="$classlogica_1_1laberints_1_1_laberint_lineal_horitzontal.html" title="Laberint amb camins horitzontals, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar tota un..." alt="" coords="212,71,371,112"/>
+<area shape="rect" id="node4" href="$classlogica_1_1laberints_1_1_laberint_lineal_vertical.html" title="Laberint amb camins verticals, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar tota una f..." alt="" coords="212,136,371,177"/>
 </map>

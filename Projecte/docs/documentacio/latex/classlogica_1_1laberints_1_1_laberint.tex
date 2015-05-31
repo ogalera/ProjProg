@@ -95,7 +95,12 @@ class que contè un tauler amb elements que es poden desplasar, no coneix en cap
 \begin{DoxyAuthor}{Autor}
 oscar El laberint s'ha de poder comunicar amb la partida per noficiar quan no queden monedes o quan s'ha obtingut un item (mongeta, patins o monedes x 2).
 \end{DoxyAuthor}
-També caldrà que pugui enviar missatges a un pintador per així poder representar-\/se de forma gràfica 
+També caldrà que pugui enviar missatges a un pintador per així poder representar-\/se de forma gràfica.
+
+\begin{DoxyInvariant}{Invariant}
+n\+Monedes conté en tot moment el nombre de monedes que hi ha en el laberint, costat $>$= Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T, tauler és una matriu cuadrada de costat x costat, pintador no pot ser null i n\+Monedes\+Per\+Item $>$ 0 
+\end{DoxyInvariant}
+
 
 \subsection{Documentació del Constructor i el Destructor}
 \hypertarget{classlogica_1_1laberints_1_1_laberint_a17654384a8abae885f2cf50c9fa7cfa1}{\index{logica\+::laberints\+::\+Laberint@{logica\+::laberints\+::\+Laberint}!Laberint@{Laberint}}
@@ -336,4 +341,4 @@ em pintat el laberint sobre un surface gràfic;
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/laberints/Laberint.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/laberints/Laberint.\+java\end{DoxyCompactItemize}

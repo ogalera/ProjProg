@@ -22,6 +22,12 @@ import logica.log.Log;
  * Aquest algorisme genera sempre un laberint valid.
  */
 public class LaberintLinealVertical extends Laberint{
+    
+    /**
+     * @pre costat >= Utils.Constants.MINIM_COSTAT_LABERINT i enemic és un dels fantasmes.
+     * @post em creat un laberint de caràcter lineal i vertical amb partida, costat
+     * enemic i un pintador per representar el laberint gràficament.
+     */
     public LaberintLinealVertical(Partida partida, int costat, EElement enemic, IPintadorLaberint pintadorLaberint){
         super(partida);
         log = Log.getInstance(LaberintLinealVertical.class);

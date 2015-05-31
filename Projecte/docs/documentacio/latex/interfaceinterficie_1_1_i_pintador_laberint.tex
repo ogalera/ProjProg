@@ -3,6 +3,11 @@
 }
 
 
+Descriu els metodes que necessiten els objectes Laberint per a mostrar-\/se per pantalla.  
+
+
+
+
 Diagrama d'Herència per a interficie.\+I\+Pintador\+Laberint\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,35 +27,199 @@ Diagrama de col·laboració per a interficie.\+I\+Pintador\+Laberint\+:\nopagebr
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_acdd1fc6177c514b992f416ef2aa61ec2}{void {\bfseries assignar\+Controlador\+Teclat} (Key\+Listener controlador)}\label{interfaceinterficie_1_1_i_pintador_laberint_acdd1fc6177c514b992f416ef2aa61ec2}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_aafb217de7602afc7e2534b21d9edf3fc}{void {\bfseries pintar\+Moviment\+Personatge} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, Image\+Icon imatge)}\label{interfaceinterficie_1_1_i_pintador_laberint_aafb217de7602afc7e2534b21d9edf3fc}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ac94f8e147f795a3b75f911b36e3f4cfe}{void {\bfseries pintar\+Moviment\+Item} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, Image\+Icon imatge)}\label{interfaceinterficie_1_1_i_pintador_laberint_ac94f8e147f795a3b75f911b36e3f4cfe}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_af2f3db2e7020f3e39364deddb9c9b8a2}{void {\bfseries pintar\+Nou\+Item} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Nou\+Item, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} item)}\label{interfaceinterficie_1_1_i_pintador_laberint_af2f3db2e7020f3e39364deddb9c9b8a2}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ad2d79f039cd3d67af2ad0d2e12f99e99}{void {\bfseries pintar\+Laberint} (\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} laberint)}\label{interfaceinterficie_1_1_i_pintador_laberint_ad2d79f039cd3d67af2ad0d2e12f99e99}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ae350bcf42cbb83e8ebb6d1883decb555}{Dimension {\bfseries obtenir\+Mida\+Imatge} ()}\label{interfaceinterficie_1_1_i_pintador_laberint_ae350bcf42cbb83e8ebb6d1883decb555}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ae8e250a2c2a2f745e6700bf65be9fe9a}{void {\bfseries pintar\+Sortida} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Sortida)}\label{interfaceinterficie_1_1_i_pintador_laberint_ae8e250a2c2a2f745e6700bf65be9fe9a}
-
-\end{DoxyCompactItemize}
+void \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_acdd1fc6177c514b992f416ef2aa61ec2}{assignar\+Controlador\+Teclat} (Key\+Listener controlador)
+\begin{DoxyCompactList}\small\item\em Assignacio de controlador de teclat. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_aafb217de7602afc7e2534b21d9edf3fc}{pintar\+Moviment\+Personatge} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, Image\+Icon imatge)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla el desplaçament de un objecte Personatge. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_ac94f8e147f795a3b75f911b36e3f4cfe}{pintar\+Moviment\+Item} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Origen, \hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio, Image\+Icon imatge)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla el desplaçament de un objecte Item. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_af2f3db2e7020f3e39364deddb9c9b8a2}{pintar\+Nou\+Item} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Nou\+Item, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} item)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla un item dintre del Laberint. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_ad2d79f039cd3d67af2ad0d2e12f99e99}{pintar\+Laberint} (\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} laberint)
+\begin{DoxyCompactList}\small\item\em Construcció de la interficie grafica que representa graficament laberint. \end{DoxyCompactList}\item 
+Dimension \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_ae350bcf42cbb83e8ebb6d1883decb555}{obtenir\+Mida\+Imatge} ()
+\begin{DoxyCompactList}\small\item\em retorna la mida amb la que es pinten les imatges que representen els E\+Elements d'un Laberint. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_laberint_ae8e250a2c2a2f745e6700bf65be9fe9a}{pintar\+Sortida} (\hyperlink{classlogica_1_1_punt}{Punt} p\+Sortida)
+\begin{DoxyCompactList}\small\item\em Mostra la representacio de E\+Element.\+S\+O\+R\+T\+I\+D\+A en les coordenades corresponents a p\+Sortida. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Descriu els metodes que necessiten els objectes Laberint per a mostrar-\/se per pantalla. 
+
 \begin{DoxyAuthor}{Autor}
-Moises 
+Moises
 \end{DoxyAuthor}
+Laberint es representa gràficament per cel·les, on cada cel·la representa un posció de la matriu bidimensional que conté el Objecte Laberint. 
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_acdd1fc6177c514b992f416ef2aa61ec2}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!assignar\+Controlador\+Teclat@{assignar\+Controlador\+Teclat}}
+\index{assignar\+Controlador\+Teclat@{assignar\+Controlador\+Teclat}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{assignar\+Controlador\+Teclat}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Laberint.\+assignar\+Controlador\+Teclat (
+\begin{DoxyParamCaption}
+\item[{Key\+Listener}]{controlador}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_acdd1fc6177c514b992f416ef2aa61ec2}
+
+
+Assignacio de controlador de teclat. 
+
+\begin{DoxyPrecond}{Precondició}
+controlador != null. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+La representacio Grafica te assignat un controlador de teclat. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_a5b19d218c21256e0ecfebc9b26c6d9df}{interficie.\+P\+Laberint}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ae350bcf42cbb83e8ebb6d1883decb555}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!obtenir\+Mida\+Imatge@{obtenir\+Mida\+Imatge}}
+\index{obtenir\+Mida\+Imatge@{obtenir\+Mida\+Imatge}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{obtenir\+Mida\+Imatge}]{\setlength{\rightskip}{0pt plus 5cm}Dimension interficie.\+I\+Pintador\+Laberint.\+obtenir\+Mida\+Imatge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_ae350bcf42cbb83e8ebb6d1883decb555}
+
+
+retorna la mida amb la que es pinten les imatges que representen els E\+Elements d'un Laberint. 
+
+\begin{DoxyReturn}{Retorna}
+Mida de les representacions grafiques de E\+Elements. 
+\end{DoxyReturn}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_a75f1299521583b891d6af4e0fa0df179}{interficie.\+P\+Laberint}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ad2d79f039cd3d67af2ad0d2e12f99e99}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!pintar\+Laberint@{pintar\+Laberint}}
+\index{pintar\+Laberint@{pintar\+Laberint}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{pintar\+Laberint}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Laberint.\+pintar\+Laberint (
+\begin{DoxyParamCaption}
+\item[{{\bf Laberint}}]{laberint}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_ad2d79f039cd3d67af2ad0d2e12f99e99}
+
+
+Construcció de la interficie grafica que representa graficament laberint. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em laberint} & Laberint a representar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondició}
+laberint != null 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Representacio grafica preperada per mostrar per pantalla 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_a8ceb1966667bf2a9ef6540701dae0bfe}{interficie.\+P\+Laberint}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ac94f8e147f795a3b75f911b36e3f4cfe}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!pintar\+Moviment\+Item@{pintar\+Moviment\+Item}}
+\index{pintar\+Moviment\+Item@{pintar\+Moviment\+Item}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{pintar\+Moviment\+Item}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Laberint.\+pintar\+Moviment\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{p\+Origen, }
+\item[{{\bf E\+Direccio}}]{direccio, }
+\item[{Image\+Icon}]{imatge}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_ac94f8e147f795a3b75f911b36e3f4cfe}
+
+
+Mostra per pantalla el desplaçament de un objecte Item. 
+
+En el moviment del Item s'ha de tindre en compte el E\+Element que contenia la cel·la abans de que estigues el Item. Aques E\+Element és el element a restaurar. 
+\begin{DoxyParams}{Paràmetres}
+{\em p\+Origen} & Punt desde on s'ha efectuat el moviment \\
+\hline
+{\em direccio} & Direcció a on es mou el Item \\
+\hline
+{\em imatge} & Representació grafica de E\+Element a restaurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondició}
+p\+Origen != null. p\+Origen es un Punt vàlid. El Punt generat per p\+Origen + desplaçament és vàlid. direcció != null \&\& direcció != E\+Direccio.\+Q\+U\+I\+E\+T. imatge != null. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+La cel·la corresponent a la direccio desde p\+Origen conté la imatge de p\+Origen. p\+Origen conté la imatge del E\+Element a restaurar 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_a3011192dc187518b6053a6216fce2b12}{interficie.\+P\+Laberint}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_aafb217de7602afc7e2534b21d9edf3fc}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!pintar\+Moviment\+Personatge@{pintar\+Moviment\+Personatge}}
+\index{pintar\+Moviment\+Personatge@{pintar\+Moviment\+Personatge}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{pintar\+Moviment\+Personatge}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Laberint.\+pintar\+Moviment\+Personatge (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{p\+Origen, }
+\item[{{\bf E\+Direccio}}]{direccio, }
+\item[{Image\+Icon}]{imatge}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_aafb217de7602afc7e2534b21d9edf3fc}
+
+
+Mostra per pantalla el desplaçament de un objecte Personatge. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em p\+Origen} & Punt on es troba el Personatge \\
+\hline
+{\em direccio} & Direcció a on es mou el Personatge \\
+\hline
+{\em imatge} & Representació grafica del personatge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondició}
+p\+Origen != null. p\+Origen es un Punt vàlid. El Punt generat per p\+Origen + desplaçament és vàlid. direcció != null \&\& direcció != E\+Direccio.\+Q\+U\+I\+E\+T. imatge != null. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+p\+Origen no conté cap imatge. La cel·la corresponent a la direccio desde p\+Origen conté imatge 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_a14c8ed9e53968b2f3b1c39c8e22b8ee6}{interficie.\+P\+Laberint}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_af2f3db2e7020f3e39364deddb9c9b8a2}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!pintar\+Nou\+Item@{pintar\+Nou\+Item}}
+\index{pintar\+Nou\+Item@{pintar\+Nou\+Item}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{pintar\+Nou\+Item}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Laberint.\+pintar\+Nou\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{p\+Nou\+Item, }
+\item[{{\bf E\+Element}}]{item}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_af2f3db2e7020f3e39364deddb9c9b8a2}
+
+
+Mostra per pantalla un item dintre del Laberint. 
+
+\begin{DoxyPostcond}{Postcondició}
+La cel·la amb coordenades p\+Nou\+Item conte la imatge de item 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_ac189a5614b4be7b3380a41de5c56d05e}{interficie.\+P\+Laberint}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_laberint_ae8e250a2c2a2f745e6700bf65be9fe9a}{\index{interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}!pintar\+Sortida@{pintar\+Sortida}}
+\index{pintar\+Sortida@{pintar\+Sortida}!interficie\+::\+I\+Pintador\+Laberint@{interficie\+::\+I\+Pintador\+Laberint}}
+\subsubsection[{pintar\+Sortida}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Laberint.\+pintar\+Sortida (
+\begin{DoxyParamCaption}
+\item[{{\bf Punt}}]{p\+Sortida}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_laberint_ae8e250a2c2a2f745e6700bf65be9fe9a}
+
+
+Mostra la representacio de E\+Element.\+S\+O\+R\+T\+I\+D\+A en les coordenades corresponents a p\+Sortida. 
+
+\begin{DoxyPostcond}{Postcondició}
+Representació de E\+Element.\+S\+O\+R\+T\+I\+D\+A es veu per pantalla. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_p_laberint_adc6caa1f1d91892ea56077d2facac8ec}{interficie.\+P\+Laberint}.
+
 
 
 La documentació d'aquesta interfície es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/interficie/I\+Pintador\+Laberint.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/interficie/I\+Pintador\+Laberint.\+java\end{DoxyCompactItemize}

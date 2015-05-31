@@ -104,14 +104,14 @@ Diagrama d'Herència per a logica.laberints.Laberint:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1laberints_1_1_laberint__inherit__graph.png" border="0" usemap="#logica_8laberints_8_laberint_inherit__map" alt="Inheritance graph"/></div>
 <map name="logica_8laberints_8_laberint_inherit__map" id="logica_8laberints_8_laberint_inherit__map">
-<area shape="rect" id="node2" href="classlogica_1_1laberints_1_1_laberint_aleatori.html" title="Laberint amb camins aleatoris, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar en pacman ..." alt="" coords="212,5,371,47"/><area shape="rect" id="node3" href="classlogica_1_1laberints_1_1_laberint_lineal_horitzontal.html" title="logica.laberints.Laberint\lLinealHoritzontal" alt="" coords="212,71,371,112"/><area shape="rect" id="node4" href="classlogica_1_1laberints_1_1_laberint_lineal_vertical.html" title="logica.laberints.Laberint\lLinealVertical" alt="" coords="212,136,371,177"/></map>
+<area shape="rect" id="node2" href="classlogica_1_1laberints_1_1_laberint_aleatori.html" title="Laberint amb camins aleatoris, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar en pacman ..." alt="" coords="212,5,371,47"/><area shape="rect" id="node3" href="classlogica_1_1laberints_1_1_laberint_lineal_horitzontal.html" title="Laberint amb camins horitzontals, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar tota un..." alt="" coords="212,71,371,112"/><area shape="rect" id="node4" href="classlogica_1_1laberints_1_1_laberint_lineal_vertical.html" title="Laberint amb camins verticals, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar tota una f..." alt="" coords="212,136,371,177"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <div class="dynheader">
 Diagrama de col·laboració per a logica.laberints.Laberint:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1laberints_1_1_laberint__coll__graph.png" border="0" usemap="#logica_8laberints_8_laberint_coll__map" alt="Collaboration graph"/></div>
 <map name="logica_8laberints_8_laberint_coll__map" id="logica_8laberints_8_laberint_coll__map">
-<area shape="rect" id="node2" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/><area shape="rect" id="node3" href="classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/><area shape="rect" id="node4" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/><area shape="rect" id="node6" href="classlogica_1_1_partida.html" title="logica.Partida" alt="" coords="196,157,297,184"/></map>
+<area shape="rect" id="node2" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="145,5,348,32"/><area shape="rect" id="node3" href="classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="195,56,298,83"/><area shape="rect" id="node4" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="160,107,333,133"/><area shape="rect" id="node6" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="196,157,297,184"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -186,7 +186,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l'estat el seu estat sino que només coneix la seva representació. </p>
 <dl class="section author"><dt>Autor</dt><dd>oscar El laberint s'ha de poder comunicar amb la partida per noficiar quan no queden monedes o quan s'ha obtingut un item (mongeta, patins o monedes x 2).</dd></dl>
-<p>També caldrà que pugui enviar missatges a un pintador per així poder representar-se de forma gràfica </p>
+<p>També caldrà que pugui enviar missatges a un pintador per així poder representar-se de forma gràfica.</p>
+<dl class="section invariant"><dt>Invariant</dt><dd>nMonedes conté en tot moment el nombre de monedes que hi ha en el laberint, costat &gt;= Utils.Constants.MINIM_COSTAT_LABERINT, tauler és una matriu cuadrada de costat x costat, pintador no pot ser null i nMonedesPerItem &gt; 0 </dd></dl>
 </div><h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
 <a class="anchor" id="a17654384a8abae885f2cf50c9fa7cfa1"></a>
 <div class="memitem">
@@ -552,12 +553,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
-<li>/home/oscar/Desktop/ProjProg/Projecte/src/logica/laberints/Laberint.java</li>
+<li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/logica/laberints/Laberint.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dj Mai 28 2015 14:23:57 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 18:59:54 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['ebuscadorcamins',['EBuscadorCamins',['../classlogica_1_1excepcions_1_1_e_buscador_camins.html',1,'logica::excepcions']]],
   ['edireccio',['EDireccio',['../enumlogica_1_1enumeracions_1_1_e_direccio.html',1,'logica::enumeracions']]],
   ['eelement',['EElement',['../enumlogica_1_1enumeracions_1_1_e_element.html',1,'logica::enumeracions']]],
   ['eestatpersonatge',['EEstatPersonatge',['../enumlogica_1_1_personatge_1_1_e_estat_personatge.html',1,'logica::Personatge']]],
@@ -12,6 +13,6 @@ var searchData=
   ['eitemmovibleiniciat',['EItemMovibleIniciat',['../classlogica_1_1excepcions_1_1_e_item_movible_iniciat.html',1,'logica::excepcions']]],
   ['elaberint',['ELaberint',['../classlogica_1_1excepcions_1_1_e_laberint.html',1,'logica::excepcions']]],
   ['elaberintspredefinits',['ELaberintsPredefinits',['../enumlogica_1_1enumeracions_1_1_e_laberints_predefinits.html',1,'logica::enumeracions']]],
-  ['exceptionbuscadorcamins',['ExceptionBuscadorCamins',['../classlogica_1_1excepcions_1_1_exception_buscador_camins.html',1,'logica::excepcions']]],
-  ['exceptionpunt',['ExceptionPunt',['../classlogica_1_1excepcions_1_1_exception_punt.html',1,'logica::excepcions']]]
+  ['epartida',['EPartida',['../classlogica_1_1excepcions_1_1_e_partida.html',1,'logica::excepcions']]],
+  ['epunt',['EPunt',['../classlogica_1_1excepcions_1_1_e_punt.html',1,'logica::excepcions']]]
 ];

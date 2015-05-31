@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['testalgoritmica',['TestAlgoritmica',['../classlogica_1_1algoritmica_1_1_test_algoritmica.html',1,'logica::algoritmica']]]
+  ['usuari',['Usuari',['../classlogica_1_1_usuari.html',1,'logica']]],
+  ['utils',['Utils',['../classlogica_1_1_utils.html',1,'logica']]]
 ];

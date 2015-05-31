@@ -7,7 +7,7 @@ import logica.Punt;
 import logica.historic_moviments.HistoricMoviments;
 import logica.enumeracions.EElement;
 import logica.enumeracions.EDireccio;
-import logica.excepcions.ExceptionBuscadorCamins;
+import logica.excepcions.EBuscadorCamins;
 
 
 /**
@@ -56,12 +56,12 @@ public class BuscadorCamiMinim {
      * @brief Troba un camí curt desde origen fins desti utilitzant l'algorisme AStar.
      * @pre origen != null i desti != null.
      * @post Les Caselles que forman part del cami curt, tenen com a Casella pare la casella predecessora en el trajecte del cami curt.
-     * @exception ExceptionBuscadorCamins origen o desti corresponen a un EElement PARET
+     * @throws EBuscadorCamins origen o desti corresponen a un EElement PARET
      */
     private void buscaCamiMesCurt(Punt origen, Punt desti){
         EElement d = laberint.obtenirElement(desti);
         EElement o = laberint.obtenirElement(origen);
-        if (d == EElement.PARET || o == EElement.PARET)throw new ExceptionBuscadorCamins("Els punts de origen o desti son del tipus PARET");
+        if (d == EElement.PARET || o == EElement.PARET)throw new EBuscadorCamins("Els punts de origen o desti son del tipus PARET");
 
         
         llistaOberta.clear();

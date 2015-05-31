@@ -70,8 +70,6 @@ public abstract class ItemMovible {
         temporitzador.scheduleAtFixedRate(tascaAplicarMoviment, _frequencia, _frequencia);
     }
     
-    
-    
     public void finalitzarItem(){
         tascaAplicarMoviment.calcularProximMoviment = false;
         tascaAplicarMoviment.cancel();

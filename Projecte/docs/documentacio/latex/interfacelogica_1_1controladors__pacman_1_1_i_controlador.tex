@@ -3,6 +3,11 @@
 }
 
 
+Interficie que ens crea una capa de abstracció de com controlar a en pacman.  
+
+
+
+
 Diagrama d'Herència per a logica.\+controladors\+\_\+pacman.\+I\+Controlador\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -13,17 +18,39 @@ Diagrama d'Herència per a logica.\+controladors\+\_\+pacman.\+I\+Controlador\+:
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{interfacelogica_1_1controladors__pacman_1_1_i_controlador_ac765182730a4337c576a9764cdd521fa}{void {\bfseries assignar\+Pacman} (\hyperlink{classlogica_1_1_pacman}{Pacman} pacman)}\label{interfacelogica_1_1controladors__pacman_1_1_i_controlador_ac765182730a4337c576a9764cdd521fa}
-
+void \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador_ac765182730a4337c576a9764cdd521fa}{assignar\+Pacman} (\hyperlink{classlogica_1_1_pacman}{Pacman} pacman)
 \end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Interficie que ens crea una capa de abstracció de com controlar a en pacman. 
+
 \begin{DoxyAuthor}{Autor}
-oscar 
+oscar És indiferent el dispositiu amb el qual el volem controlar ja que només necessitem saber quina direcció representa l'event sobre el periferic. 
 \end{DoxyAuthor}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{interfacelogica_1_1controladors__pacman_1_1_i_controlador_ac765182730a4337c576a9764cdd521fa}{\index{logica\+::controladors\+\_\+pacman\+::\+I\+Controlador@{logica\+::controladors\+\_\+pacman\+::\+I\+Controlador}!assignar\+Pacman@{assignar\+Pacman}}
+\index{assignar\+Pacman@{assignar\+Pacman}!logica\+::controladors\+\_\+pacman\+::\+I\+Controlador@{logica\+::controladors\+\_\+pacman\+::\+I\+Controlador}}
+\subsubsection[{assignar\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+controladors\+\_\+pacman.\+I\+Controlador.\+assignar\+Pacman (
+\begin{DoxyParamCaption}
+\item[{{\bf Pacman}}]{pacman}
+\end{DoxyParamCaption}
+)}}\label{interfacelogica_1_1controladors__pacman_1_1_i_controlador_ac765182730a4337c576a9764cdd521fa}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em assignat en pacman al controlador \char`\"{}això és necessari perquè el controlador
+cal que es comuniqui amb en pacman per dir-\/li la nova direcció que ha de pendre\char`\"{}. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classlogica_1_1controladors__pacman_1_1_controlador_mobil_a9aabffe23f7920ae8482c7e8906c8d0e}{logica.\+controladors\+\_\+pacman.\+Controlador\+Mobil} i \hyperlink{classlogica_1_1controladors__pacman_1_1_controlador_teclat_aab737c00c32133c65fafe6222c1eeb96}{logica.\+controladors\+\_\+pacman.\+Controlador\+Teclat}.
+
 
 
 La documentació d'aquesta interfície es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/controladors\+\_\+pacman/I\+Controlador.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/controladors\+\_\+pacman/I\+Controlador.\+java\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
 <map id="interficie.FFrameAmbLog" name="interficie.FFrameAmbLog">
 <area shape="rect" id="node4" href="$classinterficie_1_1_f_afegir_dispositiu.html" title="NO ESTÀ ACABAT D&#39;IMPLEMENTAR PER TANT NO ENTRA DINS DEL NOSTRE PROJECTE; PERMET ASSOCIAR UN NOU DISPO..." alt="" coords="5,155,180,181"/>
-<area shape="rect" id="node5" href="$classinterficie_1_1_f_menu.html" title="interficie.FMenu" alt="" coords="205,155,319,181"/>
-<area shape="rect" id="node6" href="$classinterficie_1_1_f_ranking.html" title="interficie.FRanking" alt="" coords="343,155,474,181"/>
+<area shape="rect" id="node5" href="$classinterficie_1_1_f_menu.html" title="menu principal del joc on es mostren les diferents possibilitats per jugar, on: Aventura (AVANÇA EN E..." alt="" coords="205,155,319,181"/>
+<area shape="rect" id="node6" href="$classinterficie_1_1_f_ranking.html" title="Llistat amb els usuaris que tenen més punts ordenats pel nombre total de punts obtinguts en el mode a..." alt="" coords="343,155,474,181"/>
 </map>

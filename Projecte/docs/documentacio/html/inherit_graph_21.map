@@ -1,6 +1,3 @@
 <map id="Jerarquia Gràfica de la Classe" name="Jerarquia Gràfica de la Classe">
-<area shape="rect" id="node1" href="$classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="5,78,164,105"/>
-<area shape="rect" id="node2" href="$classlogica_1_1laberints_1_1_laberint_aleatori.html" title="Laberint amb camins aleatoris, l&#39;estrategia per generar laberints d&#39;aquest tipus és: Posar en pacman ..." alt="" coords="212,5,371,47"/>
-<area shape="rect" id="node3" href="$classlogica_1_1laberints_1_1_laberint_lineal_horitzontal.html" title="logica.laberints.Laberint\lLinealHoritzontal" alt="" coords="212,71,371,112"/>
-<area shape="rect" id="node4" href="$classlogica_1_1laberints_1_1_laberint_lineal_vertical.html" title="logica.laberints.Laberint\lLinealVertical" alt="" coords="212,136,371,177"/>
+<area shape="rect" id="node1" href="$enumlogica_1_1_personatge_1_1_e_estat_personatge.html" title="conjunt d&#39;estats en que es pot trobar un personatge, el canvi d&#39;estat sempre va llgiat a la captura d..." alt="" coords="5,5,176,47"/>
 </map>

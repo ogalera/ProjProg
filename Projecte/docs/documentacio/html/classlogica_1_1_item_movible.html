@@ -98,81 +98,326 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Referència de la Classe logica.ItemMovible<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Objecte amb la capacitat de moures per les diferents poscions d'un Laberint durant una <a class="el" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob...">Partida</a>.  
+ <a href="classlogica_1_1_item_movible.html#details">Més...</a></p>
 <div class="dynheader">
 Diagrama d'Herència per a logica.ItemMovible:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1_item_movible__inherit__graph.png" border="0" usemap="#logica_8_item_movible_inherit__map" alt="Inheritance graph"/></div>
 <map name="logica_8_item_movible_inherit__map" id="logica_8_item_movible_inherit__map">
-<area shape="rect" id="node2" href="classlogica_1_1_item.html" title="logica.Item" alt="" coords="118,80,205,107"/><area shape="rect" id="node3" href="classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="229,80,355,107"/><area shape="rect" id="node4" href="classlogica_1_1_fantasma1.html" title="logica.Fantasma1" alt="" coords="5,155,131,181"/><area shape="rect" id="node5" href="classlogica_1_1_fantasma2.html" title="logica.Fantasma2" alt="" coords="155,155,280,181"/><area shape="rect" id="node6" href="classlogica_1_1_fantasma3.html" title="logica.Fantasma3" alt="" coords="304,155,429,181"/><area shape="rect" id="node7" href="classlogica_1_1_pacman.html" title="logica.Pacman" alt="" coords="454,155,562,181"/></map>
+<area shape="rect" id="node2" href="classlogica_1_1_item.html" title="Implementació del comportament dels items (PATINS, MONEDES_X2, MONGETA). " alt="" coords="118,80,205,107"/><area shape="rect" id="node3" href="classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="229,80,355,107"/><area shape="rect" id="node4" href="classlogica_1_1_fantasma1.html" title="Eenemic més bàsic i facil de guanyar contra el que pots jugar en una partida. " alt="" coords="5,155,131,181"/><area shape="rect" id="node5" href="classlogica_1_1_fantasma2.html" title="Eenemic úna mica més elaborat que Fantasma 1. &#160;CARACTERISTIQUES DEL FANTASMA. La seva visibilitat nom..." alt="" coords="155,155,280,181"/><area shape="rect" id="node6" href="classlogica_1_1_fantasma3.html" title="Implementació del comportament de Fantasma3. " alt="" coords="304,155,429,181"/><area shape="rect" id="node7" href="classlogica_1_1_pacman.html" title="personatge principal controlat per l&#39;usuari a traves d&#39;un dispositiu físic. " alt="" coords="454,155,562,181"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <div class="dynheader">
 Diagrama de col·laboració per a logica.ItemMovible:</div>
 <div class="dyncontent">
 <div class="center"><img src="classlogica_1_1_item_movible__coll__graph.png" border="0" usemap="#logica_8_item_movible_coll__map" alt="Collaboration graph"/></div>
 <map name="logica_8_item_movible_coll__map" id="logica_8_item_movible_coll__map">
-<area shape="rect" id="node2" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="469,101,627,128"/><area shape="rect" id="node3" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="logica.enumeracions.EElement" alt="" coords="145,5,348,32"/><area shape="rect" id="node4" href="classlogica_1_1log_1_1_log.html" title="logica.log.Log" alt="" coords="195,56,298,83"/><area shape="rect" id="node5" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="160,107,333,133"/><area shape="rect" id="node7" href="classlogica_1_1_partida.html" title="logica.Partida" alt="" coords="196,173,297,200"/><area shape="rect" id="node8" href="classlogica_1_1_punt.html" title="logica.Punt" alt="" coords="505,252,591,279"/><area shape="rect" id="node10" href="enumlogica_1_1enumeracions_1_1_e_direccio.html" title="logica.enumeracions.EDireccio" alt="" coords="447,353,649,380"/></map>
+<area shape="rect" id="node2" href="classlogica_1_1laberints_1_1_laberint.html" title="class que contè un tauler amb elements que es poden desplasar, no coneix en cap moment l&#39;estat el seu..." alt="" coords="469,101,627,128"/><area shape="rect" id="node3" href="enumlogica_1_1enumeracions_1_1_e_element.html" title="Enumeracio dels diferents elements que conte un objecte del tipus Laberint. " alt="" coords="145,5,348,32"/><area shape="rect" id="node4" href="classlogica_1_1log_1_1_log.html" title="Sistema de log per veure que està passant en tot moment en el sistema;. " alt="" coords="195,56,298,83"/><area shape="rect" id="node5" href="interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="160,107,333,133"/><area shape="rect" id="node7" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob..." alt="" coords="196,173,297,200"/><area shape="rect" id="node8" href="classlogica_1_1_punt.html" title="Representació de un punt 2D format per fila i columna;. " alt="" coords="505,252,591,279"/><area shape="rect" id="node10" href="enumlogica_1_1enumeracions_1_1_e_direccio.html" title="Enumeracio de les diferents direccions que pot prendre un ItemMobile &#160;per desplaçar&#45;se per el Laberin..." alt="" coords="447,353,649,380"/></map>
 <center><span class="legend">[<a href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Mètodes públics</h2></td></tr>
 <tr class="memitem:a0463ef4d0a9e8e652be4a19b8dfba67c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0463ef4d0a9e8e652be4a19b8dfba67c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ItemMovible</b> (<a class="el" href="classlogica_1_1_partida.html">Partida</a> partida, ImageIcon imatge, <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a> laberint, <a class="el" href="classlogica_1_1_punt.html">Punt</a> inici, long frequencia)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ItemMovible</b> (<a class="el" href="classlogica_1_1_partida.html">Partida</a> <a class="el" href="classlogica_1_1_item_movible.html#ace55b4918a7f671f89ed3109c91359e4">partida</a>, ImageIcon imatge, <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a> <a class="el" href="classlogica_1_1_item_movible.html#a97036130b7376d77776427ca126f6fb5">laberint</a>, <a class="el" href="classlogica_1_1_punt.html">Punt</a> inici, long frequencia)</td></tr>
 <tr class="separator:a0463ef4d0a9e8e652be4a19b8dfba67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a43835d32363d837ad38635e48483ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a43835d32363d837ad38635e48483ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>iniciarItemMovible</b> ()</td></tr>
+<tr class="memitem:a9a43835d32363d837ad38635e48483ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a9a43835d32363d837ad38635e48483ba">iniciarItemMovible</a> ()</td></tr>
+<tr class="memdesc:a9a43835d32363d837ad38635e48483ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialitzacio de un <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>.  <a href="#a9a43835d32363d837ad38635e48483ba">Més...</a><br /></td></tr>
 <tr class="separator:a9a43835d32363d837ad38635e48483ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3362abf376e2d3fcf4b0690954e8c933"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3362abf376e2d3fcf4b0690954e8c933"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>finalitzarItem</b> ()</td></tr>
 <tr class="separator:a3362abf376e2d3fcf4b0690954e8c933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1284fadbe7d3961544c7b6edfa69340c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1284fadbe7d3961544c7b6edfa69340c"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><b>obtenirTempsTotalCalcul</b> ()</td></tr>
+<tr class="memitem:a1284fadbe7d3961544c7b6edfa69340c"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a1284fadbe7d3961544c7b6edfa69340c">obtenirTempsTotalCalcul</a> ()</td></tr>
+<tr class="memdesc:a1284fadbe7d3961544c7b6edfa69340c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna el temps utilitzat nomes en calcul de moviments de un <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>, durant una partida.  <a href="#a1284fadbe7d3961544c7b6edfa69340c">Més...</a><br /></td></tr>
 <tr class="separator:a1284fadbe7d3961544c7b6edfa69340c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1d46015999f809171a3ad284e249670"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1d46015999f809171a3ad284e249670"></a>
-abstract <a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>&#160;</td><td class="memItemRight" valign="bottom"><b>realitzarMoviment</b> ()</td></tr>
+<tr class="memitem:aa1d46015999f809171a3ad284e249670"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#aa1d46015999f809171a3ad284e249670">realitzarMoviment</a> ()</td></tr>
+<tr class="memdesc:aa1d46015999f809171a3ad284e249670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Descripció del metode que realitza un moviment dins de la estructura de Laberint.  <a href="#aa1d46015999f809171a3ad284e249670">Més...</a><br /></td></tr>
 <tr class="separator:aa1d46015999f809171a3ad284e249670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7851f12b803fe2c87550658ce83c6853"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7851f12b803fe2c87550658ce83c6853"></a>
-abstract <a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a>&#160;</td><td class="memItemRight" valign="bottom"><b>calcularMoviment</b> ()</td></tr>
+<tr class="memitem:a7851f12b803fe2c87550658ce83c6853"><td class="memItemLeft" align="right" valign="top">abstract <a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a7851f12b803fe2c87550658ce83c6853">calcularMoviment</a> ()</td></tr>
+<tr class="memdesc:a7851f12b803fe2c87550658ce83c6853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Descripcio del metode on s'implementara les logiques de cada <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> per a calcular el seu proxim moviment.  <a href="#a7851f12b803fe2c87550658ce83c6853">Més...</a><br /></td></tr>
 <tr class="separator:a7851f12b803fe2c87550658ce83c6853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b829b28d6b604e11b8135b78ce8f7eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b829b28d6b604e11b8135b78ce8f7eb"></a>
-abstract String&#160;</td><td class="memItemRight" valign="bottom"><b>nomItemMovible</b> ()</td></tr>
+<tr class="memitem:a2b829b28d6b604e11b8135b78ce8f7eb"><td class="memItemLeft" align="right" valign="top">abstract String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a2b829b28d6b604e11b8135b78ce8f7eb">nomItemMovible</a> ()</td></tr>
+<tr class="memdesc:a2b829b28d6b604e11b8135b78ce8f7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Descripcio del metode per obtenir el nom que identifica al subtipus de <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>.  <a href="#a2b829b28d6b604e11b8135b78ce8f7eb">Més...</a><br /></td></tr>
 <tr class="separator:a2b829b28d6b604e11b8135b78ce8f7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributs Públics</h2></td></tr>
-<tr class="memitem:a156a60365745803d0d3298b83aeacb73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a156a60365745803d0d3298b83aeacb73"></a>
-final ImageIcon&#160;</td><td class="memItemRight" valign="bottom"><b>imatgePerfil</b></td></tr>
+<tr class="memitem:a156a60365745803d0d3298b83aeacb73"><td class="memItemLeft" align="right" valign="top">final ImageIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a156a60365745803d0d3298b83aeacb73">imatgePerfil</a></td></tr>
 <tr class="separator:a156a60365745803d0d3298b83aeacb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Mètodes Protegits</h2></td></tr>
-<tr class="memitem:aa2ac3969ef87a7ebdee67878fd3a9547"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2ac3969ef87a7ebdee67878fd3a9547"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>canviarFrequenciaMoviment</b> (long frequencia)</td></tr>
-<tr class="separator:aa2ac3969ef87a7ebdee67878fd3a9547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817da6d1c2d5fce6a874edf3b708f147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a817da6d1c2d5fce6a874edf3b708f147">canviarFrequenciaMoviment</a> (long _frequencia)</td></tr>
+<tr class="memdesc:a817da6d1c2d5fce6a874edf3b708f147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica la frequencia de <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>.  <a href="#a817da6d1c2d5fce6a874edf3b708f147">Més...</a><br /></td></tr>
+<tr class="separator:a817da6d1c2d5fce6a874edf3b708f147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Atributs Protegits</h2></td></tr>
-<tr class="memitem:a97036130b7376d77776427ca126f6fb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97036130b7376d77776427ca126f6fb5"></a>
-final <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>laberint</b></td></tr>
+<tr class="memitem:a97036130b7376d77776427ca126f6fb5"><td class="memItemLeft" align="right" valign="top">final <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a97036130b7376d77776427ca126f6fb5">laberint</a></td></tr>
 <tr class="separator:a97036130b7376d77776427ca126f6fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9380636109f2180b48ee96e64de319a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9380636109f2180b48ee96e64de319a4"></a>
-<a class="el" href="classlogica_1_1_punt.html">Punt</a>&#160;</td><td class="memItemRight" valign="bottom"><b>posicio</b></td></tr>
+<tr class="memitem:a9380636109f2180b48ee96e64de319a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogica_1_1_punt.html">Punt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a9380636109f2180b48ee96e64de319a4">posicio</a></td></tr>
 <tr class="separator:a9380636109f2180b48ee96e64de319a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e7ab9e5b0e363972a753e6b1550e7fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e7ab9e5b0e363972a753e6b1550e7fb"></a>
-<a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a>&#160;</td><td class="memItemRight" valign="bottom"><b>seguentMoviment</b></td></tr>
+<tr class="memitem:a6e7ab9e5b0e363972a753e6b1550e7fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#a6e7ab9e5b0e363972a753e6b1550e7fb">seguentMoviment</a></td></tr>
 <tr class="separator:a6e7ab9e5b0e363972a753e6b1550e7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace55b4918a7f671f89ed3109c91359e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace55b4918a7f671f89ed3109c91359e4"></a>
-final <a class="el" href="classlogica_1_1_partida.html">Partida</a>&#160;</td><td class="memItemRight" valign="bottom"><b>partida</b></td></tr>
+<tr class="memitem:ace55b4918a7f671f89ed3109c91359e4"><td class="memItemLeft" align="right" valign="top">final <a class="el" href="classlogica_1_1_partida.html">Partida</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_item_movible.html#ace55b4918a7f671f89ed3109c91359e4">partida</a></td></tr>
 <tr class="separator:ace55b4918a7f671f89ed3109c91359e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
-<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>oscar </dd></dl>
-</div><hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
-<li>/home/oscar/Desktop/ProjProg/Projecte/src/logica/ItemMovible.java</li>
+<div class="textblock"><p>Objecte amb la capacitat de moures per les diferents poscions d'un Laberint durant una <a class="el" href="classlogica_1_1_partida.html" title="pantalla on hi ha un pacman i un enemic que es van desplaçant per un laberint ple de monedes amb l&#39;ob...">Partida</a>. </p>
+<dl class="section author"><dt>Autor</dt><dd>oscar </dd></dl>
+</div><h2 class="groupheader">Documentació de les Funcions Membre</h2>
+<a class="anchor" id="a7851f12b803fe2c87550658ce83c6853"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract <a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a> logica.ItemMovible.calcularMoviment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">abstract</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Descripcio del metode on s'implementara les logiques de cada <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> per a calcular el seu proxim moviment. </p>
+<dl class="section return"><dt>Retorna</dt><dd>EDireccio Calculada. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a817da6d1c2d5fce6a874edf3b708f147"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.ItemMovible.canviarFrequenciaMoviment </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>_frequencia</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modifica la frequencia de <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>. </p>
+<p>a cada cicle de freqüència <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> realitzara un moviment i calcularà el proxim. </p><dl class="section post"><dt>Postcondició</dt><dd>frequencia = _frequencia </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9a43835d32363d837ad38635e48483ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logica.ItemMovible.iniciarItemMovible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicialitzacio de un <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>. </p>
+<dl class="section post"><dt>Postcondició</dt><dd>temporitzador inicialitzat següent Moviment calculat iniciat = true </dd></dl>
+<dl class="exception"><dt>Excepcions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">EItemMovibleIniciat</td><td>si <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> ja estava incialitzat. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2b829b28d6b604e11b8135b78ce8f7eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract String logica.ItemMovible.nomItemMovible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">abstract</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Descripcio del metode per obtenir el nom que identifica al subtipus de <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Nom que identifica al subtipus de <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1284fadbe7d3961544c7b6edfa69340c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long logica.ItemMovible.obtenirTempsTotalCalcul </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna el temps utilitzat nomes en calcul de moviments de un <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>, durant una partida. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Temps total de càlcul de moviments. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa1d46015999f809171a3ad284e249670"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">abstract <a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a> logica.ItemMovible.realitzarMoviment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">abstract</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Descripció del metode que realitza un moviment dins de la estructura de Laberint. </p>
+<dl class="section return"><dt>Retorna</dt><dd>EELement que contenia la posicio on s'ha desplaçat <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a>. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentació de les Dades Membre</h2>
+<a class="anchor" id="a156a60365745803d0d3298b83aeacb73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">final ImageIcon logica.ItemMovible.imatgePerfil</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Imatge que representa a un <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="a97036130b7376d77776427ca126f6fb5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final <a class="el" href="classlogica_1_1laberints_1_1_laberint.html">Laberint</a> logica.ItemMovible.laberint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Laberint on es mou <a class="el" href="classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida...">ItemMovible</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="ace55b4918a7f671f89ed3109c91359e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">final <a class="el" href="classlogica_1_1_partida.html">Partida</a> logica.ItemMovible.partida</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>partida en joc </p>
+
+</div>
+</div>
+<a class="anchor" id="a9380636109f2180b48ee96e64de319a4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlogica_1_1_punt.html">Punt</a> logica.ItemMovible.posicio</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Representacio de les coordenades (Fila,Columna) en un instant determinat de la partida </p>
+
+</div>
+</div>
+<a class="anchor" id="a6e7ab9e5b0e363972a753e6b1550e7fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="enumlogica_1_1enumeracions_1_1_e_direccio.html">EDireccio</a> logica.ItemMovible.seguentMoviment</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Moviment calculat en un instant determinat de la partida </p>
+
+</div>
+</div>
+<hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
+<li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/logica/ItemMovible.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dj Mai 28 2015 14:23:57 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 18:59:53 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

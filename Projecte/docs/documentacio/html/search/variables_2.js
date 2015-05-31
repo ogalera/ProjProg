@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['historicmoviments',['historicMoviments',['../classlogica_1_1_personatge.html#a86322efbc950e2954fe2a8cde806bbd9',1,'logica::Personatge']]]
+  ['guanya',['guanya',['../classlogica_1_1_personatge.html#a0c30dc6ca85f941043ae4a27e7583c67',1,'logica::Personatge']]]
 ];

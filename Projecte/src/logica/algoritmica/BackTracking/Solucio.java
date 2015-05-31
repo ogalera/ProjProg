@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import logica.algoritmica.LlistaOrdenadaCandidats;
 import logica.log.Log;
 import logica.historic_moviments.HistoricMoviments;
-import logica.excepcions.ExceptionBuscadorCamins;
+import logica.excepcions.EBuscadorCamins;
 import logica.algoritmica.AEstrella.BuscadorCamiMinim;
 /**
  *
@@ -84,8 +84,8 @@ public class Solucio {
     public void assignaPuntAFugir(Punt enemic){
         EElement element = laberint.obtenirElement(enemic);
         distancia = 0;
-        if (element == EElement.PARET)throw new ExceptionBuscadorCamins("Origen i/o desti son parets");
-        if (element == null)throw new ExceptionBuscadorCamins("Origen i/o desti son nulls");
+        if (element == EElement.PARET)throw new EBuscadorCamins("Origen i/o desti son parets");
+        if (element == null)throw new EBuscadorCamins("Origen i/o desti son nulls");
         this.enemic = enemic;
     }
     

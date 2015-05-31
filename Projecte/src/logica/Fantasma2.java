@@ -10,13 +10,11 @@ import logica.enumeracions.EDireccio;
  * @author oscar
  * 
  * @brief
- * Eenemic úna mica més elaborat que Fantasma 1.
- * 
- * CARACTERISTIQUES DEL FANTASMA.
- * La seva visibilitat només és en linia recta per tant per tant només valora
- * les quatre direccions (fins a trobar paret) en las que pot anar i decideix 
- * quina és la que més li interesa.
- * 
+ * Eenemic úna mica més elaborat que Fantasma 1.\n\n
+ * CARACTERISTIQUES DEL FANTASMA.\n
+ * La seva visibilitat només és en linia recta per tant per tant només valora\n
+ * les quatre direccions (fins a trobar paret) en las que pot anar i decideix\n
+ * quina és la que més li interesa.\n
  * Es bo especialment quan hi ha moltes coses en el laberint.
  */
 public class Fantasma2 extends Personatge{
@@ -80,7 +78,6 @@ public class Fantasma2 extends Personatge{
                     else perHistoric = true;
                 }
                 else{
-                    System.out.println("pila buida");
                     //No tenim res en l'historic llavors optem per l'opció 2;
                     //i sortegem una direcció pseudoaleatoria;
                     int index = Utils.obtenirValorAleatori(4);

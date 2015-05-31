@@ -4,6 +4,7 @@ import dades.BD;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import logica.enumeracions.EElement;
+import logica.enumeracions.ELaberintsPredefinits;
 
 /**
  * @author oscar
@@ -39,17 +40,20 @@ public class Usuari {
      *      FANTASMA 3 -> serà el nivell difícil.
      */
     public static enum EDificultat{
-        FACIL(EElement.FANTASMA1), MITJA(EElement.FANTASMA2), DIFICIL(EElement.FANTASMA3);
+        FACIL(EElement.FANTASMA1, ELaberintsPredefinits.LABERINT_LINEAL_HORITZONTAL),
+        MITJA(EElement.FANTASMA2, ELaberintsPredefinits.LABERINT_ALEATORI),
+        DIFICIL(EElement.FANTASMA3, ELaberintsPredefinits.LABERINT_ALEATORI);
         
-        EElement enemic;/**<enemic que hi ha per aquesta dificultat*/
-        
+        private final EElement enemic;/**<enemic que hi ha per aquesta dificultat*/
+        private final ELaberintsPredefinits laberint;
         /**
          * @pre --
          * @post em creat una dificultat amb un enemic asociat.
          * @param enemic 
          */
-        private EDificultat(EElement enemic){
+        private EDificultat(EElement enemic, ELaberintsPredefinits laberint){
             this.enemic = enemic;
+            this.laberint = laberint;
         }
         
         /**
@@ -59,6 +63,14 @@ public class Usuari {
          */
         public EElement obtenirEnemicAssignatADificultat(){
             return this.enemic;
+        }
+        
+        /**
+         * @pre --
+         * @post em retornat el tipus de laberint asociat al fantasma.
+         */
+        public ELaberintsPredefinits obtenirTipusLaberint(){
+            return laberint;
         }
         
         @Override
@@ -73,15 +85,15 @@ public class Usuari {
      * diferents nivells en el mode aventura.
      * 
      * La diferencia entre nivells és la mida del laberint, on:
-     *      PRIMER NIVELL -> laberint de 10 x 10
+     *      PRIMER NIVELL -> laberint de 11 x 11
      *      SEGÓN NIVELL -> laberint de 15 x 15
-     *      TERCER NIVELL -> laberint de 20 x 20
+     *      TERCER NIVELL -> laberint de 21 x 21
      *      QUART NIVELL -> laberint de 25 x 25
      *      CINQUE NIVELL -> laberint de 35 x 35
      * 
      */
     public static enum ENivells{
-        PRIMER(10)/*10*/, SEGON(15)/*15*/, TERCER(20)/*20*/, QUART(25), CINQUE(35);
+        PRIMER(11)/*11*/, SEGON(15)/*15*/, TERCER(21)/*21*/, QUART(25), CINQUE(35);
         private final int costatLaberint; /**<Mida del costat del laberint asociada al nivell */
         
         /**

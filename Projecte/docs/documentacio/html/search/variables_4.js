@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['partida',['partida',['../classlogica_1_1laberints_1_1_laberint.html#a7183ce070714f73e078bb36e8c21b575',1,'logica::laberints::Laberint']]],
-  ['path_5fbd',['PATH_BD',['../classdades_1_1_b_d.html#a9d49f7827869e7e71b4527473b673ce8',1,'dades::BD']]],
-  ['pintador',['pintador',['../classlogica_1_1laberints_1_1_laberint.html#a4073632c1d1ab02ede9cddc2bbb6da2f',1,'logica::laberints::Laberint']]]
+  ['imatgeperfil',['imatgePerfil',['../classlogica_1_1_item_movible.html#a156a60365745803d0d3298b83aeacb73',1,'logica::ItemMovible']]],
+  ['imatges',['imatges',['../classlogica_1_1_personatge.html#a066a8096f86141bc7a7400cca4c18a7b',1,'logica::Personatge']]]
 ];

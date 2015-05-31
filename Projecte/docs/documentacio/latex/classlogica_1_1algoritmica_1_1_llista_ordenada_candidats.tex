@@ -3,55 +3,174 @@
 }
 
 
-Estructura de dades ordenades.  
+Estructura ordenada de Caselles (candidats) per a als algoritmes de Backtracking i A\+Star.  
 
 
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a8d69cb86084a5fcf7fda75e85bf6221d}{\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} {\bfseries obtenir\+Primer} ()}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a8d69cb86084a5fcf7fda75e85bf6221d}
-
+\hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_afad457a1d2c326f2b32e93bfae58fe58}{Llista\+Ordenada\+Candidats} ()
 \item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ad6cdf565555d27f8e5b50ae67bc66e16}{\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} {\bfseries obtenir\+Ultim} ()}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ad6cdf565555d27f8e5b50ae67bc66e16}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a0d405bdd9cb347353e4e29c35e064d5d}{void {\bfseries clear} ()}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a0d405bdd9cb347353e4e29c35e064d5d}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a047df4631890e7efea712ab7d711b715}{void {\bfseries afegir} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a047df4631890e7efea712ab7d711b715}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_aa3dc103893d5b778b7cc7e3d34d51553}{void {\bfseries elimina} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_aa3dc103893d5b778b7cc7e3d34d51553}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ac65c7847f389c4a729256d6f56250c32}{boolean {\bfseries es\+Buida} ()}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ac65c7847f389c4a729256d6f56250c32}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a077c38740a99724a256a8677506bb020}{\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} {\bfseries obtenir\+Element} (int index)}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a077c38740a99724a256a8677506bb020}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a211e94e69348c4e3c6a5a64991ee4364}{boolean {\bfseries conte\+Element} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a211e94e69348c4e3c6a5a64991ee4364}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ab9bb24ce317a3eb38e9d568ea663aa29}{\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} {\bfseries get\+Element} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ab9bb24ce317a3eb38e9d568ea663aa29}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a7778ed92542a0093478fbc36ed9ebd9e}{int {\bfseries size} ()}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a7778ed92542a0093478fbc36ed9ebd9e}
-
-\item 
-\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a9cc96541804e25aebfd94bbb938e6758}{void {\bfseries ordena} ()}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a9cc96541804e25aebfd94bbb938e6758}
-
-\end{DoxyCompactItemize}
+\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a8d69cb86084a5fcf7fda75e85bf6221d}{obtenir\+Primer} ()
+\begin{DoxyCompactList}\small\item\em Retorna la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de menys pes. \end{DoxyCompactList}\item 
+\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ad6cdf565555d27f8e5b50ae67bc66e16}{obtenir\+Ultim} ()
+\begin{DoxyCompactList}\small\item\em Retorna la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de mes pes. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a0d405bdd9cb347353e4e29c35e064d5d}{clear} ()
+\begin{DoxyCompactList}\small\item\em Elimina totes les Caselles de \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a047df4631890e7efea712ab7d711b715}{afegir} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)
+\begin{DoxyCompactList}\small\item\em Insercio de c de forma ordenada a \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. \end{DoxyCompactList}\item 
+void \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a66435e469e8d188173b8539aac7efd5b}{eliminar} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)
+\begin{DoxyCompactList}\small\item\em Elimina c de \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ac65c7847f389c4a729256d6f56250c32}{es\+Buida} ()
+\begin{DoxyCompactList}\small\item\em Diu si \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} no te cap element. \end{DoxyCompactList}\item 
+boolean \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a211e94e69348c4e3c6a5a64991ee4364}{conte\+Element} (\hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c)
+\begin{DoxyCompactList}\small\item\em Diu si \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} conté la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c. \end{DoxyCompactList}\item 
+int \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_aa9b91dbc941f9693f2f896a4088a63d4}{mida} ()
+\begin{DoxyCompactList}\small\item\em Diu el numero de objectes \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} continguts a \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
-Estructura de dades ordenades. 
+Estructura ordenada de Caselles (candidats) per a als algoritmes de Backtracking i A\+Star. 
 
 \begin{DoxyAuthor}{Autor}
 Moises 
 \end{DoxyAuthor}
 
 
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_afad457a1d2c326f2b32e93bfae58fe58}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!Llista\+Ordenada\+Candidats@{Llista\+Ordenada\+Candidats}}
+\index{Llista\+Ordenada\+Candidats@{Llista\+Ordenada\+Candidats}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{Llista\+Ordenada\+Candidats}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+Llista\+Ordenada\+Candidats (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_afad457a1d2c326f2b32e93bfae58fe58}
+\begin{DoxyInvariant}{Invariant}
+llista != null; 
+\end{DoxyInvariant}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a047df4631890e7efea712ab7d711b715}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!afegir@{afegir}}
+\index{afegir@{afegir}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{afegir}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+afegir (
+\begin{DoxyParamCaption}
+\item[{{\bf Casella}}]{c}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a047df4631890e7efea712ab7d711b715}
+
+
+Insercio de c de forma ordenada a \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. 
+
+\begin{DoxyPostcond}{Postcondició}
+\hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} conté la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a0d405bdd9cb347353e4e29c35e064d5d}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!clear@{clear}}
+\index{clear@{clear}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a0d405bdd9cb347353e4e29c35e064d5d}
+
+
+Elimina totes les Caselles de \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. 
+
+\begin{DoxyPostcond}{Postcondició}
+\hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} buida. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a211e94e69348c4e3c6a5a64991ee4364}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!conte\+Element@{conte\+Element}}
+\index{conte\+Element@{conte\+Element}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{conte\+Element}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+conte\+Element (
+\begin{DoxyParamCaption}
+\item[{{\bf Casella}}]{c}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a211e94e69348c4e3c6a5a64991ee4364}
+
+
+Diu si \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} conté la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} c. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si c esta continguda en \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. Altrament retorna fals. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a66435e469e8d188173b8539aac7efd5b}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!eliminar@{eliminar}}
+\index{eliminar@{eliminar}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{eliminar}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+eliminar (
+\begin{DoxyParamCaption}
+\item[{{\bf Casella}}]{c}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a66435e469e8d188173b8539aac7efd5b}
+
+
+Elimina c de \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. 
+
+\begin{DoxyPostcond}{Postcondició}
+\hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} no conté c. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ac65c7847f389c4a729256d6f56250c32}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!es\+Buida@{es\+Buida}}
+\index{es\+Buida@{es\+Buida}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{es\+Buida}]{\setlength{\rightskip}{0pt plus 5cm}boolean logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+es\+Buida (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ac65c7847f389c4a729256d6f56250c32}
+
+
+Diu si \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} no te cap element. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna cert si L\+Lista\+Ordenada\+Candidats no conté cap \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella}. Altrament retorna fals. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_aa9b91dbc941f9693f2f896a4088a63d4}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!mida@{mida}}
+\index{mida@{mida}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{mida}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+mida (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_aa9b91dbc941f9693f2f896a4088a63d4}
+
+
+Diu el numero de objectes \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} continguts a \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. 
+
+\begin{DoxyReturn}{Retorna}
+Retorna el numero de objectes \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} continguts a \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a8d69cb86084a5fcf7fda75e85bf6221d}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!obtenir\+Primer@{obtenir\+Primer}}
+\index{obtenir\+Primer@{obtenir\+Primer}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{obtenir\+Primer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Casella} logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+obtenir\+Primer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_a8d69cb86084a5fcf7fda75e85bf6221d}
+
+
+Retorna la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de menys pes. 
+
+\begin{DoxyPrecond}{Precondició}
+\hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} no buida. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+Retorna la primera \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats}. 
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ad6cdf565555d27f8e5b50ae67bc66e16}{\index{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}!obtenir\+Ultim@{obtenir\+Ultim}}
+\index{obtenir\+Ultim@{obtenir\+Ultim}!logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats@{logica\+::algoritmica\+::\+Llista\+Ordenada\+Candidats}}
+\subsubsection[{obtenir\+Ultim}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Casella} logica.\+algoritmica.\+Llista\+Ordenada\+Candidats.\+obtenir\+Ultim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats_ad6cdf565555d27f8e5b50ae67bc66e16}
+
+
+Retorna la \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de mes pes. 
+
+\begin{DoxyPrecond}{Precondició}
+\hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} no buida. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+Retorna la ultima \hyperlink{classlogica_1_1algoritmica_1_1_casella}{Casella} de \hyperlink{classlogica_1_1algoritmica_1_1_llista_ordenada_candidats}{Llista\+Ordenada\+Candidats} 
+\end{DoxyReturn}
+
+
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/algoritmica/Llista\+Ordenada\+Candidats.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/algoritmica/Llista\+Ordenada\+Candidats.\+java\end{DoxyCompactItemize}

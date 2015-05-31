@@ -1,45 +1,156 @@
 \hypertarget{classlogica_1_1_usuari}{\section{Referència de la Classe logica.\+Usuari}
 \label{classlogica_1_1_usuari}\index{logica.\+Usuari@{logica.\+Usuari}}
 }
+
+
+usuari registrat a l'aplicació que consta de  
+
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 enum {\bfseries E\+Dificultat}
-\item 
+\begin{DoxyCompactList}\small\item\em dificultat del laberint dins del nivell \end{DoxyCompactList}\item 
 enum {\bfseries E\+Nivells}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em diferents nivells en el mode aventura. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}{{\bfseries Usuari} (int id, String nom\+Usuari, int nivell, String url\+Imatge)}\label{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}
-
+\hyperlink{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}{Usuari} (int id, String nom\+Usuari, int nivell, String url\+Imatge)
 \item 
-\hypertarget{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}{E\+Dificultat {\bfseries obtenir\+Dificultat} ()}\label{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}
-
+E\+Dificultat \hyperlink{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}{obtenir\+Dificultat} ()
 \item 
-\hypertarget{classlogica_1_1_usuari_a47de68f8f3a0a5c45352b0f93cb0d156}{int {\bfseries obtenir\+Id} ()}\label{classlogica_1_1_usuari_a47de68f8f3a0a5c45352b0f93cb0d156}
-
+int \hyperlink{classlogica_1_1_usuari_a47de68f8f3a0a5c45352b0f93cb0d156}{obtenir\+Id} ()
 \item 
-\hypertarget{classlogica_1_1_usuari_a642304fd209679e1cd3f312eaa06ed9c}{String {\bfseries obtenir\+Nom\+Usuari} ()}\label{classlogica_1_1_usuari_a642304fd209679e1cd3f312eaa06ed9c}
-
+String \hyperlink{classlogica_1_1_usuari_a642304fd209679e1cd3f312eaa06ed9c}{obtenir\+Nom\+Usuari} ()
 \item 
-\hypertarget{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}{E\+Nivells {\bfseries obtenir\+Nivell} ()}\label{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}
-
+E\+Nivells \hyperlink{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}{obtenir\+Nivell} ()
 \item 
-\hypertarget{classlogica_1_1_usuari_aa1f96063a4d6a068e2088e6f7339a4fa}{Icon {\bfseries obtenir\+Imatge} ()}\label{classlogica_1_1_usuari_aa1f96063a4d6a068e2088e6f7339a4fa}
-
+Icon \hyperlink{classlogica_1_1_usuari_aa1f96063a4d6a068e2088e6f7339a4fa}{obtenir\+Imatge} ()
 \item 
-\hypertarget{classlogica_1_1_usuari_a3d2c12a1138df467863c3ff43827bed1}{void {\bfseries pantalla\+Superada} (int pnt)}\label{classlogica_1_1_usuari_a3d2c12a1138df467863c3ff43827bed1}
-
+void \hyperlink{classlogica_1_1_usuari_a3d2c12a1138df467863c3ff43827bed1}{pantalla\+Superada} (int pnt)
 \end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+usuari registrat a l'aplicació que consta de 
+
 \begin{DoxyAuthor}{Autor}
-oscar 
+oscar
+\begin{DoxyItemize}
+\item id -\/$>$ identificador de la B.\+D.
+\item nom\+Usuari -\/$>$ el nom del usuari
+\item ul\+Imatge -\/$>$ ruta de l'imatge de perfil.
+\item nivell -\/$>$ en quin nivell es troba de l'aventura.
+\item dificultat -\/$>$ dins del nivell per quina dificultat va.
+\item punts -\/$>$ cumul de punts del usuari per el nivell en que està.
+\end{DoxyItemize}
 \end{DoxyAuthor}
+\begin{DoxyInvariant}{Invariant}
+id != null, nom\+Usuari != null, imatge\+Perfil != null, punts $>$= 0 
+\end{DoxyInvariant}
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!Usuari@{Usuari}}
+\index{Usuari@{Usuari}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{Usuari}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+Usuari.\+Usuari (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{String}]{nom\+Usuari, }
+\item[{int}]{nivell, }
+\item[{String}]{url\+Imatge}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_a7d61fbf17076f5c75841d30598ee3289}
+\begin{DoxyPrecond}{Precondició}
+l'url\+Image és una ruta valida a una imatge. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat un usuari amb id, nom\+Usuari, nivell i ruta de l'imatge de perfil. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Dificultat@{obtenir\+Dificultat}}
+\index{obtenir\+Dificultat@{obtenir\+Dificultat}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{obtenir\+Dificultat}]{\setlength{\rightskip}{0pt plus 5cm}E\+Dificultat logica.\+Usuari.\+obtenir\+Dificultat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_a8aaddefb9f6dba6e142426483ade785f}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat la dificultat dins del nivell en que esta l'usuari. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_usuari_a47de68f8f3a0a5c45352b0f93cb0d156}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Id@{obtenir\+Id}}
+\index{obtenir\+Id@{obtenir\+Id}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{obtenir\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int logica.\+Usuari.\+obtenir\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_a47de68f8f3a0a5c45352b0f93cb0d156}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat l'id de l'usuari. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_usuari_aa1f96063a4d6a068e2088e6f7339a4fa}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Imatge@{obtenir\+Imatge}}
+\index{obtenir\+Imatge@{obtenir\+Imatge}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{obtenir\+Imatge}]{\setlength{\rightskip}{0pt plus 5cm}Icon logica.\+Usuari.\+obtenir\+Imatge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_aa1f96063a4d6a068e2088e6f7339a4fa}
+\begin{DoxyPrecond}{Precondició}
+
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+\hypertarget{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Nivell@{obtenir\+Nivell}}
+\index{obtenir\+Nivell@{obtenir\+Nivell}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{obtenir\+Nivell}]{\setlength{\rightskip}{0pt plus 5cm}E\+Nivells logica.\+Usuari.\+obtenir\+Nivell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_a1af8cdd311f23f556295912d869c1630}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el nivell en que està l'usuari 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_usuari_a642304fd209679e1cd3f312eaa06ed9c}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!obtenir\+Nom\+Usuari@{obtenir\+Nom\+Usuari}}
+\index{obtenir\+Nom\+Usuari@{obtenir\+Nom\+Usuari}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{obtenir\+Nom\+Usuari}]{\setlength{\rightskip}{0pt plus 5cm}String logica.\+Usuari.\+obtenir\+Nom\+Usuari (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_a642304fd209679e1cd3f312eaa06ed9c}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em retornat el nom de l'usuari. 
+\end{DoxyPostcond}
+\hypertarget{classlogica_1_1_usuari_a3d2c12a1138df467863c3ff43827bed1}{\index{logica\+::\+Usuari@{logica\+::\+Usuari}!pantalla\+Superada@{pantalla\+Superada}}
+\index{pantalla\+Superada@{pantalla\+Superada}!logica\+::\+Usuari@{logica\+::\+Usuari}}
+\subsubsection[{pantalla\+Superada}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Usuari.\+pantalla\+Superada (
+\begin{DoxyParamCaption}
+\item[{int}]{pnt}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_usuari_a3d2c12a1138df467863c3ff43827bed1}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+l'usuari va per la seguent dificultat del nivell, si s'ha superat la màxima dificultat per el nivell es va al seguent nivell. 
+\end{DoxyPostcond}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Usuari.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/Usuari.\+java\end{DoxyCompactItemize}

@@ -3,6 +3,11 @@
 }
 
 
+\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} amb camins horitzontals, l'estrategia per generar laberints d'aquest tipus és\+: Posar tota una columna de monedes en la columna nùmero 0 i una en la columna nùmero n-\/1 llavors situar en pacman en la posició \mbox{[}0, 0\mbox{]} i fer posar tot de monedes a totes les files que són un número parell (0, 2, 4 ...)  
+
+
+
+
 Diagrama d'Herència per a logica.\+laberints.\+Laberint\+Lineal\+Horitzontal\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,18 +27,38 @@ Diagrama de col·laboració per a logica.\+laberints.\+Laberint\+Lineal\+Horitzo
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}{{\bfseries Laberint\+Lineal\+Horitzontal} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)}\label{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}
-
+\hyperlink{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}{Laberint\+Lineal\+Horitzontal} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1laberints_1_1_laberint_a7183ce070714f73e078bb36e8c21b575}{partida}, int \hyperlink{classlogica_1_1laberints_1_1_laberint_ae874ac4889592b811709f5b967d85286}{costat}, \hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} enemic, \hyperlink{interfaceinterficie_1_1_i_pintador_laberint}{I\+Pintador\+Laberint} pintador\+Laberint)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Descripció Detallada}
+\hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} amb camins horitzontals, l'estrategia per generar laberints d'aquest tipus és\+: Posar tota una columna de monedes en la columna nùmero 0 i una en la columna nùmero n-\/1 llavors situar en pacman en la posició \mbox{[}0, 0\mbox{]} i fer posar tot de monedes a totes les files que són un número parell (0, 2, 4 ...) 
+
 \begin{DoxyAuthor}{Autor}
-oscar 
+oscar L'únic requisit per aquest tipus de laberint és que el seu costat ha de ser imparell per fer quadrar les files de paret.
 \end{DoxyAuthor}
+Aquest algorisme genera sempre un laberint valid. 
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}{\index{logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal@{logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal}!Laberint\+Lineal\+Horitzontal@{Laberint\+Lineal\+Horitzontal}}
+\index{Laberint\+Lineal\+Horitzontal@{Laberint\+Lineal\+Horitzontal}!logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal@{logica\+::laberints\+::\+Laberint\+Lineal\+Horitzontal}}
+\subsubsection[{Laberint\+Lineal\+Horitzontal}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+laberints.\+Laberint\+Lineal\+Horitzontal.\+Laberint\+Lineal\+Horitzontal (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida, }
+\item[{int}]{costat, }
+\item[{{\bf E\+Element}}]{enemic, }
+\item[{{\bf I\+Pintador\+Laberint}}]{pintador\+Laberint}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1laberints_1_1_laberint_lineal_horitzontal_a3aa38bdd438bdc9db196ae507944e34a}
+\begin{DoxyPrecond}{Precondició}
+costat $>$= Utils.\+Constants.\+M\+I\+N\+I\+M\+\_\+\+C\+O\+S\+T\+A\+T\+\_\+\+L\+A\+B\+E\+R\+I\+N\+T i enemic és un dels fantasmes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat un laberint de caràcter lineal i horitzontal amb partida, costat enemic i un pintador per representar el laberint gràficament. 
+\end{DoxyPostcond}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/laberints/Laberint\+Lineal\+Horitzontal.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/laberints/Laberint\+Lineal\+Horitzontal.\+java\end{DoxyCompactItemize}

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['acceptable',['acceptable',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html#a19877137eeca065942f71091a0fb9d89',1,'logica::algoritmica::BackTracking::Solucio']]],
-  ['afegir',['afegir',['../classlogica_1_1historic__moviments_1_1_pila_3_01_t_01_4.html#a4c7677e80d1a2e750036374680e8de69',1,'logica::historic_moviments::Pila&lt; T &gt;']]],
+  ['afegir',['afegir',['../classlogica_1_1algoritmica_1_1_llista_ordenada_candidats.html#a047df4631890e7efea712ab7d711b715',1,'logica.algoritmica.LlistaOrdenadaCandidats.afegir()'],['../classlogica_1_1historic__moviments_1_1_pila_3_01_t_01_4.html#a4c7677e80d1a2e750036374680e8de69',1,'logica.historic_moviments.Pila&lt; T &gt;.afegir()']]],
   ['afegirdebug',['afegirDebug',['../classlogica_1_1log_1_1_log.html#a22b7784b896630f85cd9791d02d13d70',1,'logica::log::Log']]],
   ['afegirerror',['afegirError',['../classlogica_1_1log_1_1_log.html#abdcf225ffc06e746b5d224c060b01f98',1,'logica::log::Log']]],
   ['afegirmoviment',['afegirMoviment',['../classlogica_1_1historic__moviments_1_1_historic_moviments.html#add8ce785d3feabe0489005024fa34c31',1,'logica::historic_moviments::HistoricMoviments']]],
@@ -9,7 +9,18 @@ var searchData=
   ['afegirwarning',['afegirWarning',['../classlogica_1_1log_1_1_log.html#af5a685966d6e6ef00d93c879b4f3154a',1,'logica::log::Log']]],
   ['anotar',['anotar',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html#a7508629823fbebc6e4f72c5a1b796a6e',1,'logica::algoritmica::BackTracking::Solucio']]],
   ['assignapuntafugir',['assignaPuntAFugir',['../classlogica_1_1algoritmica_1_1_back_tracking_1_1_solucio.html#a277aadcd8caff5de312c5797ba9d4318',1,'logica::algoritmica::BackTracking::Solucio']]],
-  ['assignarcontroladorteclat',['assignarControladorTeclat',['../classlogica_1_1laberints_1_1_laberint.html#abbda03bcf4c8a1efead70f997d7357cb',1,'logica::laberints::Laberint']]],
+  ['assignarcontroladorteclat',['assignarControladorTeclat',['../interfaceinterficie_1_1_i_pintador_laberint.html#acdd1fc6177c514b992f416ef2aa61ec2',1,'interficie.IPintadorLaberint.assignarControladorTeclat()'],['../classinterficie_1_1_p_laberint.html#a5b19d218c21256e0ecfebc9b26c6d9df',1,'interficie.PLaberint.assignarControladorTeclat()'],['../classlogica_1_1laberints_1_1_laberint.html#abbda03bcf4c8a1efead70f997d7357cb',1,'logica.laberints.Laberint.assignarControladorTeclat()']]],
   ['assignardistanciaalobjectiu',['assignarDistanciaAlObjectiu',['../classlogica_1_1algoritmica_1_1_casella.html#a2ea078821a8d5122d1a55257e331a113',1,'logica::algoritmica::Casella']]],
-  ['assignarparent',['assignarParent',['../classlogica_1_1algoritmica_1_1_casella.html#afcf9ca06d7ab979116af8b6a13b6449b',1,'logica::algoritmica::Casella']]]
+  ['assignarestatpersonatge',['assignarEstatPersonatge',['../classlogica_1_1_personatge.html#a8b39023213405003380501bff8fdee6b',1,'logica::Personatge']]],
+  ['assignarguanya',['assignarGuanya',['../classlogica_1_1_personatge.html#a32871fa2793634b05a0973ceec438560',1,'logica::Personatge']]],
+  ['assignarguanyador',['assignarGuanyador',['../classlogica_1_1_partida.html#a29bd0292c22c67f4ada328373ec00d05',1,'logica::Partida']]],
+  ['assignarimatges',['assignarImatges',['../classlogica_1_1_fantasma1.html#a4e887e1e0151f5fd35a202b323879bb1',1,'logica.Fantasma1.assignarImatges()'],['../classlogica_1_1_fantasma2.html#a5ba4c0f99f09122c393203c474fe5562',1,'logica.Fantasma2.assignarImatges()'],['../classlogica_1_1_personatge.html#ae7f9cdfd1b01d6c7eaee1675decfaeca',1,'logica.Personatge.assignarImatges()']]],
+  ['assignaritemaenemic',['assignarItemAEnemic',['../classlogica_1_1_partida.html#a5b3670c7515defc5102dfadb00bcf3ef',1,'logica::Partida']]],
+  ['assignaritemapacman',['assignarItemAPacman',['../classlogica_1_1_partida.html#a4c54275963b78eb6f0646c479a2e6823',1,'logica::Partida']]],
+  ['assignaritemespecial',['assignarItemEspecial',['../classlogica_1_1_partida.html#a0e5b8e4beaaf3a3e425e63a3dfe2fc7a',1,'logica::Partida']]],
+  ['assignarpacman',['assignarPacman',['../classlogica_1_1controladors__pacman_1_1_controlador_mobil.html#a9aabffe23f7920ae8482c7e8906c8d0e',1,'logica.controladors_pacman.ControladorMobil.assignarPacman()'],['../classlogica_1_1controladors__pacman_1_1_controlador_teclat.html#aab737c00c32133c65fafe6222c1eeb96',1,'logica.controladors_pacman.ControladorTeclat.assignarPacman()'],['../interfacelogica_1_1controladors__pacman_1_1_i_controlador.html#ac765182730a4337c576a9764cdd521fa',1,'logica.controladors_pacman.IControlador.assignarPacman()']]],
+  ['assignarparent',['assignarParent',['../classlogica_1_1algoritmica_1_1_casella.html#afcf9ca06d7ab979116af8b6a13b6449b',1,'logica::algoritmica::Casella']]],
+  ['assignarpartida',['assignarPartida',['../interfaceinterficie_1_1_i_pintador_partida.html#aefc777b7be8ea147041d9da7c45044cc',1,'interficie::IPintadorPartida']]],
+  ['assignarpuntsenemic',['assignarPuntsEnemic',['../classlogica_1_1_partida.html#af6bb37861993d640fbe4f4b8360778da',1,'logica::Partida']]],
+  ['assignarpuntspacman',['assignarPuntsPacman',['../classlogica_1_1_partida.html#a8c77a48d2b451ae4f01ed0ff0df29b15',1,'logica::Partida']]]
 ];

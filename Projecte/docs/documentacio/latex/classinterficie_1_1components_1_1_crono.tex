@@ -3,7 +3,7 @@
 }
 
 
-Mostra per pantalla un cronometre iniciat a 00\+:00\+:000 minuts\+:segons\+:milesimes.  
+Cronometre amb representacio gràfica amb 00\+:00\+:000 minuts\+:segons\+:milesimes.  
 
 
 
@@ -27,25 +27,73 @@ Diagrama de col·laboració per a interficie.\+components.\+Crono\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classinterficie_1_1components_1_1_crono_aa890cf3bea27a9c0822bf6066de35929}{void {\bfseries iniciar\+Crono} ()}\label{classinterficie_1_1components_1_1_crono_aa890cf3bea27a9c0822bf6066de35929}
+\hyperlink{classinterficie_1_1components_1_1_crono_afd62bd4f1354e15c5b7048c4f874bae3}{Crono} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classinterficie_1_1components_1_1_crono_aa890cf3bea27a9c0822bf6066de35929}{iniciar\+Crono} ()
+\begin{DoxyCompactList}\small\item\em El crono inicia el seu compte. \end{DoxyCompactList}\item 
+void \hyperlink{classinterficie_1_1components_1_1_crono_a0d8681481d3795a79da8a6c47dac8811}{parar\+Crono} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classinterficie_1_1components_1_1_crono}{Crono} para el seu compte. \end{DoxyCompactList}\item 
+\hypertarget{classinterficie_1_1components_1_1_crono_a0ecb7df579cc0a6476c56517afd50627}{void \hyperlink{classinterficie_1_1components_1_1_crono_a0ecb7df579cc0a6476c56517afd50627}{run} ()}\label{classinterficie_1_1components_1_1_crono_a0ecb7df579cc0a6476c56517afd50627}
 
-\item 
-\hypertarget{classinterficie_1_1components_1_1_crono_a0d8681481d3795a79da8a6c47dac8811}{void {\bfseries parar\+Crono} ()}\label{classinterficie_1_1components_1_1_crono_a0d8681481d3795a79da8a6c47dac8811}
-
-\item 
-\hypertarget{classinterficie_1_1components_1_1_crono_a0ecb7df579cc0a6476c56517afd50627}{void {\bfseries run} ()}\label{classinterficie_1_1components_1_1_crono_a0ecb7df579cc0a6476c56517afd50627}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fil que executa l'evolució d'un cronometre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
-Mostra per pantalla un cronometre iniciat a 00\+:00\+:000 minuts\+:segons\+:milesimes. 
+Cronometre amb representacio gràfica amb 00\+:00\+:000 minuts\+:segons\+:milesimes. 
 
 \begin{DoxyAuthor}{Autor}
 Moises  \hyperlink{classinterficie_1_1components_1_1_crono}{Crono} 
 \end{DoxyAuthor}
 
 
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classinterficie_1_1components_1_1_crono_afd62bd4f1354e15c5b7048c4f874bae3}{\index{interficie\+::components\+::\+Crono@{interficie\+::components\+::\+Crono}!Crono@{Crono}}
+\index{Crono@{Crono}!interficie\+::components\+::\+Crono@{interficie\+::components\+::\+Crono}}
+\subsubsection[{Crono}]{\setlength{\rightskip}{0pt plus 5cm}interficie.\+components.\+Crono.\+Crono (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classinterficie_1_1components_1_1_crono_afd62bd4f1354e15c5b7048c4f874bae3}
+
+
+Constructor. 
+
+\begin{DoxyPostcond}{Postcondició}
+\hyperlink{classinterficie_1_1components_1_1_crono}{Crono} preperat per mostrar per pantalla i iniciar. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classinterficie_1_1components_1_1_crono_aa890cf3bea27a9c0822bf6066de35929}{\index{interficie\+::components\+::\+Crono@{interficie\+::components\+::\+Crono}!iniciar\+Crono@{iniciar\+Crono}}
+\index{iniciar\+Crono@{iniciar\+Crono}!interficie\+::components\+::\+Crono@{interficie\+::components\+::\+Crono}}
+\subsubsection[{iniciar\+Crono}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+components.\+Crono.\+iniciar\+Crono (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classinterficie_1_1components_1_1_crono_aa890cf3bea27a9c0822bf6066de35929}
+
+
+El crono inicia el seu compte. 
+
+\begin{DoxyPostcond}{Postcondició}
+Cronometre iniciat 
+\end{DoxyPostcond}
+\hypertarget{classinterficie_1_1components_1_1_crono_a0d8681481d3795a79da8a6c47dac8811}{\index{interficie\+::components\+::\+Crono@{interficie\+::components\+::\+Crono}!parar\+Crono@{parar\+Crono}}
+\index{parar\+Crono@{parar\+Crono}!interficie\+::components\+::\+Crono@{interficie\+::components\+::\+Crono}}
+\subsubsection[{parar\+Crono}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+components.\+Crono.\+parar\+Crono (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classinterficie_1_1components_1_1_crono_a0d8681481d3795a79da8a6c47dac8811}
+
+
+\hyperlink{classinterficie_1_1components_1_1_crono}{Crono} para el seu compte. 
+
+\begin{DoxyPostcond}{Postcondició}
+Cronometre parat. 
+\end{DoxyPostcond}
+
+
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/interficie/components/Crono.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/interficie/components/Crono.\+java\end{DoxyCompactItemize}

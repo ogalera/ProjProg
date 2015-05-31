@@ -50,7 +50,6 @@ public class Fantasma3 extends Personatge{
         SEGUIMENT, /*!<Es persegueix un objectiu movible. Es calcula el cami minim a cada moviment i nomes es porta a terme el primer pas d'aquest cami calculat.*/
         NAVEGACIO;/*!< Es persegueix un objectiu estatic. Es calcula una sola vegada el cami minim i es segueixen els passos fins a aquest objectiu.*/
     }
-    
    
     @Override
     public EDireccio calcularMoviment(){
@@ -217,7 +216,6 @@ public class Fantasma3 extends Personatge{
         }
     }
     
-    
     /**
     * @brief Gestio de la ruta en cas que mode = EMode.NAVEGACIO
     * @post ruta != null
@@ -289,7 +287,6 @@ public class Fantasma3 extends Personatge{
             
     }
     
-    
      /**
      * @brief Assigna la sortida com a objectiu.
      * @pre La sortida ha estat assignada en el objecte laberint.
@@ -301,7 +298,6 @@ public class Fantasma3 extends Personatge{
         objectiu = new Objectiu(p,element);
         ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
     }
-    
     
     /**
      * @brief Diu si un moviment es vàlid.
@@ -325,7 +321,6 @@ public class Fantasma3 extends Personatge{
         ruta = gestorCami.trobarCamiMinim(posicio, objectiu.posicio);
         
     }
-
     
     /**
      * @brief Troba una moneda més próxima.
@@ -379,8 +374,6 @@ public class Fantasma3 extends Personatge{
         }
         return res;
     }
-//
-
     
     /**
      * @brief Diu si hi ha algun item a prop.
@@ -427,7 +420,6 @@ public class Fantasma3 extends Personatge{
         return element == EElement.MONEDA ||element == EElement.MONEDA_EXTRA;
     }
     
-    
     /**
      * @brief Conté la logica que defineix si fantasma3 considera perillos a en PACMAN
      * @return Retorna cert si PACMAN te mongeta i PACMAN esta a una distancia < DISTANCIA_PERILLOSA
@@ -470,7 +462,6 @@ public class Fantasma3 extends Personatge{
         this.imatges[3][0] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3B0.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
         this.imatges[3][1] = new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("res/imatges/enemic3B1.png")).getImage().getScaledInstance(llargada, llargada, Image.SCALE_DEFAULT));
     }
-    
     
     /**
      * @brief s'eneten per objectiu un Punt que conte un EElement

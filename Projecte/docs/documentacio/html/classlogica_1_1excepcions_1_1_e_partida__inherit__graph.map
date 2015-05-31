@@ -1,0 +1,5 @@
+<map id="logica.excepcions.EPartida" name="logica.excepcions.EPartida">
+<area shape="rect" id="node3" href="$classlogica_1_1excepcions_1_1_e_finalitzar_partida.html" title="Excepció per quan hi ha algun problema al finalitzar la partida. " alt="" coords="420,5,612,47"/>
+<area shape="rect" id="node4" href="$classlogica_1_1excepcions_1_1_e_iniciar_partida.html" title="Excepció per quan hi ha algun problema al iniciar la partida. " alt="" coords="429,71,603,112"/>
+<area shape="rect" id="node5" href="$classlogica_1_1excepcions_1_1_e_item_movible_iniciat.html" title="Excepció per quan s&#39;ha iniciat un item que ja estava iniciat. " alt="" coords="411,136,621,177"/>
+</map>

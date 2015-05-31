@@ -95,31 +95,100 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="title">Referència de la Classe logica.ValidadorLaberint</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Aquesta classe conté la lògica per validar un laberint, entenem que un laberint és valid si: -No hi ha cap punt inaccesible. -Com a mínim hi ha 2 caselles accesibles. -Hi ha un únic personatje principal. -Hi ha un únic enemic.  
+ <a href="classlogica_1_1_validador_laberint.html#details">Més...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Mètodes Públics Estàtics</h2></td></tr>
-<tr class="memitem:ae68bc2619d7584ee5706305220edf18f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae68bc2619d7584ee5706305220edf18f"></a>
-static boolean&#160;</td><td class="memItemRight" valign="bottom"><b>validarLaberint</b> (int[][] laberint, int costat)</td></tr>
+<tr class="memitem:ae68bc2619d7584ee5706305220edf18f"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_validador_laberint.html#ae68bc2619d7584ee5706305220edf18f">validarLaberint</a> (int[][] laberint, int costat)</td></tr>
 <tr class="separator:ae68bc2619d7584ee5706305220edf18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3c011bc020892b76d217106b2903bd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3c011bc020892b76d217106b2903bd4"></a>
-static boolean&#160;</td><td class="memItemRight" valign="bottom"><b>validarLaberint</b> (<a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>[][] laberint, int costat)</td></tr>
+<tr class="memitem:ab3c011bc020892b76d217106b2903bd4"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogica_1_1_validador_laberint.html#ab3c011bc020892b76d217106b2903bd4">validarLaberint</a> (<a class="el" href="enumlogica_1_1enumeracions_1_1_e_element.html">EElement</a>[][] laberint, int costat)</td></tr>
 <tr class="separator:ab3c011bc020892b76d217106b2903bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
-<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Oscar.Galera DECLARACIÓ D'INTENCIONS DE LA CLASSE Aquesta classe conté la lògica per validar un laberint, entenem que un laberint és valid si: -No hi ha cap punt inaccesible. -Com a mínim hi ha 2 caselles accesibles. -Hi ha un únic personatje principal. -Hi ha un únic enemic.</dd></dl>
-<p>El format del laberint ha de ser:</p><ul>
-<li>-1 -&gt; no és pot passar;</li>
-<li>0 -&gt; no hi ha res;</li>
-<li>1 -&gt; hi ha una moneda normal;</li>
-<li>2 -&gt; hi ha una moneda especial; -100 -&gt; posició del personatje principal; -101 -&gt; posició del enemic; </li>
-</ul>
-</div><hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
-<li>/home/oscar/Desktop/ProjProg/Projecte/src/logica/ValidadorLaberint.java</li>
+<div class="textblock"><p>Aquesta classe conté la lògica per validar un laberint, entenem que un laberint és valid si: -No hi ha cap punt inaccesible. -Com a mínim hi ha 2 caselles accesibles. -Hi ha un únic personatje principal. -Hi ha un únic enemic. </p>
+<dl class="section author"><dt>Autor</dt><dd>Oscar.Galera </dd></dl>
+</div><h2 class="groupheader">Documentació de les Funcions Membre</h2>
+<a class="anchor" id="ae68bc2619d7584ee5706305220edf18f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static boolean logica.ValidadorLaberint.validarLaberint </td>
+          <td>(</td>
+          <td class="paramtype">intlaberint&#160;</td>
+          <td class="paramname">[][], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>costat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>costat &gt;= 2 i laberint és de mida costat x costat </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>diu si el laberint és valid o no. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab3c011bc020892b76d217106b2903bd4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static boolean logica.ValidadorLaberint.validarLaberint </td>
+          <td>(</td>
+          <td class="paramtype">EElementlaberint&#160;</td>
+          <td class="paramname">[][], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>costat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondició</dt><dd>costat &gt;= 2 i laberint és de mida costat x costat </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>diu si el laberint és valid o no. </dd></dl>
+
+</div>
+</div>
+<hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
+<li>/home/oscar/Desktop/projecteFinal/ProjProg/Projecte/src/logica/ValidadorLaberint.java</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dj Mai 28 2015 14:23:57 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dg Mai 31 2015 18:59:53 per a THE PACMAN RETURS per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -3,6 +3,11 @@
 }
 
 
+Pantalla inicial de l'aplicacio, operacions que es poden fer\+: -\/\+E\+N\+T\+R\+A\+R \+: s'ha de entrar usuari i contrasenya, la contrasenya es xifra i es mira que dita combinació existeixi en la B.\+D, en cas que sigui correcte llavors es carrega l'usuari (de forma estàtica ja que nomès podrà entrar un usuari alhora) i del contrari es mostra un missatge diguent \char`\"{}usuari o contrasenya incorrecte\char`\"{}.  
+
+
+
+
 Diagrama d'Herència per a interficie.\+F\+Login\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,17 +27,56 @@ Diagrama de col·laboració per a interficie.\+F\+Login\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classinterficie_1_1_f_login_a3e513170e07fbdf064de277557a3fc5d}{void {\bfseries mostrar\+Frame} ()}\label{classinterficie_1_1_f_login_a3e513170e07fbdf064de277557a3fc5d}
-
+\hyperlink{classinterficie_1_1_f_login_aaf7f6176fa95d3cbf4cadfb5a7825d3a}{F\+Login} ()
+\item 
+void \hyperlink{classinterficie_1_1_f_login_a3e513170e07fbdf064de277557a3fc5d}{mostrar\+Frame} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Pantalla inicial de l'aplicacio, operacions que es poden fer\+: -\/\+E\+N\+T\+R\+A\+R \+: s'ha de entrar usuari i contrasenya, la contrasenya es xifra i es mira que dita combinació existeixi en la B.\+D, en cas que sigui correcte llavors es carrega l'usuari (de forma estàtica ja que nomès podrà entrar un usuari alhora) i del contrari es mostra un missatge diguent \char`\"{}usuari o contrasenya incorrecte\char`\"{}. 
+
 \begin{DoxyAuthor}{Autor}
-oscar 
+oscar -\/\+A\+L\+T\+A \+: permet donar d'alta a un nou usuari.
 \end{DoxyAuthor}
+-\/\+R\+A\+N\+K\+I\+N\+G \+: mostra tots els usuaris registrats per ordre de punts (on el primer es el que ha fet mes punts)
+
+-\/\+S\+O\+R\+T\+I\+R \+: tanquem l'aplicacio.
+
+usuari valdrà null fins que s'accedeixi al menú. 
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classinterficie_1_1_f_login_aaf7f6176fa95d3cbf4cadfb5a7825d3a}{\index{interficie\+::\+F\+Login@{interficie\+::\+F\+Login}!F\+Login@{F\+Login}}
+\index{F\+Login@{F\+Login}!interficie\+::\+F\+Login@{interficie\+::\+F\+Login}}
+\subsubsection[{F\+Login}]{\setlength{\rightskip}{0pt plus 5cm}interficie.\+F\+Login.\+F\+Login (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classinterficie_1_1_f_login_aaf7f6176fa95d3cbf4cadfb5a7825d3a}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+s'ha creat el dialeg per entrar. 
+\end{DoxyPostcond}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classinterficie_1_1_f_login_a3e513170e07fbdf064de277557a3fc5d}{\index{interficie\+::\+F\+Login@{interficie\+::\+F\+Login}!mostrar\+Frame@{mostrar\+Frame}}
+\index{mostrar\+Frame@{mostrar\+Frame}!interficie\+::\+F\+Login@{interficie\+::\+F\+Login}}
+\subsubsection[{mostrar\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+F\+Login.\+mostrar\+Frame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classinterficie_1_1_f_login_a3e513170e07fbdf064de277557a3fc5d}
+\begin{DoxyPrecond}{Precondició}
+el dialeg no s'esta mostrant. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em mostrat el dialeg. 
+\end{DoxyPostcond}
 
 
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/interficie/F\+Login.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/interficie/F\+Login.\+java\end{DoxyCompactItemize}

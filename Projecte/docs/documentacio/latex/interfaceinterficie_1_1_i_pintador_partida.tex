@@ -3,6 +3,11 @@
 }
 
 
+Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d'una partida per pantalla.  
+
+
+
+
 Diagrama d'Herència per a interficie.\+I\+Pintador\+Partida\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -13,41 +18,170 @@ Diagrama d'Herència per a interficie.\+I\+Pintador\+Partida\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a65a58e702237296add7a42f92b89b311}{void {\bfseries pintar\+Punts\+Pacman} (int punts)}\label{interfaceinterficie_1_1_i_pintador_partida_a65a58e702237296add7a42f92b89b311}
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_a65a58e702237296add7a42f92b89b311}{pintar\+Punts\+Pacman} (int punts)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla la puntuacio d'en Pacman. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_a51fb8f48eb1d0d31fe72c7170c605d27}{pintar\+Punts\+Enemic} (int punts)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla la puntuacio de l'enemic. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_a2c048da53f10afe918af218fa5dd9c46}{pintar\+Item\+Partida} (Image\+Icon imatge)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla quin tipus de Item hi ha en el Laberint. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_ac3b9fc0a71e7a4c7807251389d24cf79}{pintar\+Item\+Pacman} (Image\+Icon imatge)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla el Item que te en Pacman. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_a274911babd5c4c920bc1b8b8f5405256}{pintar\+Item\+Enemic} (Image\+Icon imatge)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla el Item que l'enemic. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_acfed29e00f058ea0f08893c0d1a2f2e6}{pintar\+Partida} (\hyperlink{classlogica_1_1_partida}{Partida} partida)
+\begin{DoxyCompactList}\small\item\em Construcció de tots els elements necessaris per mostrar partida per pantalla. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_ab1897fb15335043e4d9be27e578e1338}{pintar\+Final\+Partida} (boolean guanyat)
+\begin{DoxyCompactList}\small\item\em Mostra per pantalla el resultat de la partida al jugador. \end{DoxyCompactList}\item 
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a9ef27828b69d1e7c3409a1f5d9504026}{void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_a9ef27828b69d1e7c3409a1f5d9504026}{pintar\+Inici\+Partida} ()}\label{interfaceinterficie_1_1_i_pintador_partida_a9ef27828b69d1e7c3409a1f5d9504026}
 
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a51fb8f48eb1d0d31fe72c7170c605d27}{void {\bfseries pintar\+Punts\+Enemic} (int punts)}\label{interfaceinterficie_1_1_i_pintador_partida_a51fb8f48eb1d0d31fe72c7170c605d27}
+\begin{DoxyCompactList}\small\item\em Inicialitza els components de una partida. \end{DoxyCompactList}\item 
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_aefc777b7be8ea147041d9da7c45044cc}{void \hyperlink{interfaceinterficie_1_1_i_pintador_partida_aefc777b7be8ea147041d9da7c45044cc}{assignar\+Partida} (\hyperlink{classlogica_1_1_partida}{Partida} partida)}\label{interfaceinterficie_1_1_i_pintador_partida_aefc777b7be8ea147041d9da7c45044cc}
 
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a2c048da53f10afe918af218fa5dd9c46}{void {\bfseries pintar\+Item\+Partida} (Image\+Icon imatge)}\label{interfaceinterficie_1_1_i_pintador_partida_a2c048da53f10afe918af218fa5dd9c46}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_ac3b9fc0a71e7a4c7807251389d24cf79}{void {\bfseries pintar\+Item\+Pacman} (Image\+Icon imatge)}\label{interfaceinterficie_1_1_i_pintador_partida_ac3b9fc0a71e7a4c7807251389d24cf79}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a274911babd5c4c920bc1b8b8f5405256}{void {\bfseries pintar\+Item\+Enemic} (Image\+Icon imatge)}\label{interfaceinterficie_1_1_i_pintador_partida_a274911babd5c4c920bc1b8b8f5405256}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_acfed29e00f058ea0f08893c0d1a2f2e6}{void {\bfseries pintar\+Partida} (\hyperlink{classlogica_1_1_partida}{Partida} partida)}\label{interfaceinterficie_1_1_i_pintador_partida_acfed29e00f058ea0f08893c0d1a2f2e6}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_ab1897fb15335043e4d9be27e578e1338}{void {\bfseries pintar\+Final\+Partida} (boolean guanyat)}\label{interfaceinterficie_1_1_i_pintador_partida_ab1897fb15335043e4d9be27e578e1338}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a9ef27828b69d1e7c3409a1f5d9504026}{void {\bfseries pintar\+Inici\+Partida} ()}\label{interfaceinterficie_1_1_i_pintador_partida_a9ef27828b69d1e7c3409a1f5d9504026}
-
-\item 
-\hypertarget{interfaceinterficie_1_1_i_pintador_partida_aefc777b7be8ea147041d9da7c45044cc}{void {\bfseries assignar\+Partida} (\hyperlink{classlogica_1_1_partida}{Partida} partida)}\label{interfaceinterficie_1_1_i_pintador_partida_aefc777b7be8ea147041d9da7c45044cc}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Comunicacio unidireccional d'events de \hyperlink{interfaceinterficie_1_1_i_pintador_partida}{I\+Pintador\+Partida} cap a partida. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
+Descriu els metodes necessaris per a que objecte Partida pugui mostrar el desenvolupament d'una partida per pantalla. 
+
 \begin{DoxyAuthor}{Autor}
 Moises 
 \end{DoxyAuthor}
 
 
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_ab1897fb15335043e4d9be27e578e1338}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Final\+Partida@{pintar\+Final\+Partida}}
+\index{pintar\+Final\+Partida@{pintar\+Final\+Partida}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Final\+Partida}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Final\+Partida (
+\begin{DoxyParamCaption}
+\item[{boolean}]{guanyat}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_ab1897fb15335043e4d9be27e578e1338}
+
+
+Mostra per pantalla el resultat de la partida al jugador. 
+
+
+\begin{DoxyParams}{Paràmetres}
+{\em guanyat} & Diu si jugador ha guanyat o no la partida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondició}
+Es mostra un dialeg per comunicar al jugador si ha guanyat o no. Partida deixa de ser visible. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_a3dc12aac71794744a5de495501af6281}{interficie.\+F\+Partida}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a274911babd5c4c920bc1b8b8f5405256}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Item\+Enemic@{pintar\+Item\+Enemic}}
+\index{pintar\+Item\+Enemic@{pintar\+Item\+Enemic}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Item\+Enemic}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Item\+Enemic (
+\begin{DoxyParamCaption}
+\item[{Image\+Icon}]{imatge}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_a274911babd5c4c920bc1b8b8f5405256}
+
+
+Mostra per pantalla el Item que l'enemic. 
+
+\begin{DoxyPostcond}{Postcondició}
+imatge es mostra per pantalla. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_a5b079601d2de0f3a1234d4e61fc8460c}{interficie.\+F\+Partida}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_ac3b9fc0a71e7a4c7807251389d24cf79}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Item\+Pacman@{pintar\+Item\+Pacman}}
+\index{pintar\+Item\+Pacman@{pintar\+Item\+Pacman}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Item\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Item\+Pacman (
+\begin{DoxyParamCaption}
+\item[{Image\+Icon}]{imatge}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_ac3b9fc0a71e7a4c7807251389d24cf79}
+
+
+Mostra per pantalla el Item que te en Pacman. 
+
+\begin{DoxyPostcond}{Postcondició}
+imatge es mostra per pantalla. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_aaaa9cf72ac9c6e237d13e823d20bcb93}{interficie.\+F\+Partida}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a2c048da53f10afe918af218fa5dd9c46}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Item\+Partida@{pintar\+Item\+Partida}}
+\index{pintar\+Item\+Partida@{pintar\+Item\+Partida}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Item\+Partida}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Item\+Partida (
+\begin{DoxyParamCaption}
+\item[{Image\+Icon}]{imatge}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_a2c048da53f10afe918af218fa5dd9c46}
+
+
+Mostra per pantalla quin tipus de Item hi ha en el Laberint. 
+
+\begin{DoxyPostcond}{Postcondició}
+imatge es mostra per panatalla. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_a1430adb814777320b1d9f4860b717aae}{interficie.\+F\+Partida}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_acfed29e00f058ea0f08893c0d1a2f2e6}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Partida@{pintar\+Partida}}
+\index{pintar\+Partida@{pintar\+Partida}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Partida}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Partida (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_acfed29e00f058ea0f08893c0d1a2f2e6}
+
+
+Construcció de tots els elements necessaris per mostrar partida per pantalla. 
+
+\begin{DoxyPostcond}{Postcondició}
+La partida es mostrada per pantalla. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_a52a4180cde3f2bd80e9bb635adca414c}{interficie.\+F\+Partida}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a51fb8f48eb1d0d31fe72c7170c605d27}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Punts\+Enemic@{pintar\+Punts\+Enemic}}
+\index{pintar\+Punts\+Enemic@{pintar\+Punts\+Enemic}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Punts\+Enemic}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Punts\+Enemic (
+\begin{DoxyParamCaption}
+\item[{int}]{punts}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_a51fb8f48eb1d0d31fe72c7170c605d27}
+
+
+Mostra per pantalla la puntuacio de l'enemic. 
+
+\begin{DoxyPostcond}{Postcondició}
+La puntuacio de l'enemic que es mostra per pantalla esta actualitzada. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_a5870ca61ba76baa48d77d57a8f063620}{interficie.\+F\+Partida}.
+
+\hypertarget{interfaceinterficie_1_1_i_pintador_partida_a65a58e702237296add7a42f92b89b311}{\index{interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}!pintar\+Punts\+Pacman@{pintar\+Punts\+Pacman}}
+\index{pintar\+Punts\+Pacman@{pintar\+Punts\+Pacman}!interficie\+::\+I\+Pintador\+Partida@{interficie\+::\+I\+Pintador\+Partida}}
+\subsubsection[{pintar\+Punts\+Pacman}]{\setlength{\rightskip}{0pt plus 5cm}void interficie.\+I\+Pintador\+Partida.\+pintar\+Punts\+Pacman (
+\begin{DoxyParamCaption}
+\item[{int}]{punts}
+\end{DoxyParamCaption}
+)}}\label{interfaceinterficie_1_1_i_pintador_partida_a65a58e702237296add7a42f92b89b311}
+
+
+Mostra per pantalla la puntuacio d'en Pacman. 
+
+\begin{DoxyPostcond}{Postcondició}
+La puntuacio d'en Pacman que es mostra per pantalla esta actualitzada. 
+\end{DoxyPostcond}
+
+
+Implementat a \hyperlink{classinterficie_1_1_f_partida_a2c19bf5a13e39dc3d48a87e121dd06db}{interficie.\+F\+Partida}.
+
+
+
 La documentació d'aquesta interfície es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/interficie/I\+Pintador\+Partida.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/interficie/I\+Pintador\+Partida.\+java\end{DoxyCompactItemize}

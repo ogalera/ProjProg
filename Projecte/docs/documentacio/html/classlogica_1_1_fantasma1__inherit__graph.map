@@ -1,4 +1,4 @@
 <map id="logica.Fantasma1" name="logica.Fantasma1">
 <area shape="rect" id="node2" href="$classlogica_1_1_personatge.html" title="logica.Personatge" alt="" coords="7,80,134,107"/>
-<area shape="rect" id="node3" href="$classlogica_1_1_item_movible.html" title="logica.ItemMovible" alt="" coords="5,5,136,32"/>
+<area shape="rect" id="node3" href="$classlogica_1_1_item_movible.html" title="Objecte amb la capacitat de moures per les diferents poscions d&#39;un Laberint durant una Partida..." alt="" coords="5,5,136,32"/>
 </map>

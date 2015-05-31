@@ -1,3 +1,9 @@
 <map id="Jerarquia Gràfica de la Classe" name="Jerarquia Gràfica de la Classe">
-<area shape="rect" id="node2" href="$classinterficie_1_1components_1_1background.html" title="interficie.components.background" alt="" coords="149,5,367,32"/>
+<area shape="rect" id="node2" href="$classinterficie_1_1components_1_1_crono.html" title="Cronometre amb representacio gràfica amb 00:00:000 minuts:segons:milesimes. " alt="" coords="444,5,629,32"/>
+<area shape="rect" id="node3" href="$classinterficie_1_1components_1_1_marcador.html" title="Encarregada de mostrar la imatge i la puntuacio de un Personatge durant una partida. " alt="" coords="435,56,639,83"/>
+<area shape="rect" id="node4" href="$classinterficie_1_1_p_laberint.html" title="Encarregada de mostrar per pantalla objectes del tipus Laberint. " alt="" coords="471,107,602,133"/>
+<area shape="rect" id="node6" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="Descriu els metodes que necessiten els objectes Laberint per a mostrar&#45;se per pantalla. " alt="" coords="209,107,382,133"/>
+<area shape="rect" id="node7" href="$classlogica_1_1controladors__pacman_1_1_controlador_teclat.html" title="Controlador per dirigir en pacman amb les fletxes del teclat. " alt="" coords="204,158,387,199"/>
+<area shape="rect" id="node8" href="$interfacelogica_1_1controladors__pacman_1_1_i_controlador.html" title="Interficie que ens crea una capa de abstracció de com controlar a en pacman. " alt="" coords="5,190,156,231"/>
+<area shape="rect" id="node9" href="$classlogica_1_1controladors__pacman_1_1_controlador_mobil.html" title="NO ESTÀ ACABAT D&#39;IMPLEMENTAR PER TANT NO ENTRA DINS DEL NOSTRE PROJECTE; PERMET CONTROLAR EN PACMAN D..." alt="" coords="207,223,384,265"/>
 </map>

@@ -1,9 +1,3 @@
 <map id="Jerarquia Gràfica de la Classe" name="Jerarquia Gràfica de la Classe">
-<area shape="rect" id="node2" href="$classinterficie_1_1components_1_1_crono.html" title="Mostra per pantalla un cronometre iniciat a 00:00:000 minuts:segons:milesimes. " alt="" coords="444,5,629,32"/>
-<area shape="rect" id="node3" href="$classinterficie_1_1components_1_1_marcador.html" title="Encarregada de mostrar la imatge i la puntuacio de un Personatge durant una partida. " alt="" coords="435,56,639,83"/>
-<area shape="rect" id="node4" href="$classinterficie_1_1_p_laberint.html" title="interficie.PLaberint" alt="" coords="471,107,602,133"/>
-<area shape="rect" id="node6" href="$interfaceinterficie_1_1_i_pintador_laberint.html" title="interficie.IPintadorLaberint" alt="" coords="209,107,382,133"/>
-<area shape="rect" id="node7" href="$classlogica_1_1controladors__pacman_1_1_controlador_teclat.html" title="logica.controladors\l_pacman.ControladorTeclat" alt="" coords="204,158,387,199"/>
-<area shape="rect" id="node8" href="$interfacelogica_1_1controladors__pacman_1_1_i_controlador.html" title="logica.controladors\l_pacman.IControlador" alt="" coords="5,190,156,231"/>
-<area shape="rect" id="node9" href="$classlogica_1_1controladors__pacman_1_1_controlador_mobil.html" title="logica.controladors\l_pacman.ControladorMobil" alt="" coords="207,223,384,265"/>
+<area shape="rect" id="node1" href="$classlogica_1_1algoritmica_1_1_a_estrella_1_1_buscador_cami_minim.html" title="Classe que implementa l&#39;algorisme AStar per a determinar un cami minim entre dos punts en un objecte ..." alt="" coords="5,5,189,47"/>
 </map>

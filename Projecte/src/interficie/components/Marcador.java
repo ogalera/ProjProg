@@ -14,14 +14,12 @@ import java.awt.Image;
  * @author Moises
  * @Class Marcador
  * @brief Encarregada de mostrar la imatge i la puntuacio de un Personatge durant una partida.
+ * 
+ * @invariant: imatge != null
  */
 public class Marcador extends JPanel {
     JLabel imatge;
     JLabel puntuacio;
-    /**
-     *@invariant: imatge != null
-     */
-    
     
     /**
      * @brief Constructor de Marcador

@@ -3,6 +3,11 @@
 }
 
 
+personatge principal controlat per l'usuari a traves d'un dispositiu físic.  
+
+
+
+
 Diagrama d'Herència per a logica.\+Pacman\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -12,7 +17,8 @@ Diagrama d'Herència per a logica.\+Pacman\+:\nopagebreak
 \end{figure}
 
 
-Diagrama de col·laboració per a logica.\+Pacman\+:\nopagebreak
+Diagrama de col·laboració per a logica.\+Pacman\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,20 +28,16 @@ Diagrama de col·laboració per a logica.\+Pacman\+:\nopagebreak
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlogica_1_1_pacman_a4c8cd3d9c43aba9d2a944af0afe74ac2}{{\bfseries Pacman} (\hyperlink{classlogica_1_1_partida}{Partida} partida, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} laberint, \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador}{I\+Controlador} controlador, \hyperlink{classlogica_1_1_punt}{Punt} inici)}\label{classlogica_1_1_pacman_a4c8cd3d9c43aba9d2a944af0afe74ac2}
-
+\hyperlink{classlogica_1_1_pacman_a4c8cd3d9c43aba9d2a944af0afe74ac2}{Pacman} (\hyperlink{classlogica_1_1_partida}{Partida} \hyperlink{classlogica_1_1_item_movible_ace55b4918a7f671f89ed3109c91359e4}{partida}, \hyperlink{classlogica_1_1laberints_1_1_laberint}{Laberint} \hyperlink{classlogica_1_1_item_movible_a97036130b7376d77776427ca126f6fb5}{laberint}, \hyperlink{interfacelogica_1_1controladors__pacman_1_1_i_controlador}{I\+Controlador} controlador, \hyperlink{classlogica_1_1_punt}{Punt} inici)
 \item 
-\hypertarget{classlogica_1_1_pacman_aa93e730a6089b7670e3b4b20944a7893}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} {\bfseries realitzar\+Moviment} ()}\label{classlogica_1_1_pacman_aa93e730a6089b7670e3b4b20944a7893}
-
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_element}{E\+Element} \hyperlink{classlogica_1_1_pacman_aa93e730a6089b7670e3b4b20944a7893}{realitzar\+Moviment} ()
 \item 
-\hypertarget{classlogica_1_1_pacman_a4aed3d640e73f08aa1183f9c07b8fc13}{\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} {\bfseries calcular\+Moviment} ()}\label{classlogica_1_1_pacman_a4aed3d640e73f08aa1183f9c07b8fc13}
-
+\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} \hyperlink{classlogica_1_1_pacman_a4aed3d640e73f08aa1183f9c07b8fc13}{calcular\+Moviment} ()
 \item 
 \hypertarget{classlogica_1_1_pacman_a647d372ea38d2eb89e2be24277c70f6a}{String {\bfseries nom\+Item\+Movible} ()}\label{classlogica_1_1_pacman_a647d372ea38d2eb89e2be24277c70f6a}
 
 \item 
-\hypertarget{classlogica_1_1_pacman_afc0767e7c2123f103f25947bc90775f0}{void {\bfseries nou\+Moviment} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} tecla\+Premuda)}\label{classlogica_1_1_pacman_afc0767e7c2123f103f25947bc90775f0}
-
+void \hyperlink{classlogica_1_1_pacman_af0a24ddada5f8bb327e8dd413478a8a8}{nou\+Moviment} (\hyperlink{enumlogica_1_1enumeracions_1_1_e_direccio}{E\+Direccio} direccio\+A\+Moure)
 \end{DoxyCompactItemize}
 \subsection*{Mètodes Protegits}
 \begin{DoxyCompactItemize}
@@ -50,11 +52,64 @@ Diagrama de col·laboració per a logica.\+Pacman\+:\nopagebreak
 
 
 \subsection{Descripció Detallada}
+personatge principal controlat per l'usuari a traves d'un dispositiu físic. 
+
 \begin{DoxyAuthor}{Autor}
 oscar 
 \end{DoxyAuthor}
 
 
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{classlogica_1_1_pacman_a4c8cd3d9c43aba9d2a944af0afe74ac2}{\index{logica\+::\+Pacman@{logica\+::\+Pacman}!Pacman@{Pacman}}
+\index{Pacman@{Pacman}!logica\+::\+Pacman@{logica\+::\+Pacman}}
+\subsubsection[{Pacman}]{\setlength{\rightskip}{0pt plus 5cm}logica.\+Pacman.\+Pacman (
+\begin{DoxyParamCaption}
+\item[{{\bf Partida}}]{partida, }
+\item[{{\bf Laberint}}]{laberint, }
+\item[{{\bf I\+Controlador}}]{controlador, }
+\item[{{\bf Punt}}]{inici}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_pacman_a4c8cd3d9c43aba9d2a944af0afe74ac2}
+\begin{DoxyPrecond}{Precondició}
+inici és una posició valida dins de laberint 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+em creat en pacman que juga la partida dins de laberint (en la posició inici) i controlat per controlador. 
+\end{DoxyPostcond}
+Si el controlador és un teclat cal asociar l'event de teclat. 
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{classlogica_1_1_pacman_a4aed3d640e73f08aa1183f9c07b8fc13}{\index{logica\+::\+Pacman@{logica\+::\+Pacman}!calcular\+Moviment@{calcular\+Moviment}}
+\index{calcular\+Moviment@{calcular\+Moviment}!logica\+::\+Pacman@{logica\+::\+Pacman}}
+\subsubsection[{calcular\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Direccio} logica.\+Pacman.\+calcular\+Moviment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_pacman_a4aed3d640e73f08aa1183f9c07b8fc13}
+Com al presionar una tecla aquesta es queda fixe per el seguent moviment cal mirar que no sortim del laberint. \hypertarget{classlogica_1_1_pacman_af0a24ddada5f8bb327e8dd413478a8a8}{\index{logica\+::\+Pacman@{logica\+::\+Pacman}!nou\+Moviment@{nou\+Moviment}}
+\index{nou\+Moviment@{nou\+Moviment}!logica\+::\+Pacman@{logica\+::\+Pacman}}
+\subsubsection[{nou\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}void logica.\+Pacman.\+nou\+Moviment (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+Direccio}}]{direccio\+A\+Moure}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_pacman_af0a24ddada5f8bb327e8dd413478a8a8}
+\begin{DoxyPrecond}{Precondició}
+-- 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+si direccio\+A\+Moure no surt del tauler llavors serà el proxim moviment que intentarà fer en pacman. 
+\end{DoxyPostcond}
+Em rebut un missatge per mourens cap a direccio\+A\+Moure. \hypertarget{classlogica_1_1_pacman_aa93e730a6089b7670e3b4b20944a7893}{\index{logica\+::\+Pacman@{logica\+::\+Pacman}!realitzar\+Moviment@{realitzar\+Moviment}}
+\index{realitzar\+Moviment@{realitzar\+Moviment}!logica\+::\+Pacman@{logica\+::\+Pacman}}
+\subsubsection[{realitzar\+Moviment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+Element} logica.\+Pacman.\+realitzar\+Moviment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classlogica_1_1_pacman_aa93e730a6089b7670e3b4b20944a7893}
+Ens desplaçem per el tauler
+
+El nostre moviment ha sigut acceptat. Que em trapitjat? 
+
 La documentació d'aquesta classe es va generar a partir del següent fitxer\+:\begin{DoxyCompactItemize}
 \item 
-/home/oscar/\+Desktop/\+Proj\+Prog/\+Projecte/src/logica/Pacman.\+java\end{DoxyCompactItemize}
+/home/oscar/\+Desktop/projecte\+Final/\+Proj\+Prog/\+Projecte/src/logica/Pacman.\+java\end{DoxyCompactItemize}

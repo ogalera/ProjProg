@@ -1,3 +1,12 @@
 <map id="Jerarquia Gràfica de la Classe" name="Jerarquia Gràfica de la Classe">
-<area shape="rect" id="node1" href="$enumlogica_1_1enumeracions_1_1_e_direccio.html" title="logica.enumeracions.EDireccio" alt="" coords="5,5,208,32"/>
+<area shape="rect" id="node2" href="$classlogica_1_1excepcions_1_1_e_buscador_camins.html" title="Excepcio que es llença en la cerca de Camins. " alt="" coords="185,5,379,47"/>
+<area shape="rect" id="node3" href="$classlogica_1_1excepcions_1_1_e_generador_laberint.html" title="logica.excepcions.EGenerador\lLaberint" alt="" coords="183,71,381,112"/>
+<area shape="rect" id="node4" href="$classlogica_1_1excepcions_1_1_e_historic.html" title="logica.excepcions.EHistoric" alt="" coords="190,137,374,163"/>
+<area shape="rect" id="node6" href="$classlogica_1_1excepcions_1_1_e_laberint.html" title="logica.excepcions.ELaberint" alt="" coords="189,187,375,214"/>
+<area shape="rect" id="node7" href="$classlogica_1_1excepcions_1_1_e_partida.html" title="Excepció per quan hi ha hagut algun problema en l&#39;evolució de la partida. " alt="" coords="192,238,372,265"/>
+<area shape="rect" id="node11" href="$classlogica_1_1excepcions_1_1_e_punt.html" title="Excepcio que es llença en les operacions amb objectes Punt. " alt="" coords="199,289,365,315"/>
+<area shape="rect" id="node5" href="$classlogica_1_1excepcions_1_1_e_historic_buit.html" title="Excepció que es llença quan es vol accedir al historic i aquest està buit. " alt="" coords="431,125,638,151"/>
+<area shape="rect" id="node8" href="$classlogica_1_1excepcions_1_1_e_finalitzar_partida.html" title="Excepció per quan hi ha algun problema al finalitzar la partida. " alt="" coords="439,176,631,217"/>
+<area shape="rect" id="node9" href="$classlogica_1_1excepcions_1_1_e_iniciar_partida.html" title="Excepció per quan hi ha algun problema al iniciar la partida. " alt="" coords="447,241,622,283"/>
+<area shape="rect" id="node10" href="$classlogica_1_1excepcions_1_1_e_item_movible_iniciat.html" title="Excepció per quan s&#39;ha iniciat un item que ja estava iniciat. " alt="" coords="429,307,640,348"/>
 </map>

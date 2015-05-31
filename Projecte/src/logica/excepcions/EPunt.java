@@ -6,12 +6,12 @@ package logica.excepcions;
  * @author Moises
  * @brief Excepcio que es llença en les operacions amb objectes Punt
  */
-public class ExceptionPunt extends RuntimeException{
+public class EPunt extends RuntimeException{
      /**
      * @brief Constructor de la excepcio
      * @post Excepcio creada
      */
-    public ExceptionPunt(String missatge){
+    public EPunt(String missatge){
         super(missatge);
     }
 }
