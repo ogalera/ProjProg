@@ -209,7 +209,7 @@ public class FMenu extends FFrameAmbLog implements ActionListener{
             System.out.println(nivell);
             Partida partida = new Partida(ELaberintsPredefinits.LABERINT_ALEATORI,
                                             nivell.obtenirMidaLaberint(), 
-                                            EElement.FANTASMA3/*dificultat.obtenirEnemicAssignatADificultat()/*dificultat.obtenirEnemicAssignatADificultat()*/, 
+                                            dificultat.obtenirEnemicAssignatADificultat()/*dificultat.obtenirEnemicAssignatADificultat()*/, 
                                             fPartida,
                                             fLaberint,
                                             controlador);
